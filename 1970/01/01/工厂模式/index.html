@@ -20,18 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="std::numeric_limitsstd::numeric_limits为模板类，在库编译平台提供基础算数类型的机制等属性信息，取代传统的C语言。 1234567#include &quot;numeric_limits.hpp&quot;#include &lt;limits&gt;#include &lt;iostream&gt;int test()&amp;#123;    std::cout&lt;&lt;std">
+  <meta name="description" content="工厂模式工厂模式的设计模式属于创建型模式，他提供了一种创建对象的最佳方式。 在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。 1234567891011121314151617181920212223242526272829303132333435363738394041424344public interface Shape&amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hhh">
-<meta property="og:url" content="http://yoursite.com/1970/01/01/hhh/index.html">
+<meta property="og:title" content="工厂模式">
+<meta property="og:url" content="http://yoursite.com/1970/01/01/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="kunkun&#39;s blog">
-<meta property="og:description" content="std::numeric_limitsstd::numeric_limits为模板类，在库编译平台提供基础算数类型的机制等属性信息，取代传统的C语言。 1234567#include &quot;numeric_limits.hpp&quot;#include &lt;limits&gt;#include &lt;iostream&gt;int test()&amp;#123;    std::cout&lt;&lt;std">
+<meta property="og:description" content="工厂模式工厂模式的设计模式属于创建型模式，他提供了一种创建对象的最佳方式。 在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。 1234567891011121314151617181920212223242526272829303132333435363738394041424344public interface Shape&amp;#123;">
 <meta property="article:published_time" content="1970-01-01T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-08-02T07:15:49.301Z">
+<meta property="article:modified_time" content="2020-08-05T11:23:25.362Z">
 <meta property="article:author" content="kunkun">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/1970/01/01/hhh/">
+<link rel="canonical" href="http://yoursite.com/1970/01/01/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -44,7 +44,7 @@
   };
 </script>
 
-  <title>hhh | kunkun's blog</title>
+  <title>工厂模式 | kunkun's blog</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/1970/01/01/hhh/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/1970/01/01/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hhh
+          工厂模式
         </h1>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-02 15:15:49" itemprop="dateModified" datetime="2020-08-02T15:15:49+08:00">2020-08-02</time>
+                <time title="Modified: 2020-08-05 19:23:25" itemprop="dateModified" datetime="2020-08-05T19:23:25+08:00">2020-08-05</time>
               </span>
 
           
@@ -194,9 +194,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="std-numeric-limits"><a href="#std-numeric-limits" class="headerlink" title="std::numeric_limits"></a>std::numeric_limits</h2><p>std::numeric_limits为模板类，在库编译平台提供基础算数类型的机制等属性信息，取代传统的C语言。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"numeric_limits.hpp"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;limits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="built_in">std</span>::boolalpha;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Minimun value for int: "</span>&lt;&lt;<span class="built_in">std</span>::numeric_limits&lt;<span class="keyword">int</span>&gt;::<span class="built_in">min</span>()&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;<span class="comment">//输出最小值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, Compare&gt; openlist;</span><br><span class="line">openlist.top();<span class="comment">//返回优先队列中最大的值</span></span><br></pre></td></tr></table></figure>
+        <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式的设计模式属于创建型模式，他提供了一种创建对象的最佳方式。</p>
+<p>在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">implements</span> <span class="title">Shape</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Inside Rectangle::draw() method."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">implements</span> <span class="title">Shape</span> </span>&#123; </span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"Inside Square::draw() method."</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShapeFactory</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Shape <span class="title">getShape</span><span class="params">(String shapeType)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(shapeType == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(shapeType.equalslgnoreCase(<span class="string">"CIRCLE"</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Circle();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(shapeType.equalslgnoreCase(<span class="string">"SQUARE"</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Square();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryPatternDemo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        ShapeFactory shapeFactory = <span class="keyword">new</span> ShapeFactory();</span><br><span class="line">        Shape shape1 = ShapeFactory.getShape(<span class="string">"CIRCLE"</span>);</span><br><span class="line">        shape1.draw();</span><br><span class="line">        Shape shape2 = ShapeFactory.getShape(<span class="string">"RECTANGLE"</span>);</span><br><span class="line">        shape2.draw();</span><br><span class="line">        Shape shape3 = ShapeFactory.getShape(<span class="string">"SQUARE"</span>);</span><br><span class="line">        shape3.draw();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -210,11 +211,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/1970/01/01/C++%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97/" rel="prev" title="C++的编程模块">
-      <i class="fa fa-chevron-left"></i> C++的编程模块
-    </a></div>
       <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/1970/01/01/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" rel="next" title="函数指针">
+      函数指针 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -273,7 +274,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#std-numeric-limits"><span class="nav-number">1.</span> <span class="nav-text">std::numeric_limits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#priority-queue"><span class="nav-number">2.</span> <span class="nav-text">priority_queue</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式"><span class="nav-number">1.</span> <span class="nav-text">工厂模式</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
