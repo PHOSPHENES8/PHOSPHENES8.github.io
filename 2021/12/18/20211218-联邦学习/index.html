@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon2.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1.ico">
+  <link rel="mask-icon" href="/images/fish-solid.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"phosphenes8.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="联邦学习(Federated Learning)1. 背景在2016年由谷歌提出，原本用于解决安卓手机终端用户在本地更新模型的问题，设计目标是在保障大数据交换时的信息安全、保护终端数据和个人数据隐私、保证在合法前提下在多参与方或多计算节点之间展开高效率的及其学习。 联邦学习作为一种新型的人工智能基础技术，它可使用的机器学习算法不局限于神经网络，还包括随机森林等重要算法。联邦学习有望成为下一代人工智">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20211218-联邦学习">
+<meta property="og:url" content="https://phosphenes8.github.io/2021/12/18/20211218-%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="NUKIY BLOG">
+<meta property="og:description" content="联邦学习(Federated Learning)1. 背景在2016年由谷歌提出，原本用于解决安卓手机终端用户在本地更新模型的问题，设计目标是在保障大数据交换时的信息安全、保护终端数据和个人数据隐私、保证在合法前提下在多参与方或多计算节点之间展开高效率的及其学习。 联邦学习作为一种新型的人工智能基础技术，它可使用的机器学习算法不局限于神经网络，还包括随机森林等重要算法。联邦学习有望成为下一代人工智">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190427102223500.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NhbzgxMjc1NTE1Ng==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-12-18T01:22:04.000Z">
+<meta property="article:modified_time" content="2021-12-18T02:02:48.976Z">
+<meta property="article:author" content="PHOSPHENES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190427102223500.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NhbzgxMjc1NTE1Ng==,size_16,color_FFFFFF,t_70">
+
+
+<link rel="canonical" href="https://phosphenes8.github.io/2021/12/18/20211218-%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://phosphenes8.github.io/2021/12/18/20211218-%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/","path":"2021/12/18/20211218-联邦学习/","title":"20211218-联邦学习"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20211218-联邦学习 | NUKIY BLOG</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NUKIY BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">假如约瑟不曾逃往埃及</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0-Federated-Learning"><span class="nav-number">1.</span> <span class="nav-text">联邦学习(Federated Learning)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">1. 背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E6%A1%86%E6%9E%B6"><span class="nav-number">1.2.</span> <span class="nav-text">2. 系统框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E4%BC%98%E5%8A%BF"><span class="nav-number">1.3.</span> <span class="nav-text">3. 联邦学习优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%88%86%E7%B1%BB"><span class="nav-number">1.4.</span> <span class="nav-text">4. 联邦学习分类</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PHOSPHENES"
+      src="/images/cat2.png">
+  <p class="site-author-name" itemprop="name">PHOSPHENES</p>
+  <div class="site-description" itemprop="description">Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/3z6XUommYDWPHeFhmhhT6j" style="border-radius: 20px; width="200" height="280" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://phosphenes8.github.io/2021/12/18/20211218-%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat2.png">
+      <meta itemprop="name" content="PHOSPHENES">
+      <meta itemprop="description" content="Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NUKIY BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20211218-联邦学习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-18 09:22:04 / 修改时间：10:02:48" itemprop="dateCreated datePublished" datetime="2021-12-18T09:22:04+08:00">2021-12-18</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="联邦学习-Federated-Learning"><a href="#联邦学习-Federated-Learning" class="headerlink" title="联邦学习(Federated Learning)"></a>联邦学习(Federated Learning)</h3><h4 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h4><p>在2016年由谷歌提出，原本用于解决安卓手机终端用户在本地更新模型的问题，设计目标是在保障大数据交换时的信息安全、保护终端数据和个人数据隐私、保证在合法前提下在多参与方或多计算节点之间展开高效率的及其学习。</p>
+<p>联邦学习作为一种新型的人工智能基础技术，它可使用的机器学习算法不局限于神经网络，还包括随机森林等重要算法。联邦学习有望成为下一代人工智能协同算法和协作网络的基础。</p>
+<h4 id="2-系统框架"><a href="#2-系统框架" class="headerlink" title="2. 系统框架"></a>2. 系统框架</h4><p>以下面的例子对联邦学习进行讲解。</p>
+<span id="more"></span>
+<p>假设企业 A 和 B 想联合训练一个机器学习模型，它们的业务系统分别拥有各自用户的相关数据。此外，企业 B 还拥有模型需要预测的标签数据。出于数据隐私保护和安全考虑，A 和 B 无法直接进行数据交换，可使用联邦学习系统建立模型。联邦学习系统构架由三部分构成，如图所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190427102223500.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NhbzgxMjc1NTE1Ng==,size_16,color_FFFFFF,t_70" alt="example"></p>
+<ul>
+<li><p><font color='cornflowerblue'><strong>Part I：加密样本对齐。</strong></font>由于两家企业的用户群体并非完全重合，系统利用基于加密的用户样本对齐技术，在A和B不公开各自数据的前提下确认算双方的共有用户，并且不暴露不相互重叠的用户，以便联合这些用户的特征进行建模；</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>PART II：加密训练模型。</strong></font>在确定共有用户群体后，就可以利用这些数据训练机器学习模型。为了保证训练过程中数据的保密性，需要借助第三方协作者C进行加密训练。以<strong>线性回归</strong>模型为例，训练过程如下：</p>
+<ul>
+<li>① 协作者C将公钥发送给A和B，用以对训练过程中需要交换的数据进行加密；</li>
+<li>② A和B之间以加密形式交互用于计算梯度的中间结果；</li>
+<li>③ A和B分别基于加密的梯度值进行计算，同时B根据其标签数据计算损失，并把结果汇总为C。C通过汇总结果计算总梯度值并将其解密；</li>
+<li>④ C将解密后的梯度分别回传给A和B，A和B根据梯度更新各自模型的参数。</li>
+</ul>
+<p>迭代上述步骤直至损失函数收敛，这样就完成了整个训练过程。在样本对齐及模型训练过程中，A和B各自的数据均保留在本地，且训练中的数据交互也不会导致数据隐私泄露。因此双方在联邦学习的帮助下得以实现合作训练模型。</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>PART III：效果激励。</strong></font>联邦学习的一大特点就是它解决了为什么不同机构要加入联邦共同建模的问题，即建立模型以后模型的效果会在实际应用中表现出来，并记录在永久数据记录机制（如区块链）上。提供数据多的机构所获得的模型效果会更好，模型效果取决于数据提供方对自己和他人的贡献。这些模型的效果在联邦机制上会分发给各个机构反馈，并继续激励更多机构加入这一数据联邦。</p>
+</li>
+</ul>
+<p>上述三个部分，既考虑了多个机构间共同建模的隐私保护和效果，又考虑了一个共识机制奖励贡献数据多的机构。所以联邦学习是一个<strong>闭环</strong>的学习机制。</p>
+<h4 id="3-联邦学习优势"><a href="#3-联邦学习优势" class="headerlink" title="3. 联邦学习优势"></a>3. 联邦学习优势</h4><p>联邦学习的优势有以下几点：</p>
+<ul>
+<li>数据隔离，数据不会泄漏到外部，满足用户隐私保护和数据安全的需求；</li>
+<li>能够保证模型质量无损，不会出现负迁移，保证联邦模型比割裂的独立模型效果好；</li>
+<li>参与者地位对等，能够实现公平合作；</li>
+<li>能够帮保证参与各方在保持独立性的情况下，进行信息与模型参数的加密交换，并同时获得时长；</li>
+</ul>
+<h4 id="4-联邦学习分类"><a href="#4-联邦学习分类" class="headerlink" title="4. 联邦学习分类"></a>4. 联邦学习分类</h4><p>针对不同数据集，联邦学习分为横向联邦学习、纵向联邦学习、联邦迁移学习。</p>
+<ul>
+<li><p>横向联邦学习：两个数据集的用户特征重叠较多，而用户重叠较少。此时我们将数据集按照横向（即用户维度）切分，并取出双方用户特征相同而用户不完全相同的那部分数据进行训练。</p>
+<blockquote>
+<p>举例：两家不同地区的银行，它们的用户群体分别来自各自所在的地区，相互的交集很小。但是它们的业务很相似，因此记录的用户特征是相同的。此时我们就可以使用横向联邦学习来构建联合模型。</p>
+<p>谷歌在2016年提出了一个针对安卓手机模型更新的数据联合建模方案：在单个用户使用安卓手机时，不断在本地更新模型参数并将参数上传到安卓云上，从而使特征维度相同的各数据拥有方建立联合模型。</p>
+</blockquote>
+</li>
+<li><p>纵向联邦学习：两个数据集的用户重叠较多，而用户特征重叠较少。此时我们将数据集按照纵向（即特征维度）切分，并取出双方用户相同而用户特征不完全相同的那部分数据进行训练。</p>
+<blockquote>
+<p>举例：两个不同的机构，家是某地的银行，另一家是同一个地方的电商。它们的用户群体很有可能包含该地的大部分居民因此用户的交集较大。但是由于银行记录的都是用户的收支行为与信用评级，而电商则保有用户的浏览与购买历史，因此它们的用户特征交集较小。</p>
+<p>纵向联邦学习就是将这些不同特征在加密的状态下加以聚合，以增强模型能力。目前，逻辑回归模型、树形结构模型和神经网络模型等众多机器学习模型已经逐渐被证实能够建立在此联邦体系上。</p>
+</blockquote>
+</li>
+<li><p>联邦迁移学习：两个数据集的用户和用户特征重叠都较少，此时我们不对数据进行切分，而利用迁移学习来克服数据或标签不足的情况。</p>
+<blockquote>
+<p>举例：比如有两个不同机构，一家是位于中国的银行，另一家是位于美国的电商。由于受地域限制，这两家机构的用户群体交集很小。同时由于机构类型不同，二者的数据特征也只有小部分重合。此时要想进行有效的联邦学习，就必须引入迁移学习，来解决单边数据规模小和标签样本少的问题，从而提升模型的效果。</p>
+</blockquote>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>PHOSPHENES
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://phosphenes8.github.io/2021/12/18/20211218-%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/" title="20211218-联邦学习">https://phosphenes8.github.io/2021/12/18/20211218-联邦学习/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/17/20211217-NP%E9%97%AE%E9%A2%98/" rel="prev" title="20211217-NP问题">
+                  <i class="fa fa-chevron-left"></i> 20211217-NP问题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/19/20211219-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" rel="next" title="20211219-集成学习">
+                  20211219-集成学习 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PHOSPHENES</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">36k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">33 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

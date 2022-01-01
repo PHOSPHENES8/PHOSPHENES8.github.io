@@ -1,0 +1,2007 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Basic Concepts about Satellite</title>
+    <url>/2021/10/15/20211015-Concepts-about-Satellite/</url>
+    <content><![CDATA[<h1 id="初识卫星"><a href="#初识卫星" class="headerlink" title="初识卫星"></a>初识卫星</h1><ul>
+<li><p><strong>Elevation &amp; Inclination</strong></p>
+</li>
+<li><p><strong>链路：</strong>与卫星通信的路径（通常它也指通信本身）：</p>
+</li>
+<li>上行链路将地面信号上传给卫星。<ul>
+<li>下行链路将卫星的信号发回地面。</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p>星间链路在卫星间传递信号。</p>
+</li>
+<li><p><strong>低地球轨道：</strong>在几百千米到 1,000 千米的轨道上。</p>
+<ul>
+<li><p>周期：大约 90 分钟。</p>
+</li>
+<li><p>能通过卫星间的转播信号来提供连续的世界范围内的覆盖。如果这个网络包括极地或接近极地的轨道，就能够提供极地和高纬度地区的覆盖，这是静止轨道卫星做不到的。因为卫星处于较低的轨道上，这些卫星的往返传输时间就相对很短(来去地面的时间为0.005秒)，消除了回声控制和其他特殊处理的需要。</p>
+</li>
+<li><p>将LEO轨道卫星用于这个目的的缺点就是这个网络需要很多颗卫星。任何观察者看到卫星经过头顶的时间只是大约90分钟轨道周期中的10分钟，所以要给沿着卫星星下点轨迹的单个地面覆盖带提供连续覆盖，就需要九颗卫星(对于高度是500千米的轨道，其覆盖带宽度大约是3,000千米。对于更广的覆盖区域，需要更加可观的卫星数量。例如，广泛用于军事和商业目的的Iridium星座，拥有66颗卫星，这些卫星分布在六条高度为780千米的不同轨道上。这六条轨道位于不同的轨道平面上，每个的轨道倾角为86.4°。</p>
+</li>
+<li><p>低地球轨道还被用于不需要实时通信的任务中。这样的任务只需要一颗或很少的卫星。例如，虽然数据不需要立即传给地面的使用者，但是可以储存并且在卫星经过地面站时再传送(这种安排称为“存储－加－传送”)。</p>
+</li>
+<li><p>对于不是时间紧迫的任务，LEO卫星相对于地球的运动意味着，极轨道上的单颗卫星能够覆</p>
+<p>盖全球。如果轨道周期恰当选择，那么连续轨道线上的地面覆盖面积就是彼此相连的，一颗极地轨道卫星就能在一天里看到地面上的任意点两次。</p>
+</li>
+<li><p>一些任务需要低轨道。地球观测和侦察卫星要拍摄高分辨率的地球照片，就必须靠近地球来得到这样的分辨率。例如，美国的Keyhole卫星被放置在远地点和近地点分别为1,000千米和300千米的椭圆轨道上，该卫星是为了获得用于情报目的的光学照片。这些都已经被相似轨道上的新一代的成像卫星所取代。由于这些卫星有相对于地球的运动，所以它们就不能提供对某一特定区域的连续覆盖。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>大气的影响：</strong>大气密度在空间和时间上的变化，所以就有了能够预测低轨道卫星未来某点精确度的固有限制。</p>
+</li>
+<li><p><strong>卫星相对地球表面的运动P35：</strong>考虑处于高度为几百千米轨道上卫星的情况。这样的卫星其轨道周期大约是90分钟。在这90分钟里，赤道上的地球表面会旋转约2,500千米。因此，过了一个周期之后，卫星所掠过的点位于赤道上距离本周期开始时轨道对应的地面点以西2,500千米处的地方。</p>
+<blockquote>
+<p><img src="/images/image-20211015231251782.png" alt="image-20211015231251782"></p>
+<p><img src="/images/image-20211015231309789.png" alt="image-20211015231309789"></p>
+</blockquote>
+</li>
+<li><p><strong>卫星的仰角：</strong>卫星的仰角是卫星与某一特定地面点连线和本地水平面之间的夹角。特别地，给定时间的仰角取决于描述卫星和地面观察者相对位置的几个参数。这些参数包括观察者的纬度和经度、卫星的高度、轨道倾角θ和卫星在轨道上的位置(卫星的纬度和经度)。</p>
+</li>
+<li><p><strong>覆盖区域：</strong>覆盖区域的外缘是圆形的，其半径仅仅取决于卫星的高度。然而，地面站一般只有在大于仰角的最小值时才能进行通信。</p>
+</li>
+<li><p><strong>上行链和下行链：</strong><a href="https://ithelp.ithome.com.tw/articles/10236019">https://ithelp.ithome.com.tw/articles/10236019</a></p>
+</li>
+<li><p><strong>Co-located Antennas ：</strong><a href="https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/">https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/</a></p>
+</li>
+<li><p><strong>Two Line Element set：</strong>TLE是一种包含卫星标识符和轨道参数的标准表示法。</p>
+</li>
+<li><p><strong>Bitmap：</strong>可以以非常高的空间利用率下保存大量的0-1状态。</p>
+</li>
+</ul>
+<ul>
+<li><a href="https://www.cnblogs.com/dragonsuc/p/10993938.html">https://www.cnblogs.com/dragonsuc/p/10993938.html</a></li>
+<li><a href="http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html">http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html</a>)</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Intall Macintosh on My Windows</title>
+    <url>/2021/09/02/20210902-Intall%20Macintosh%20on%20My%20Windows/</url>
+    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>由于Windows和Linux无法愉快地观看.u3m8，于是乎不得不使用IOS系统。</p>
+<h3 id="装机过程"><a href="#装机过程" class="headerlink" title="装机过程"></a>装机过程</h3><p><a href="https://www.cnblogs.com/bad5/p/13251570.html">https://www.cnblogs.com/bad5/p/13251570.html</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>DNS、MAC和IP</title>
+    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
+    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
+<li>网址名称（便于记忆）：www.qq.com</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p>真正地址：139.180.132.25</p>
+<blockquote>
+<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
+<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
+<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
+</blockquote>
+</li>
+<li><p>DNS分级查询</p>
+<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
+</li>
+</ul>
+<blockquote>
+<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
+<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
+</blockquote>
+<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
+<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
+<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
+<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
+<p>略，京东自营… …</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>CDN的工作原理</title>
+    <url>/2021/10/15/20211015-The-Pricinple-of-CDN/</url>
+    <content><![CDATA[<h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p><strong>1. 上线一个网站都需要哪几个步骤呢？</strong></p>
+<span id="more"></span>
+<blockquote>
+<ul>
+<li><p>首先需要拥有一台服务器，存储所需要用的文件；</p>
+<p> <img src="/images/image-20211015132105384.png" alt="image-20211015132105384" style="zoom:80%;" /></p>
+</li>
+<li><p>之后用过DNS域名解析设置，把这个域名指向这个服务器的IP地址</p>
+<p> <img src="/images/image-20211015132200256.png" alt="image-20211015132200256" style="zoom:67%;" /></p>
+</li>
+<li><p>接着部署好网站服务器，就可以使用了</p>
+</li>
+<li><p>总体步骤：</p>
+<p> <img src="/images/image-20211015132332067.png" alt="image-20211015132332067" style="zoom: 20%;" /></p>
+<p> <img src="/images/image-20211015132407120.png" alt="image-20211015132407120" style="zoom:20%;" /></p>
+</li>
+</ul>
+</blockquote>
+<p> <strong>2. 通过使用这种方式来上线网站，有什么弊端？</strong></p>
+<blockquote>
+<ul>
+<li>不管是哪种服务器（包括云服务器）都有地理位置且带宽小，所以距离不同，速度不同；</li>
+<li>稳定性（宕机情况），很多中小型服务器没有专门的运维人员。</li>
+</ul>
+</blockquote>
+<p>由此，就催生出来了大名鼎鼎的CDN，让你轻轻松松get服务器自由。</p>
+<h1 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h1><p><strong>1. CDN是什么呢？它的基本机制呢？</strong></p>
+<blockquote>
+<p>内容分发网络（Content Delivery Netowrk），听起来很高大上，其实和东哥的物流配送模式非常相似。没错，说的就是 <strong>京东自营: )</strong> 。先把合作商家的货放到每个仓库中，每次客户下单，就让距离最近的仓库发货。最近又新上线了前置仓（直接把仓库开到你家门口）。</p>
+<p>言归正传，CDN实际上也是采用这种方式——让距你最近的服务器给你发送数据。哪具体是如何操作的呢？首先让我们回顾一下我们<strong>DNS的工作原理</strong>。</p>
+<blockquote>
+<p>浏览器发送网址到相应的DNS服务器解析，再将解析出的IP地址返回给浏览器，让浏览器到这个IP地址的服务器上获取相应的网站文件。<a href="https://www.bilibili.com/video/BV12T4y1P7Fh?from=search&amp;seid=10182518659740263174&amp;spm_id_from=333.337.0.0">demo: 03’20</a></p>
+</blockquote>
+<p>实际上CDN也就是在DNS解析的过程中产生作用的。具体而言，当给一个域名开通CDN：</p>
+<ul>
+<li>首先，给域名的DNS解析设置的后台添加一条CDN专用解析记录，从而可以让域名被解析之后指向一个专用的<strong>处理DNS请求</strong>的服务器；</li>
+<li>它（专用的<strong>处理DNS请求</strong>的服务器）会给你的浏览器返回一台专门用来给<strong>各个请求设备分配合适的CDN服务器</strong>的专用服务器【负载均衡服务器】的IP地址；</li>
+<li>之后浏览器会访问这台<strong>负载均衡服务器</strong>，它则会根据浏览器的网络地址，在CDN网络中找到一台在各种条件下都比较适合的设备（可能是离你最近或者资源分配富余的服务器），并将这台CDN服务器的IP地址返回给浏览器；</li>
+<li>浏览器到指定CDN服务器进行访问。</li>
+<li>当这台CDN服务器收到浏览器的获取请求后，如果发现自己这里并没有相关（没有缓存）的网站文件，就会到CDN网络中的<strong>上层缓存服务器</strong>中拉取，若还没有，继续向上走；</li>
+<li>如果一直向上走都找不到，就回到网络源站来拉取。拉取之后会在刚才查找而不得的CDN服务器上都做缓存，最后还是从指定的CDN服务器上发送网站文件给浏览器；</li>
+</ul>
+</blockquote>
+<p><strong>2. 网站文件不都是放在自己的网页服务器上嘛，并没有放在CDN服务器上啊？</strong></p>
+<blockquote>
+<p>在为某个网址开通CDN的时候，一开始会通过CDN后台进行设置，你需要告诉你的CDN网络<strong>源站（该域名的原始服务器，网页文件放置于其上）的IP地址</strong>。</p>
+</blockquote>
+<p><strong>3. CDN优势</strong></p>
+<blockquote>
+<ul>
+<li>用户不论在哪里都能快速打开网站；</li>
+<li>可以避免原始服务器宕机导致的网络瘫痪（CDN的缓存机制）；</li>
+</ul>
+</blockquote>
+<p>目前，国内外快速部署网站上线的网站都会为你快速开通CDN服务（国外网站不要钱/doggie）。</p>
+<blockquote>
+<p>P.S. 如果你要写博客的话最好不要买.xyz，不然你就会像我一样买了个寂寞（Github不支持绑.xyz域名orz）。</p>
+</blockquote>
+<p> <img src="/images/image-20211015135701362.png" alt="image-20211015135701362" style="zoom:50%;" /></p>
+<p>总而言之，言而总之，就是如果你开通的CDN服务，那么不管源站是不是非常便宜、小带宽的，都能让你的网站打开速度起飞。CDN你值得拥有~</p>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p>[1] <a href="https://www.bilibili.com/video/BV12T4y1P7Fh?from=search&amp;seid=10182518659740263174&amp;spm_id_from=333.337.0.0">https://www.bilibili.com/video/BV12T4y1P7Fh?from=search&amp;seid=10182518659740263174&amp;spm_id_from=333.337.0.0</a></p>
+<p>[2] <a href="https://www.bilibili.com/video/BV18a4y1Y7e9">全套系列</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>DNS的工作原理</title>
+    <url>/2021/10/18/20211018-DNS%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="DNS域名系统"><a href="#DNS域名系统" class="headerlink" title="DNS域名系统"></a>DNS域名系统</h1><h3 id="0-引入"><a href="#0-引入" class="headerlink" title="0. 引入"></a>0. 引入</h3><ul>
+<li><p>所有的域名（网址）本质是：它背后服务器的IP地址；</p>
+</li>
+<li><p>浏览器能够知道每一个域名对应的网站服务器的IP地址，靠的就是DNS（Domain Name System）;</p>
+</li>
+<li><p>DNS：管理和查询域名对应的IP地址；而实现这个机制，主要靠的就是专门的<strong>DNS服务器们</strong>；</p>
+</li>
+</ul>
+<span id="more"></span>
+<h3 id="1-DNS的基本工作原理"><a href="#1-DNS的基本工作原理" class="headerlink" title="1. DNS的基本工作原理"></a>1. DNS的基本工作原理</h3><ul>
+<li><p>DNS服务器背后有一个<strong>分层协作</strong>的机制；</p>
+</li>
+<li><p>分层机制和域名层级的关系：</p>
+<ul>
+<li><p><img src="/images/image-20211018204045489.png" alt="image-20211018204045489" style="zoom: 25%;" /></p>
+</li>
+<li><p>二级域名 . 一级域名 . 顶级域名 . 根域名（因为root只有一个，写了和没写没差，所以省略）；</p>
+</li>
+<li><p>每一层服务器只负责记录下一层DNS服务器的信息；</p>
+<p> <img src="/images/image-20211018205339692.png" alt="image-20211018205339692" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>DNS原理实例1：打开B站</strong></p>
+<p> <img src="/images/image-20211018204520612.png" alt="image-20211018204520612" style="zoom:50%;" /></p>
+<ul>
+<li><p>首先浏览器将网址送入到<strong>负责查询的服务器</strong>进行操作；</p>
+</li>
+<li><p>之后，先将网址送到根服务器中，查询，发现“原来是com域名”</p>
+<blockquote>
+<p>【回复：好的。这里是负责管理顶级域名的DNS服务器的网址，你去这些服务器那里问问看吧~】</p>
+</blockquote>
+</li>
+<li><p><strong>负责查询的服务器</strong>收到回复后，就马不停蹄地去了<strong>负责控制顶级域名的DNS服务器</strong></p>
+<blockquote>
+<p>进行查找bilibili.com域名的信息，然后发现专门负责bilibili.com域名的DNS的服务器的网络地址(这种服务器被叫做Name server)</p>
+</blockquote>
+</li>
+<li><p><strong>负责查询的服务器</strong>收到回复后，去到name server，从而找到了www.bilibili.com这个域名对应的IP地址，并将该信息传回给浏览器；</p>
+</li>
+<li><p>浏览器访问查询到的IP地址对应的服务器，即可打开；</p>
+</li>
+</ul>
+<hr>
+</li>
+</ul>
+<ul>
+<li><p><strong>DNS原理实例2：人生第一次打开B站</strong></p>
+<ul>
+<li><p>小心翼翼输入www.bilibili.com，敲下回车；</p>
+</li>
+<li><p>浏览器查找DNS缓存</p>
+<blockquote>
+<p>【若之前访问过，那里面有可能有这个域名的记录，就有相应的网址的IP地址的信息】</p>
+</blockquote>
+</li>
+<li><p>若在缓存中未找到，接着浏览器会先在本地电脑上的<strong>host文件</strong>中查找相应的域名和IP的对应记录；若没有，则会将查询请求发送到电脑网络设置中设置好的DNS服务器上；</p>
+</li>
+<li><p>通过路由器，将请求转发到光猫（宽带盒子）上面设置好的相应的宽带服务商提供的DNS服务器上；</p>
+<p><img src="/images/image-20211018210129670.png" alt="image-20211018210129670" style="zoom:50%;" /></p>
+</li>
+<li><p>Local DNS Server(自动分配的都是运营商提供的)</p>
+<p> <img src="/images/image-20211018210412642.png" alt="image-20211018210412642" style="zoom:50%;" /></p>
+</li>
+<li><p>每次查询到的都不止一台服务器（比看谁快）</p>
+<p> <img src="/images/image-20211018210502550.png" alt="image-20211018210502550" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://www.bilibili.com/video/BV1Gh411y7LS?spm_id_from=333.999.0.0">Demo</a>【4’50】</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>TCP&amp;UDP、三次握手&amp;四次挥手</title>
+    <url>/2021/10/19/20211019-TCP-UDP%E3%80%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
+    <content><![CDATA[<p><strong>TCP和UDP的区别：</strong>TCP和UDP都工作在传输层，目标都是在程序之间传输数据；</p>
+<span id="more"></span>
+<blockquote>
+<p>一个基于连接、一个基于非连接；</p>
+<ul>
+<li>写信（对方是否收到、内容是否完整、顺序是否正确<strong>都不能够确定</strong>）</li>
+<li><p>打电话（电话接通、相互通话、结束挂断）</p>
+<p><img src="\images\doc\12.png" alt="image-20211019095441176" style="zoom:50%;" /></p>
+</li>
+</ul>
+<p><strong>隧道网络：【UDP的典型应用】</strong>VPN、VXLAN</p>
+</blockquote>
+<p><strong>TCP是如何保证以上性质的呢？</strong></p>
+<blockquote>
+<p><strong>三次握手：</strong>建立连接；【解决网络信道不可靠的问题】</p>
+<p> <img src="\images\doc\13.png" alt="image-20211019094935330" style="zoom:50%;" /></p>
+<p><strong>传输确认；</strong></p>
+<p><strong>四次挥手；</strong></p>
+<p> <img src="\images\doc\14.png" alt="image-20211019095316453" style="zoom:50%;" /></p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><p><a href="https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0">https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0</a></p>
+</li>
+<li><p><a href="https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1</a></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Two-Line Element(TLE) Model</title>
+    <url>/2021/10/19/20211019-Two-Line-Element-TLE-Model/</url>
+    <content><![CDATA[<h3 id="TLE"><a href="#TLE" class="headerlink" title="TLE"></a>TLE</h3><ul>
+<li>两轨道要素形式：Two-line element set，是一种轨道编码方式，用于确定给定时刻下，绕地运行空间目标的轨道根数。使用合适的预测模型，可以以一定精度估计出目标在轨道上任意一点的位置和速度。</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>TLE轨道根数对应的计算模型是简化普适模型（Simplified Perturbations models,包括SGP, SGP4, SDP4, SGP9, SDP8）。使用TLE数据的算法必须使用以一种简化普适模型准确计算出轨道的参数。；</li>
+<li>两行轨道要素采用两行80字符的ASCII码来存储数据，这种方式起源于一张卡打印一行的打孔卡。美国空军负责跟踪地球轨道上所有可探测物体，并为每个目标生成相应的TLE轨道根数，并把非保密目标的TLE数据公布在Space Track网站。</li>
+<li>事实上，在发布地球轨道目标的轨道要素时，TLE轨道根数是一种事实上的标准，需要注意的是，TLE轨道根数仅可以表述<strong>绕地球运行物体的轨道</strong>。</li>
+<li>另外，在轨道要素行的前面，TLE轨道数据也许会包含一行标题，所以每一组TLE数据也许会占据文本中的三行。但是标题行并不是必需的，因为每一个轨道数据行都包含了一个独一无二的目标编号。</li>
+</ul>
+<hr>
+<h3 id="NORAD-Two-Line-Element-Set-Format"><a href="#NORAD-Two-Line-Element-Set-Format" class="headerlink" title="NORAD Two-Line Element Set Format"></a>NORAD Two-Line Element Set Format</h3><p>Data for each satellite consists of three lines in the following format:</p>
+<ul>
+<li><pre><code class="lang-shell">AAAAAAAAAAAAAAAAAAAAAAAA
+1 NNNNNU NNNNNAAA NNNNN.NNNNNNNN +.NNNNNNNN +NNNNN-N +NNNNN-N N NNNNN
+2 NNNNN NNN.NNNN NNN.NNNN NNNNNNN NNN.NNNN NNN.NNNN NN.NNNNNNNNNNNNNN
+
+# Example:
+STARLINK-1008           
+1 44714U 19074B   21296.34162117 -.00000683  00000-0 -26977-4 0  9990
+2 44714  53.0544 161.8865 0001587  81.1880 278.9289 15.06384408108019
+</code></pre>
+</li>
+</ul>
+<p>Line 0 is a twenty-four character name (to be consistent with the name length in the NORAD SATCAT).</p>
+<p>Lines 1 and 2 are the standard Two-Line Orbital Element Set Format identical to that used by NORAD and NASA. The format description is:</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://www.youtube.com/watch?v=NQTtFrhSNDk">https://www.youtube.com/watch?v=NQTtFrhSNDk</a></li>
+<li><a href="https://www.youtube.com/watch?v=u4rYYbBdr28">https://www.youtube.com/watch?v=u4rYYbBdr28</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E4%B8%A4%E8%A1%8C%E8%BD%A8%E9%81%93%E8%A6%81%E7%B4%A0%E5%BD%A2%E5%BC%8F">https://zh.wikipedia.org/wiki/%E4%B8%A4%E8%A1%8C%E8%BD%A8%E9%81%93%E8%A6%81%E7%B4%A0%E5%BD%A2%E5%BC%8F</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>交换机&amp;路由器、网关&amp;路由</title>
+    <url>/2021/10/19/20211019-%E4%BA%A4%E6%8D%A2%E6%9C%BA-%E8%B7%AF%E7%94%B1%E5%99%A8%E3%80%81%E7%BD%91%E5%85%B3-%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<h3 id="交换机和路由器"><a href="#交换机和路由器" class="headerlink" title="交换机和路由器"></a>交换机和路由器</h3><ul>
+<li><p><strong>交换机【二层设备】</strong>：把数据包发送到正确的位置；</p>
+<blockquote>
+<p>交换机相当于邮递员，根据数据包中的目标mac地址，找到对应的物理端口。</p>
+<p>一台交换机有很多个端口，都有自己的编号。这个端口就是一个确定的物理位置</p>
+<p>计算机的网卡通过网线连接到交换机的网口上。</p>
+<p>我们只要知道某个网卡的mac地址在哪个端口上，我们就能正确地把数据包发送给他。</p>
+<p>因此在交换机中，有一张端口和mac地址的映射关系表<strong>【MAC地址表】</strong>；</p>
+<p>将要和某个mac地址通信的时候，只要查询一下这个mac地址在哪个端口上，然后从对应的端口上发送出去就可以了；</p>
+<p>每一个数据包都会有两个mac地址：</p>
+<ul>
+<li>源mac：发送方的mac地址；</li>
+<li>目标mac：接收方的mac地址；</li>
+</ul>
+<p>交换机收到数据包后，首先要将数据包的源mac与接收端口绑定；然后交换机要根据目标mac决定从哪个端口把数据包发送出去</p>
+<p><img src="\images\doc\15.png" alt="image-20211019093349527" style="zoom:50%;" /></p>
+</blockquote>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p><strong>路由器</strong>：</p>
+<ul>
+<li><p>两种端口</p>
+<ul>
+<li>LAN口：可以有多个，用来接家庭网络设备</li>
+<li><p>WAN口：只有一个，用来连接运营商网络</p>
+<p><img src="\images\doc\16.png" alt="image-20211019093547048" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+<li><p>如果把路由器的WAN口忽略，只用LAN口，实际上路由器就相当于交换机；</p>
+</li>
+<li><p>考虑到WAN口，需要引入<strong>网关</strong>的概念；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="网关和路由"><a href="#网关和路由" class="headerlink" title="网关和路由"></a>网关和路由</h3><ul>
+<li><p>子网划分：IP地址、子网掩码按位相与【若相与的结果相同，则可认为是在同一个子网中】</p>
+</li>
+<li><p>TCP/IP规定：不同子网之间是不能直接通讯的，如果要通信则需要通过<strong>网关</strong>来进行转发；</p>
+<p> <img src="\images\doc\17.png" alt="image-20211019094140592" style="zoom:50%;" /></p>
+</li>
+<li><p>网关</p>
+</li>
+<li><p>路由：根据目标IP判断如何发送</p>
+<ul>
+<li>两个端口：<ul>
+<li>WAN口：只有一个，用来接入互联网；</li>
+<li>LAN口：有多个，用来接入本地网络；</li>
+</ul>
+</li>
+<li><img src="\images\doc\18.png" alt="image-20211019094328263" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>卫星互联网基本概念</title>
+    <url>/2021/10/20/20211020-%E5%8D%AB%E6%98%9F%E4%BA%92%E8%81%94%E7%BD%91%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h1 id="1-联系"><a href="#1-联系" class="headerlink" title="1. 联系"></a>1. 联系</h1><blockquote>
+<p>信息网络发展历程：传统有线网络、无线网络、卫星网络</p>
+<p>天地一体化信息网络 = 卫星网络 + 地面网络</p>
+<p>5G+satellite != 5G+satellite network</p>
+<p>卫星互联网、5G、6G</p>
+<p><strong>卫星互联网 = 卫星通信+互联网</strong></p>
+<blockquote>
+<p>互联网是各种网络互联而成（卫星通信只是手段），其实“卫星互联网”这个叫法并不专业。</p>
+</blockquote>
+</blockquote>
+<span id="more"></span>
+<p><strong>1. 卫星互联网与地面互联网的区别与联系？</strong></p>
+<ul>
+<li>都基于IP</li>
+</ul>
+<p><strong>2. 卫星互联网与移动通信网（4G/5G）的区别与联系？</strong></p>
+<ul>
+<li>网络和通信的区别，卫星网络和地面通信的区别</li>
+</ul>
+<p><strong>3. 卫星互联网与天基物联网的区别与联系？</strong></p>
+<ul>
+<li>网络互联和典型应用的关系</li>
+</ul>
+<p><strong>4. 卫星互联网与量子通信网络等新型网络的关系？</strong></p>
+<ul>
+<li>需要看量子通信网络的发展和其能真正解决的问题，再定……</li>
+</ul>
+<p><strong>5. 卫星通信 &amp; 卫星互联网</strong></p>
+<ul>
+<li>对卫星通信而言，星间星地链路切换，意味着网络拓扑连接关系改变，对应调整路由交换表以保持联系。可以说，高动态拓扑是导致卫星通信性能下降的直接原因；</li>
+<li>对卫星网络而言，星间星地链路切换，意味着网络间的连接关系改变，为此进行域内、域间路由重计算，从而得到新的网络间的拓扑关系。可以说，不断链路切换导致的路由重计算是导致卫星网络性能下降的直接原因，也是卫星网络拓扑高动态的直接原因。</li>
+</ul>
+<p><strong>6. 研究问题</strong></p>
+<ul>
+<li>互联网是人类发明创造的，而在这个伟大的发明中，却没有考虑互联网世界的时空基准。互联网的用户编址与真实的空间位置无关，其寻址只是基于用户逻辑划分的IP源、目的地址。面向未来互联网，虚拟的网络环境必然与现实的物理世界融合一体，如何解决真实世界与虚拟网络的同意时空基准与定位和寻址；</li>
+<li>卫星网络与地面面网络以及用户的不断切换，导致由于接入不同的卫星，用户从卫星分配的IP地址，以及接入的地网设施需要不断重负巨量的地址更新，实现编制和寻址与星间星地链路切换相解耦的方法；</li>
+<li>保持IP编址的全网统一、唯一与兼容的同时，又支持卫星网络自治域内支持新型的用户编制方式。</li>
+</ul>
+<hr>
+<h1 id="2-具体概念解释"><a href="#2-具体概念解释" class="headerlink" title="2. 具体概念解释"></a>2. 具体概念解释</h1><h3 id="卫星互联网：starlink"><a href="#卫星互联网：starlink" class="headerlink" title="卫星互联网：starlink"></a>卫星互联网：starlink</h3><blockquote>
+<p>传统的4G5G通信都是通过基站来组网；</p>
+<p>卫星互联网，就是将传统意义的基站建到太空卫星上去，通过一定数量的围绕地球轨道运转的卫星组成动态交错网络，实现全球所有地区的通信信号覆盖。</p>
+</blockquote>
+<p><strong>卫星互联网的优势</strong></p>
+<blockquote>
+<ul>
+<li>减少大量基建成本</li>
+<li>全球范围信号无死角覆盖</li>
+<li>替代有线接入方案</li>
+</ul>
+</blockquote>
+<p><strong>存在问题</strong></p>
+<blockquote>
+<ul>
+<li><p>每个卫星的通信容量有限；</p>
+</li>
+<li><p>高并发量的通信会给卫星群带来极大的负载压力；</p>
+</li>
+<li>卫星数量过多，会影响天文观测，或造成太空垃圾；</li>
+<li>卫星信号接收终端的技术有待提升；</li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>卫星组网</title>
+    <url>/2021/10/20/20211020-%E5%8D%AB%E6%98%9F%E7%BB%84%E7%BD%91/</url>
+    <content><![CDATA[<p><strong>卫星宇宙知识</strong></p>
+<ul>
+<li>物理定律<blockquote>
+<ol>
+<li>卫星轨道为椭圆；</li>
+<li>相同时间内，小天体和大天体之间连线扫过的面积相等（面积定律）；</li>
+<li>公转周期T的平方和轨道椭圆半长轴a的立方成反比；</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p>常用轨道</p>
+<blockquote>
+<p>GEO【Geostationary Earth Orbit】：地球静止轨道，35768km；</p>
+<p>LEO【Low  Earth Orbit】：低轨卫星，700-2000km；</p>
+<p>MEO【Medium Earth Orbit】：中轨卫星，8000-20000km；</p>
+<p>后两种术语非同步轨道卫星，需要通过卫星星座实现全球覆盖，一般有两种卫星星座的标记法，即星座的两种网络部署结构：<strong>Walker构型码</strong>和<strong>Ballad构型码</strong>.</p>
+</blockquote>
+</li>
+<li><p>传输频段</p>
+<blockquote>
+<p>C【4-8GHz】：固定卫星业务</p>
+<p>X【8-12GHz】</p>
+<p>Ku【12-18GHz】：趋于饱和，新一代宽带卫星使用Ka频段；</p>
+<p>K【18-27GHz】</p>
+<p>Ka【27-40GHz】</p>
+<p> <img src="\images\doc\11.png" alt="image-20211020102932177" style="zoom:50%;" /></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p><strong>通信基础知识</strong></p>
+<ul>
+<li><p><strong>多址技术</strong></p>
+<blockquote>
+<ol>
+<li>频分多址FDMA</li>
+<li>时分多址TDMA</li>
+<li>码分多址CDMA</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p><strong>通信卫星基本工作流程</strong></p>
+<ul>
+<li><p><strong>基本体系架构</strong></p>
+<blockquote>
+<ul>
+<li><p>在卫星通信系统中，卫星覆盖范围内的所有终端设备及地球站通过发射天线利用反向链路将请求数据传输到多波束卫星；</p>
+</li>
+<li><p>多波束卫星接收信号并进行放大，通过反向链路转发至信关站，由信关站传输给地面网络进行处理；</p>
+</li>
+<li><p>地面网络处理完成后，将回复数据传输传输给信关站，信关站利用前向链路将回复数据发送到通信卫星，同样进行放大并通过反向链路转发至多波束小区。从而完成数据的请求与接收流程。【如果信关站与卫星覆盖小区不在同一颗卫星的覆盖范围内，则卫星需要将信号通过星间链路转发至目标卫星，然后由目标卫星发给信关站】</p>
+<p><img src="/images/image-20211020103010276.png" alt="image-20211020103010276" style="zoom:50%;" /></p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>常见LEO系统</strong></p>
+<blockquote>
+<ol>
+<li>OneWeb：采用Ku+Ka波段；18*40，1200km，72°</li>
+<li>SpaceX：采用Ku+Ka波段；4425颗；</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>组网的关键问题：</strong>【对于透明转发卫星，称为<strong>弯管卫星</strong>；对于星上处理或交换卫星，看作空中的网络节点】</p>
+<blockquote>
+<ul>
+<li><strong>单跳连接：</strong>端到端的连接仅通过卫星路由一次，网络拓扑为星型结构。</li>
+<li><strong>多跳链接：</strong>通过体面中心站放大通信终端间的信号，网络拓扑是以地面中心站为中心的星型结构。</li>
+<li><strong>星间链路</strong><ul>
+<li><strong>引入ISL的优点：</strong><ul>
+<li>由于星间位置相对固定，从而在空中形成卫星网格，可以减少地面站、地空之间的业务流量，从而减少对有限空中频率资源的占用；</li>
+<li>星间链路的频段主要为Ka频段以及频率更高的微波、毫米波和激光，其频带宽，通信容量大；</li>
+</ul>
+</li>
+<li><strong>对于不同轨道平面的卫星，卫星链路带来的问题：</strong>卫星之间存在高速相对运动，由于天线摆动产生的跟踪控制问题，多普勒频移效应；</li>
+</ul>
+</li>
+<li><strong>切换：</strong>要保持源和目的之间的链路必须切换。卫星覆盖区域随卫星移动，链路发生切。有两种卫星切换场景：<strong>轨道面内卫星切换</strong>和<strong>轨道面间卫星切换</strong>；<strong>卫星波束内切换</strong>和<strong>波束间切换</strong>；</li>
+<li><strong>路由：</strong>卫星与同一轨道其他卫星相对位置保持不变，相对于地球终端和其他轨道卫星位置和传输时延连续变化，需要采用自适应路由技术。LEO网络中卫星的失效会导致通信孤岛，路由算法必须利用<strong>冗余链路和卫星</strong>容忍这些失效。<ul>
+<li><strong>集中式路由算法：</strong>所有卫星将星座信息上报到一个中心节点，该节点随后计算路由发回所有卫星；</li>
+<li><strong>分布式路由算法：</strong>所有卫星交换网络度量信息，在QoS和网络资源利用效率之间折衷；</li>
+<li>从卫星网络特征角度可以氛围单层卫星网络路由算法和多层网络路由选择算法。单层如Werner等人提出的将ATM网络路由应用在LEO卫星网络上，将路由策略分为拓扑离散化、最优路径选择两个过程。关于多层卫星网络路由算法的研究主要包括以下几个方面：基于IP的路由算法，Lee等人提出分层QoS路由协议，将路由计算转移到MEO卫星，减少LEO层负载，使路由计算速度更快；流量平衡路由算法；QoS路由算法；组播路由算法；</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>卫星与地面网络的互联</strong></p>
+<blockquote>
+<p>卫星承载SDH（数字同步系列Intelsat场景）</p>
+<p>卫星和MANET（Mobile Wireless ad hoc network）    </p>
+<ul>
+<li>ad hoc网络需要关注的问题：路由技术的选择；配置和管理；有限的带宽；链路变化；隐藏节点问题；能源；移动性和动态拓扑；</li>
+<li>卫星和MANET互联所面临的挑战：网络资源优化、链路可用度、QoS和QoE，以及最小化成本和能量；</li>
+<li>与异构网络互联的一般性问题：业务、寻址、路由、演进</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>卫星承载ATM</strong>【未阅读】</p>
+<blockquote>
+<p><strong>4.1卫星突发错误对ATM层的影响：</strong></p>
+<p>ATM的设计是针对光纤那种拥有良好误码特性的物理介质，没有一般协议中处理不可靠信道的许多特性。突发错误对ATM层最主要的影响是信元丢失率（CLR）的剧烈增长。ATM信头中的8bit差错控制字段智能纠正1bit错误。对于突发错误，CLR与BER呈线性关系。</p>
+<p>突发错误对AAL协议的影响</p>
+<p>差错控制机制：</p>
+<p>重传机制、前向纠错（FEC）和交织技术。使用FEC和交织技术可以减轻突发错误。</p>
+<p><strong>4.2宽带卫星网络的增强技术：</strong></p>
+<p>通过对多个信元的头部进行交织，可以实现随机单比特错误信道中ATM的性能目标。</p>
+<p>RS码和卷积FEC码串联使用，性能优越。如果长度大于RS码能纠正的长度，错误突发应该扩散到多个码元，以便利用分组码的纠错能力。</p>
+<p><strong>相关文献：</strong></p>
+<p>A dynamic routing concept for ATM-based satellite personal communication networks</p>
+<p>ATM-based routing in LEO/MEO satellite networks with intersatellite links</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>卫星承载IP</strong></p>
+<blockquote>
+<ul>
+<li><strong>三种卫星承载IP的组网技术</strong><ul>
+<li>卫星通信网络：提供传统卫星业务，通过点到点链路提供因特网接入和因特网子网互联；</li>
+<li>基于VSAT概念的卫星共享介质包网络：支持数据服务类型的业务；</li>
+<li>数字视频广播：经卫星基于DVB承载IP具有提供全球宽带接入的潜力；</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>卫星网络中的移动IP</strong><ul>
+<li>家乡地址HoA：移动节点的标识，由家乡网络分配，通常不变；</li>
+<li>转交地址CoA：移动节点的位置标识，由移动到的外地网络分配，随位置变化；</li>
+<li>家乡代理Home Agent：保存移动节点的家乡地址和转交地址之间的映射关系；</li>
+<li>移动IP = CoA发现 + CoA注册 + CoA隧道<ul>
+<li><strong>CoA发现：</strong>代理公告和代理请求；</li>
+<li><strong>CoA注册：</strong> 当移动节点进入外地代理的覆盖范围时注册程序启动，发送带有CoA信息的注册请求。家乡代理收到请求后将必要信息添加到路由表，然后批注请求，向移动节点发送对注册请求的应答；</li>
+<li><strong>CoA隧道：</strong>隧道方式是所有移动代理都必须支持的默认封装方式；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>卫星IP组播</strong></p>
+<ul>
+<li><p>组播：从单一源向多个目的传输数据（也包括多对多），如视频会议；</p>
+</li>
+<li><p>组播优势：降低对网络带宽的占用，降低源端处理负载；</p>
+</li>
+<li><p>可以是<strong>尽力而为</strong>的，也可以是<strong>可靠</strong>的；</p>
+</li>
+<li><p>IP组播路由：对于单播IP路由，路由表中包含通往指定IP目的地址的路径信息，但组播包中并不包含目的地址的位置信息。IP组播的范围由IP头部TTL字段控制；</p>
+<blockquote>
+<p>ETF开发了一组组播路由协议，包括DVMRP、PIM-SM、PIM-SM，CBT等。DVMRP、PIM-SM协议工作原理是“泛洪和剪枝”（ flood and prune）算法。</p>
+</blockquote>
+</li>
+<li><p>星上可靠组播路由协议：与卫星链路相关的主要问题是<strong>误码特性</strong>和<strong>RTT</strong>。数据损坏意味着存在大量的组播端用户时，接收者会有很大概论收不到数据；高TRR影响实时通信，也会影响如FTP等网络协议。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>IP服务质量</strong></p>
+<ul>
+<li>综合服务两个关键特征：<strong>资源预留</strong>和<strong>会话建立</strong>；</li>
+<li>QoS综合服务Intserv架构：为IP应用提供端到端的“硬”QoS保证，其中应用可以明确指定QoS需求，网络保证这些需求。</li>
+<li>相关方法：资源预留（资源预留协议RSVP）、访问控制、流量分类、流量管控、排队和调度；</li>
+<li>QoS区分服务Diffserv架构：区分服务目的是提供可扩展的服务区分能力，而且不要求综合服务架构那样的信令开销，提供不同方式处理不同等级流量的能力；<ul>
+<li>两个功能要素：<strong>边缘功能</strong>（分组标记和流量调节）、<strong>核心功能</strong>（转发）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>卫星数字视频广播</strong><ul>
+<li>DVB-S和DVB-RCS体系结构：星上处理器OBP，管理站，再生卫星网关RSGW，回传信道卫星终端RCST。</li>
+<li>网络协议栈结构：RCST以对等（Peer to Peer）通信方式与其他RCST构成网状通信或星型通信模式。卫星无关业务访问协议（SI-SAP）位于链路层和网络层之间。卫星网络协议包括卫星链路控制（SLC）、卫星介质访问控制（SMAC）和物理（PHY）层。</li>
+<li>SLC子层和网络层交换IP数据包；SMAC子层具有传送功能，即传输MPEG包突发和接受包含在TDM中的MPEG包。</li>
+<li>RCST物理层负责在同步和位纠错功能的物理介质上传输数据。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>卫星网络对传输层的影响</strong></p>
+<blockquote>
+<p><strong>卫星信道特点【有别于大多数地面信道，可能会降低TCP的性能】</strong></p>
+<ul>
+<li>长RTT：卫星高度引起的时延【GEO一次请求回复约半秒，700kmLEO约9ms】</li>
+<li>高时延带宽积：任一时刻为充分利用信道容量，协议具有的在“飞行中”状态的数据的数量（即已经被传输出去还没有被确认的数据的数量）；</li>
+<li>传输差错：卫星信道误比特率和地面网络相比更高。由于传输差错导致的丢包会引起TCP减小其滑动窗口；</li>
+<li>非对称链路：卫星的上行链路带宽一般比下行链路带宽更小；</li>
+<li>变化的RTT【端到端时延】：会影响重传超时的粒度；</li>
+<li>间歇性连接：LEO卫星存在频繁切换，如果连接中断会导致丢包；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><a href="https://blog.csdn.net/farmer_/article/details/103369245?spm=1001.2101.3001.6650.18&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.no_search_link">转载</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Erasure Code</title>
+    <url>/2021/10/21/20211021-Erasure-Code/</url>
+    <content><![CDATA[<h3 id="Erasure-Code纠删码"><a href="#Erasure-Code纠删码" class="headerlink" title="Erasure Code纠删码"></a>Erasure Code纠删码</h3><ul>
+<li><p><strong>什么是Erasure Code？</strong></p>
+<blockquote>
+<p>可以认为是RAID的通式。任何RAID都可以转换为特定的Erasure Code。</p>
+<p>传统的RAID仅支持少量的磁盘分布，当系统中存在多个分发点和多个节点时，RAID将无法满足需求。比如RAID5仅支持一个盘失败，即使是RAID5也仅支持两个盘失效，所以支持多个盘失效的算法也就是earsure code技术。</p>
+<p>简而言之，erasure code是一个能够有效提升<strong><font color='red'>存储效率、安全性</font></strong>和<strong><font color='red'>便捷性</font></strong>的新兴存储技术。</p>
+</blockquote>
+<span id="more"></span>
+<blockquote>
+<p>【学术定义】：将n份原始数据，增加m份数据（用来存储erasure编码），并能通过n+m份中的任意n份数据还原为原始数据。</p>
+<p>定义中包含了<strong>encode</strong>和<strong>decode</strong>两个过程：</p>
+<ul>
+<li>首先将原始的n份数据变为n+m份（encode）;</li>
+<li>之后这n+m份数据可存放在不同的device上，如果有任意小于m份的数据失效，仍然能够通过剩下的数据进行还原【也就是说，通常n+m的erasure编码，能够容许m块数据障碍。这时候的存储成本是1+m/n，通常m&lt;n】；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>Erasure Code的使用场景</strong></p>
+<blockquote>
+<p>凡是需要通过冗余来进行高可用的场景。</p>
+<p>但是总体而言，主要运用于存储和数字编码领域；</p>
+<ul>
+<li>阵列：如果磁盘阵列需要使用高级特性，比如需要能够容错两个磁盘失效（RAID6），那么可以用n+2的模式；如果想容错4个磁盘失效，则可使用n+4的模式。</li>
+<li>云存储：erasure code是云存储的核心技术，最初诸如hadoop，GFS，CEPH等都在用n-way replication来处理冗余，但会有极大的成本开销，因此erasure code上台。</li>
+<li>P2P领域</li>
+<li>数字编码</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://blog.csdn.net/sinat_27186785/article/details/52034588">https://blog.csdn.net/sinat_27186785/article/details/52034588</a></li>
+<li><a href="https://blog.csdn.net/shelldon/article/details/54144730">https://blog.csdn.net/shelldon/article/details/54144730</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>边缘计算</title>
+    <url>/2021/10/20/20211020-%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h3><blockquote>
+<p>云计算是一种利用互联网实现随时随地、按需便捷地使用共享计算设施。</p>
+<p>目前的物联网模式，云计算平台，面临海量设备信息接入，功耗过高，带宽不够等难度，很难实时返回数据。</p>
+<p>【优点】资源共享、数据集中处理，可以节约资源</p>
+<p>【缺点】完全依赖云计算的计算机系统，就好比所有的事情都要请示司令部的军队，在需要大量和外界互动时，会显得僵化、反应迟缓；而且如果网络存在问题，就彻底凉凉。</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="边缘计算【数据近端处理】"><a href="#边缘计算【数据近端处理】" class="headerlink" title="边缘计算【数据近端处理】"></a>边缘计算【数据近端处理】</h3><blockquote>
+<p>【定义】在物或者数据源头的一侧采用网络、存储、计算、应用核心能力于一体的开放平台就近提供最近端服务。</p>
+<p>好比让中间的各级军官也开始发挥主观能动性，因此能在一定程度上做出智能判断和行动决策，同时只需要将一部分筛选的信息上传到司令部，大大缓解了网络通讯的压力。即使在和司令部失去联系的情况下，也能做出一部分的决策。</p>
+<p>【优点】边缘计算不仅能缓解网络宽带和数据中心的压力，而且还能提升服务相应能力，保护隐私数据，做到速度、安全、可拓展性、功能性、可靠性合为一体。<strong>适用于计算量极大的情况。</strong></p>
+<p>【关键】边缘计算的关键是边缘设备——“终端”。终端的开发需要使用高云算力的处理芯片来支持（AI领域逐渐衍生出嵌入式神经网络处理器NPU）</p>
+</blockquote>
+<h3 id="雾计算"><a href="#雾计算" class="headerlink" title="雾计算"></a>雾计算</h3><blockquote>
+<p>介于云计算和边缘计算两者之间。</p>
+<p>雾计算是比云计算更靠近地面的云，可以把一些云不需要的数据直接在这一层进行存储和处理，可以减少云的压力，进而提高传输速度，降低时延。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Tail Latency</title>
+    <url>/2021/10/21/20211021-Tail-Latency/</url>
+    <content><![CDATA[<h3 id="尾部延迟Tail-Latency"><a href="#尾部延迟Tail-Latency" class="headerlink" title="尾部延迟Tail Latency"></a>尾部延迟Tail Latency</h3><p>广泛存在于高并发系统中。开发和运维高并发系统的时候，会出现：明明系统已经调优完毕，该异步的异步，该减少互斥的地方引入无锁，该减少的IO的地方更换引擎或者硬件，该调节内核的调节相应参数。</p>
+<p>然而如果在系统中引入实时监控，总会<strong>有少量响应的延迟高于均值</strong>，我们把这些响应称为尾延迟（Tail Latency）。<strong>对于大规模分布式系统而言，尾延迟的影响尤其严重，例如大规模搜索引擎，单个请求可能就会发送到上万台服务器，系统不得不等待尾延迟响应之后才能返回给用户。</strong></p>
+<p>尾延迟可能是程序设计本身导致的毛病。但是及时程序设计完全无误，尾延迟依然可能存在。实际上，硬件、操作系统本身，都可能导致尾延迟响应，例如：主机系统其他进程的影响，应用程序中的线程调度、CPU功耗设计等。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>What does Recilience exactly means in System Building</title>
+    <url>/2021/10/21/20211021-What-does-Recilience-exactly-means-in-System-Building/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>引入</strong>：在大量的论文中，都讨论了系统构建的韧性(Service Resilience)。感觉不是很能理解韧性的含义，感觉有点像容错性，但是又不完全是fault-tolerance，所以进行了调研。</p>
+</blockquote>
+<span id="more"></span>
+<ul>
+<li><p><strong>Service Resilience的含义</strong></p>
+<blockquote>
+<p>Service Resilience是指当服务的运行环境出了问题，例如网络故障、服务过载或微服务宕机的情况下，程序仍然能够提供部分或者大部分服务，这时我们就说服务的<strong>韧性</strong>very good。Serive Resilience在微服务体系中非常重要，它通过提高服务的韧性来弥补环境上的不足。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>Service Resilience具体方法</strong></p>
+<blockquote>
+<p>具体而言，通过服务超时timeout、服务重试retry、服务限流rate limiting、熔断器circuit breaker、故障注入fault injection、舱壁隔离技术bulkhead</p>
+</blockquote>
+</li>
+</ul>
+<p><strong><font color='cornflowerblue'>简而言之，resilience可以理解为：当出现一些干扰性事件时，系统保持其关键服务继续正常运行的可能性。</font></strong></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/81111394">https://zhuanlan.zhihu.com/p/81111394</a></li>
+<li><a href="https://blog.csdn.net/weixin_45882672/article/details/117531867">https://blog.csdn.net/weixin_45882672/article/details/117531867</a></li>
+<li><a href="https://blog.csdn.net/devopscsdn/article/details/89515885?utm_term=%E8%BD%AF%E4%BB%B6%E7%9A%84resilience&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-4-89515885&amp;spm=3001.4430">https://blog.csdn.net/devopscsdn/article/details/89515885?utm_term=%E8%BD%AF%E4%BB%B6%E7%9A%84resilience&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-4-89515885&amp;spm=3001.4430</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>What is Serverless Computing?</title>
+    <url>/2021/10/23/20211023-What-is-Serverless-Computing/</url>
+    <content><![CDATA[<p>Serverless Computing：无线服务器</p>
+<p>Serverless优势：</p>
+<ul>
+<li>可用性冗余，以便单个机器故障不会导致服务中断；</li>
+<li>冗余副本的地理分布，以便在发生灾难时保留服务；</li>
+<li>负载平衡和请求路由以有效利用资源；</li>
+<li>相应负载变化进行自动缩放以扩展或缩小系统；</li>
+<li>监控以记录调试或性能调整所需的信息；</li>
+<li>系统升级，包括安全修补；</li>
+<li>迁移到新实例时可用；</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://www.alibabacloud.com/zh/knowledge/what-is-serverless">https://www.alibabacloud.com/zh/knowledge/what-is-serverless</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Import TLE data into STK</title>
+    <url>/2021/10/29/20211029-Import-TLE-data-into-STK/</url>
+    <content><![CDATA[<h3 id="Matlab函数说明"><a href="#Matlab函数说明" class="headerlink" title="Matlab函数说明"></a>Matlab函数说明</h3><ul>
+<li>lla2ecef: Convert geodetic coordinates to Earth-centered Earth-fixed coordinates</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://blog.csdn.net/caijibai/article/details/120176707">用STK导入段时间TLE数据</a></li>
+<li>STK学习资料：<a href="https://blog.csdn.net/stk10/category_1364277.html">https://blog.csdn.net/stk10/category_1364277.html</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Django-2-Git&amp;Docker部署</title>
+    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
+<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
+<span id="more"></span>
+<blockquote>
+<p>Host server1</p>
+<p>​    HostName: 公网IP 139.224.111.142</p>
+<p>​    UserName: kunkun</p>
+</blockquote>
+<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
+<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
+<ul>
+<li>ssh server1</li>
+<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Django-1.概论和python语法</title>
+    <url>/2021/10/31/20211031-Django-1-%E6%A6%82%E8%AE%BA%E5%92%8Cpython%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<ul>
+<li>Django使用Python创建的，Youtube、Instagram；</li>
+<li>可以作为Web、APP、小程序等各种程序的后端；</li>
+<li>项目运行瓶颈：数据库查询、网络带宽/延迟、硬盘读写速度等；</li>
+<li>计算密集型的模块使用可以用C/C++实现，然后编译成动态链接库再import进来；</li>
+<li>计算密集型的微服务可以通过thift等工具对接，微服务的Server端代码可以用C/C++语言实现；</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><strong>数据库（服务器端）</strong><ul>
+<li>disk：本地、<strong>云盘</strong>；</li>
+<li>mysql：代码文本等；</li>
+<li>Redis：属于内存数据库，用来存储数据（内存中的map）</li>
+</ul>
+</li>
+<li><p><strong>数据库（客户端）</strong></p>
+<ul>
+<li>web storage</li>
+<li>disk内存</li>
+</ul>
+</li>
+<li><p><strong>深拷贝和浅拷贝</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>浅拷贝：【1‘43’22】</strong>b=a[:]，把a的第一层复制过去；之后改变b，a不会发生改变</p>
+</li>
+<li><p><strong>深拷贝：</strong>递归深度遍历复制，无论b如何改变a都不会改变</p>
+</li>
+<li><p>示例：</p>
+<ul>
+<li><p>浅拷贝</p>
+<p><img src="/images/doc/7.png" alt="image-20211101102326919" style="zoom:67%;" /></p>
+<p><code>c[3][0] = 9; c[1]=0;</code></p>
+<p><img src="/images/doc/8.png" alt="image-20211101102429643" style="zoom:67%;" /></p>
+<p>可以看到，浅拷贝可以改变的元素只有第1层；</p>
+</li>
+<li><p>深拷贝     <code>import copy</code></p>
+<p><img src="/images/doc/9.png" alt="image-20211101102651638" style="zoom:67%;" /></p>
+<p><code>c[3][3][0] = 100;</code></p>
+<p><img src="/images/doc/10.png" alt="image-20211101102750906" style="zoom:67%;" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>解放数组*，解放dict</strong>：**</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">g</span>(<span class="params">a,b,c,d</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(a,b,c,d)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">g(*a)	<span class="comment"># 1 2 3 4</span></span><br><span class="line"></span><br><span class="line">b = &#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">2</span>, <span class="string">&#x27;b&#x27;</span>:<span class="number">3</span>, <span class="string">&#x27;c&#x27;</span>:<span class="number">4</span>, <span class="string">&#x27;d&#x27;</span>:<span class="number">5</span>&#125;</span><br><span class="line">g(**b)	<span class="comment"># 2 3 4 5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>lambda表达式</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line">g = <span class="keyword">lambda</span> x, y: x + y</span><br><span class="line"></span><br><span class="line">f(<span class="number">3</span>, <span class="number">4</span>)	<span class="comment">#7</span></span><br><span class="line">g(<span class="number">3</span>, <span class="number">4</span>)	<span class="comment">#7</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>元组在定义的时候可以省略小括号</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = (1, 2, 3)</span><br><span class="line">b = 1, 2, 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>对应元素zip</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(a)):</span><br><span class="line">    <span class="built_in">print</span>(a[i], b[i])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> <span class="built_in">zip</span>(a, b):</span><br><span class="line">    <span class="built_in">print</span>(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1 a</span></span><br><span class="line"><span class="comment"># 2 b</span></span><br><span class="line"><span class="comment"># 3 c</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>with可以增加文件操作的鲁棒性；</p>
+</li>
+<li><p>static静态变量：所有对象公用该变量；</p>
+</li>
+<li><p>所有的成员函数都需要self；</p>
+</li>
+</ul>
+<h3 id="相关网址"><a href="#相关网址" class="headerlink" title="相关网址"></a>相关网址</h3><ul>
+<li><a href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Orbit Phasing</title>
+    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
+    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>RAAN</title>
+    <url>/2021/11/02/20211102-RAAN/</url>
+    <content><![CDATA[<h3 id="RAAN-Right-Ascension-of-the-Ascending-Node"><a href="#RAAN-Right-Ascension-of-the-Ascending-Node" class="headerlink" title="RAAN: Right Ascension of the Ascending Node"></a>RAAN: Right Ascension of the Ascending Node</h3><ul>
+<li><p>理解：实际上是发射到轨道升交点的，也就是Y界面画云的时候轨道上的小白点。太阳帆很多时候一射上去就会急转弯，从垂直于轨道变成沿着轨道运行。</p>
+<blockquote>
+<p><strong><a href="https://www.bilibili.com/video/BV1C64y1D7bq?from=search&amp;seid=18189804865902236483&amp;spm_id_from=333.337.0.0">Demo</a>：</strong></p>
+<p><img src="/images/doc/4.png" alt="image-20211102201116589" style="zoom:50%;" /></p>
+</blockquote>
+</li>
+<li><p>RAAN是轨道与黄道面的交点，一个升交，一个降交，幅角则是在黄道面上的方位角</p>
+</li>
+<li><p>黄道面：地球绕太阳运行的轨道所在的平面。任何不与黄道面共面的天体或者人造物轨道都会和黄道面相交2次，由南向北的叫做升交点，由北向南的叫降交点；</p>
+</li>
+<li><p>黄道面：赤道所在的平面是赤道面；</p>
+<p> <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.leleketang.com%2Fres%2Fquestion%2Fpic%2F15296%2Foen00015249.jpg&amp;refer=http%3A%2F%2Fwww.leleketang.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1638448417&amp;t=d13cd5b3cbd16d885717cf6aa581eb5c" alt="img" style="zoom:80%;" /></p>
+</li>
+<li><p>升交点黄经（Longitude of the ascending node）</p>
+</li>
+<li>北大西洋自治区</li>
+</ul>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node">https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node</a></li>
+<li><a href="https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738">https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>STK-1-propagator</title>
+    <url>/2021/11/02/20211102-STK-1-propagator/</url>
+    <content><![CDATA[<h1 id="STK-Propagator-轨道预报模型"><a href="#STK-Propagator-轨道预报模型" class="headerlink" title="STK-Propagator 轨道预报模型"></a>STK-Propagator 轨道预报模型</h1><ul>
+<li>STK提供了2种形式的<font color='red'><strong>卫星轨道预报算法</strong></font>：<ul>
+<li>解析算法：通过求解卫星运动的微分方程得到一个近似解析解来获得卫星星历表，或直接给出卫星在各个特定时刻的位置和速度信息；</li>
+<li>数值算法：过对卫星运动方程的数值积分来实现的．STK中所有标准的算法均为解析法．</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>STK中提供的<font color='red'><strong>轨道预报模型</strong></font>包括：<ul>
+<li>TwoBody：二体模型，又叫开普勒运动模型，它只考虑地球对卫星的引力，此时地球等效为一个质点</li>
+<li>J2 Perturbation：J2 Perturbation一阶模型考虑了因地球的非正球体中J2系数导致的卫星轨道要素的长期变化．J2是地球非球形引力值无穷级数表达式中的一个带谐项系数，此系数代表了地球非正球体所带来的最重要的效应．在该模型中J2系数是唯一导致卫星轨道要素发生长期变化的因素．J2摄动算法就包括了J2参数所带来的一阶长期效应．</li>
+<li>J4 Perturbation：J4 Perturbation二阶模型同样考虑地球的非正球体导致的卫星轨道要素的长期变化，与J2 Perturbation不同的是它不仅考虑J2系数的一阶效应，还考虑了J4系数所代表的偶次带谐项对轨道参数的影响(没考虑代表长周期效应的J3系数)．J4系数代表的地球非正球体引力摄动大概比J2系数要小1000倍，所以，这两种预报模型得出的卫星轨道差别很小．</li>
+<li>HPOP(The High-precision orbit propagator)：高精度轨道预报模型，可以用来处理轨道高度从地球表面到月球表面甚至更远的任何圆形、椭圆、抛物线和双曲线轨道．这种模型在某一历元下生成卫星轨道时所需设置的参数与二体模型、J2模型和J4模型是相同的．</li>
+<li>MSGP4(The Merged Simplified General Perturbations)：MSGP4模型是一个符合北美防空司令部标准的预报算法模型．该模型全面考虑了地球的非正球体、日月引力以及引力谐振因素带来的长期和周期效应，并使用了一个简单的大气模型来考虑轨道衰减的问题．</li>
+<li>LOP(The Long—term orbit propagator)：长期轨道预报模型，可以获得较长时间间隔，如数月甚至几年内的高精度轨道预报数据．LOP和二体、J2和J4模型使用相同的轨道设置参数．</li>
+<li>StkExtemal：能够从一个带有．e扩展名的文件读取一个卫星的星历表．</li>
+<li>PODS(Precision Orbit Determination Systern)：精确定轨系统，PODS可根据提供的卫星跟踪数据确定相应的卫星轨道和参数，其中处理的卫星跟踪数据包括由地面站、TPRSS和GPS提供的各种精度、距离、星间距离和位置等信息．</li>
+<li>SPICE(Spacecraft Planet Instrument C—Matrix and Event)：可以从SPICE工具包里引入一个星历表文件．</li>
+<li>Astrogator：利用该模型可动态显示卫星轨道机动等情况．</li>
+<li>Real Time：该模型可引入实时数据以实时更新轨道．</li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>STK-2-stkSetPropClassical</title>
+    <url>/2021/11/02/20211102-STK-2-stkSetPropClassical/</url>
+    <content><![CDATA[<p>create_LEO.m：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">stkSetPropClassical(sat_no,<span class="string">&#x27;J4Perturbation&#x27;</span>,<span class="string">&#x27;J2000&#x27;</span>,<span class="number">0.0</span>,tStop,dT,<span class="number">0</span>,<span class="number">6371000</span> + Altitude * <span class="number">10</span>^<span class="number">3</span>,<span class="number">0.0</span>,inc,<span class="number">0.0</span>,ra,ma);</span><br><span class="line"><span class="comment">% &#x27;J4Perturbation&#x27;: 表示该卫星运动使用的力学模型</span></span><br><span class="line"><span class="comment">% &#x27;J2000&#x27;: 卫星使用的坐标系</span></span><br><span class="line"><span class="comment">% &#x27;6371000 + Altitude * 10^3&#x27;: 轨道高度（包括了地球半径）</span></span><br><span class="line"><span class="comment">% &#x27;ra&#x27;: 轨道的RAAN（right ascension of the ascending node）值</span></span><br><span class="line"><span class="comment">% &#x27;ma&#x27;: 轨道的平近点角（mean anomaly） ，它确定了卫星在轨道上的位置</span></span><br><span class="line"><span class="comment">% Inc的范围是0°~90°，raan的范围是0°~180°，mean anomaly的范围是0°~360°</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>查找资料：</p>
+<p><img src="/images/doc/3.png" alt="image-20211102221622171" style="zoom:80%;" /></p>
+<p> <img src="/images/doc/2.png" alt="image-20211102215108648" style="zoom:80%;" /></p>
+<p><img src="/images/doc/1.png" alt="image-20211102223038446" style="zoom: 67%;" /></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Walker Constellation</title>
+    <url>/2021/11/02/20211102-Walker-Constellation/</url>
+    <content><![CDATA[<h3 id="卫星星座设计"><a href="#卫星星座设计" class="headerlink" title="卫星星座设计"></a>卫星星座设计</h3><p>卫星星座设计经常被误解为仅仅是在修改后的轨道上复制单个卫星的多个副本的行为。卫星星座设计过程有点类似于开发多细胞生物，每个细胞代表一个卫星。</p>
+<p><font color='orange'><strong><u>开普勒轨道参数（6个）</u></strong></font>的无限选择使星座设计异常困难。提出了各种星座几何结构来降低这种复杂性。最著名的星座几何是约翰·沃克 (John Walker) 在 1970 年提出的沃克-德尔塔星座。沃克的几何使轨道参数以一种特定的方式相互依赖，从而降低了复杂性。</p>
+<p>Walker-Delta 技术提供了所有星座设计技术中最对称的几何形状。因此，它最适合与地球观测相关的几种应用的全球覆盖。</p>
+<span id="more"></span>
+<p>具体而言，设计卫星星座是没有明确的规则的，其中卫星星座的参数定义是和任务紧密联系的，即“任务驱动”的。通常星座中的所有卫星都具有相似的高度分布、偏心率和倾角，因此外来扰动对每个卫星的影响而言通常是相似的。其中设计卫星星座时主要需要以下因素：</p>
+<ul>
+<li>卫星数量：影响覆盖范围和成本估计；</li>
+<li>轨道平面数量：根据需求调整。由于轨道之间转移会增加发射和转移成本，因此具有最少数量的轨道平面最佳；</li>
+<li>最小仰角：所有卫星必须保持一致，从而保证单个卫星的覆盖范围；</li>
+<li>高度：会影响覆盖范围、转移成本。</li>
+<li>倾角：确定覆盖的维度分布并根据覆盖需求进行选择。</li>
+<li>平面间距：均匀的平面间距导致连续的地面覆盖；</li>
+<li>偏心率：当我们需要卫星在特定区域停留更长时间时，倾向于选择椭圆轨道。</li>
+</ul>
+<h3 id="常见设计星座几何结构"><a href="#常见设计星座几何结构" class="headerlink" title="常见设计星座几何结构"></a>常见设计星座几何结构</h3><ul>
+<li><p><strong>A class of circular orbit geometries:</strong> <u><font color='red'><strong>Walker Delta Pattern constellation  |  Ballard rosette</strong></font></u>[proposed by John Walker], and its notation is: i: t/p/f</p>
+<blockquote>
+<ul>
+<li><font color='cornflowerblue'><strong>i:</strong></font> inclination</li>
+<li><font color='cornflowerblue'><strong>t:</strong></font> total number of satellites</li>
+<li><font color='cornflowerblue'><strong>p:</strong></font> number of equally spaced planes</li>
+<li><font color='cornflowerblue'><strong>f:</strong></font> relative spacing between satellites in adjcent planes. f*360/t</li>
+</ul>
+</blockquote>
+</li>
+<li><p>An example: the Galileo Navigation system—— Walker Delta 56°:24/3/1</p>
+<blockquote>
+<p>24 satellites in 3 planes inclined at 56 degrees</p>
+<p>The “1” defines the phasing between the planes, and how they are spaced. </p>
+<p>Demo: <a href="https://www.youtube.com/watch?v=w1eb37tOei4">https://www.youtube.com/watch?v=w1eb37tOei4</a></p>
+</blockquote>
+</li>
+<li><p>Ballard rosette, its notation is: (t,p,m) </p>
+<blockquote>
+<ul>
+<li><font color='cornflowerblue'><strong>m: </strong></font>multiple of the fractional offset between planes.</li>
+</ul>
+</blockquote>
+</li>
+<li><p>the near-polar Walker Star</p>
+</li>
+</ul>
+<h3 id="倾斜圆轨道星座"><a href="#倾斜圆轨道星座" class="headerlink" title="倾斜圆轨道星座"></a>倾斜圆轨道星座</h3><ul>
+<li><p>Walker Star极轨道星座卫星网络</p>
+<p>  <img src="https://img-blog.csdnimg.cn/20201020121157211.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FubmUwMzM=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" style="zoom: 67%;" /></p>
+</li>
+<li><p>Walker Delta倾斜星座卫星网络</p>
+<p> <img src="https://img-blog.csdnimg.cn/20201020121243342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FubmUwMzM=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述" style="zoom:67%;" /></p>
+</li>
+<li><p>Ballard Rosette星座</p>
+<p> <img src="https://img-blog.csdnimg.cn/20201020121318174.png#pic_center" alt="在这里插入图片描述" style="zoom:67%;" /></p>
+</li>
+</ul>
+<ul>
+<li>太空时代始于1957年10月的Sputnik-1 </li>
+<li><strong>Satellite Constellation:</strong> a group of artificial satellite</li>
+<li><strong>Orbital Shells:</strong> the sets of circular orbits at constant altitude</li>
+</ul>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li>具体理论和介绍参见：<a href="https://en.wikipedia.org/wiki/Satellite_constellation">https://en.wikipedia.org/wiki/Satellite_constellation</a></li>
+<li><a href="https://astrome.net/blogs/the-art-of-satellite-constellation-design-what-you-need-to-know/">https://astrome.net/blogs/the-art-of-satellite-constellation-design-what-you-need-to-know/</a></li>
+<li><a href="http://www.jos.org.cn/html/2014/5/4581.htm#outline_anchor_17">http://www.jos.org.cn/html/2014/5/4581.htm#outline_anchor_17</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>地理名词中英文对照</title>
+    <url>/2021/11/02/20211102-%E5%9C%B0%E7%90%86%E5%90%8D%E8%AF%8D%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7/</url>
+    <content><![CDATA[<h1 id="地理名词中英文对照"><a href="#地理名词中英文对照" class="headerlink" title="地理名词中英文对照"></a>地理名词中英文对照</h1><ul>
+<li><font color='orange'><strong>RAAN:</strong> </font>the right ascension of the ascending node 升交点黄经</li>
+<li><font color='orange'><strong>春分点:</strong> </font>the first point of aries</li>
+<li><p><font color='orange'><strong>LTAN:</strong> </font>local time of the ascending node</p>
+</li>
+<li><p><font color='orange'><strong>heliocentric orbits:</strong></font>日心轨道</p>
+</li>
+<li><p><font color='orange'><strong>ecliptic:</strong></font>黄道</p>
+</li>
+<li><p><font color='orange'><strong>celestial sphere:</strong></font>天球</p>
+</li>
+<li><p><font color='orange'><strong>perpendicular projection:</strong></font>垂直射影</p>
+</li>
+<li><p><font color='orange'><strong>True anomaly</strong></font>：真近点角 <a href="https://en.wikipedia.org/wiki/True_anomaly">https://en.wikipedia.org/wiki/True_anomaly</a></p>
+</li>
+<li><p><font color='orange'><strong>Eccentric anomaly</strong></font>：偏近点角 <a href="https://en.wikipedia.org/wiki/Eccentric_anomaly">https://en.wikipedia.org/wiki/Eccentric_anomaly</a></p>
+</li>
+<li><font color='cornflowerblue'>2 * semi-major-axis == apoapsis(远地点) + periapsis(近地点)</font>
+
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>STK-3-CBF(Central Body Fixed Frame)</title>
+    <url>/2021/11/03/20211103-STK-3-CBF-Central-Body-Fixed-Frame/</url>
+    <content><![CDATA[<h3 id="CBF中心体坐标系-Central-Body-Fixed-Frame"><a href="#CBF中心体坐标系-Central-Body-Fixed-Frame" class="headerlink" title="CBF中心体坐标系(Central Body Fixed Frame)"></a>CBF中心体坐标系(Central Body Fixed Frame)</h3><p>视线约束主要是考虑信号传播路径中地面障碍物的影响。</p>
+<p>大地通常被视为一个椭圆体，在中心体坐标系（central body frame）中认为该椭圆体的形状是固定的。在椭圆体模型中，地面认为是局部平坦的（不考虑高山、丘陵、山谷等），地面模型非常简单。对地面进行更精确的建模需要AzEI蒙版或者地形蒙版工具，采用不同的访问约束（Access Constraints）来建模。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/63365900">https://zhuanlan.zhihu.com/p/63365900</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Python-1-geopy.distance</title>
+    <url>/2021/11/04/20211104-Python-1-geopy-distance/</url>
+    <content><![CDATA[<h1 id="Geopy模块"><a href="#Geopy模块" class="headerlink" title="Geopy模块"></a>Geopy模块</h1><p>当我们需要计算A，B两点之间的最短距离时，可以使用geopy模块的distance.distance函数（可参见<a href="https://www.osgeo.cn/geopy/">官方文档说明</a>）。</p>
+<p>Geopy可以用 <a href="https://en.wikipedia.org/wiki/Geodesics_on_an_ellipsoid">geodesic distance</a> 或 <a href="https://en.wikipedia.org/wiki/Great-circle_distance">great-circle distance</a> ，默认测地线距离作为函数 <code>geopy.distance.distance</code> .</p>
+<p>大圆距离（ <a href="https://www.osgeo.cn/geopy/#geopy.distance.great_circle"><code>great_circle</code></a> ）使用地球的球形模型，使用国际大地测量学和地球物理学联合会定义的平均地球半径6371.0087714150598公里，约6371.009公里（WGS-84），误差高达0.5%。半径值存储在 <code>distance.EARTH_RADIUS</code> ，因此可以对其进行自定义（但是，它应该始终以公里为单位）。</p>
+<span id="more"></span>
+<p>具体而言，以下是以下示例 <code>distance.distance</code> 用法，取对 <code>(lat, lon)</code> 元组：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> geopy <span class="keyword">import</span> distance</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>newport_ri = (<span class="number">41.49008</span>, -<span class="number">71.312796</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cleveland_oh = (<span class="number">41.499498</span>, -<span class="number">81.695391</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(distance.distance(newport_ri, cleveland_oh).miles)</span><br><span class="line"><span class="number">538.39044536</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wellington = (-<span class="number">41.32</span>, <span class="number">174.81</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>salamanca = (<span class="number">40.96</span>, -<span class="number">5.50</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(distance.distance(wellington, salamanca).km)</span><br><span class="line"><span class="number">19959.6792674</span></span><br></pre></td></tr></table></figure>
+<p><strong>说明：</strong></p>
+<blockquote>
+<ul>
+<li><p>目前所有的算法都假设点的高度要么为零（如上面的例子中所示）要么相等，并且相对较小。因此，海拔高度不会影响结果距离：</p>
+</li>
+<li><p>如果需要使用高程计算距离，则对于短距离 <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance</a> 公式可以给出一个合适的近似值：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> math</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> geopy <span class="keyword">import</span> distance</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>p1 = (<span class="number">43.668613</span>, <span class="number">40.258916</span>, <span class="number">0.976</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>p2 = (<span class="number">43.658852</span>, <span class="number">40.250839</span>, <span class="number">1.475</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>flat_distance = distance.distance(p1[:<span class="number">2</span>], p2[:<span class="number">2</span>]).km</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(flat_distance)</span><br><span class="line"><span class="number">1.265133525952866</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>euclidian_distance = math.sqrt(flat_distance**<span class="number">2</span> + (p2[<span class="number">2</span>] - p1[<span class="number">2</span>])**<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(euclidian_distance)</span><br><span class="line"><span class="number">1.359986705262199</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Django-3-网站开发操作记录</title>
+    <url>/2021/11/13/20211113-Django-3-%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将镜像文件`django_lesson_1_0.tar`加载到本地</span></span><br><span class="line">docker load -i django_lesson_1_0.tar	</span><br><span class="line"></span><br><span class="line">docker images</span><br><span class="line"><span class="meta">#</span><span class="bash"> REPOSITORY      TAG       IMAGE ID       CREATED       SIZE</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> django_lesson   1.0       58e383d3fa92   2 weeks ago   1.5GB</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>一个docker可以有多个镜像，同一个镜像可以生成多个容器，相同镜像生成的容器环境都是完全一致的；</p>
+<p>每一个容器可以视为一个独立的服务器；</p>
+<p>对于文件管理，docker和git都采取了空间优化；</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211217-NP问题</title>
+    <url>/2021/12/17/20211217-NP%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="什么是P问题、NP问题、NPC问题、NP-hard问题？"><a href="#什么是P问题、NP问题、NPC问题、NP-hard问题？" class="headerlink" title="什么是P问题、NP问题、NPC问题、NP-hard问题？"></a>什么是P问题、NP问题、NPC问题、NP-hard问题？</h3><h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
+<li>通常所谓的NP问题，实际上就是：证明或推翻P=NP；</li>
+<li>NPC：只有搜才行；</li>
+<li>时间复杂度：并非表示一个程序解决时间需要花多少时间，而是当问题规模扩大后，程序需要的时间长度增长多快；</li>
+<li>不可解问题（Undecidable Decision Problem）：例如The Halting Problem；</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>P问题：如果一个问题可以找到一个能在多项式的时间里解决它的算法，该问题则属于P问题。我们通常见到的信息奥赛的题目都是P问题，因为一个用穷举换来的非多项式级时间的超时程序不会涵盖任何有价值的算法；</li>
+<li><p>NP问题：找到一个比100小的解（全部找出来不容易，但是验证其中一个解是容易的）；</p>
+<ul>
+<li>定义1：可以在多项式的时间里验证一个解的问题（并不是非P问题）；</li>
+<li>定义2：可以在多项式的时间里猜出一个解的问题；</li>
+</ul>
+</li>
+<li>通常只有NP问题才可能找到多项式的算法，我们不会指望一个连多项式地验证一个解都不行的问题存在一个解决它的多项式级的算法。</li>
+<li>目前人们普遍认为P=NP问题不成立，即存在至少一个不可能有多项式级复杂度的算法的NP问题。人们如此坚信P!=NP的原因在于：NPC问题的存在，即NP-完全问题；</li>
+<li><p>约化（Reducibility）：Hamilton回路问题可以约化为TSP问题；</p>
+<ul>
+<li>定义1：一个问题A可以约化为问题B，即可以用问题B的解法解决问题A，或称”问题A可以变成问题B“；</li>
+<li>定义2：可以找到一个变化法则，对任意一个程序A的输入，都能按这个法则变换成程序B 的输入，使两个程序的输出相同；</li>
+<li>约化具有传递性；</li>
+</ul>
+</li>
+<li><p>NPC问题：所有的NP问题都可以约化成它；</p>
+<ul>
+<li>定义：<ul>
+<li>条件1：该问题是NP问题；</li>
+<li>条件2：所有的NP问题都可以约化成它；</li>
+</ul>
+</li>
+<li>证明：<ul>
+<li>首先证明它至少是一个NP问题；</li>
+<li>证明其中一个已知的NPC问题能约化到它；</li>
+</ul>
+</li>
+<li>逻辑电路问题属于NPC问题，因为其显然属于NP问题，并且可以直接证明所有的NP问题都可以约化到它（不要以为NP问题有无穷多个将给证明造成不可逾越的困难）。证明过程相当复杂，大致意思是：任意一个NP问题的输入和输出都可以转换成逻辑电路的输入和输出，因此对于一个NP问题而言，问题转化为了求出满足结果为True的一个输入（即一个可行解）；</li>
+<li>已被证明是NPC的问题：Hamilton回路、TSP问题；</li>
+</ul>
+</li>
+<li>NP-hard问题：满足NPC问题的第二条，但是不一定要满足第一条。因此NP-hard问题有可能仍然无法得到多项式级别的算法。</li>
+</ul>
+<h4 id="2-推论"><a href="#2-推论" class="headerlink" title="2. 推论"></a>2. 推论</h4><ul>
+<li>所有的P类问题都是NP问题：能多项式地解决一个问题，必然能多项式地验证一个问题的解；</li>
+<li>所有的NP问题都能约化成NPC问题，因此只要任意一个NPC问题找到了一个多项式的算法，那么所有的NP问题都能用这个算法解决，即NP=P；</li>
+</ul>
+<h4 id="3-0-1背包问题是NP完全问题"><a href="#3-0-1背包问题是NP完全问题" class="headerlink" title="3. 0-1背包问题是NP完全问题"></a>3. 0-1背包问题是NP完全问题</h4>]]></content>
+  </entry>
+  <entry>
+    <title>20211218-联邦学习</title>
+    <url>/2021/12/18/20211218-%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h3 id="联邦学习-Federated-Learning"><a href="#联邦学习-Federated-Learning" class="headerlink" title="联邦学习(Federated Learning)"></a>联邦学习(Federated Learning)</h3><h4 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h4><p>在2016年由谷歌提出，原本用于解决安卓手机终端用户在本地更新模型的问题，设计目标是在保障大数据交换时的信息安全、保护终端数据和个人数据隐私、保证在合法前提下在多参与方或多计算节点之间展开高效率的及其学习。</p>
+<p>联邦学习作为一种新型的人工智能基础技术，它可使用的机器学习算法不局限于神经网络，还包括随机森林等重要算法。联邦学习有望成为下一代人工智能协同算法和协作网络的基础。</p>
+<h4 id="2-系统框架"><a href="#2-系统框架" class="headerlink" title="2. 系统框架"></a>2. 系统框架</h4><p>以下面的例子对联邦学习进行讲解。</p>
+<span id="more"></span>
+<p>假设企业 A 和 B 想联合训练一个机器学习模型，它们的业务系统分别拥有各自用户的相关数据。此外，企业 B 还拥有模型需要预测的标签数据。出于数据隐私保护和安全考虑，A 和 B 无法直接进行数据交换，可使用联邦学习系统建立模型。联邦学习系统构架由三部分构成，如图所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190427102223500.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NhbzgxMjc1NTE1Ng==,size_16,color_FFFFFF,t_70" alt="example"></p>
+<ul>
+<li><p><font color='cornflowerblue'><strong>Part I：加密样本对齐。</strong></font>由于两家企业的用户群体并非完全重合，系统利用基于加密的用户样本对齐技术，在A和B不公开各自数据的前提下确认算双方的共有用户，并且不暴露不相互重叠的用户，以便联合这些用户的特征进行建模；</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>PART II：加密训练模型。</strong></font>在确定共有用户群体后，就可以利用这些数据训练机器学习模型。为了保证训练过程中数据的保密性，需要借助第三方协作者C进行加密训练。以<strong>线性回归</strong>模型为例，训练过程如下：</p>
+<ul>
+<li>① 协作者C将公钥发送给A和B，用以对训练过程中需要交换的数据进行加密；</li>
+<li>② A和B之间以加密形式交互用于计算梯度的中间结果；</li>
+<li>③ A和B分别基于加密的梯度值进行计算，同时B根据其标签数据计算损失，并把结果汇总为C。C通过汇总结果计算总梯度值并将其解密；</li>
+<li>④ C将解密后的梯度分别回传给A和B，A和B根据梯度更新各自模型的参数。</li>
+</ul>
+<p>迭代上述步骤直至损失函数收敛，这样就完成了整个训练过程。在样本对齐及模型训练过程中，A和B各自的数据均保留在本地，且训练中的数据交互也不会导致数据隐私泄露。因此双方在联邦学习的帮助下得以实现合作训练模型。</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>PART III：效果激励。</strong></font>联邦学习的一大特点就是它解决了为什么不同机构要加入联邦共同建模的问题，即建立模型以后模型的效果会在实际应用中表现出来，并记录在永久数据记录机制（如区块链）上。提供数据多的机构所获得的模型效果会更好，模型效果取决于数据提供方对自己和他人的贡献。这些模型的效果在联邦机制上会分发给各个机构反馈，并继续激励更多机构加入这一数据联邦。</p>
+</li>
+</ul>
+<p>上述三个部分，既考虑了多个机构间共同建模的隐私保护和效果，又考虑了一个共识机制奖励贡献数据多的机构。所以联邦学习是一个<strong>闭环</strong>的学习机制。</p>
+<h4 id="3-联邦学习优势"><a href="#3-联邦学习优势" class="headerlink" title="3. 联邦学习优势"></a>3. 联邦学习优势</h4><p>联邦学习的优势有以下几点：</p>
+<ul>
+<li>数据隔离，数据不会泄漏到外部，满足用户隐私保护和数据安全的需求；</li>
+<li>能够保证模型质量无损，不会出现负迁移，保证联邦模型比割裂的独立模型效果好；</li>
+<li>参与者地位对等，能够实现公平合作；</li>
+<li>能够帮保证参与各方在保持独立性的情况下，进行信息与模型参数的加密交换，并同时获得时长；</li>
+</ul>
+<h4 id="4-联邦学习分类"><a href="#4-联邦学习分类" class="headerlink" title="4. 联邦学习分类"></a>4. 联邦学习分类</h4><p>针对不同数据集，联邦学习分为横向联邦学习、纵向联邦学习、联邦迁移学习。</p>
+<ul>
+<li><p>横向联邦学习：两个数据集的用户特征重叠较多，而用户重叠较少。此时我们将数据集按照横向（即用户维度）切分，并取出双方用户特征相同而用户不完全相同的那部分数据进行训练。</p>
+<blockquote>
+<p>举例：两家不同地区的银行，它们的用户群体分别来自各自所在的地区，相互的交集很小。但是它们的业务很相似，因此记录的用户特征是相同的。此时我们就可以使用横向联邦学习来构建联合模型。</p>
+<p>谷歌在2016年提出了一个针对安卓手机模型更新的数据联合建模方案：在单个用户使用安卓手机时，不断在本地更新模型参数并将参数上传到安卓云上，从而使特征维度相同的各数据拥有方建立联合模型。</p>
+</blockquote>
+</li>
+<li><p>纵向联邦学习：两个数据集的用户重叠较多，而用户特征重叠较少。此时我们将数据集按照纵向（即特征维度）切分，并取出双方用户相同而用户特征不完全相同的那部分数据进行训练。</p>
+<blockquote>
+<p>举例：两个不同的机构，家是某地的银行，另一家是同一个地方的电商。它们的用户群体很有可能包含该地的大部分居民因此用户的交集较大。但是由于银行记录的都是用户的收支行为与信用评级，而电商则保有用户的浏览与购买历史，因此它们的用户特征交集较小。</p>
+<p>纵向联邦学习就是将这些不同特征在加密的状态下加以聚合，以增强模型能力。目前，逻辑回归模型、树形结构模型和神经网络模型等众多机器学习模型已经逐渐被证实能够建立在此联邦体系上。</p>
+</blockquote>
+</li>
+<li><p>联邦迁移学习：两个数据集的用户和用户特征重叠都较少，此时我们不对数据进行切分，而利用迁移学习来克服数据或标签不足的情况。</p>
+<blockquote>
+<p>举例：比如有两个不同机构，一家是位于中国的银行，另一家是位于美国的电商。由于受地域限制，这两家机构的用户群体交集很小。同时由于机构类型不同，二者的数据特征也只有小部分重合。此时要想进行有效的联邦学习，就必须引入迁移学习，来解决单边数据规模小和标签样本少的问题，从而提升模型的效果。</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211219-集成学习</title>
+    <url>/2021/12/19/20211219-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h3 id="集成学习-Ensemble-Learning"><a href="#集成学习-Ensemble-Learning" class="headerlink" title="集成学习 (Ensemble Learning)"></a>集成学习 (Ensemble Learning)</h3><p>集成学习本身并不是一个单独的机器学习算法，而是通过<font color='cornflowerblue'><strong>“博采众长”</strong></font>，即构建并结合多个机器学习器来完成学习任务。集成学习可用于：分类问题集成、回归问题集成、特征选取继承、异常点检测集成等任务。</p>
+<span id="more"></span>
+<h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h4><p>集成学习：对于给定的训练集，通过训练<strong>若干个个体学习器</strong>，通过<strong>特定的结合策略</strong>，最终形成一个强学习器。其中关键的问题：</p>
+<ul>
+<li><p>如何得到若干个个体学习器；</p>
+<blockquote>
+<ul>
+<li><p>“三个臭皮匠，顶个诸葛亮”。集成学习实际上大多是针对<strong>弱学习器(weak learner)</strong>，即指泛化性能略优于随机猜测的学习器（如二分类问题中精度略高于50%的分类器）。</p>
+</li>
+<li><p><strong>集成学习如何保证整体效果优于最好的学习器单独工作的效果？</strong></p>
+<blockquote>
+<p>个体学习器应该“好而不同”，即个体学习器要有一定的准确性，学习器既不能太差，且需要具有多样性。</p>
+</blockquote>
+</li>
+<li><p>根据个体学习器生成方式的不同，可<strong>将集成学习方法大致分为两类</strong>：</p>
+<blockquote>
+<ul>
+<li>个体学习器之间<strong>存在强依赖关系</strong>，一系列学习器基本都需要串行生成的序列化方法，代表算法：<font color='red'><strong>boosting系列算法</strong></font>；</li>
+<li>个体学习器之间<strong>不存在强依赖关系</strong>，一系列学习器可以并行生成，代表算法：<font color='red'><strong>bagging和随机森林(Random Forest)系列算法</strong></font>；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>如何选择一种结合策略，将这些个体学习器集合成一个强学习器。</p>
+<blockquote>
+<p>平均法、投票法、学习法</p>
+</blockquote>
+</li>
+</ul>
+<p>  <img src="https://pic1.zhimg.com/v2-9c8976f361643d26f5304b3664e80bc4_b.jpg" alt="1"></p>
+<h4 id="2-个体学习器"><a href="#2-个体学习器" class="headerlink" title="2. 个体学习器"></a>2. 个体学习器</h4><p>对既有的个体学习器，可以分成两种情况：</p>
+<ul>
+<li><p>同质(homogeneous)集成：所有个体学习器均是同一种类的。同质集成中的个体学习器也称为为“基学习器”(base learner)，相应的算法成为“基学习算法”。</p>
+<blockquote>
+<p>举例：均为决策树个体学习器、或者都是神经网络个体学习器；</p>
+</blockquote>
+</li>
+<li><p>异质(heterogeneous)集成：所有的个体学习器不全是一个种类的。异质集成中的个体学习器称为“组件学习器”(component learner)或“个体学习器”。</p>
+<blockquote>
+<p>举例：现有一个分类问题，对训练集采用支持向量机个体学习器，逻辑回归个体学习器和朴素贝叶斯个体学习器来学习，再通过某种结合策略来确定最终的分类强学习器。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="3-Boosting"><a href="#3-Boosting" class="headerlink" title="3. Boosting"></a>3. Boosting</h4><ul>
+<li><p><strong>Boosting算法的工作机制</strong></p>
+<blockquote>
+<p>首先从训练集用初始权重训练出一个弱学习器1，根据弱学习的学习误差率表现来更新训练样本的权重，使得之前弱学习器1学习误差率高的训练样本点的权重变高，使得这些误差率高的点在后面的弱学习器2中得到更多的重视。然后基于调整权重后的训练集来训练弱学习器2.，如此重复进行，直到弱学习器数达到事先指定的数目T，最终将这T个弱学习器通过集合策略进行整合，得到最终的强学习器。</p>
+<p><img src="https://pic3.zhimg.com/v2-2adde327b2b645738e2b57cb1946591a_b.jpg" alt="exp1"></p>
+</blockquote>
+</li>
+<li><p><strong>经典的Boosting算法</strong></p>
+<blockquote>
+<ul>
+<li>AdaBoost算法</li>
+<li>提升树Boosting tree系列算法：应用最广泛的是梯度提升树(Gradient Boosting Tree)。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="4-Bagging"><a href="#4-Bagging" class="headerlink" title="4. Bagging"></a>4. Bagging</h4><ul>
+<li><p><strong>Bagging算法的工作机制</strong></p>
+<blockquote>
+<p>不同于boosting算法，它的弱学习器之间没有依赖关系，可以并行生成。bagging的个体弱学习器的训练集是通过随机采样得到的。通过3次的随机采样，我们就可以得到3个采样集，对于这3个采样集，我们可以分别独立的训练出3个弱学习器，再对这3个弱学习器通过集合策略来得到最终的强学习器。</p>
+<p><img src="https://pic1.zhimg.com/v2-005ff3ed31da676708b22c625af0fb90_b.jpg" alt="exp2"></p>
+</blockquote>
+</li>
+<li><p>随机森林（Random Forest，简称RF）是Bagging的一个扩展变体。其在以决策树作为基学习器构建Bagging集成的基础上，进一步在决策树的训练过程中引入了随机属性选择。</p>
+</li>
+</ul>
+<h4 id="5-Boosting和Bagging对比"><a href="#5-Boosting和Bagging对比" class="headerlink" title="5. Boosting和Bagging对比"></a>5. Boosting和Bagging对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>Boosting</th>
+<th>Bagging</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>结构</td>
+<td>串行</td>
+<td>并行</td>
+</tr>
+<tr>
+<td>训练集</td>
+<td>依赖</td>
+<td>独立</td>
+</tr>
+<tr>
+<td>测试</td>
+<td>需串行</td>
+<td>可并行</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>减小bias</td>
+<td>减小variance</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="6-结合策略"><a href="#6-结合策略" class="headerlink" title="6. 结合策略"></a>6. 结合策略</h4><p>假设集成中包含 $T$ 个基学习器 $h_{1}, h_{2}, \ldots, h_{T}$，其中$h_i$在示例 $X$上的输出为 $h_i(x)$。那么对 $h_i$ 进行结合的常见策略有以下几种：</p>
+<ul>
+<li><p><strong>平均法</strong></p>
+<blockquote>
+<p>对于<font color='orange'><strong>数值类的回归预测问题</strong></font>，通常使用的结合策略是<strong>平均法</strong>。</p>
+<ul>
+<li>算术平均：$H(x)=\frac{1}{T} \sum_{1}^{T} h_{i}(x)$</li>
+<li>加权平均：$H(x)=\sum_{1}^{T} w_{i} h_{i}(x)$，其中 $w_i$是个体学习器 $h_i$的权重</li>
+<li>个体学习器的性能相差较大时用加权平均法，个体学习器性能相近时用简单平均法。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>投票法</strong></p>
+<blockquote>
+<p>对于<font color='orange'><strong>分类问题的预测</strong></font>，通常使用的结合策略是<strong>投票法</strong>。</p>
+<ul>
+<li>相对多数投票法(Plurality Voting)：即“少数服从多数”，即在$T$个弱学习器的对样本 $x$的预测结果中，数量最多的类别$c_i$为最终的分类类别。如果不止一个类别获得最高票，则随机选择一个做最终类别。</li>
+<li>绝对多数投票法(Majority Voting)：即“票需过半数”。在相对多数投票法的基础上，不光要求获得最高票，还要求票过半数。否则会拒绝预测。</li>
+<li>加权投票法(Weighted Voting)：和加权平均法一样，每个弱学习器的分类票数要乘以一个权重，最终将各个类别的加权票数求和，最大的值对应的类别为最终类别。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>学习法</strong></p>
+<blockquote>
+<p>平均法和投票法思路简单，但是学习误差可能较大，于是产生了<strong>学习法</strong>。<strong>代表方法是stacking</strong>。当使用stacking的结合策略时， 我们不是对弱学习器的结果做简单的逻辑处理，而是再加上一层学习器，也就是说，我们将训练集弱学习器的学习结果作为输入，将训练集的输出作为输出，重新训练一个学习器来得到最终结果。</p>
+<p>在这种情况下，我们将弱学习器称为<strong>初级学习器</strong>，将用于结合的学习器称为<strong>次级学习器</strong>。对于测试集，我们首先用初级学习器预测一次，得到次级学习器的输入样本，再用次级学习器预测一次，得到最终的预测结果。</p>
+<p>Stacking 就像是 Bagging的升级版，Bagging中的融合各个基础分类器是相同权重，而Stacking中则不同,Stacking中第二层学习的过程就是为了寻找合适的权重或者合适的组合方式。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h4><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/39920405">集成学习-Boosting,Bagging与Stacking</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211220-Set Cover Problem</title>
+    <url>/2021/12/20/20211220-Set-Cover-Problem/</url>
+    <content><![CDATA[<p><strong>Weighted Set Cover (WSC)</strong>：带权集合覆盖问题</p>
+<h3 id="Set-Cover-Problem"><a href="#Set-Cover-Problem" class="headerlink" title="Set Cover Problem"></a>Set Cover Problem</h3><p>研究这个问题，是因为看到论文中提及了Weighted Set Cover (WSC)，并论证该问题是NP-hard的。因此我希望了解什么是Weighted Set Cover。为了说明这个问题，我们首先需要知道<font color='cornflowerblue'><strong>集合覆盖(Set Cover)</strong></font>和<font color='cornflowerblue'><strong>顶点覆盖(Vertex Cover)</strong></font>的区别。</p>
+<span id="more"></span>
+<h4 id="1-集合覆盖-Set-Cover-和顶点覆盖-Vertex-Cover"><a href="#1-集合覆盖-Set-Cover-和顶点覆盖-Vertex-Cover" class="headerlink" title="1. 集合覆盖(Set Cover)和顶点覆盖(Vertex Cover)"></a>1. 集合覆盖(Set Cover)和顶点覆盖(Vertex Cover)</h4><h5 id="1-1-Set-Cover"><a href="#1-1-Set-Cover" class="headerlink" title="1.1 Set Cover"></a>1.1 Set Cover</h5><ul>
+<li><strong>定义</strong></li>
+<li>有包含了m个元素的集合A（注意，集合是无序的，并且包含的元素也是不相同的）。现有n个集合，分别为${B_1,B_2,…,B_n}$，这n个集合的并集恰好等于A集合，即: $A=B_{1} \cup B_{2} \cup B_{3} \cup \ldots \cup B_{n}$。<ul>
+<li><strong>问题</strong>：是否存在B集合的最小子集，且他们的并集也等于A集合？</li>
+<li><strong>举例</strong>：集合$A=\{1,2,3,4,5\}$，集合$B=\{\{1,2,3\},\{2,4\},\{3,4\},\{4,5\}\}$。可以看出，B集合的并集恰好等于A集合，那么问题的解是$SETCOVER=\{\{1,2,3\},\{4,5\}\}$。</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-2-Vertex-Cover"><a href="#1-2-Vertex-Cover" class="headerlink" title="1.2 Vertex Cover"></a>1.2 Vertex Cover</h5><ul>
+<li><p><strong>定义</strong></p>
+<blockquote>
+<p>有图G=(V, E)，是否存在V的子集V’，使得|V’|&lt;=|V|，并且G中的每条边e，至少有一个顶点在$|V^{‘}|$中？</p>
+</blockquote>
+</li>
+<li><p>这个问题有一个NPO（No Optimization Problem）的变种，即：找到满足条件的最小顶点集，也就是使得满足条件下最小值$|V^{‘}|$。</p>
+</li>
+</ul>
+<h5 id="1-3-二者比较"><a href="#1-3-二者比较" class="headerlink" title="1.3 二者比较"></a>1.3 二者比较</h5><ul>
+<li>这是两类完全不同的问题，set cover属于集合一类问题，应用于计算机科学以及计算理论方面。vertex cover，属于图论一类问题，应用于计算机科学、计算理论、图论、数学等等方面。</li>
+</ul>
+<h4 id="2-集合覆盖-Set-Cover-的解决方案"><a href="#2-集合覆盖-Set-Cover-的解决方案" class="headerlink" title="2. 集合覆盖(Set Cover)的解决方案"></a>2. 集合覆盖(Set Cover)的解决方案</h4><p>现在我们希望对集合覆盖问题的解决方案进行说明。</p>
+<h5 id="2-1-穷举法-exhausitive-search"><a href="#2-1-穷举法-exhausitive-search" class="headerlink" title="2.1 穷举法 exhausitive search"></a>2.1 穷举法 exhausitive search</h5><blockquote>
+<p><strong>思想</strong>：首先遍历一遍单个子集，看看有无覆盖的。没有则再组合两个子集看有无全覆盖的。没有再组合三个子集……</p>
+<p><strong>特点</strong>：暴力但简单</p>
+</blockquote>
+<h5 id="2-2-贪心算法-greedy-search"><a href="#2-2-贪心算法-greedy-search" class="headerlink" title="2.2 贪心算法 greedy search"></a>2.2 贪心算法 greedy search</h5><blockquote>
+<p><strong>思想</strong>：循环直到不满足条件 输出子集个数。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> si in S:</span><br><span class="line">    S-si == u</span><br><span class="line">    <span class="keyword">delete</span> si</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ki in S-si:</span><br><span class="line">    <span class="keyword">if</span> S-si-ki == U:</span><br><span class="line">    <span class="keyword">delete</span>  ki</span><br><span class="line">    <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p><strong>特点</strong>：不一定是全局最优的，但是可以满足大部分情况</p>
+</blockquote>
+<h5 id="2-3-数学转化-math-formulation"><a href="#2-3-数学转化-math-formulation" class="headerlink" title="2.3 数学转化 math formulation"></a>2.3 数学转化 math formulation</h5><blockquote>
+<p><strong>思路</strong>：将问题转成一个integer liner problem，然后再松弛成liner problem 进行求解。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200906145403132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTU5OTAyMg==,size_16,color_FFFFFF,t_70" alt="1"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200906160725739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTU5OTAyMg==,size_16,color_FFFFFF,t_70" alt="2"></p>
+</blockquote>
+<h4 id="3-参考"><a href="#3-参考" class="headerlink" title="3. 参考"></a>3. 参考</h4><ul>
+<li><a href="https://www.geeksforgeeks.org/set-cover-problem-set-1-greedy-approximate-algorithm/">GeeksforGeeks</a></li>
+<li>Set Cover Problem | Set 1 (Greedy Approximate Algorithm)</li>
+<li>Vertex Cover Problem | Set 1 (Introduction and Approximate Algorithm)</li>
+<li>Vertex Cover Problem | Set 2 (Dynamic Programming Solution for Tree)</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211221-Pareto最优</title>
+    <url>/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/</url>
+    <content><![CDATA[<h3 id="Pareto-Optimality-帕累托最优"><a href="#Pareto-Optimality-帕累托最优" class="headerlink" title="Pareto Optimality 帕累托最优"></a>Pareto Optimality 帕累托最优</h3><p>帕累托最优，是经济学中的重要概念，并且在博弈论、工程学和社会科学中有着广泛的应用。</p>
+<span id="more"></span>
+<h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
+<li><p>帕累托改善：要求在提高某些人福利的时候不能减少任何一个人的福利。</p>
+<blockquote>
+<p>和<strong>功利主义</strong>的比较：功利主义允许提高福利总和而减少一些人的福利。</p>
+</blockquote>
+</li>
+<li><p>帕累托最优：不可能再有更多的<strong>帕累托改善</strong>的情况，即不可能在不使任何其他人受损的情况下再改善某些人的情况。<font color='orange'><strong>从此以后，非损人不能利己。</strong></font></p>
+</li>
+</ul>
+<h4 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h4><ul>
+<li><p>示例1：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
+</blockquote>
+</li>
+<li><p>示例2：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211225-如何理解0-1背包是NPC问题</title>
+    <url>/2021/12/25/20211225-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A30-1%E8%83%8C%E5%8C%85%E6%98%AFNPC%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="如何理解0-1背包是NPC问题"><a href="#如何理解0-1背包是NPC问题" class="headerlink" title="如何理解0-1背包是NPC问题?"></a>如何理解0-1背包是NPC问题?</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="1. 分析"></a>1. 分析</h4><blockquote>
+<ul>
+<li><p>在0-1背包问题中，我们需要2个输入（一个数组和一个整数）来解决这个问题。</p>
+<ul>
+<li>n个项目的数组$\{n_1, n_2, …\}$，每个项目都有它的价值指数和权重指数；</li>
+<li>整数W作为最大可接受的重量。</li>
+</ul>
+</li>
+<li><p>假设<code>n=10, W=8</code>，则：</p>
+<p><code>n = [n1, n2, ..., n10], W=1000</code>，因此时间复杂度为<code>T（n）= O（nW）= O（80）</code>。</p>
+</li>
+<li><p>若将<code>n</code>的大小加倍：<code>T（n）= O（nW）= O（20 * 8）= O（160）</code>;</p>
+</li>
+<li>若将<code>W</code>的大小加倍：并不意味着W = 20，而是长度是两倍，即<code>W = 10000000</code>，因此：<code>T（n）= O（nW）= 0（10 * 128）= 0（1280）</code>；</li>
+<li>因此所需时间以<font color='cornflowerblue'><strong>指数</strong></font>增加，这是一个<font color='orange'><strong>NPC问题</strong></font>。</li>
+<li>因此，它是一个伪多项式。</li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211225-Primal-Dual原对偶问题</title>
+    <url>/2021/12/25/20211225-Primal-Dual%E5%8E%9F%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="Primal-Dual原始-对偶问题"><a href="#Primal-Dual原始-对偶问题" class="headerlink" title="Primal-Dual原始-对偶问题"></a>Primal-Dual原始-对偶问题</h3><h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h4><ul>
+<li>Prime-Dual的意义：可以给很多组合优化问题，尤其是网络设计问题提供近似算法。</li>
+<li>应用：哈密顿回路、最大匹配的经典解法Blossom Algorithm；</li>
+</ul>
+<span id="more"></span>
+<h4 id="2-拉格朗日函数"><a href="#2-拉格朗日函数" class="headerlink" title="2. 拉格朗日函数"></a>2. 拉格朗日函数</h4><ul>
+<li>解决带约束条件的优化问题的一般解法：拉格朗日乘子法，步骤为：<ul>
+<li>先写出拉格朗日函数；</li>
+<li>对$x$求导得到导数为0的点；</li>
+<li>将该点代回原函数，其中最大值即为原函数的最大值，最小值即为原函数的最小值。</li>
+</ul>
+</li>
+<li>上述凸优化问题的拉式函数为：</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{equation}
+L(x, u, v)=f_{0}(x)+\sum_{i=1}^{m} u_{i} f_{i}(x)+\sum_{j=1}^{p} v_{j} h_{j}(x)
+\end{equation}</script><ul>
+<li>对于固定的$x$而言，$L(x,u,v)$为$u$和$v$的仿射函数。</li>
+<li>至此，我们就把原来的求解带约束条件的原函数转换为了不带约束条件的拉格朗日函数</li>
+</ul>
+<h4 id="3-拉格朗日对偶函数"><a href="#3-拉格朗日对偶函数" class="headerlink" title="3. 拉格朗日对偶函数"></a>3. 拉格朗日对偶函数</h4><ul>
+<li>求解$\min _{x} f_{0}(x)$，等价于求解：$\min _{x} \max _{u, v} L(x, u, v)$；</li>
+<li>但是上式并不容易求解，由此引入了拉格朗日对偶函数<font color='cornflowerblue'><strong>（不是对偶问题）</strong></font>，即：</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{equation}
+g(u, v)=\inf _{x \in D} L(x, u, v)=\inf _{x \in D}\left[f_{0}(x)+\sum_{i=1}^{m} u_{i} f_{i}(x)+\sum_{j=1}^{p} v_{j} h_{j}(x)\right]
+\end{equation}</script><ul>
+<li>其中，$\underset{x\in D}{\mathop{\inf }}\,$表示函数逐点对$x$求下确界，即对任意$u$和$v$求出一个使得$L(x,u,v)$最小的$x$；</li>
+<li>当拉式函数没有下确界的时候，定义下确界为$-\infty$，$D$是可行域。</li>
+<li>拉格朗日对偶函数是一个凹函数，即它存在一个唯一的极大值点。</li>
+</ul>
+<h4 id="4-Set-Cover问题举例"><a href="#4-Set-Cover问题举例" class="headerlink" title="4. Set Cover问题举例"></a>4. Set Cover问题举例</h4><ul>
+<li>给出一个集合的实例$I$，其对应的最小优化问题也即原始问题（primal）会存在一系列的可行解，定义每个实例$I$对应的最小可行解对应的花费（cost）为$OPT(I)$ ；</li>
+<li>同理，在最大化优化问题也即对偶问题（dual）中其对应的最大可行解对应的利润（profit）为$OPT(I)$。</li>
+</ul>
+<h4 id="5-参考"><a href="#5-参考" class="headerlink" title="5. 参考"></a>5. 参考</h4><ul>
+<li><a href="https://blog.csdn.net/zuzhiang/article/details/103293545">https://blog.csdn.net/zuzhiang/article/details/103293545</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211225-组合数学概述</title>
+    <url>/2021/12/25/20211225-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h3 id="组合数学概述"><a href="#组合数学概述" class="headerlink" title="组合数学概述"></a>组合数学概述</h3><h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h4><blockquote>
+<p>组合数学，也叫离散优化，是运筹优化的重要组成部分。</p>
+<p>组合优化是要从呈组合数复杂度爆炸式增长的解空间中，寻找最优的解向量，即指定最优决策方案。</p>
+<p>组合优化问题涉及了分配、调度、指挥、路由等众多类型的问题，并且她与统计学习存在密切关系。</p>
+<ul>
+<li><p><strong>统计学习</strong>更侧重于预测和单步决策，比如：</p>
+<ul>
+<li>预测出了某件商品的销量，就可以知道需要进多少货；</li>
+<li>预测出了某个区域的人流量，就可以知道需要分配多少保安巡逻；</li>
+<li>检测出患者患有某种疾病，就可以知道开什么药。</li>
+</ul>
+</li>
+<li><p><strong>组合优化</strong>更侧重多方的、全局的、系统性的序列决策。同时，离散优化与连续优化在思想上有很多相通之处。</p>
+</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<h4 id="2-组合优化包含的问题"><a href="#2-组合优化包含的问题" class="headerlink" title="2. 组合优化包含的问题"></a>2. 组合优化包含的问题</h4><blockquote>
+<ul>
+<li><strong>路由问题</strong>：用开销最小的路径覆盖所有目的地。<ul>
+<li>车辆路由</li>
+<li>数据流量路由</li>
+</ul>
+</li>
+<li><strong>指派问题</strong>：在有限的时间和空间中合理使用软硬件资源创造更多的收益。<ul>
+<li>时间指派：<ul>
+<li>先后序调度：单机作业调度、车间流水线调度</li>
+<li>时间槽分配：航班与列车时刻表、人员排班表、选修课表</li>
+</ul>
+</li>
+<li>空间指派：<ul>
+<li>哪个背包装哪些物品：背包问题；</li>
+<li>哪个处理器处理作业：多级作业调度；</li>
+<li>哪个中心服务哪些客户：中心选址；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>NPC</strong>：可以在多项式时间内相互规约。</li>
+</ul>
+</blockquote>
+<h4 id="3-如何定义一个问题"><a href="#3-如何定义一个问题" class="headerlink" title="3. 如何定义一个问题"></a>3. 如何定义一个问题</h4><blockquote>
+<ul>
+<li>基本要素：<ul>
+<li>已知：输入数据；</li>
+<li>决策：输出结果；</li>
+<li>决策：输出结果可行还是不可行；</li>
+<li>目标：输出结果好还是坏；</li>
+</ul>
+</li>
+<li>观察问题的不同角度举例：<ul>
+<li>图着色问题<ul>
+<li>每个节点染什么颜色；</li>
+<li>每种颜色的节点集合包含了哪些节点。</li>
+</ul>
+</li>
+<li>布尔表达式可满足性问题<ul>
+<li>保证每个布尔变量在所有子句中取值一致，最大化为真的子句数量；</li>
+<li>保证每个子句为真，最大化布尔变量的一致性。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="4-基本求解方法分类"><a href="#4-基本求解方法分类" class="headerlink" title="4. 基本求解方法分类"></a>4. 基本求解方法分类</h4><blockquote>
+<ul>
+<li>贪心算法：在保证求解速度的前提下提升精度【部分可以保证最优性的贪心算法往往可以归类为DP（e.g. Dijkstra算法）】；</li>
+<li>近似算法：离最优解的差距有保障的贪心算法；</li>
+<li>精确算法：在确保最优性的前提下降低复杂度；<ul>
+<li>深度/广度/优先度优先树搜索</li>
+<li>动态规划</li>
+<li>混合整数规划的求解算法</li>
+</ul>
+</li>
+<li>启发式算法：在优度和复杂度之间寻找平衡点<ul>
+<li>基于<strong>邻域动作</strong>：元启发式算法<ul>
+<li>单个解：局部搜索；</li>
+<li>多个解：种群算法；</li>
+</ul>
+</li>
+<li>基于<strong>树搜索</strong>：<ul>
+<li>A*：启发函数可接受时为精确算法；</li>
+<li>向前看树搜索（Lookahead Tree Search）</li>
+<li>线搜索（Beam Search）</li>
+<li>蒙特卡洛树搜索（Monte-Carlo Tree Search）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="5-问题规约与转换"><a href="#5-问题规约与转换" class="headerlink" title="5. 问题规约与转换"></a>5. 问题规约与转换</h4><blockquote>
+<ul>
+<li><strong>经典问题到现实问题</strong>：<ul>
+<li>图着色<ul>
+<li>寄存器分配</li>
+<li>多业务波长分配</li>
+<li>停机位分配</li>
+<li>宿舍分配</li>
+</ul>
+</li>
+<li>旅行销售员<ul>
+<li>快递与外卖配送</li>
+<li>物资采购</li>
+<li>人类基因组计划</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>经典问题相互转换</strong>：<ul>
+<li>独立集 == 最大团 == 顶点覆盖 == 支配集 == 集合覆盖 == 中心选址</li>
+<li>非对称旅行商 == 对称旅行商</li>
+<li>必经点最短简单路 == 非对称旅行商 == 最短简单路 == 最长简单路</li>
+</ul>
+</li>
+<li><strong>经典问题分解</strong>：<code>图着色 = 集合覆盖 + 独立集</code></li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220101-《算法导论》第25章-每对顶点间的最短距离</title>
+    <url>/2022/01/01/20220101-%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%E7%AC%AC25%E7%AB%A0-%E6%AF%8F%E5%AF%B9%E9%A1%B6%E7%82%B9%E9%97%B4%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB/</url>
+    <content><![CDATA[<h3 id="学习笔记：《算法导论》第25章-每对顶点间的最短距离"><a href="#学习笔记：《算法导论》第25章-每对顶点间的最短距离" class="headerlink" title="学习笔记：《算法导论》第25章-每对顶点间的最短距离"></a>学习笔记：《算法导论》第25章-每对顶点间的最短距离</h3><h4 id="0-提出背景"><a href="#0-提出背景" class="headerlink" title="0. 提出背景"></a>0. 提出背景</h4><ul>
+<li>问题：对一张公路图，需要制表说明每对城市间的距离。</li>
+<li>概述：<ul>
+<li>基于矩阵乘法的动态规划算法，求解每对顶点间的最短路径问题【重复平方】；</li>
+<li>动态规划算法Floyd-Warshall算法；</li>
+<li>有向图传递闭包问题【与每对顶点间最短路径有关系】；</li>
+<li>Johnson算法【采用图的邻接表表示法】；</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h4 id="1-最短路径与矩阵乘法"><a href="#1-最短路径与矩阵乘法" class="headerlink" title="1. 最短路径与矩阵乘法"></a>1. 最短路径与矩阵乘法</h4><ul>
+<li><p>基于<font color='cornflowerblue'><strong>动态规划</strong></font>算法，用来解决有向图上每对顶点间的最短路问题；</p>
+</li>
+<li><p>动态规划的每一次主循环都将引发一个与矩阵乘法十分相似的操作，因此算法看上去很像是重复的矩阵乘法；</p>
+</li>
+<li><p><strong>设计思想</strong>：通过把最短路径延长，最终计算出最短路径权值；</p>
+</li>
+<li><p><strong>设计步骤</strong>：</p>
+<ul>
+<li><p>最短路径的结构</p>
+<blockquote>
+<p>$\delta(i, j)=\delta(i, k)+w_{k j}$；</p>
+</blockquote>
+</li>
+<li><p>每对顶点间最短路径问题的一个递归解：</p>
+<blockquote>
+<ul>
+<li>$n$：顶点数量；</li>
+<li><p>$l_{i j}^{(m)}$：表示从顶点i到顶点j的至多包含m条边的任何路径的权值最小值；</p>
+</li>
+<li><p>当m大于等于1时，有：</p>
+<p>$l_{i j}^{(m)}=\min \left(l_{i j}^{(m-1)}, \min _{1 \leq k \leqslant n}\left\{l_{i k}^{(m-1)}+w_{k j}\right\}\right)=\min _{1 \leq k \leqslant n}\left\{l_{i k}^{(m-1)}+w_{k j}\right\}$；</p>
+<p>其中第二个等式成立，是因为$w_{jj}=0$；</p>
+</li>
+<li><p>$\delta(i, j)$：表示实际最短路径权值；</p>
+</li>
+<li><p>当$\delta(i, j)&lt;\infty$：存在一条从i到j的最短路径，且为简单路径，从而最多包含n-1条边；</p>
+<p>由于从顶点i到顶点j的对于n-1条边的路径权值不可能小于从i到j的最短路径的权值，因此实际的最短路径权值：$\delta(i, j)=l_{i j}^{(n-1)}=l_{i j}^{(n)}=l_{i j}^{(n+1)}=\cdots$；</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>自底向上计算最短路径的权值：</p>
+<blockquote>
+<ul>
+<li>输入：$W=\left(w_{i j}\right)$</li>
+<li>输出：$L^{(1)}, L^{(2)}, \cdots, L^{(n-1)}$，且$L^{(m)}=\left(l_{i j}^{(m)}\right)$；</li>
+<li>用$L$表示$L^{(m-1)}$；</li>
+<li>用$L^{\prime}$表示$L^{(m)}$；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>和矩阵乘法的联系</strong>：</p>
+<blockquote>
+<ul>
+<li><p>矩阵乘法：$c_{i j}=\sum_{k=1}^{n} a_{i k} \cdot b_{k j}$</p>
+</li>
+<li><p>替换：</p>
+<script type="math/tex; mode=display">
+\begin{array}{ll}l^{(m-1)} & \rightarrow a \\ w & \rightarrow b \\ l^{(m)} & \rightarrow c \\ \min & \rightarrow+ \\ + & \rightarrow .\end{array}</script></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="2-Floyd-Warshall算法"><a href="#2-Floyd-Warshall算法" class="headerlink" title="2. Floyd-Warshall算法"></a>2. Floyd-Warshall算法</h4><ul>
+<li><p><strong>提出</strong>：允许存在权值为负的边，但是不存在权值为负的回路；</p>
+</li>
+<li><p><strong>中间节点</strong>：简单路径$p={v_1,v_2,…v_l}$上的中间顶点是除了$v_1$和$v_l$以外上的任何一个顶点，即任何属于集合${v_2,v_3,…,v_{l-1}}$的顶点；</p>
+</li>
+<li><p><strong>设计思路</strong>：利用了路径p与从i到j之间的最短路径之间的联系；</p>
+</li>
+<li><p><strong>设计步骤</strong>：</p>
+<ul>
+<li><p>最短路径的结构</p>
+<blockquote>
+<ul>
+<li><p>如果k不是路径p的中间顶点：p的所有中间节点都在$\{1,2,…,k-1\}$中，因此从顶点i到顶点j且满足所有中间顶点皆属于$\{1,2,…,k-1\}$的一条最短路径，同样也是从i到j且满足所有中间顶点皆属于集合$\{1,2,…,k\}$的一条最短路径；</p>
+</li>
+<li><p>如果k是路径p的中间顶点：因为k不是路径p1上的一个中间顶点，所以p1是从i到k的一条最短路径，且其所有中间顶点均属于集合$\{1,2,…,k-1\}$；类似地，p2是从k到j的一条最短路径，且其所有中间顶点均属于集合$\{1,2,…,k-1\}$；</p>
+<p> <img src="C:\Users\kunkun\AppData\Roaming\Typora\typora-user-images\image-20220101111423027.png" alt="image-20220101111423027" style="zoom:50%;" /></p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-稀疏图上的Johnson算法"><a href="#3-稀疏图上的Johnson算法" class="headerlink" title="3. 稀疏图上的Johnson算法"></a>3. 稀疏图上的Johnson算法</h4><ul>
+<li><strong>提出</strong>：运用了<strong>重赋权</strong>技术；</li>
+<li><strong>执行方式</strong>：如果所有边权w非负，则把每对顶点依次作为源点来执行Dijkstra算法，就可以找出每对顶点间的最短路径，可以使用斐波那契最小优先队列进行优化；如果G含有负权边但是不含有负权的回路，就只计算一个心的负权边的集合。</li>
+<li>重赋权值不会改变最短路径。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220101-《算法导论》第26章-最大流</title>
+    <url>/2022/01/01/20220101-%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%E7%AC%AC26%E7%AB%A0-%E6%9C%80%E5%A4%A7%E6%B5%81/</url>
+    <content><![CDATA[<h3 id="学习笔记：《算法导论》第26章-最大流"><a href="#学习笔记：《算法导论》第26章-最大流" class="headerlink" title="学习笔记：《算法导论》第26章-最大流"></a>学习笔记：《算法导论》第26章-最大流</h3><h4 id="0-背景"><a href="#0-背景" class="headerlink" title="0. 背景"></a>0. 背景</h4><ul>
+<li>可以将有向图理解成一个”流网络“，用来回答有关物流方面的问题。</li>
+<li>设想某物质从产生它的源点经过一个系统，流向消耗该物资的过程。源点以固定速度产生该物质，而汇点则用同样的速度消耗该物质。从直观上看，系统中任何一点的物质的”流“为该物质在系统中运行的速度；</li>
+<li><strong>应用场景</strong>：模型化流经管道的液体、通过装配线的部件、电网中的电流或通讯网络传送的信息等；</li>
+</ul>
+<span id="more"></span>
+<h4 id="1-最大流的概念"><a href="#1-最大流的概念" class="headerlink" title="1. 最大流的概念"></a>1. 最大流的概念</h4><ul>
+<li>流网络中的每条有向边可以被认为是传输物质的管道。</li>
+<li>每个管道都有一个固定的容量，可以看作是物质能够流经该管道的最大速度。</li>
+<li><strong>流守恒（flow conservation）</strong>：物质进入某顶点的速度必须等于该顶点的速度。</li>
+<li>当物质是电流时，流守恒与基尔霍夫电流定律等价；</li>
+<li><strong>最大流问题：</strong>在不违背容量限制的条件下，把物质从源点传输到汇点的最大速率是多少；</li>
+<li><strong>流网络</strong>：<ul>
+<li>$G=(V, E)$是一个有向图，其中每条边$(u, v) \in E$均有一非负容量$c(u, v) \geqslant 0$。如果$(u, v) \notin E$，则假定$c(u, v)=0$。</li>
+</ul>
+</li>
+<li><strong>流：</strong><ul>
+<li>$G=(V, E)$是一个有向图，其容量函数为$c$。设$s$为网络的源点，$t$为汇点。$G$的流是一个实值函数$f: V \times V \rightarrow \mathbf{R}$，且满足下列<font color='orange'><strong>三个性质</strong></font>：<ul>
+<li><font color='cornflowerblue'><strong>容量限制</strong></font>：对所有$u, v \in V$，要求$f(u, v) \leqslant c(u, v)$；</li>
+<li><font color='cornflowerblue'><strong>容量守恒</strong></font>：对所有$u \in V-\{s, t\}$，要求$\sum_{v \in V} f(u, v)=0$；</li>
+<li><font color='cornflowerblue'><strong>反对称性</strong></font>：对所有$u, v \in V$，要求$f(u, v)=-f(v, u)$；</li>
+</ul>
+</li>
+<li>$f(u, v)$：称为从顶点u到顶点v的<strong>流</strong>；</li>
+<li><strong>流$f$的值</strong>：$|f|=\sum_{v \in V} f(s, v)$，即从源点出发的总流；</li>
+</ul>
+</li>
+<li>最大流问题实际上是给出一个具有源点$s$和汇点$t$的流网络$G$，希望找出从$s$到$t$的最大值流；</li>
+<li><strong>对流的处理：</strong><ul>
+<li>隐含求和记号：其中任何一个自变量或两个自变量可以是顶点的集合，他们所表示的值是对自变量所代表元素的所有可能情形求和。例如，如果X和Y是顶点的集合，则：$f(X, Y)=\sum_{x \in X} \sum_{y \in Y} f(x, y)$；</li>
+</ul>
+</li>
+<li><strong>几个引理：</strong><ul>
+<li>对所有$X \subseteq V, f(X, X)=0$；</li>
+<li>对所有$X, Y \subseteq V, f(X, Y)=-f(Y, X)$；</li>
+<li>对所有$X, Y, Z \subseteq V$，其中$X \cap Y=\varnothing$，有：<ul>
+<li>$f(X \cup Y, Z)=f(X, Z)+f(Y, Z)$；</li>
+<li>$f(Z, X \cup Y)=f(Z, X)+f(Z, Y)$；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Ford-Fulkerson方法"><a href="#2-Ford-Fulkerson方法" class="headerlink" title="2. Ford-Fulkerson方法"></a>2. Ford-Fulkerson方法</h4><ul>
+<li><p>Ford-Fulkerson方法依赖于三种重要思想：</p>
+<ul>
+<li>残留网络（residual network）；</li>
+<li>增广路径（augmenting path）：可以看作是从源点s到汇点t之间的一条路径，沿该路径可以压入更多的流，从而增加流的值；</li>
+<li>割（cut）【用流网络的割来描述最大流的值】；</li>
+</ul>
+</li>
+<li><p>Ford-Fulkerson方法是一种迭代方法：</p>
+<ul>
+<li>初始状态时流的值为0；</li>
+<li>在每次迭代中，可以通过寻找一条”增广路径“来增加流值；</li>
+<li>重复上一步骤，知道所有增广路径均被找出位置；</li>
+</ul>
+</li>
+<li><p>最大流最小割定理说明：当算法停止时，上述过程可以产生最大流；</p>
+</li>
+<li><p><strong>残留网络：</strong>假设$f$为$G$中的一个流，并考察一对顶点$u, v \in V$：</p>
+<ul>
+<li><strong>残留容量</strong>：在不超过容量$c(u,v)$的条件下，从u到v之间可以压入的额外网络流量，就是$(u,v)$的残留容量，定义为：$c_{f}(u, v)=c(u, v)-f(u, v)$；</li>
+<li><strong>残留网络</strong>：给定一个流网络$G=(V,E)$和流$f$，由$f$压得的G的残留网络是$G_{f}=\left(V, E_{f}\right)$, $\begin{equation}<br>E_{f}=\left\{(u, v) \in V \times V: c_{f}(u, v)&gt;0\right\}<br>\end{equation}$；</li>
+</ul>
+</li>
+<li><p><font color='cornflowerblue'><strong>引理1：</strong></font>设$G=(V, E)$是源点为s、汇点为t的一个流网络，且f为G中的一个流。设$G_{f}$是由导出的G的残留网络，且$f^{‘}$为$G_{f}$中的一个流，那么定义$f+f^{‘}$是G中的一个流，其值为$\left|f+f^{\prime}\right|=|f|+\left|f^{\prime}\right|$；</p>
+</li>
+<li><p><strong>增广路径：</strong>残留网络$G_{f}$中从s到t的一条简单路径；</p>
+</li>
+<li><p><strong>残留容量</strong>：能够沿一条增广路径p的每条边传输的网络流的最大量为p的残留容量，定义为：</p>
+<script type="math/tex; mode=display">
+c_{f}(p)=\min \left\{c_{f}(u, v):(u, v)\right. 在  p  上  \}</script></li>
+<li><p><font color='cornflowerblue'><strong>引理2：</strong></font>设$G=(V, E)$是一个流网络，f是G的一个流，并设p是$G_f$中的一条增广路径，定义函数$f_p$为：</p>
+<script type="math/tex; mode=display">
+f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \text { 上 } \\ -c_{f}(p) & \text { 如果 }(v, u) \text { 在 } p \text { 上 } \\ 0 & \text { 否则 }\end{cases}</script><p>​            则定义$f_p$为$G_f$上的一个流。</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>引理3：</strong></font>通过 $f^{\prime}=f+f_{p}$ 定义一个函数 $f^{\prime}: V \times V \rightarrow \mathbf{R}$ ，则 $f^{\prime}$ 是 $G$ 的一个流， 其值$\left|f^{\prime}\right|=|f|+\left|f_{p}\right|&gt;|f|$；</p>
+</li>
+<li><p><strong>网络的最小割：</strong>是网络中所有割中具有最小容量的割；</p>
+</li>
+<li><p><strong>流网络的割：</strong>Ford-Fulkerson方法沿增广路径反复增加流，直至找出最大流时为止。</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>引理4：</strong></font>设f是源点为s，汇点为t的流网络G中的一个流。并且(S，T)是G的一个割。则通过割(S，T)的净流为$f(S,T)=|f|$。</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>引理5：</strong></font>对一个流网络G中任意流f来说，其值的上界为G的任意割的容量；</p>
+</li>
+<li><p><font color='orange'><strong>最大流最小割定理</strong></font>：如果f是具有源点s和汇点t的流网络G=(V,E)中的一个流，则下列条件等价：</p>
+<ul>
+<li>f是G的一个最大流；</li>
+<li>残留网络$G_f$中不包含增广路径；</li>
+<li>对G的某个割(S,T)，有$|f|=c(S,T)$；</li>
+</ul>
+</li>
+<li><p><strong>Ford-Fulkerson算法：</strong></p>
+<ul>
+<li>在每次迭代中，找出任意增广路径$p$，并把沿$p$每条边的流$f$加上其残留容量$c_f(p)$。</li>
+</ul>
+</li>
+<li><p><strong>Edmonds-Karp算法（EK算法）：</strong>使用bfs实现对增广路径$p$的计算；</p>
+</li>
+</ul>
+<h4 id="3-最大流的经典应用：最大二分匹配"><a href="#3-最大流的经典应用：最大二分匹配" class="headerlink" title="3. 最大流的经典应用：最大二分匹配"></a>3. 最大流的经典应用：最大二分匹配</h4><blockquote>
+<p>可以和匈牙利算法进行比较。</p>
+</blockquote>
+<h4 id="4-最大流24题"><a href="#4-最大流24题" class="headerlink" title="4. 最大流24题"></a>4. 最大流24题</h4><ul>
+<li>cracked：<a href="https://blog.csdn.net/wscffaa/article/details/109580593">https://blog.csdn.net/wscffaa/article/details/109580593</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20220101-网络流24题</title>
+    <url>/2022/01/01/20220101-%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="网络流24题"><a href="#网络流24题" class="headerlink" title="网络流24题"></a>网络流24题</h3><h4 id="0-概述"><a href="#0-概述" class="headerlink" title="0. 概述"></a>0. 概述</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>问题编号</th>
+<th>问题名称</th>
+<th>问题模型</th>
+<th>转化模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>飞行员配对方案问题</td>
+<td>二分图最大匹配</td>
+<td>网络最大流</td>
+</tr>
+<tr>
+<td>2</td>
+<td>太空飞行计划问题</td>
+<td>最大权闭合图</td>
+<td>网络最小割</td>
+</tr>
+<tr>
+<td>3</td>
+<td>最小路径覆盖问题</td>
+<td>有向无环图最小路径覆盖</td>
+<td>网络最大流</td>
+</tr>
+<tr>
+<td>4</td>
+<td>魔术球问题</td>
+<td>有向无环图最小路径覆盖</td>
+<td>网络最大流</td>
+</tr>
+<tr>
+<td>5</td>
+<td>圆桌问题</td>
+<td>二分图多重匹配</td>
+<td>网络最大流</td>
+</tr>
+<tr>
+<td>6</td>
+<td>最长递增子序列问题</td>
+<td>最多不相交路径</td>
+<td>网络最大流</td>
+</tr>
+<tr>
+<td>7</td>
+<td>试题库问题</td>
+<td>二分图多重匹配</td>
+<td>网络最大流</td>
+</tr>
+<tr>
+<td>8</td>
+<td>机器人路径规划问题</td>
+<td></td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>9</td>
+<td>方格取数问题</td>
+<td>二分图点权最大独立集</td>
+<td>网络最小割</td>
+</tr>
+<tr>
+<td>10</td>
+<td>餐巾计划问题</td>
+<td>线性规划网络优化</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>11</td>
+<td>航空路线问题</td>
+<td>最长不相交路径</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>12</td>
+<td>软件补丁问题</td>
+<td>最小转移代价</td>
+<td>最短路径</td>
+</tr>
+<tr>
+<td>13</td>
+<td>星际转移问题</td>
+<td>网路判定</td>
+<td>网络最大流</td>
+</tr>
+<tr>
+<td>14</td>
+<td>孤岛营救问题</td>
+<td>分层图最短路径</td>
+<td>最短路径</td>
+</tr>
+<tr>
+<td>15</td>
+<td>汽车加油形式问题</td>
+<td>分层图最短路径</td>
+<td>最短路径</td>
+</tr>
+<tr>
+<td>16</td>
+<td>数字梯形问题</td>
+<td>最大权不相交路径</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>17</td>
+<td>运输问题</td>
+<td>网络费用流量</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>18</td>
+<td>分配问题</td>
+<td>二分图最佳匹配</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>19</td>
+<td>负载平衡问题</td>
+<td>最小代价供求</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>20</td>
+<td>深海机器人问题</td>
+<td>线性规划网络优化</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>21</td>
+<td>最长k可重区间集问题</td>
+<td>最大权不相交路径</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>22</td>
+<td>最长k可重线段集问题</td>
+<td>最大权不相交路径</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>23</td>
+<td>火星探险问题</td>
+<td>线性规划网络优化</td>
+<td>最小费用最大流</td>
+</tr>
+<tr>
+<td>24</td>
+<td>骑士共存问题</td>
+<td>二分图最大独立集</td>
+<td>网络最小割</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<font color='cornflowerblue'> 2022不摆烂: )  </font>
+
+</blockquote>
+]]></content>
+  </entry>
+</search>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon2.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1.ico">
+  <link rel="mask-icon" href="/images/fish-solid.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"phosphenes8.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Weighted Set Cover (WSC)：带权集合覆盖问题 Set Cover Problem研究这个问题，是因为看到论文中提及了Weighted Set Cover (WSC)，并论证该问题是NP-hard的。因此我希望了解什么是Weighted Set Cover。为了说明这个问题，我们首先需要知道集合覆盖(Set Cover)和顶点覆盖(Vertex Cover)的区别。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20211220-Set Cover Problem">
+<meta property="og:url" content="https://phosphenes8.github.io/2021/12/20/20211220-Set-Cover-Problem/index.html">
+<meta property="og:site_name" content="NUKIY BLOG">
+<meta property="og:description" content="Weighted Set Cover (WSC)：带权集合覆盖问题 Set Cover Problem研究这个问题，是因为看到论文中提及了Weighted Set Cover (WSC)，并论证该问题是NP-hard的。因此我希望了解什么是Weighted Set Cover。为了说明这个问题，我们首先需要知道集合覆盖(Set Cover)和顶点覆盖(Vertex Cover)的区别。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200906145403132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTU5OTAyMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200906160725739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTU5OTAyMg==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-12-20T11:27:54.000Z">
+<meta property="article:modified_time" content="2022-01-01T12:59:19.563Z">
+<meta property="article:author" content="PHOSPHENES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200906145403132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTU5OTAyMg==,size_16,color_FFFFFF,t_70">
+
+
+<link rel="canonical" href="https://phosphenes8.github.io/2021/12/20/20211220-Set-Cover-Problem/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://phosphenes8.github.io/2021/12/20/20211220-Set-Cover-Problem/","path":"2021/12/20/20211220-Set-Cover-Problem/","title":"20211220-Set Cover Problem"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20211220-Set Cover Problem | NUKIY BLOG</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NUKIY BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">假如约瑟不曾逃往埃及</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-Cover-Problem"><span class="nav-number">1.</span> <span class="nav-text">Set Cover Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E9%9B%86%E5%90%88%E8%A6%86%E7%9B%96-Set-Cover-%E5%92%8C%E9%A1%B6%E7%82%B9%E8%A6%86%E7%9B%96-Vertex-Cover"><span class="nav-number">1.1.</span> <span class="nav-text">1. 集合覆盖(Set Cover)和顶点覆盖(Vertex Cover)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-Set-Cover"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 Set Cover</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-Vertex-Cover"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 Vertex Cover</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-%E4%BA%8C%E8%80%85%E6%AF%94%E8%BE%83"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 二者比较</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%9B%86%E5%90%88%E8%A6%86%E7%9B%96-Set-Cover-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">2. 集合覆盖(Set Cover)的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-%E7%A9%B7%E4%B8%BE%E6%B3%95-exhausitive-search"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 穷举法 exhausitive search</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95-greedy-search"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 贪心算法 greedy search</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-%E6%95%B0%E5%AD%A6%E8%BD%AC%E5%8C%96-math-formulation"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 数学转化 math formulation</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%8F%82%E8%80%83"><span class="nav-number">1.3.</span> <span class="nav-text">3. 参考</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PHOSPHENES"
+      src="/images/cat2.png">
+  <p class="site-author-name" itemprop="name">PHOSPHENES</p>
+  <div class="site-description" itemprop="description">Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/3z6XUommYDWPHeFhmhhT6j" style="border-radius: 20px; width="200" height="280" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://phosphenes8.github.io/2021/12/20/20211220-Set-Cover-Problem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat2.png">
+      <meta itemprop="name" content="PHOSPHENES">
+      <meta itemprop="description" content="Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NUKIY BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20211220-Set Cover Problem
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-20 19:27:54" itemprop="dateCreated datePublished" datetime="2021-12-20T19:27:54+08:00">2021-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-01 20:59:19" itemprop="dateModified" datetime="2022-01-01T20:59:19+08:00">2022-01-01</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>Weighted Set Cover (WSC)</strong>：带权集合覆盖问题</p>
+<h3 id="Set-Cover-Problem"><a href="#Set-Cover-Problem" class="headerlink" title="Set Cover Problem"></a>Set Cover Problem</h3><p>研究这个问题，是因为看到论文中提及了Weighted Set Cover (WSC)，并论证该问题是NP-hard的。因此我希望了解什么是Weighted Set Cover。为了说明这个问题，我们首先需要知道<font color='cornflowerblue'><strong>集合覆盖(Set Cover)</strong></font>和<font color='cornflowerblue'><strong>顶点覆盖(Vertex Cover)</strong></font>的区别。</p>
+<span id="more"></span>
+<h4 id="1-集合覆盖-Set-Cover-和顶点覆盖-Vertex-Cover"><a href="#1-集合覆盖-Set-Cover-和顶点覆盖-Vertex-Cover" class="headerlink" title="1. 集合覆盖(Set Cover)和顶点覆盖(Vertex Cover)"></a>1. 集合覆盖(Set Cover)和顶点覆盖(Vertex Cover)</h4><h5 id="1-1-Set-Cover"><a href="#1-1-Set-Cover" class="headerlink" title="1.1 Set Cover"></a>1.1 Set Cover</h5><ul>
+<li><strong>定义</strong></li>
+<li>有包含了m个元素的集合A（注意，集合是无序的，并且包含的元素也是不相同的）。现有n个集合，分别为${B_1,B_2,…,B_n}$，这n个集合的并集恰好等于A集合，即: $A=B_{1} \cup B_{2} \cup B_{3} \cup \ldots \cup B_{n}$。<ul>
+<li><strong>问题</strong>：是否存在B集合的最小子集，且他们的并集也等于A集合？</li>
+<li><strong>举例</strong>：集合$A=\{1,2,3,4,5\}$，集合$B=\{\{1,2,3\},\{2,4\},\{3,4\},\{4,5\}\}$。可以看出，B集合的并集恰好等于A集合，那么问题的解是$SETCOVER=\{\{1,2,3\},\{4,5\}\}$。</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-2-Vertex-Cover"><a href="#1-2-Vertex-Cover" class="headerlink" title="1.2 Vertex Cover"></a>1.2 Vertex Cover</h5><ul>
+<li><p><strong>定义</strong></p>
+<blockquote>
+<p>有图G=(V, E)，是否存在V的子集V’，使得|V’|&lt;=|V|，并且G中的每条边e，至少有一个顶点在$|V^{‘}|$中？</p>
+</blockquote>
+</li>
+<li><p>这个问题有一个NPO（No Optimization Problem）的变种，即：找到满足条件的最小顶点集，也就是使得满足条件下最小值$|V^{‘}|$。</p>
+</li>
+</ul>
+<h5 id="1-3-二者比较"><a href="#1-3-二者比较" class="headerlink" title="1.3 二者比较"></a>1.3 二者比较</h5><ul>
+<li>这是两类完全不同的问题，set cover属于集合一类问题，应用于计算机科学以及计算理论方面。vertex cover，属于图论一类问题，应用于计算机科学、计算理论、图论、数学等等方面。</li>
+</ul>
+<h4 id="2-集合覆盖-Set-Cover-的解决方案"><a href="#2-集合覆盖-Set-Cover-的解决方案" class="headerlink" title="2. 集合覆盖(Set Cover)的解决方案"></a>2. 集合覆盖(Set Cover)的解决方案</h4><p>现在我们希望对集合覆盖问题的解决方案进行说明。</p>
+<h5 id="2-1-穷举法-exhausitive-search"><a href="#2-1-穷举法-exhausitive-search" class="headerlink" title="2.1 穷举法 exhausitive search"></a>2.1 穷举法 exhausitive search</h5><blockquote>
+<p><strong>思想</strong>：首先遍历一遍单个子集，看看有无覆盖的。没有则再组合两个子集看有无全覆盖的。没有再组合三个子集……</p>
+<p><strong>特点</strong>：暴力但简单</p>
+</blockquote>
+<h5 id="2-2-贪心算法-greedy-search"><a href="#2-2-贪心算法-greedy-search" class="headerlink" title="2.2 贪心算法 greedy search"></a>2.2 贪心算法 greedy search</h5><blockquote>
+<p><strong>思想</strong>：循环直到不满足条件 输出子集个数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> si in S:</span><br><span class="line">    S-si == u</span><br><span class="line">    <span class="keyword">delete</span> si</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ki in S-si:</span><br><span class="line">    <span class="keyword">if</span> S-si-ki == U:</span><br><span class="line">    <span class="keyword">delete</span>  ki</span><br><span class="line">    <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p><strong>特点</strong>：不一定是全局最优的，但是可以满足大部分情况</p>
+</blockquote>
+<h5 id="2-3-数学转化-math-formulation"><a href="#2-3-数学转化-math-formulation" class="headerlink" title="2.3 数学转化 math formulation"></a>2.3 数学转化 math formulation</h5><blockquote>
+<p><strong>思路</strong>：将问题转成一个integer liner problem，然后再松弛成liner problem 进行求解。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200906145403132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTU5OTAyMg==,size_16,color_FFFFFF,t_70" alt="1"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200906160725739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTU5OTAyMg==,size_16,color_FFFFFF,t_70" alt="2"></p>
+</blockquote>
+<h4 id="3-参考"><a href="#3-参考" class="headerlink" title="3. 参考"></a>3. 参考</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/set-cover-problem-set-1-greedy-approximate-algorithm/">GeeksforGeeks</a></li>
+<li>Set Cover Problem | Set 1 (Greedy Approximate Algorithm)</li>
+<li>Vertex Cover Problem | Set 1 (Introduction and Approximate Algorithm)</li>
+<li>Vertex Cover Problem | Set 2 (Dynamic Programming Solution for Tree)</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>PHOSPHENES
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://phosphenes8.github.io/2021/12/20/20211220-Set-Cover-Problem/" title="20211220-Set Cover Problem">https://phosphenes8.github.io/2021/12/20/20211220-Set-Cover-Problem/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/19/20211219-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/" rel="prev" title="20211219-集成学习">
+                  <i class="fa fa-chevron-left"></i> 20211219-集成学习
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/" rel="next" title="20211221-Pareto最优">
+                  20211221-Pareto最优 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PHOSPHENES</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">36k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">33 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
