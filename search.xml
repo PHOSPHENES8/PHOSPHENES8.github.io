@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Intall Macintosh on My Windows</title>
+    <url>/2021/09/02/20210902-Intall%20Macintosh%20on%20My%20Windows/</url>
+    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>由于Windows和Linux无法愉快地观看.u3m8，于是乎不得不使用IOS系统。</p>
+<h3 id="装机过程"><a href="#装机过程" class="headerlink" title="装机过程"></a>装机过程</h3><p><a href="https://www.cnblogs.com/bad5/p/13251570.html">https://www.cnblogs.com/bad5/p/13251570.html</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Basic Concepts about Satellite</title>
     <url>/2021/10/15/20211015-Concepts-about-Satellite/</url>
     <content><![CDATA[<h1 id="初识卫星"><a href="#初识卫星" class="headerlink" title="初识卫星"></a>初识卫星</h1><ul>
@@ -59,44 +66,6 @@
 <li><a href="https://www.cnblogs.com/dragonsuc/p/10993938.html">https://www.cnblogs.com/dragonsuc/p/10993938.html</a></li>
 <li><a href="http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html">http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html</a>)</li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Intall Macintosh on My Windows</title>
-    <url>/2021/09/02/20210902-Intall%20Macintosh%20on%20My%20Windows/</url>
-    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>由于Windows和Linux无法愉快地观看.u3m8，于是乎不得不使用IOS系统。</p>
-<h3 id="装机过程"><a href="#装机过程" class="headerlink" title="装机过程"></a>装机过程</h3><p><a href="https://www.cnblogs.com/bad5/p/13251570.html">https://www.cnblogs.com/bad5/p/13251570.html</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>DNS、MAC和IP</title>
-    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
-    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
-<li>网址名称（便于记忆）：www.qq.com</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p>真正地址：139.180.132.25</p>
-<blockquote>
-<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
-<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
-<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
-</blockquote>
-</li>
-<li><p>DNS分级查询</p>
-<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
-</li>
-</ul>
-<blockquote>
-<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
-<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
-</blockquote>
-<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
-<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
-<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
-<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
-<p>略，京东自营… …</p>
-</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -243,6 +212,37 @@
 <li><p><a href="https://www.bilibili.com/video/BV1Gh411y7LS?spm_id_from=333.999.0.0">Demo</a>【4’50】</p>
 </li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>DNS、MAC和IP</title>
+    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
+    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
+<li>网址名称（便于记忆）：www.qq.com</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p>真正地址：139.180.132.25</p>
+<blockquote>
+<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
+<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
+<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
+</blockquote>
+</li>
+<li><p>DNS分级查询</p>
+<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
+</li>
+</ul>
+<blockquote>
+<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
+<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
+</blockquote>
+<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
+<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
+<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
+<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
+<p>略，京东自营… …</p>
+</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -664,6 +664,28 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>边缘计算</title>
+    <url>/2021/10/20/20211020-%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h3><blockquote>
+<p>云计算是一种利用互联网实现随时随地、按需便捷地使用共享计算设施。</p>
+<p>目前的物联网模式，云计算平台，面临海量设备信息接入，功耗过高，带宽不够等难度，很难实时返回数据。</p>
+<p>【优点】资源共享、数据集中处理，可以节约资源</p>
+<p>【缺点】完全依赖云计算的计算机系统，就好比所有的事情都要请示司令部的军队，在需要大量和外界互动时，会显得僵化、反应迟缓；而且如果网络存在问题，就彻底凉凉。</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="边缘计算【数据近端处理】"><a href="#边缘计算【数据近端处理】" class="headerlink" title="边缘计算【数据近端处理】"></a>边缘计算【数据近端处理】</h3><blockquote>
+<p>【定义】在物或者数据源头的一侧采用网络、存储、计算、应用核心能力于一体的开放平台就近提供最近端服务。</p>
+<p>好比让中间的各级军官也开始发挥主观能动性，因此能在一定程度上做出智能判断和行动决策，同时只需要将一部分筛选的信息上传到司令部，大大缓解了网络通讯的压力。即使在和司令部失去联系的情况下，也能做出一部分的决策。</p>
+<p>【优点】边缘计算不仅能缓解网络宽带和数据中心的压力，而且还能提升服务相应能力，保护隐私数据，做到速度、安全、可拓展性、功能性、可靠性合为一体。<strong>适用于计算量极大的情况。</strong></p>
+<p>【关键】边缘计算的关键是边缘设备——“终端”。终端的开发需要使用高云算力的处理芯片来支持（AI领域逐渐衍生出嵌入式神经网络处理器NPU）</p>
+</blockquote>
+<h3 id="雾计算"><a href="#雾计算" class="headerlink" title="雾计算"></a>雾计算</h3><blockquote>
+<p>介于云计算和边缘计算两者之间。</p>
+<p>雾计算是比云计算更靠近地面的云，可以把一些云不需要的数据直接在这一层进行存储和处理，可以减少云的压力，进而提高传输速度，降低时延。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>Erasure Code</title>
     <url>/2021/10/21/20211021-Erasure-Code/</url>
     <content><![CDATA[<h3 id="Erasure-Code纠删码"><a href="#Erasure-Code纠删码" class="headerlink" title="Erasure Code纠删码"></a>Erasure Code纠删码</h3><ul>
@@ -702,28 +724,6 @@ STARLINK-1008
 <li><a href="https://blog.csdn.net/sinat_27186785/article/details/52034588">https://blog.csdn.net/sinat_27186785/article/details/52034588</a></li>
 <li><a href="https://blog.csdn.net/shelldon/article/details/54144730">https://blog.csdn.net/shelldon/article/details/54144730</a></li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>边缘计算</title>
-    <url>/2021/10/20/20211020-%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h3><blockquote>
-<p>云计算是一种利用互联网实现随时随地、按需便捷地使用共享计算设施。</p>
-<p>目前的物联网模式，云计算平台，面临海量设备信息接入，功耗过高，带宽不够等难度，很难实时返回数据。</p>
-<p>【优点】资源共享、数据集中处理，可以节约资源</p>
-<p>【缺点】完全依赖云计算的计算机系统，就好比所有的事情都要请示司令部的军队，在需要大量和外界互动时，会显得僵化、反应迟缓；而且如果网络存在问题，就彻底凉凉。</p>
-</blockquote>
-<span id="more"></span>
-<h3 id="边缘计算【数据近端处理】"><a href="#边缘计算【数据近端处理】" class="headerlink" title="边缘计算【数据近端处理】"></a>边缘计算【数据近端处理】</h3><blockquote>
-<p>【定义】在物或者数据源头的一侧采用网络、存储、计算、应用核心能力于一体的开放平台就近提供最近端服务。</p>
-<p>好比让中间的各级军官也开始发挥主观能动性，因此能在一定程度上做出智能判断和行动决策，同时只需要将一部分筛选的信息上传到司令部，大大缓解了网络通讯的压力。即使在和司令部失去联系的情况下，也能做出一部分的决策。</p>
-<p>【优点】边缘计算不仅能缓解网络宽带和数据中心的压力，而且还能提升服务相应能力，保护隐私数据，做到速度、安全、可拓展性、功能性、可靠性合为一体。<strong>适用于计算量极大的情况。</strong></p>
-<p>【关键】边缘计算的关键是边缘设备——“终端”。终端的开发需要使用高云算力的处理芯片来支持（AI领域逐渐衍生出嵌入式神经网络处理器NPU）</p>
-</blockquote>
-<h3 id="雾计算"><a href="#雾计算" class="headerlink" title="雾计算"></a>雾计算</h3><blockquote>
-<p>介于云计算和边缘计算两者之间。</p>
-<p>雾计算是比云计算更靠近地面的云，可以把一些云不需要的数据直接在这一层进行存储和处理，可以减少云的压力，进而提高传输速度，降低时延。</p>
-</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -792,26 +792,6 @@ STARLINK-1008
 <li><a href="https://blog.csdn.net/caijibai/article/details/120176707">用STK导入段时间TLE数据</a></li>
 <li>STK学习资料：<a href="https://blog.csdn.net/stk10/category_1364277.html">https://blog.csdn.net/stk10/category_1364277.html</a></li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Django-2-Git&amp;Docker部署</title>
-    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
-<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
-<span id="more"></span>
-<blockquote>
-<p>Host server1</p>
-<p>​    HostName: 公网IP 139.224.111.142</p>
-<p>​    UserName: kunkun</p>
-</blockquote>
-<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
-<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
-<ul>
-<li>ssh server1</li>
-<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
-</ul>
-</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -888,11 +868,23 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>Orbit Phasing</title>
-    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
-    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
+    <title>Django-2-Git&amp;Docker部署</title>
+    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
+<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
+<span id="more"></span>
+<blockquote>
+<p>Host server1</p>
+<p>​    HostName: 公网IP 139.224.111.142</p>
+<p>​    UserName: kunkun</p>
+</blockquote>
+<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
+<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
+<ul>
+<li>ssh server1</li>
+<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
 </ul>
+</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -923,44 +915,11 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>STK-1-propagator</title>
-    <url>/2021/11/02/20211102-STK-1-propagator/</url>
-    <content><![CDATA[<h1 id="STK-Propagator-轨道预报模型"><a href="#STK-Propagator-轨道预报模型" class="headerlink" title="STK-Propagator 轨道预报模型"></a>STK-Propagator 轨道预报模型</h1><ul>
-<li>STK提供了2种形式的<font color='red'><strong>卫星轨道预报算法</strong></font>：<ul>
-<li>解析算法：通过求解卫星运动的微分方程得到一个近似解析解来获得卫星星历表，或直接给出卫星在各个特定时刻的位置和速度信息；</li>
-<li>数值算法：过对卫星运动方程的数值积分来实现的．STK中所有标准的算法均为解析法．</li>
+    <title>Orbit Phasing</title>
+    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
+    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
 </ul>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li>STK中提供的<font color='red'><strong>轨道预报模型</strong></font>包括：<ul>
-<li>TwoBody：二体模型，又叫开普勒运动模型，它只考虑地球对卫星的引力，此时地球等效为一个质点</li>
-<li>J2 Perturbation：J2 Perturbation一阶模型考虑了因地球的非正球体中J2系数导致的卫星轨道要素的长期变化．J2是地球非球形引力值无穷级数表达式中的一个带谐项系数，此系数代表了地球非正球体所带来的最重要的效应．在该模型中J2系数是唯一导致卫星轨道要素发生长期变化的因素．J2摄动算法就包括了J2参数所带来的一阶长期效应．</li>
-<li>J4 Perturbation：J4 Perturbation二阶模型同样考虑地球的非正球体导致的卫星轨道要素的长期变化，与J2 Perturbation不同的是它不仅考虑J2系数的一阶效应，还考虑了J4系数所代表的偶次带谐项对轨道参数的影响(没考虑代表长周期效应的J3系数)．J4系数代表的地球非正球体引力摄动大概比J2系数要小1000倍，所以，这两种预报模型得出的卫星轨道差别很小．</li>
-<li>HPOP(The High-precision orbit propagator)：高精度轨道预报模型，可以用来处理轨道高度从地球表面到月球表面甚至更远的任何圆形、椭圆、抛物线和双曲线轨道．这种模型在某一历元下生成卫星轨道时所需设置的参数与二体模型、J2模型和J4模型是相同的．</li>
-<li>MSGP4(The Merged Simplified General Perturbations)：MSGP4模型是一个符合北美防空司令部标准的预报算法模型．该模型全面考虑了地球的非正球体、日月引力以及引力谐振因素带来的长期和周期效应，并使用了一个简单的大气模型来考虑轨道衰减的问题．</li>
-<li>LOP(The Long—term orbit propagator)：长期轨道预报模型，可以获得较长时间间隔，如数月甚至几年内的高精度轨道预报数据．LOP和二体、J2和J4模型使用相同的轨道设置参数．</li>
-<li>StkExtemal：能够从一个带有．e扩展名的文件读取一个卫星的星历表．</li>
-<li>PODS(Precision Orbit Determination Systern)：精确定轨系统，PODS可根据提供的卫星跟踪数据确定相应的卫星轨道和参数，其中处理的卫星跟踪数据包括由地面站、TPRSS和GPS提供的各种精度、距离、星间距离和位置等信息．</li>
-<li>SPICE(Spacecraft Planet Instrument C—Matrix and Event)：可以从SPICE工具包里引入一个星历表文件．</li>
-<li>Astrogator：利用该模型可动态显示卫星轨道机动等情况．</li>
-<li>Real Time：该模型可引入实时数据以实时更新轨道．</li>
-</ul>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>STK-2-stkSetPropClassical</title>
-    <url>/2021/11/02/20211102-STK-2-stkSetPropClassical/</url>
-    <content><![CDATA[<p>create_LEO.m：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">stkSetPropClassical(sat_no,<span class="string">&#x27;J4Perturbation&#x27;</span>,<span class="string">&#x27;J2000&#x27;</span>,<span class="number">0.0</span>,tStop,dT,<span class="number">0</span>,<span class="number">6371000</span> + Altitude * <span class="number">10</span>^<span class="number">3</span>,<span class="number">0.0</span>,inc,<span class="number">0.0</span>,ra,ma);</span><br><span class="line"><span class="comment">% &#x27;J4Perturbation&#x27;: 表示该卫星运动使用的力学模型</span></span><br><span class="line"><span class="comment">% &#x27;J2000&#x27;: 卫星使用的坐标系</span></span><br><span class="line"><span class="comment">% &#x27;6371000 + Altitude * 10^3&#x27;: 轨道高度（包括了地球半径）</span></span><br><span class="line"><span class="comment">% &#x27;ra&#x27;: 轨道的RAAN（right ascension of the ascending node）值</span></span><br><span class="line"><span class="comment">% &#x27;ma&#x27;: 轨道的平近点角（mean anomaly） ，它确定了卫星在轨道上的位置</span></span><br><span class="line"><span class="comment">% Inc的范围是0°~90°，raan的范围是0°~180°，mean anomaly的范围是0°~360°</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>查找资料：</p>
-<p><img src="/images/doc/3.png" alt="image-20211102221622171" style="zoom:80%;" /></p>
-<p> <img src="/images/doc/2.png" alt="image-20211102215108648" style="zoom:80%;" /></p>
-<p><img src="/images/doc/1.png" alt="image-20211102223038446" style="zoom: 67%;" /></p>
 ]]></content>
   </entry>
   <entry>
@@ -1029,6 +988,47 @@ STARLINK-1008
 <li><a href="https://astrome.net/blogs/the-art-of-satellite-constellation-design-what-you-need-to-know/">https://astrome.net/blogs/the-art-of-satellite-constellation-design-what-you-need-to-know/</a></li>
 <li><a href="http://www.jos.org.cn/html/2014/5/4581.htm#outline_anchor_17">http://www.jos.org.cn/html/2014/5/4581.htm#outline_anchor_17</a></li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>STK-1-propagator</title>
+    <url>/2021/11/02/20211102-STK-1-propagator/</url>
+    <content><![CDATA[<h1 id="STK-Propagator-轨道预报模型"><a href="#STK-Propagator-轨道预报模型" class="headerlink" title="STK-Propagator 轨道预报模型"></a>STK-Propagator 轨道预报模型</h1><ul>
+<li>STK提供了2种形式的<font color='red'><strong>卫星轨道预报算法</strong></font>：<ul>
+<li>解析算法：通过求解卫星运动的微分方程得到一个近似解析解来获得卫星星历表，或直接给出卫星在各个特定时刻的位置和速度信息；</li>
+<li>数值算法：过对卫星运动方程的数值积分来实现的．STK中所有标准的算法均为解析法．</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>STK中提供的<font color='red'><strong>轨道预报模型</strong></font>包括：<ul>
+<li>TwoBody：二体模型，又叫开普勒运动模型，它只考虑地球对卫星的引力，此时地球等效为一个质点</li>
+<li>J2 Perturbation：J2 Perturbation一阶模型考虑了因地球的非正球体中J2系数导致的卫星轨道要素的长期变化．J2是地球非球形引力值无穷级数表达式中的一个带谐项系数，此系数代表了地球非正球体所带来的最重要的效应．在该模型中J2系数是唯一导致卫星轨道要素发生长期变化的因素．J2摄动算法就包括了J2参数所带来的一阶长期效应．</li>
+<li>J4 Perturbation：J4 Perturbation二阶模型同样考虑地球的非正球体导致的卫星轨道要素的长期变化，与J2 Perturbation不同的是它不仅考虑J2系数的一阶效应，还考虑了J4系数所代表的偶次带谐项对轨道参数的影响(没考虑代表长周期效应的J3系数)．J4系数代表的地球非正球体引力摄动大概比J2系数要小1000倍，所以，这两种预报模型得出的卫星轨道差别很小．</li>
+<li>HPOP(The High-precision orbit propagator)：高精度轨道预报模型，可以用来处理轨道高度从地球表面到月球表面甚至更远的任何圆形、椭圆、抛物线和双曲线轨道．这种模型在某一历元下生成卫星轨道时所需设置的参数与二体模型、J2模型和J4模型是相同的．</li>
+<li>MSGP4(The Merged Simplified General Perturbations)：MSGP4模型是一个符合北美防空司令部标准的预报算法模型．该模型全面考虑了地球的非正球体、日月引力以及引力谐振因素带来的长期和周期效应，并使用了一个简单的大气模型来考虑轨道衰减的问题．</li>
+<li>LOP(The Long—term orbit propagator)：长期轨道预报模型，可以获得较长时间间隔，如数月甚至几年内的高精度轨道预报数据．LOP和二体、J2和J4模型使用相同的轨道设置参数．</li>
+<li>StkExtemal：能够从一个带有．e扩展名的文件读取一个卫星的星历表．</li>
+<li>PODS(Precision Orbit Determination Systern)：精确定轨系统，PODS可根据提供的卫星跟踪数据确定相应的卫星轨道和参数，其中处理的卫星跟踪数据包括由地面站、TPRSS和GPS提供的各种精度、距离、星间距离和位置等信息．</li>
+<li>SPICE(Spacecraft Planet Instrument C—Matrix and Event)：可以从SPICE工具包里引入一个星历表文件．</li>
+<li>Astrogator：利用该模型可动态显示卫星轨道机动等情况．</li>
+<li>Real Time：该模型可引入实时数据以实时更新轨道．</li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>STK-2-stkSetPropClassical</title>
+    <url>/2021/11/02/20211102-STK-2-stkSetPropClassical/</url>
+    <content><![CDATA[<p>create_LEO.m：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">stkSetPropClassical(sat_no,<span class="string">&#x27;J4Perturbation&#x27;</span>,<span class="string">&#x27;J2000&#x27;</span>,<span class="number">0.0</span>,tStop,dT,<span class="number">0</span>,<span class="number">6371000</span> + Altitude * <span class="number">10</span>^<span class="number">3</span>,<span class="number">0.0</span>,inc,<span class="number">0.0</span>,ra,ma);</span><br><span class="line"><span class="comment">% &#x27;J4Perturbation&#x27;: 表示该卫星运动使用的力学模型</span></span><br><span class="line"><span class="comment">% &#x27;J2000&#x27;: 卫星使用的坐标系</span></span><br><span class="line"><span class="comment">% &#x27;6371000 + Altitude * 10^3&#x27;: 轨道高度（包括了地球半径）</span></span><br><span class="line"><span class="comment">% &#x27;ra&#x27;: 轨道的RAAN（right ascension of the ascending node）值</span></span><br><span class="line"><span class="comment">% &#x27;ma&#x27;: 轨道的平近点角（mean anomaly） ，它确定了卫星在轨道上的位置</span></span><br><span class="line"><span class="comment">% Inc的范围是0°~90°，raan的范围是0°~180°，mean anomaly的范围是0°~360°</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>查找资料：</p>
+<p><img src="/images/doc/3.png" alt="image-20211102221622171" style="zoom:80%;" /></p>
+<p> <img src="/images/doc/2.png" alt="image-20211102215108648" style="zoom:80%;" /></p>
+<p><img src="/images/doc/1.png" alt="image-20211102223038446" style="zoom: 67%;" /></p>
 ]]></content>
   </entry>
   <entry>
