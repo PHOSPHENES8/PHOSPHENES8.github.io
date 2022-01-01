@@ -136,6 +136,37 @@
 ]]></content>
   </entry>
   <entry>
+    <title>DNS、MAC和IP</title>
+    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
+    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
+<li>网址名称（便于记忆）：www.qq.com</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p>真正地址：139.180.132.25</p>
+<blockquote>
+<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
+<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
+<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
+</blockquote>
+</li>
+<li><p>DNS分级查询</p>
+<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
+</li>
+</ul>
+<blockquote>
+<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
+<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
+</blockquote>
+<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
+<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
+<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
+<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
+<p>略，京东自营… …</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>DNS的工作原理</title>
     <url>/2021/10/18/20211018-DNS%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1 id="DNS域名系统"><a href="#DNS域名系统" class="headerlink" title="DNS域名系统"></a>DNS域名系统</h1><h3 id="0-引入"><a href="#0-引入" class="headerlink" title="0. 引入"></a>0. 引入</h3><ul>
@@ -215,37 +246,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>DNS、MAC和IP</title>
-    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
-    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
-<li>网址名称（便于记忆）：www.qq.com</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p>真正地址：139.180.132.25</p>
-<blockquote>
-<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
-<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
-<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
-</blockquote>
-</li>
-<li><p>DNS分级查询</p>
-<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
-</li>
-</ul>
-<blockquote>
-<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
-<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
-</blockquote>
-<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
-<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
-<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
-<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
-<p>略，京东自营… …</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
     <title>TCP&amp;UDP、三次握手&amp;四次挥手</title>
     <url>/2021/10/19/20211019-TCP-UDP%E3%80%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
     <content><![CDATA[<p><strong>TCP和UDP的区别：</strong>TCP和UDP都工作在传输层，目标都是在程序之间传输数据；</p>
@@ -309,68 +309,6 @@ STARLINK-1008
 <li><a href="https://www.youtube.com/watch?v=NQTtFrhSNDk">https://www.youtube.com/watch?v=NQTtFrhSNDk</a></li>
 <li><a href="https://www.youtube.com/watch?v=u4rYYbBdr28">https://www.youtube.com/watch?v=u4rYYbBdr28</a></li>
 <li><a href="https://zh.wikipedia.org/wiki/%E4%B8%A4%E8%A1%8C%E8%BD%A8%E9%81%93%E8%A6%81%E7%B4%A0%E5%BD%A2%E5%BC%8F">https://zh.wikipedia.org/wiki/%E4%B8%A4%E8%A1%8C%E8%BD%A8%E9%81%93%E8%A6%81%E7%B4%A0%E5%BD%A2%E5%BC%8F</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>交换机&amp;路由器、网关&amp;路由</title>
-    <url>/2021/10/19/20211019-%E4%BA%A4%E6%8D%A2%E6%9C%BA-%E8%B7%AF%E7%94%B1%E5%99%A8%E3%80%81%E7%BD%91%E5%85%B3-%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<h3 id="交换机和路由器"><a href="#交换机和路由器" class="headerlink" title="交换机和路由器"></a>交换机和路由器</h3><ul>
-<li><p><strong>交换机【二层设备】</strong>：把数据包发送到正确的位置；</p>
-<blockquote>
-<p>交换机相当于邮递员，根据数据包中的目标mac地址，找到对应的物理端口。</p>
-<p>一台交换机有很多个端口，都有自己的编号。这个端口就是一个确定的物理位置</p>
-<p>计算机的网卡通过网线连接到交换机的网口上。</p>
-<p>我们只要知道某个网卡的mac地址在哪个端口上，我们就能正确地把数据包发送给他。</p>
-<p>因此在交换机中，有一张端口和mac地址的映射关系表<strong>【MAC地址表】</strong>；</p>
-<p>将要和某个mac地址通信的时候，只要查询一下这个mac地址在哪个端口上，然后从对应的端口上发送出去就可以了；</p>
-<p>每一个数据包都会有两个mac地址：</p>
-<ul>
-<li>源mac：发送方的mac地址；</li>
-<li>目标mac：接收方的mac地址；</li>
-</ul>
-<p>交换机收到数据包后，首先要将数据包的源mac与接收端口绑定；然后交换机要根据目标mac决定从哪个端口把数据包发送出去</p>
-<p><img src="\images\doc\15.png" alt="image-20211019093349527" style="zoom:50%;" /></p>
-</blockquote>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p><strong>路由器</strong>：</p>
-<ul>
-<li><p>两种端口</p>
-<ul>
-<li>LAN口：可以有多个，用来接家庭网络设备</li>
-<li><p>WAN口：只有一个，用来连接运营商网络</p>
-<p><img src="\images\doc\16.png" alt="image-20211019093547048" style="zoom:50%;" /></p>
-</li>
-</ul>
-</li>
-<li><p>如果把路由器的WAN口忽略，只用LAN口，实际上路由器就相当于交换机；</p>
-</li>
-<li><p>考虑到WAN口，需要引入<strong>网关</strong>的概念；</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="网关和路由"><a href="#网关和路由" class="headerlink" title="网关和路由"></a>网关和路由</h3><ul>
-<li><p>子网划分：IP地址、子网掩码按位相与【若相与的结果相同，则可认为是在同一个子网中】</p>
-</li>
-<li><p>TCP/IP规定：不同子网之间是不能直接通讯的，如果要通信则需要通过<strong>网关</strong>来进行转发；</p>
-<p> <img src="\images\doc\17.png" alt="image-20211019094140592" style="zoom:50%;" /></p>
-</li>
-<li><p>网关</p>
-</li>
-<li><p>路由：根据目标IP判断如何发送</p>
-<ul>
-<li>两个端口：<ul>
-<li>WAN口：只有一个，用来接入互联网；</li>
-<li>LAN口：有多个，用来接入本地网络；</li>
-</ul>
-</li>
-<li><img src="\images\doc\18.png" alt="image-20211019094328263" style="zoom:50%;" /></li>
-</ul>
-</li>
 </ul>
 ]]></content>
   </entry>
@@ -439,6 +377,68 @@ STARLINK-1008
 <li>卫星信号接收终端的技术有待提升；</li>
 </ul>
 </blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>交换机&amp;路由器、网关&amp;路由</title>
+    <url>/2021/10/19/20211019-%E4%BA%A4%E6%8D%A2%E6%9C%BA-%E8%B7%AF%E7%94%B1%E5%99%A8%E3%80%81%E7%BD%91%E5%85%B3-%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<h3 id="交换机和路由器"><a href="#交换机和路由器" class="headerlink" title="交换机和路由器"></a>交换机和路由器</h3><ul>
+<li><p><strong>交换机【二层设备】</strong>：把数据包发送到正确的位置；</p>
+<blockquote>
+<p>交换机相当于邮递员，根据数据包中的目标mac地址，找到对应的物理端口。</p>
+<p>一台交换机有很多个端口，都有自己的编号。这个端口就是一个确定的物理位置</p>
+<p>计算机的网卡通过网线连接到交换机的网口上。</p>
+<p>我们只要知道某个网卡的mac地址在哪个端口上，我们就能正确地把数据包发送给他。</p>
+<p>因此在交换机中，有一张端口和mac地址的映射关系表<strong>【MAC地址表】</strong>；</p>
+<p>将要和某个mac地址通信的时候，只要查询一下这个mac地址在哪个端口上，然后从对应的端口上发送出去就可以了；</p>
+<p>每一个数据包都会有两个mac地址：</p>
+<ul>
+<li>源mac：发送方的mac地址；</li>
+<li>目标mac：接收方的mac地址；</li>
+</ul>
+<p>交换机收到数据包后，首先要将数据包的源mac与接收端口绑定；然后交换机要根据目标mac决定从哪个端口把数据包发送出去</p>
+<p><img src="\images\doc\15.png" alt="image-20211019093349527" style="zoom:50%;" /></p>
+</blockquote>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p><strong>路由器</strong>：</p>
+<ul>
+<li><p>两种端口</p>
+<ul>
+<li>LAN口：可以有多个，用来接家庭网络设备</li>
+<li><p>WAN口：只有一个，用来连接运营商网络</p>
+<p><img src="\images\doc\16.png" alt="image-20211019093547048" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+<li><p>如果把路由器的WAN口忽略，只用LAN口，实际上路由器就相当于交换机；</p>
+</li>
+<li><p>考虑到WAN口，需要引入<strong>网关</strong>的概念；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="网关和路由"><a href="#网关和路由" class="headerlink" title="网关和路由"></a>网关和路由</h3><ul>
+<li><p>子网划分：IP地址、子网掩码按位相与【若相与的结果相同，则可认为是在同一个子网中】</p>
+</li>
+<li><p>TCP/IP规定：不同子网之间是不能直接通讯的，如果要通信则需要通过<strong>网关</strong>来进行转发；</p>
+<p> <img src="\images\doc\17.png" alt="image-20211019094140592" style="zoom:50%;" /></p>
+</li>
+<li><p>网关</p>
+</li>
+<li><p>路由：根据目标IP判断如何发送</p>
+<ul>
+<li>两个端口：<ul>
+<li>WAN口：只有一个，用来接入互联网；</li>
+<li>LAN口：有多个，用来接入本地网络；</li>
+</ul>
+</li>
+<li><img src="\images\doc\18.png" alt="image-20211019094328263" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -783,18 +783,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>Import TLE data into STK</title>
-    <url>/2021/10/29/20211029-Import-TLE-data-into-STK/</url>
-    <content><![CDATA[<h3 id="Matlab函数说明"><a href="#Matlab函数说明" class="headerlink" title="Matlab函数说明"></a>Matlab函数说明</h3><ul>
-<li>lla2ecef: Convert geodetic coordinates to Earth-centered Earth-fixed coordinates</li>
-</ul>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><a href="https://blog.csdn.net/caijibai/article/details/120176707">用STK导入段时间TLE数据</a></li>
-<li>STK学习资料：<a href="https://blog.csdn.net/stk10/category_1364277.html">https://blog.csdn.net/stk10/category_1364277.html</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Django-1.概论和python语法</title>
     <url>/2021/10/31/20211031-Django-1-%E6%A6%82%E8%AE%BA%E5%92%8Cpython%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<ul>
@@ -868,23 +856,15 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>Django-2-Git&amp;Docker部署</title>
-    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
-<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
-<span id="more"></span>
-<blockquote>
-<p>Host server1</p>
-<p>​    HostName: 公网IP 139.224.111.142</p>
-<p>​    UserName: kunkun</p>
-</blockquote>
-<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
-<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
-<ul>
-<li>ssh server1</li>
-<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
+    <title>Import TLE data into STK</title>
+    <url>/2021/10/29/20211029-Import-TLE-data-into-STK/</url>
+    <content><![CDATA[<h3 id="Matlab函数说明"><a href="#Matlab函数说明" class="headerlink" title="Matlab函数说明"></a>Matlab函数说明</h3><ul>
+<li>lla2ecef: Convert geodetic coordinates to Earth-centered Earth-fixed coordinates</li>
 </ul>
-</blockquote>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://blog.csdn.net/caijibai/article/details/120176707">用STK导入段时间TLE数据</a></li>
+<li>STK学习资料：<a href="https://blog.csdn.net/stk10/category_1364277.html">https://blog.csdn.net/stk10/category_1364277.html</a></li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -915,11 +895,72 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>Django-2-Git&amp;Docker部署</title>
+    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
+<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
+<span id="more"></span>
+<blockquote>
+<p>Host server1</p>
+<p>​    HostName: 公网IP 139.224.111.142</p>
+<p>​    UserName: kunkun</p>
+</blockquote>
+<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
+<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
+<ul>
+<li>ssh server1</li>
+<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>Orbit Phasing</title>
     <url>/2021/11/02/20211102-Orbit-Phasing/</url>
     <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>STK-1-propagator</title>
+    <url>/2021/11/02/20211102-STK-1-propagator/</url>
+    <content><![CDATA[<h1 id="STK-Propagator-轨道预报模型"><a href="#STK-Propagator-轨道预报模型" class="headerlink" title="STK-Propagator 轨道预报模型"></a>STK-Propagator 轨道预报模型</h1><ul>
+<li>STK提供了2种形式的<font color='red'><strong>卫星轨道预报算法</strong></font>：<ul>
+<li>解析算法：通过求解卫星运动的微分方程得到一个近似解析解来获得卫星星历表，或直接给出卫星在各个特定时刻的位置和速度信息；</li>
+<li>数值算法：过对卫星运动方程的数值积分来实现的．STK中所有标准的算法均为解析法．</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>STK中提供的<font color='red'><strong>轨道预报模型</strong></font>包括：<ul>
+<li>TwoBody：二体模型，又叫开普勒运动模型，它只考虑地球对卫星的引力，此时地球等效为一个质点</li>
+<li>J2 Perturbation：J2 Perturbation一阶模型考虑了因地球的非正球体中J2系数导致的卫星轨道要素的长期变化．J2是地球非球形引力值无穷级数表达式中的一个带谐项系数，此系数代表了地球非正球体所带来的最重要的效应．在该模型中J2系数是唯一导致卫星轨道要素发生长期变化的因素．J2摄动算法就包括了J2参数所带来的一阶长期效应．</li>
+<li>J4 Perturbation：J4 Perturbation二阶模型同样考虑地球的非正球体导致的卫星轨道要素的长期变化，与J2 Perturbation不同的是它不仅考虑J2系数的一阶效应，还考虑了J4系数所代表的偶次带谐项对轨道参数的影响(没考虑代表长周期效应的J3系数)．J4系数代表的地球非正球体引力摄动大概比J2系数要小1000倍，所以，这两种预报模型得出的卫星轨道差别很小．</li>
+<li>HPOP(The High-precision orbit propagator)：高精度轨道预报模型，可以用来处理轨道高度从地球表面到月球表面甚至更远的任何圆形、椭圆、抛物线和双曲线轨道．这种模型在某一历元下生成卫星轨道时所需设置的参数与二体模型、J2模型和J4模型是相同的．</li>
+<li>MSGP4(The Merged Simplified General Perturbations)：MSGP4模型是一个符合北美防空司令部标准的预报算法模型．该模型全面考虑了地球的非正球体、日月引力以及引力谐振因素带来的长期和周期效应，并使用了一个简单的大气模型来考虑轨道衰减的问题．</li>
+<li>LOP(The Long—term orbit propagator)：长期轨道预报模型，可以获得较长时间间隔，如数月甚至几年内的高精度轨道预报数据．LOP和二体、J2和J4模型使用相同的轨道设置参数．</li>
+<li>StkExtemal：能够从一个带有．e扩展名的文件读取一个卫星的星历表．</li>
+<li>PODS(Precision Orbit Determination Systern)：精确定轨系统，PODS可根据提供的卫星跟踪数据确定相应的卫星轨道和参数，其中处理的卫星跟踪数据包括由地面站、TPRSS和GPS提供的各种精度、距离、星间距离和位置等信息．</li>
+<li>SPICE(Spacecraft Planet Instrument C—Matrix and Event)：可以从SPICE工具包里引入一个星历表文件．</li>
+<li>Astrogator：利用该模型可动态显示卫星轨道机动等情况．</li>
+<li>Real Time：该模型可引入实时数据以实时更新轨道．</li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>STK-2-stkSetPropClassical</title>
+    <url>/2021/11/02/20211102-STK-2-stkSetPropClassical/</url>
+    <content><![CDATA[<p>create_LEO.m：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">stkSetPropClassical(sat_no,<span class="string">&#x27;J4Perturbation&#x27;</span>,<span class="string">&#x27;J2000&#x27;</span>,<span class="number">0.0</span>,tStop,dT,<span class="number">0</span>,<span class="number">6371000</span> + Altitude * <span class="number">10</span>^<span class="number">3</span>,<span class="number">0.0</span>,inc,<span class="number">0.0</span>,ra,ma);</span><br><span class="line"><span class="comment">% &#x27;J4Perturbation&#x27;: 表示该卫星运动使用的力学模型</span></span><br><span class="line"><span class="comment">% &#x27;J2000&#x27;: 卫星使用的坐标系</span></span><br><span class="line"><span class="comment">% &#x27;6371000 + Altitude * 10^3&#x27;: 轨道高度（包括了地球半径）</span></span><br><span class="line"><span class="comment">% &#x27;ra&#x27;: 轨道的RAAN（right ascension of the ascending node）值</span></span><br><span class="line"><span class="comment">% &#x27;ma&#x27;: 轨道的平近点角（mean anomaly） ，它确定了卫星在轨道上的位置</span></span><br><span class="line"><span class="comment">% Inc的范围是0°~90°，raan的范围是0°~180°，mean anomaly的范围是0°~360°</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>查找资料：</p>
+<p><img src="/images/doc/3.png" alt="image-20211102221622171" style="zoom:80%;" /></p>
+<p> <img src="/images/doc/2.png" alt="image-20211102215108648" style="zoom:80%;" /></p>
+<p><img src="/images/doc/1.png" alt="image-20211102223038446" style="zoom: 67%;" /></p>
 ]]></content>
   </entry>
   <entry>
@@ -991,47 +1032,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>STK-1-propagator</title>
-    <url>/2021/11/02/20211102-STK-1-propagator/</url>
-    <content><![CDATA[<h1 id="STK-Propagator-轨道预报模型"><a href="#STK-Propagator-轨道预报模型" class="headerlink" title="STK-Propagator 轨道预报模型"></a>STK-Propagator 轨道预报模型</h1><ul>
-<li>STK提供了2种形式的<font color='red'><strong>卫星轨道预报算法</strong></font>：<ul>
-<li>解析算法：通过求解卫星运动的微分方程得到一个近似解析解来获得卫星星历表，或直接给出卫星在各个特定时刻的位置和速度信息；</li>
-<li>数值算法：过对卫星运动方程的数值积分来实现的．STK中所有标准的算法均为解析法．</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li>STK中提供的<font color='red'><strong>轨道预报模型</strong></font>包括：<ul>
-<li>TwoBody：二体模型，又叫开普勒运动模型，它只考虑地球对卫星的引力，此时地球等效为一个质点</li>
-<li>J2 Perturbation：J2 Perturbation一阶模型考虑了因地球的非正球体中J2系数导致的卫星轨道要素的长期变化．J2是地球非球形引力值无穷级数表达式中的一个带谐项系数，此系数代表了地球非正球体所带来的最重要的效应．在该模型中J2系数是唯一导致卫星轨道要素发生长期变化的因素．J2摄动算法就包括了J2参数所带来的一阶长期效应．</li>
-<li>J4 Perturbation：J4 Perturbation二阶模型同样考虑地球的非正球体导致的卫星轨道要素的长期变化，与J2 Perturbation不同的是它不仅考虑J2系数的一阶效应，还考虑了J4系数所代表的偶次带谐项对轨道参数的影响(没考虑代表长周期效应的J3系数)．J4系数代表的地球非正球体引力摄动大概比J2系数要小1000倍，所以，这两种预报模型得出的卫星轨道差别很小．</li>
-<li>HPOP(The High-precision orbit propagator)：高精度轨道预报模型，可以用来处理轨道高度从地球表面到月球表面甚至更远的任何圆形、椭圆、抛物线和双曲线轨道．这种模型在某一历元下生成卫星轨道时所需设置的参数与二体模型、J2模型和J4模型是相同的．</li>
-<li>MSGP4(The Merged Simplified General Perturbations)：MSGP4模型是一个符合北美防空司令部标准的预报算法模型．该模型全面考虑了地球的非正球体、日月引力以及引力谐振因素带来的长期和周期效应，并使用了一个简单的大气模型来考虑轨道衰减的问题．</li>
-<li>LOP(The Long—term orbit propagator)：长期轨道预报模型，可以获得较长时间间隔，如数月甚至几年内的高精度轨道预报数据．LOP和二体、J2和J4模型使用相同的轨道设置参数．</li>
-<li>StkExtemal：能够从一个带有．e扩展名的文件读取一个卫星的星历表．</li>
-<li>PODS(Precision Orbit Determination Systern)：精确定轨系统，PODS可根据提供的卫星跟踪数据确定相应的卫星轨道和参数，其中处理的卫星跟踪数据包括由地面站、TPRSS和GPS提供的各种精度、距离、星间距离和位置等信息．</li>
-<li>SPICE(Spacecraft Planet Instrument C—Matrix and Event)：可以从SPICE工具包里引入一个星历表文件．</li>
-<li>Astrogator：利用该模型可动态显示卫星轨道机动等情况．</li>
-<li>Real Time：该模型可引入实时数据以实时更新轨道．</li>
-</ul>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>STK-2-stkSetPropClassical</title>
-    <url>/2021/11/02/20211102-STK-2-stkSetPropClassical/</url>
-    <content><![CDATA[<p>create_LEO.m：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">stkSetPropClassical(sat_no,<span class="string">&#x27;J4Perturbation&#x27;</span>,<span class="string">&#x27;J2000&#x27;</span>,<span class="number">0.0</span>,tStop,dT,<span class="number">0</span>,<span class="number">6371000</span> + Altitude * <span class="number">10</span>^<span class="number">3</span>,<span class="number">0.0</span>,inc,<span class="number">0.0</span>,ra,ma);</span><br><span class="line"><span class="comment">% &#x27;J4Perturbation&#x27;: 表示该卫星运动使用的力学模型</span></span><br><span class="line"><span class="comment">% &#x27;J2000&#x27;: 卫星使用的坐标系</span></span><br><span class="line"><span class="comment">% &#x27;6371000 + Altitude * 10^3&#x27;: 轨道高度（包括了地球半径）</span></span><br><span class="line"><span class="comment">% &#x27;ra&#x27;: 轨道的RAAN（right ascension of the ascending node）值</span></span><br><span class="line"><span class="comment">% &#x27;ma&#x27;: 轨道的平近点角（mean anomaly） ，它确定了卫星在轨道上的位置</span></span><br><span class="line"><span class="comment">% Inc的范围是0°~90°，raan的范围是0°~180°，mean anomaly的范围是0°~360°</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>查找资料：</p>
-<p><img src="/images/doc/3.png" alt="image-20211102221622171" style="zoom:80%;" /></p>
-<p> <img src="/images/doc/2.png" alt="image-20211102215108648" style="zoom:80%;" /></p>
-<p><img src="/images/doc/1.png" alt="image-20211102223038446" style="zoom: 67%;" /></p>
-]]></content>
-  </entry>
-  <entry>
     <title>地理名词中英文对照</title>
     <url>/2021/11/02/20211102-%E5%9C%B0%E7%90%86%E5%90%8D%E8%AF%8D%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7/</url>
     <content><![CDATA[<h1 id="地理名词中英文对照"><a href="#地理名词中英文对照" class="headerlink" title="地理名词中英文对照"></a>地理名词中英文对照</h1><ul>
@@ -1055,6 +1055,15 @@ STARLINK-1008
 
 </li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Django-3-网站开发操作记录</title>
+    <url>/2021/11/13/20211113-Django-3-%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将镜像文件`django_lesson_1_0.tar`加载到本地</span></span><br><span class="line">docker load -i django_lesson_1_0.tar	</span><br><span class="line"></span><br><span class="line">docker images</span><br><span class="line"><span class="meta">#</span><span class="bash"> REPOSITORY      TAG       IMAGE ID       CREATED       SIZE</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> django_lesson   1.0       58e383d3fa92   2 weeks ago   1.5GB</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>一个docker可以有多个镜像，同一个镜像可以生成多个容器，相同镜像生成的容器环境都是完全一致的；</p>
+<p>每一个容器可以视为一个独立的服务器；</p>
+<p>对于文件管理，docker和git都采取了空间优化；</p>
 ]]></content>
   </entry>
   <entry>
@@ -1086,66 +1095,6 @@ STARLINK-1008
 </ul>
 </blockquote>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Django-3-网站开发操作记录</title>
-    <url>/2021/11/13/20211113-Django-3-%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h3 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将镜像文件`django_lesson_1_0.tar`加载到本地</span></span><br><span class="line">docker load -i django_lesson_1_0.tar	</span><br><span class="line"></span><br><span class="line">docker images</span><br><span class="line"><span class="meta">#</span><span class="bash"> REPOSITORY      TAG       IMAGE ID       CREATED       SIZE</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> django_lesson   1.0       58e383d3fa92   2 weeks ago   1.5GB</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>一个docker可以有多个镜像，同一个镜像可以生成多个容器，相同镜像生成的容器环境都是完全一致的；</p>
-<p>每一个容器可以视为一个独立的服务器；</p>
-<p>对于文件管理，docker和git都采取了空间优化；</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>20211217-NP问题</title>
-    <url>/2021/12/17/20211217-NP%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="什么是P问题、NP问题、NPC问题、NP-hard问题？"><a href="#什么是P问题、NP问题、NPC问题、NP-hard问题？" class="headerlink" title="什么是P问题、NP问题、NPC问题、NP-hard问题？"></a>什么是P问题、NP问题、NPC问题、NP-hard问题？</h3><h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
-<li>通常所谓的NP问题，实际上就是：证明或推翻P=NP；</li>
-<li>NPC：只有搜才行；</li>
-<li>时间复杂度：并非表示一个程序解决时间需要花多少时间，而是当问题规模扩大后，程序需要的时间长度增长多快；</li>
-<li>不可解问题（Undecidable Decision Problem）：例如The Halting Problem；</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li>P问题：如果一个问题可以找到一个能在多项式的时间里解决它的算法，该问题则属于P问题。我们通常见到的信息奥赛的题目都是P问题，因为一个用穷举换来的非多项式级时间的超时程序不会涵盖任何有价值的算法；</li>
-<li><p>NP问题：找到一个比100小的解（全部找出来不容易，但是验证其中一个解是容易的）；</p>
-<ul>
-<li>定义1：可以在多项式的时间里验证一个解的问题（并不是非P问题）；</li>
-<li>定义2：可以在多项式的时间里猜出一个解的问题；</li>
-</ul>
-</li>
-<li>通常只有NP问题才可能找到多项式的算法，我们不会指望一个连多项式地验证一个解都不行的问题存在一个解决它的多项式级的算法。</li>
-<li>目前人们普遍认为P=NP问题不成立，即存在至少一个不可能有多项式级复杂度的算法的NP问题。人们如此坚信P!=NP的原因在于：NPC问题的存在，即NP-完全问题；</li>
-<li><p>约化（Reducibility）：Hamilton回路问题可以约化为TSP问题；</p>
-<ul>
-<li>定义1：一个问题A可以约化为问题B，即可以用问题B的解法解决问题A，或称”问题A可以变成问题B“；</li>
-<li>定义2：可以找到一个变化法则，对任意一个程序A的输入，都能按这个法则变换成程序B 的输入，使两个程序的输出相同；</li>
-<li>约化具有传递性；</li>
-</ul>
-</li>
-<li><p>NPC问题：所有的NP问题都可以约化成它；</p>
-<ul>
-<li>定义：<ul>
-<li>条件1：该问题是NP问题；</li>
-<li>条件2：所有的NP问题都可以约化成它；</li>
-</ul>
-</li>
-<li>证明：<ul>
-<li>首先证明它至少是一个NP问题；</li>
-<li>证明其中一个已知的NPC问题能约化到它；</li>
-</ul>
-</li>
-<li>逻辑电路问题属于NPC问题，因为其显然属于NP问题，并且可以直接证明所有的NP问题都可以约化到它（不要以为NP问题有无穷多个将给证明造成不可逾越的困难）。证明过程相当复杂，大致意思是：任意一个NP问题的输入和输出都可以转换成逻辑电路的输入和输出，因此对于一个NP问题而言，问题转化为了求出满足结果为True的一个输入（即一个可行解）；</li>
-<li>已被证明是NPC的问题：Hamilton回路、TSP问题；</li>
-</ul>
-</li>
-<li>NP-hard问题：满足NPC问题的第二条，但是不一定要满足第一条。因此NP-hard问题有可能仍然无法得到多项式级别的算法。</li>
-</ul>
-<h4 id="2-推论"><a href="#2-推论" class="headerlink" title="2. 推论"></a>2. 推论</h4><ul>
-<li>所有的P类问题都是NP问题：能多项式地解决一个问题，必然能多项式地验证一个问题的解；</li>
-<li>所有的NP问题都能约化成NPC问题，因此只要任意一个NPC问题找到了一个多项式的算法，那么所有的NP问题都能用这个算法解决，即NP=P；</li>
-</ul>
-<h4 id="3-0-1背包问题是NP完全问题"><a href="#3-0-1背包问题是NP完全问题" class="headerlink" title="3. 0-1背包问题是NP完全问题"></a>3. 0-1背包问题是NP完全问题</h4>]]></content>
   </entry>
   <entry>
     <title>20211218-联邦学习</title>
@@ -1200,6 +1149,57 @@ STARLINK-1008
 </li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>20211217-NP问题</title>
+    <url>/2021/12/17/20211217-NP%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="什么是P问题、NP问题、NPC问题、NP-hard问题？"><a href="#什么是P问题、NP问题、NPC问题、NP-hard问题？" class="headerlink" title="什么是P问题、NP问题、NPC问题、NP-hard问题？"></a>什么是P问题、NP问题、NPC问题、NP-hard问题？</h3><h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
+<li>通常所谓的NP问题，实际上就是：证明或推翻P=NP；</li>
+<li>NPC：只有搜才行；</li>
+<li>时间复杂度：并非表示一个程序解决时间需要花多少时间，而是当问题规模扩大后，程序需要的时间长度增长多快；</li>
+<li>不可解问题（Undecidable Decision Problem）：例如The Halting Problem；</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>P问题：如果一个问题可以找到一个能在多项式的时间里解决它的算法，该问题则属于P问题。我们通常见到的信息奥赛的题目都是P问题，因为一个用穷举换来的非多项式级时间的超时程序不会涵盖任何有价值的算法；</li>
+<li><p>NP问题：找到一个比100小的解（全部找出来不容易，但是验证其中一个解是容易的）；</p>
+<ul>
+<li>定义1：可以在多项式的时间里验证一个解的问题（并不是非P问题）；</li>
+<li>定义2：可以在多项式的时间里猜出一个解的问题；</li>
+</ul>
+</li>
+<li>通常只有NP问题才可能找到多项式的算法，我们不会指望一个连多项式地验证一个解都不行的问题存在一个解决它的多项式级的算法。</li>
+<li>目前人们普遍认为P=NP问题不成立，即存在至少一个不可能有多项式级复杂度的算法的NP问题。人们如此坚信P!=NP的原因在于：NPC问题的存在，即NP-完全问题；</li>
+<li><p>约化（Reducibility）：Hamilton回路问题可以约化为TSP问题；</p>
+<ul>
+<li>定义1：一个问题A可以约化为问题B，即可以用问题B的解法解决问题A，或称”问题A可以变成问题B“；</li>
+<li>定义2：可以找到一个变化法则，对任意一个程序A的输入，都能按这个法则变换成程序B 的输入，使两个程序的输出相同；</li>
+<li>约化具有传递性；</li>
+</ul>
+</li>
+<li><p>NPC问题：所有的NP问题都可以约化成它；</p>
+<ul>
+<li>定义：<ul>
+<li>条件1：该问题是NP问题；</li>
+<li>条件2：所有的NP问题都可以约化成它；</li>
+</ul>
+</li>
+<li>证明：<ul>
+<li>首先证明它至少是一个NP问题；</li>
+<li>证明其中一个已知的NPC问题能约化到它；</li>
+</ul>
+</li>
+<li>逻辑电路问题属于NPC问题，因为其显然属于NP问题，并且可以直接证明所有的NP问题都可以约化到它（不要以为NP问题有无穷多个将给证明造成不可逾越的困难）。证明过程相当复杂，大致意思是：任意一个NP问题的输入和输出都可以转换成逻辑电路的输入和输出，因此对于一个NP问题而言，问题转化为了求出满足结果为True的一个输入（即一个可行解）；</li>
+<li>已被证明是NPC的问题：Hamilton回路、TSP问题；</li>
+</ul>
+</li>
+<li>NP-hard问题：满足NPC问题的第二条，但是不一定要满足第一条。因此NP-hard问题有可能仍然无法得到多项式级别的算法。</li>
+</ul>
+<h4 id="2-推论"><a href="#2-推论" class="headerlink" title="2. 推论"></a>2. 推论</h4><ul>
+<li>所有的P类问题都是NP问题：能多项式地解决一个问题，必然能多项式地验证一个问题的解；</li>
+<li>所有的NP问题都能约化成NPC问题，因此只要任意一个NPC问题找到了一个多项式的算法，那么所有的NP问题都能用这个算法解决，即NP=P；</li>
+</ul>
+<h4 id="3-0-1背包问题是NP完全问题"><a href="#3-0-1背包问题是NP完全问题" class="headerlink" title="3. 0-1背包问题是NP完全问题"></a>3. 0-1背包问题是NP完全问题</h4>]]></content>
   </entry>
   <entry>
     <title>20211219-集成学习</title>
@@ -1421,29 +1421,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>20211225-如何理解0-1背包是NPC问题</title>
-    <url>/2021/12/25/20211225-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A30-1%E8%83%8C%E5%8C%85%E6%98%AFNPC%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="如何理解0-1背包是NPC问题"><a href="#如何理解0-1背包是NPC问题" class="headerlink" title="如何理解0-1背包是NPC问题?"></a>如何理解0-1背包是NPC问题?</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="1. 分析"></a>1. 分析</h4><blockquote>
-<ul>
-<li><p>在0-1背包问题中，我们需要2个输入（一个数组和一个整数）来解决这个问题。</p>
-<ul>
-<li>n个项目的数组$\{n_1, n_2, …\}$，每个项目都有它的价值指数和权重指数；</li>
-<li>整数W作为最大可接受的重量。</li>
-</ul>
-</li>
-<li><p>假设<code>n=10, W=8</code>，则：</p>
-<p><code>n = [n1, n2, ..., n10], W=1000</code>，因此时间复杂度为<code>T（n）= O（nW）= O（80）</code>。</p>
-</li>
-<li><p>若将<code>n</code>的大小加倍：<code>T（n）= O（nW）= O（20 * 8）= O（160）</code>;</p>
-</li>
-<li>若将<code>W</code>的大小加倍：并不意味着W = 20，而是长度是两倍，即<code>W = 10000000</code>，因此：<code>T（n）= O（nW）= 0（10 * 128）= 0（1280）</code>；</li>
-<li>因此所需时间以<font color='cornflowerblue'><strong>指数</strong></font>增加，这是一个<font color='orange'><strong>NPC问题</strong></font>。</li>
-<li>因此，它是一个伪多项式。</li>
-</ul>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
     <title>20211225-Primal-Dual原对偶问题</title>
     <url>/2021/12/25/20211225-Primal-Dual%E5%8E%9F%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h3 id="Primal-Dual原始-对偶问题"><a href="#Primal-Dual原始-对偶问题" class="headerlink" title="Primal-Dual原始-对偶问题"></a>Primal-Dual原始-对偶问题</h3><h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h4><ul>
@@ -1486,6 +1463,29 @@ g(u, v)=\inf _{x \in D} L(x, u, v)=\inf _{x \in D}\left[f_{0}(x)+\sum_{i=1}^{m} 
 <h4 id="5-参考"><a href="#5-参考" class="headerlink" title="5. 参考"></a>5. 参考</h4><ul>
 <li><a href="https://blog.csdn.net/zuzhiang/article/details/103293545">https://blog.csdn.net/zuzhiang/article/details/103293545</a></li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211225-如何理解0-1背包是NPC问题</title>
+    <url>/2021/12/25/20211225-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A30-1%E8%83%8C%E5%8C%85%E6%98%AFNPC%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="如何理解0-1背包是NPC问题"><a href="#如何理解0-1背包是NPC问题" class="headerlink" title="如何理解0-1背包是NPC问题?"></a>如何理解0-1背包是NPC问题?</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="1. 分析"></a>1. 分析</h4><blockquote>
+<ul>
+<li><p>在0-1背包问题中，我们需要2个输入（一个数组和一个整数）来解决这个问题。</p>
+<ul>
+<li>n个项目的数组$\{n_1, n_2, …\}$，每个项目都有它的价值指数和权重指数；</li>
+<li>整数W作为最大可接受的重量。</li>
+</ul>
+</li>
+<li><p>假设<code>n=10, W=8</code>，则：</p>
+<p><code>n = [n1, n2, ..., n10], W=1000</code>，因此时间复杂度为<code>T（n）= O（nW）= O（80）</code>。</p>
+</li>
+<li><p>若将<code>n</code>的大小加倍：<code>T（n）= O（nW）= O（20 * 8）= O（160）</code>;</p>
+</li>
+<li>若将<code>W</code>的大小加倍：并不意味着W = 20，而是长度是两倍，即<code>W = 10000000</code>，因此：<code>T（n）= O（nW）= 0（10 * 128）= 0（1280）</code>；</li>
+<li>因此所需时间以<font color='cornflowerblue'><strong>指数</strong></font>增加，这是一个<font color='orange'><strong>NPC问题</strong></font>。</li>
+<li>因此，它是一个伪多项式。</li>
+</ul>
+</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -1611,112 +1611,6 @@ g(u, v)=\inf _{x \in D} L(x, u, v)=\inf _{x \in D}\left[f_{0}(x)+\sum_{i=1}^{m} 
 </ul>
 </blockquote>
 ]]></content>
-  </entry>
-  <entry>
-    <title>20220101-《算法导论》第25章-每对顶点间的最短距离</title>
-    <url>/2022/01/01/20220101-%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%E7%AC%AC25%E7%AB%A0-%E6%AF%8F%E5%AF%B9%E9%A1%B6%E7%82%B9%E9%97%B4%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB/</url>
-    <content><![CDATA[<h3 id="学习笔记：《算法导论》第25章-每对顶点间的最短距离"><a href="#学习笔记：《算法导论》第25章-每对顶点间的最短距离" class="headerlink" title="学习笔记：《算法导论》第25章-每对顶点间的最短距离"></a>学习笔记：《算法导论》第25章-每对顶点间的最短距离</h3><h4 id="0-提出背景"><a href="#0-提出背景" class="headerlink" title="0. 提出背景"></a>0. 提出背景</h4><ul>
-<li>问题：对一张公路图，需要制表说明每对城市间的距离。</li>
-<li>概述：<ul>
-<li>基于矩阵乘法的动态规划算法，求解每对顶点间的最短路径问题【重复平方】；</li>
-<li>动态规划算法Floyd-Warshall算法；</li>
-<li>有向图传递闭包问题【与每对顶点间最短路径有关系】；</li>
-<li>Johnson算法【采用图的邻接表表示法】；</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-<h4 id="1-最短路径与矩阵乘法"><a href="#1-最短路径与矩阵乘法" class="headerlink" title="1. 最短路径与矩阵乘法"></a>1. 最短路径与矩阵乘法</h4><ul>
-<li><p>基于<font color='cornflowerblue'><strong>动态规划</strong></font>算法，用来解决有向图上每对顶点间的最短路问题；</p>
-</li>
-<li><p>动态规划的每一次主循环都将引发一个与矩阵乘法十分相似的操作，因此算法看上去很像是重复的矩阵乘法；</p>
-</li>
-<li><p><strong>设计思想</strong>：通过把最短路径延长，最终计算出最短路径权值；</p>
-</li>
-<li><p><strong>设计步骤</strong>：</p>
-<ul>
-<li><p>最短路径的结构</p>
-<blockquote>
-<p>$\delta(i, j)=\delta(i, k)+w_{k j}$；</p>
-</blockquote>
-</li>
-<li><p>每对顶点间最短路径问题的一个递归解：</p>
-<blockquote>
-<ul>
-<li>$n$：顶点数量；</li>
-<li><p>$l_{i j}^{(m)}$：表示从顶点i到顶点j的至多包含m条边的任何路径的权值最小值；</p>
-</li>
-<li><p>当m大于等于1时，有：</p>
-<p>$l_{i j}^{(m)}=\min \left(l_{i j}^{(m-1)}, \min _{1 \leq k \leqslant n}\left\{l_{i k}^{(m-1)}+w_{k j}\right\}\right)=\min _{1 \leq k \leqslant n}\left\{l_{i k}^{(m-1)}+w_{k j}\right\}$；</p>
-<p>其中第二个等式成立，是因为$w_{jj}=0$；</p>
-</li>
-<li><p>$\delta(i, j)$：表示实际最短路径权值；</p>
-</li>
-<li><p>当$\delta(i, j)&lt;\infty$：存在一条从i到j的最短路径，且为简单路径，从而最多包含n-1条边；</p>
-<p>由于从顶点i到顶点j的对于n-1条边的路径权值不可能小于从i到j的最短路径的权值，因此实际的最短路径权值：$\delta(i, j)=l_{i j}^{(n-1)}=l_{i j}^{(n)}=l_{i j}^{(n+1)}=\cdots$；</p>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p>自底向上计算最短路径的权值：</p>
-<blockquote>
-<ul>
-<li>输入：$W=\left(w_{i j}\right)$</li>
-<li>输出：$L^{(1)}, L^{(2)}, \cdots, L^{(n-1)}$，且$L^{(m)}=\left(l_{i j}^{(m)}\right)$；</li>
-<li>用$L$表示$L^{(m-1)}$；</li>
-<li>用$L^{\prime}$表示$L^{(m)}$；</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p><strong>和矩阵乘法的联系</strong>：</p>
-<blockquote>
-<ul>
-<li><p>矩阵乘法：$c_{i j}=\sum_{k=1}^{n} a_{i k} \cdot b_{k j}$</p>
-</li>
-<li><p>替换：</p>
-<script type="math/tex; mode=display">
-\begin{array}{ll}l^{(m-1)} & \rightarrow a \\ w & \rightarrow b \\ l^{(m)} & \rightarrow c \\ \min & \rightarrow+ \\ + & \rightarrow .\end{array}</script></li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h4 id="2-Floyd-Warshall算法"><a href="#2-Floyd-Warshall算法" class="headerlink" title="2. Floyd-Warshall算法"></a>2. Floyd-Warshall算法</h4><ul>
-<li><p><strong>提出</strong>：允许存在权值为负的边，但是不存在权值为负的回路；</p>
-</li>
-<li><p><strong>中间节点</strong>：简单路径$p={v_1,v_2,…v_l}$上的中间顶点是除了$v_1$和$v_l$以外上的任何一个顶点，即任何属于集合${v_2,v_3,…,v_{l-1}}$的顶点；</p>
-</li>
-<li><p><strong>设计思路</strong>：利用了路径p与从i到j之间的最短路径之间的联系；</p>
-</li>
-<li><p><strong>设计步骤</strong>：</p>
-<ul>
-<li><p>最短路径的结构</p>
-<blockquote>
-<ul>
-<li><p>如果k不是路径p的中间顶点：p的所有中间节点都在$\{1,2,…,k-1\}$中，因此从顶点i到顶点j且满足所有中间顶点皆属于$\{1,2,…,k-1\}$的一条最短路径，同样也是从i到j且满足所有中间顶点皆属于集合$\{1,2,…,k\}$的一条最短路径；</p>
-</li>
-<li><p>如果k是路径p的中间顶点：因为k不是路径p1上的一个中间顶点，所以p1是从i到k的一条最短路径，且其所有中间顶点均属于集合$\{1,2,…,k-1\}$；类似地，p2是从k到j的一条最短路径，且其所有中间顶点均属于集合$\{1,2,…,k-1\}$；</p>
-<p> <img src="C:\Users\kunkun\AppData\Roaming\Typora\typora-user-images\image-20220101111423027.png" alt="image-20220101111423027" style="zoom:50%;" /></p>
-</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-稀疏图上的Johnson算法"><a href="#3-稀疏图上的Johnson算法" class="headerlink" title="3. 稀疏图上的Johnson算法"></a>3. 稀疏图上的Johnson算法</h4><ul>
-<li><strong>提出</strong>：运用了<strong>重赋权</strong>技术；</li>
-<li><strong>执行方式</strong>：如果所有边权w非负，则把每对顶点依次作为源点来执行Dijkstra算法，就可以找出每对顶点间的最短路径，可以使用斐波那契最小优先队列进行优化；如果G含有负权边但是不含有负权的回路，就只计算一个心的负权边的集合。</li>
-<li>重赋权值不会改变最短路径。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
-      </tags>
   </entry>
   <entry>
     <title>20220101-《算法导论》第26章-最大流</title>
@@ -2003,5 +1897,111 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 
 </blockquote>
 ]]></content>
+  </entry>
+  <entry>
+    <title>20220101-《算法导论》第25章-每对顶点间的最短距离</title>
+    <url>/2022/01/01/20220101-%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%E7%AC%AC25%E7%AB%A0-%E6%AF%8F%E5%AF%B9%E9%A1%B6%E7%82%B9%E9%97%B4%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB/</url>
+    <content><![CDATA[<h3 id="学习笔记：《算法导论》第25章-每对顶点间的最短距离"><a href="#学习笔记：《算法导论》第25章-每对顶点间的最短距离" class="headerlink" title="学习笔记：《算法导论》第25章-每对顶点间的最短距离"></a>学习笔记：《算法导论》第25章-每对顶点间的最短距离</h3><h4 id="0-提出背景"><a href="#0-提出背景" class="headerlink" title="0. 提出背景"></a>0. 提出背景</h4><ul>
+<li>问题：对一张公路图，需要制表说明每对城市间的距离。</li>
+<li>概述：<ul>
+<li>基于矩阵乘法的动态规划算法，求解每对顶点间的最短路径问题【重复平方】；</li>
+<li>动态规划算法Floyd-Warshall算法；</li>
+<li>有向图传递闭包问题【与每对顶点间最短路径有关系】；</li>
+<li>Johnson算法【采用图的邻接表表示法】；</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h4 id="1-最短路径与矩阵乘法"><a href="#1-最短路径与矩阵乘法" class="headerlink" title="1. 最短路径与矩阵乘法"></a>1. 最短路径与矩阵乘法</h4><ul>
+<li><p>基于<font color='cornflowerblue'><strong>动态规划</strong></font>算法，用来解决有向图上每对顶点间的最短路问题；</p>
+</li>
+<li><p>动态规划的每一次主循环都将引发一个与矩阵乘法十分相似的操作，因此算法看上去很像是重复的矩阵乘法；</p>
+</li>
+<li><p><strong>设计思想</strong>：通过把最短路径延长，最终计算出最短路径权值；</p>
+</li>
+<li><p><strong>设计步骤</strong>：</p>
+<ul>
+<li><p>最短路径的结构</p>
+<blockquote>
+<p>$\delta(i, j)=\delta(i, k)+w_{k j}$；</p>
+</blockquote>
+</li>
+<li><p>每对顶点间最短路径问题的一个递归解：</p>
+<blockquote>
+<ul>
+<li>$n$：顶点数量；</li>
+<li><p>$l_{i j}^{(m)}$：表示从顶点i到顶点j的至多包含m条边的任何路径的权值最小值；</p>
+</li>
+<li><p>当m大于等于1时，有：</p>
+<p>$l_{i j}^{(m)}=\min \left(l_{i j}^{(m-1)}, \min _{1 \leq k \leqslant n}\left\{l_{i k}^{(m-1)}+w_{k j}\right\}\right)=\min _{1 \leq k \leqslant n}\left\{l_{i k}^{(m-1)}+w_{k j}\right\}$；</p>
+<p>其中第二个等式成立，是因为$w_{jj}=0$；</p>
+</li>
+<li><p>$\delta(i, j)$：表示实际最短路径权值；</p>
+</li>
+<li><p>当$\delta(i, j)&lt;\infty$：存在一条从i到j的最短路径，且为简单路径，从而最多包含n-1条边；</p>
+<p>由于从顶点i到顶点j的对于n-1条边的路径权值不可能小于从i到j的最短路径的权值，因此实际的最短路径权值：$\delta(i, j)=l_{i j}^{(n-1)}=l_{i j}^{(n)}=l_{i j}^{(n+1)}=\cdots$；</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>自底向上计算最短路径的权值：</p>
+<blockquote>
+<ul>
+<li>输入：$W=\left(w_{i j}\right)$</li>
+<li>输出：$L^{(1)}, L^{(2)}, \cdots, L^{(n-1)}$，且$L^{(m)}=\left(l_{i j}^{(m)}\right)$；</li>
+<li>用$L$表示$L^{(m-1)}$；</li>
+<li>用$L^{\prime}$表示$L^{(m)}$；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>和矩阵乘法的联系</strong>：</p>
+<blockquote>
+<ul>
+<li><p>矩阵乘法：$c_{i j}=\sum_{k=1}^{n} a_{i k} \cdot b_{k j}$</p>
+</li>
+<li><p>替换：</p>
+<script type="math/tex; mode=display">
+\begin{array}{ll}l^{(m-1)} & \rightarrow a \\ w & \rightarrow b \\ l^{(m)} & \rightarrow c \\ \min & \rightarrow+ \\ + & \rightarrow .\end{array}</script></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="2-Floyd-Warshall算法"><a href="#2-Floyd-Warshall算法" class="headerlink" title="2. Floyd-Warshall算法"></a>2. Floyd-Warshall算法</h4><ul>
+<li><p><strong>提出</strong>：允许存在权值为负的边，但是不存在权值为负的回路；</p>
+</li>
+<li><p><strong>中间节点</strong>：简单路径$p={v_1,v_2,…v_l}$上的中间顶点是除了$v_1$和$v_l$以外上的任何一个顶点，即任何属于集合${v_2,v_3,…,v_{l-1}}$的顶点；</p>
+</li>
+<li><p><strong>设计思路</strong>：利用了路径p与从i到j之间的最短路径之间的联系；</p>
+</li>
+<li><p><strong>设计步骤</strong>：</p>
+<ul>
+<li><p>最短路径的结构</p>
+<blockquote>
+<ul>
+<li><p>如果k不是路径p的中间顶点：p的所有中间节点都在$\{1,2,…,k-1\}$中，因此从顶点i到顶点j且满足所有中间顶点皆属于$\{1,2,…,k-1\}$的一条最短路径，同样也是从i到j且满足所有中间顶点皆属于集合$\{1,2,…,k\}$的一条最短路径；</p>
+</li>
+<li><p>如果k是路径p的中间顶点：因为k不是路径p1上的一个中间顶点，所以p1是从i到k的一条最短路径，且其所有中间顶点均属于集合$\{1,2,…,k-1\}$；类似地，p2是从k到j的一条最短路径，且其所有中间顶点均属于集合$\{1,2,…,k-1\}$；</p>
+<p> <img src="C:\Users\kunkun\AppData\Roaming\Typora\typora-user-images\image-20220101111423027.png" alt="image-20220101111423027" style="zoom:50%;" /></p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-稀疏图上的Johnson算法"><a href="#3-稀疏图上的Johnson算法" class="headerlink" title="3. 稀疏图上的Johnson算法"></a>3. 稀疏图上的Johnson算法</h4><ul>
+<li><strong>提出</strong>：运用了<strong>重赋权</strong>技术；</li>
+<li><strong>执行方式</strong>：如果所有边权w非负，则把每对顶点依次作为源点来执行Dijkstra算法，就可以找出每对顶点间的最短路径，可以使用斐波那契最小优先队列进行优化；如果G含有负权边但是不含有负权的回路，就只计算一个心的负权边的集合。</li>
+<li>重赋权值不会改变最短路径。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
+      </tags>
   </entry>
 </search>
