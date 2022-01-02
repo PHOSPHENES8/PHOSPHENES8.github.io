@@ -686,6 +686,14 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>Tail Latency</title>
+    <url>/2021/10/21/20211021-Tail-Latency/</url>
+    <content><![CDATA[<h3 id="尾部延迟Tail-Latency"><a href="#尾部延迟Tail-Latency" class="headerlink" title="尾部延迟Tail Latency"></a>尾部延迟Tail Latency</h3><p>广泛存在于高并发系统中。开发和运维高并发系统的时候，会出现：明明系统已经调优完毕，该异步的异步，该减少互斥的地方引入无锁，该减少的IO的地方更换引擎或者硬件，该调节内核的调节相应参数。</p>
+<p>然而如果在系统中引入实时监控，总会<strong>有少量响应的延迟高于均值</strong>，我们把这些响应称为尾延迟（Tail Latency）。<strong>对于大规模分布式系统而言，尾延迟的影响尤其严重，例如大规模搜索引擎，单个请求可能就会发送到上万台服务器，系统不得不等待尾延迟响应之后才能返回给用户。</strong></p>
+<p>尾延迟可能是程序设计本身导致的毛病。但是及时程序设计完全无误，尾延迟依然可能存在。实际上，硬件、操作系统本身，都可能导致尾延迟响应，例如：主机系统其他进程的影响，应用程序中的线程调度、CPU功耗设计等。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Erasure Code</title>
     <url>/2021/10/21/20211021-Erasure-Code/</url>
     <content><![CDATA[<h3 id="Erasure-Code纠删码"><a href="#Erasure-Code纠删码" class="headerlink" title="Erasure Code纠删码"></a>Erasure Code纠删码</h3><ul>
@@ -724,14 +732,6 @@ STARLINK-1008
 <li><a href="https://blog.csdn.net/sinat_27186785/article/details/52034588">https://blog.csdn.net/sinat_27186785/article/details/52034588</a></li>
 <li><a href="https://blog.csdn.net/shelldon/article/details/54144730">https://blog.csdn.net/shelldon/article/details/54144730</a></li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Tail Latency</title>
-    <url>/2021/10/21/20211021-Tail-Latency/</url>
-    <content><![CDATA[<h3 id="尾部延迟Tail-Latency"><a href="#尾部延迟Tail-Latency" class="headerlink" title="尾部延迟Tail Latency"></a>尾部延迟Tail Latency</h3><p>广泛存在于高并发系统中。开发和运维高并发系统的时候，会出现：明明系统已经调优完毕，该异步的异步，该减少互斥的地方引入无锁，该减少的IO的地方更换引擎或者硬件，该调节内核的调节相应参数。</p>
-<p>然而如果在系统中引入实时监控，总会<strong>有少量响应的延迟高于均值</strong>，我们把这些响应称为尾延迟（Tail Latency）。<strong>对于大规模分布式系统而言，尾延迟的影响尤其严重，例如大规模搜索引擎，单个请求可能就会发送到上万台服务器，系统不得不等待尾延迟响应之后才能返回给用户。</strong></p>
-<p>尾延迟可能是程序设计本身导致的毛病。但是及时程序设计完全无误，尾延迟依然可能存在。实际上，硬件、操作系统本身，都可能导致尾延迟响应，例如：主机系统其他进程的影响，应用程序中的线程调度、CPU功耗设计等。</p>
 ]]></content>
   </entry>
   <entry>
@@ -792,6 +792,26 @@ STARLINK-1008
 <li><a href="https://blog.csdn.net/caijibai/article/details/120176707">用STK导入段时间TLE数据</a></li>
 <li>STK学习资料：<a href="https://blog.csdn.net/stk10/category_1364277.html">https://blog.csdn.net/stk10/category_1364277.html</a></li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Django-2-Git&amp;Docker部署</title>
+    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
+<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
+<span id="more"></span>
+<blockquote>
+<p>Host server1</p>
+<p>​    HostName: 公网IP 139.224.111.142</p>
+<p>​    UserName: kunkun</p>
+</blockquote>
+<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
+<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
+<ul>
+<li>ssh server1</li>
+<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
+</ul>
+</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -868,34 +888,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>Django-2-Git&amp;Docker部署</title>
-    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
-<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
-<span id="more"></span>
-<blockquote>
-<p>Host server1</p>
-<p>​    HostName: 公网IP 139.224.111.142</p>
-<p>​    UserName: kunkun</p>
-</blockquote>
-<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
-<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
-<ul>
-<li>ssh server1</li>
-<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
-</ul>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>Orbit Phasing</title>
-    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
-    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>RAAN</title>
     <url>/2021/11/02/20211102-RAAN/</url>
     <content><![CDATA[<h3 id="RAAN-Right-Ascension-of-the-Ascending-Node"><a href="#RAAN-Right-Ascension-of-the-Ascending-Node" class="headerlink" title="RAAN: Right Ascension of the Ascending Node"></a>RAAN: Right Ascension of the Ascending Node</h3><ul>
@@ -919,6 +911,14 @@ STARLINK-1008
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li><a href="https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node">https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node</a></li>
 <li><a href="https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738">https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Orbit Phasing</title>
+    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
+    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
 </ul>
 ]]></content>
   </entry>
@@ -986,6 +986,16 @@ STARLINK-1008
 <li><font color='cornflowerblue'>2 * semi-major-axis == apoapsis(远地点) + periapsis(近地点)</font>
 
 </li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>STK-3-CBF(Central Body Fixed Frame)</title>
+    <url>/2021/11/03/20211103-STK-3-CBF-Central-Body-Fixed-Frame/</url>
+    <content><![CDATA[<h3 id="CBF中心体坐标系-Central-Body-Fixed-Frame"><a href="#CBF中心体坐标系-Central-Body-Fixed-Frame" class="headerlink" title="CBF中心体坐标系(Central Body Fixed Frame)"></a>CBF中心体坐标系(Central Body Fixed Frame)</h3><p>视线约束主要是考虑信号传播路径中地面障碍物的影响。</p>
+<p>大地通常被视为一个椭圆体，在中心体坐标系（central body frame）中认为该椭圆体的形状是固定的。在椭圆体模型中，地面认为是局部平坦的（不考虑高山、丘陵、山谷等），地面模型非常简单。对地面进行更精确的建模需要AzEI蒙版或者地形蒙版工具，采用不同的访问约束（Access Constraints）来建模。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/63365900">https://zhuanlan.zhihu.com/p/63365900</a></li>
 </ul>
 ]]></content>
   </entry>
@@ -1058,25 +1068,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>STK-3-CBF(Central Body Fixed Frame)</title>
-    <url>/2021/11/03/20211103-STK-3-CBF-Central-Body-Fixed-Frame/</url>
-    <content><![CDATA[<h3 id="CBF中心体坐标系-Central-Body-Fixed-Frame"><a href="#CBF中心体坐标系-Central-Body-Fixed-Frame" class="headerlink" title="CBF中心体坐标系(Central Body Fixed Frame)"></a>CBF中心体坐标系(Central Body Fixed Frame)</h3><p>视线约束主要是考虑信号传播路径中地面障碍物的影响。</p>
-<p>大地通常被视为一个椭圆体，在中心体坐标系（central body frame）中认为该椭圆体的形状是固定的。在椭圆体模型中，地面认为是局部平坦的（不考虑高山、丘陵、山谷等），地面模型非常简单。对地面进行更精确的建模需要AzEI蒙版或者地形蒙版工具，采用不同的访问约束（Access Constraints）来建模。</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/63365900">https://zhuanlan.zhihu.com/p/63365900</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Django-3-网站开发操作记录</title>
-    <url>/2021/11/13/20211113-Django-3-%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h3 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将镜像文件`django_lesson_1_0.tar`加载到本地</span></span><br><span class="line">docker load -i django_lesson_1_0.tar	</span><br><span class="line"></span><br><span class="line">docker images</span><br><span class="line"><span class="meta">#</span><span class="bash"> REPOSITORY      TAG       IMAGE ID       CREATED       SIZE</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> django_lesson   1.0       58e383d3fa92   2 weeks ago   1.5GB</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>一个docker可以有多个镜像，同一个镜像可以生成多个容器，相同镜像生成的容器环境都是完全一致的；</p>
-<p>每一个容器可以视为一个独立的服务器；</p>
-<p>对于文件管理，docker和git都采取了空间优化；</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Python-1-geopy.distance</title>
     <url>/2021/11/04/20211104-Python-1-geopy-distance/</url>
     <content><![CDATA[<h1 id="Geopy模块"><a href="#Geopy模块" class="headerlink" title="Geopy模块"></a>Geopy模块</h1><p>当我们需要计算A，B两点之间的最短距离时，可以使用geopy模块的distance.distance函数（可参见<a href="https://www.osgeo.cn/geopy/">官方文档说明</a>）。</p>
@@ -1094,6 +1085,15 @@ STARLINK-1008
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> math</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> geopy <span class="keyword">import</span> distance</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>p1 = (<span class="number">43.668613</span>, <span class="number">40.258916</span>, <span class="number">0.976</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>p2 = (<span class="number">43.658852</span>, <span class="number">40.250839</span>, <span class="number">1.475</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>flat_distance = distance.distance(p1[:<span class="number">2</span>], p2[:<span class="number">2</span>]).km</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(flat_distance)</span><br><span class="line"><span class="number">1.265133525952866</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>euclidian_distance = math.sqrt(flat_distance**<span class="number">2</span> + (p2[<span class="number">2</span>] - p1[<span class="number">2</span>])**<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(euclidian_distance)</span><br><span class="line"><span class="number">1.359986705262199</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Django-3-网站开发操作记录</title>
+    <url>/2021/11/13/20211113-Django-3-%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将镜像文件`django_lesson_1_0.tar`加载到本地</span></span><br><span class="line">docker load -i django_lesson_1_0.tar	</span><br><span class="line"></span><br><span class="line">docker images</span><br><span class="line"><span class="meta">#</span><span class="bash"> REPOSITORY      TAG       IMAGE ID       CREATED       SIZE</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> django_lesson   1.0       58e383d3fa92   2 weeks ago   1.5GB</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>一个docker可以有多个镜像，同一个镜像可以生成多个容器，相同镜像生成的容器环境都是完全一致的；</p>
+<p>每一个容器可以视为一个独立的服务器；</p>
+<p>对于文件管理，docker和git都采取了空间优化；</p>
 ]]></content>
   </entry>
   <entry>
@@ -1344,34 +1344,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>20211221-Pareto最优</title>
-    <url>/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/</url>
-    <content><![CDATA[<h3 id="Pareto-Optimality-帕累托最优"><a href="#Pareto-Optimality-帕累托最优" class="headerlink" title="Pareto Optimality 帕累托最优"></a>Pareto Optimality 帕累托最优</h3><p>帕累托最优，是经济学中的重要概念，并且在博弈论、工程学和社会科学中有着广泛的应用。</p>
-<span id="more"></span>
-<h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
-<li><p>帕累托改善：要求在提高某些人福利的时候不能减少任何一个人的福利。</p>
-<blockquote>
-<p>和<strong>功利主义</strong>的比较：功利主义允许提高福利总和而减少一些人的福利。</p>
-</blockquote>
-</li>
-<li><p>帕累托最优：不可能再有更多的<strong>帕累托改善</strong>的情况，即不可能在不使任何其他人受损的情况下再改善某些人的情况。<font color='orange'><strong>从此以后，非损人不能利己。</strong></font></p>
-</li>
-</ul>
-<h4 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h4><ul>
-<li><p>示例1：</p>
-<blockquote>
-<p>假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
-</blockquote>
-</li>
-<li><p>示例2：</p>
-<blockquote>
-<p>假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。</p>
-</blockquote>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>20211220-Set Cover Problem</title>
     <url>/2021/12/20/20211220-Set-Cover-Problem/</url>
     <content><![CDATA[<p><strong>Weighted Set Cover (WSC)</strong>：带权集合覆盖问题</p>
@@ -1466,26 +1438,31 @@ g(u, v)=\inf _{x \in D} L(x, u, v)=\inf _{x \in D}\left[f_{0}(x)+\sum_{i=1}^{m} 
 ]]></content>
   </entry>
   <entry>
-    <title>20211225-如何理解0-1背包是NPC问题</title>
-    <url>/2021/12/25/20211225-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A30-1%E8%83%8C%E5%8C%85%E6%98%AFNPC%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="如何理解0-1背包是NPC问题"><a href="#如何理解0-1背包是NPC问题" class="headerlink" title="如何理解0-1背包是NPC问题?"></a>如何理解0-1背包是NPC问题?</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="1. 分析"></a>1. 分析</h4><blockquote>
-<ul>
-<li><p>在0-1背包问题中，我们需要2个输入（一个数组和一个整数）来解决这个问题。</p>
-<ul>
-<li>n个项目的数组$\{n_1, n_2, …\}$，每个项目都有它的价值指数和权重指数；</li>
-<li>整数W作为最大可接受的重量。</li>
-</ul>
-</li>
-<li><p>假设<code>n=10, W=8</code>，则：</p>
-<p><code>n = [n1, n2, ..., n10], W=1000</code>，因此时间复杂度为<code>T（n）= O（nW）= O（80）</code>。</p>
-</li>
-<li><p>若将<code>n</code>的大小加倍：<code>T（n）= O（nW）= O（20 * 8）= O（160）</code>;</p>
-</li>
-<li>若将<code>W</code>的大小加倍：并不意味着W = 20，而是长度是两倍，即<code>W = 10000000</code>，因此：<code>T（n）= O（nW）= 0（10 * 128）= 0（1280）</code>；</li>
-<li>因此所需时间以<font color='cornflowerblue'><strong>指数</strong></font>增加，这是一个<font color='orange'><strong>NPC问题</strong></font>。</li>
-<li>因此，它是一个伪多项式。</li>
-</ul>
+    <title>20211221-Pareto最优</title>
+    <url>/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/</url>
+    <content><![CDATA[<h3 id="Pareto-Optimality-帕累托最优"><a href="#Pareto-Optimality-帕累托最优" class="headerlink" title="Pareto Optimality 帕累托最优"></a>Pareto Optimality 帕累托最优</h3><p>帕累托最优，是经济学中的重要概念，并且在博弈论、工程学和社会科学中有着广泛的应用。</p>
+<span id="more"></span>
+<h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
+<li><p>帕累托改善：要求在提高某些人福利的时候不能减少任何一个人的福利。</p>
+<blockquote>
+<p>和<strong>功利主义</strong>的比较：功利主义允许提高福利总和而减少一些人的福利。</p>
 </blockquote>
+</li>
+<li><p>帕累托最优：不可能再有更多的<strong>帕累托改善</strong>的情况，即不可能在不使任何其他人受损的情况下再改善某些人的情况。<font color='orange'><strong>从此以后，非损人不能利己。</strong></font></p>
+</li>
+</ul>
+<h4 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h4><ul>
+<li><p>示例1：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
+</blockquote>
+</li>
+<li><p>示例2：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。</p>
+</blockquote>
+</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -1608,6 +1585,29 @@ g(u, v)=\inf _{x \in D} L(x, u, v)=\inf _{x \in D}\left[f_{0}(x)+\sum_{i=1}^{m} 
 </ul>
 </li>
 <li><strong>经典问题分解</strong>：<code>图着色 = 集合覆盖 + 独立集</code></li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211225-如何理解0-1背包是NPC问题</title>
+    <url>/2021/12/25/20211225-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A30-1%E8%83%8C%E5%8C%85%E6%98%AFNPC%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="如何理解0-1背包是NPC问题"><a href="#如何理解0-1背包是NPC问题" class="headerlink" title="如何理解0-1背包是NPC问题?"></a>如何理解0-1背包是NPC问题?</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="1. 分析"></a>1. 分析</h4><blockquote>
+<ul>
+<li><p>在0-1背包问题中，我们需要2个输入（一个数组和一个整数）来解决这个问题。</p>
+<ul>
+<li>n个项目的数组$\{n_1, n_2, …\}$，每个项目都有它的价值指数和权重指数；</li>
+<li>整数W作为最大可接受的重量。</li>
+</ul>
+</li>
+<li><p>假设<code>n=10, W=8</code>，则：</p>
+<p><code>n = [n1, n2, ..., n10], W=1000</code>，因此时间复杂度为<code>T（n）= O（nW）= O（80）</code>。</p>
+</li>
+<li><p>若将<code>n</code>的大小加倍：<code>T（n）= O（nW）= O（20 * 8）= O（160）</code>;</p>
+</li>
+<li>若将<code>W</code>的大小加倍：并不意味着W = 20，而是长度是两倍，即<code>W = 10000000</code>，因此：<code>T（n）= O（nW）= 0（10 * 128）= 0（1280）</code>；</li>
+<li>因此所需时间以<font color='cornflowerblue'><strong>指数</strong></font>增加，这是一个<font color='orange'><strong>NPC问题</strong></font>。</li>
+<li>因此，它是一个伪多项式。</li>
 </ul>
 </blockquote>
 ]]></content>
@@ -2012,7 +2012,7 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 <p>思想：直接暴力枚举，对于二进制的每一位进行替换，若转化出来数字的三进制和题目中第二个字串只差一个字母，则输出该数字。否则，恢复原数组，并对下一位进行上述操作。</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>;</span><br><span class="line"><span class="keyword">char</span> e1[N], e2[N];</span><br><span class="line"><span class="keyword">int</span> n1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stox</span><span class="params">(<span class="keyword">char</span> e1[], <span class="keyword">int</span> base)</span></span>&#123;</span><br><span class="line">    string str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(e1);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;len1; i++)&#123;</span><br><span class="line">        sum +=  (e1[i]-<span class="string">&#x27;0&#x27;</span>) * <span class="built_in">pow</span>(base, len1-i<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">string <span class="title">itos</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> radix)</span></span>&#123;</span><br><span class="line">    string ans = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">		<span class="keyword">int</span> t = n % radix;</span><br><span class="line">		<span class="keyword">if</span>(t &gt;=<span class="number">0</span> &amp;&amp; t &lt;= <span class="number">9</span>)	ans + = t + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">		<span class="keyword">else</span> ans += t - <span class="number">10</span> + <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		n /= radix;</span><br><span class="line">	&#125; <span class="keyword">while</span>(n != <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(),ans.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isOK</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">char</span> e2[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    string s = <span class="built_in">itos</span>(n,<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] != e2[i])&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag == <span class="number">0</span>)    flag = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span>    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">1</span>)   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;e1&gt;&gt;e2;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="built_in">strlen</span>(e1); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(e1[i] == <span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">            e1[i] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">            n1 = <span class="built_in">stox</span>(e1, <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isOK</span>(n1, e2))&#123;</span><br><span class="line">                cout&lt;&lt;n1&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            e1[i] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            e1[i] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            n1 = <span class="built_in">stox</span>(e1, <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isOK</span>(n1, e2))&#123;</span><br><span class="line">                cout&lt;&lt;n1&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            e1[i] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-【依然暴力，但是稍微优雅一些】"><a href="#2-【依然暴力，但是稍微优雅一些】" class="headerlink" title="2. 【依然暴力，但是稍微优雅一些】"></a>2. 【依然暴力，但是稍微优雅一些】</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(string s, <span class="keyword">int</span> b)</span>  <span class="comment">// 将b进制的数转化成十进制</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 秦九韶算法</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> c: s)</span><br><span class="line">        res = res * b + c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string a, b;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line"></span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; S;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; c: a)&#123;</span><br><span class="line">        c ^= <span class="number">1</span>;</span><br><span class="line">        S.<span class="built_in">insert</span>(<span class="built_in">get</span>(a, <span class="number">2</span>));</span><br><span class="line">        c ^= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; c: b)&#123;</span><br><span class="line">        <span class="keyword">char</span> t = c;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i ++ )</span><br><span class="line">            <span class="keyword">if</span> (i + <span class="string">&#x27;0&#x27;</span> != t)&#123;</span><br><span class="line">                c = i + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                <span class="keyword">int</span> x = <span class="built_in">get</span>(b, <span class="number">3</span>);</span><br><span class="line">                <span class="keyword">if</span> (S.<span class="built_in">count</span>(x))&#123;</span><br><span class="line">                    cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        c = t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="2-【依然暴力，但是稍微优雅一些】"><a href="#2-【依然暴力，但是稍微优雅一些】" class="headerlink" title="2. 【依然暴力，但是稍微优雅一些】"></a>2. 【依然暴力，但是稍微优雅一些】</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(string s, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> c: s)&#123;</span><br><span class="line">        res = res * b + (c - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    string a, b;    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; S;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; c: a)&#123;</span><br><span class="line">        c ^= <span class="number">1</span>;</span><br><span class="line">        S.<span class="built_in">insert</span>(<span class="built_in">get</span>(a, <span class="number">2</span>));</span><br><span class="line">        c ^= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; c: b)&#123;</span><br><span class="line">        <span class="keyword">char</span> t = c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i + <span class="string">&#x27;0&#x27;</span> != t)&#123;</span><br><span class="line">                c = i + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                <span class="keyword">int</span> x = <span class="built_in">get</span>(b, <span class="number">3</span>);</span><br><span class="line">                <span class="keyword">if</span>(S.<span class="built_in">count</span>(x))&#123;</span><br><span class="line">                    cout&lt;&lt;x&lt;&lt;endl;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        c = t;  <span class="comment">//恢复</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>“2022 winter holiday”</tag>
