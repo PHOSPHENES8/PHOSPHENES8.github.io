@@ -69,37 +69,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>DNS、MAC和IP</title>
-    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
-    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
-<li>网址名称（便于记忆）：www.qq.com</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p>真正地址：139.180.132.25</p>
-<blockquote>
-<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
-<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
-<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
-</blockquote>
-</li>
-<li><p>DNS分级查询</p>
-<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
-</li>
-</ul>
-<blockquote>
-<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
-<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
-</blockquote>
-<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
-<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
-<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
-<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
-<p>略，京东自营… …</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
     <title>CDN的工作原理</title>
     <url>/2021/10/15/20211015-The-Pricinple-of-CDN/</url>
     <content><![CDATA[<h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p><strong>1. 上线一个网站都需要哪几个步骤呢？</strong></p>
@@ -167,34 +136,34 @@
 ]]></content>
   </entry>
   <entry>
-    <title>TCP&amp;UDP、三次握手&amp;四次挥手</title>
-    <url>/2021/10/19/20211019-TCP-UDP%E3%80%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
-    <content><![CDATA[<p><strong>TCP和UDP的区别：</strong>TCP和UDP都工作在传输层，目标都是在程序之间传输数据；</p>
+    <title>DNS、MAC和IP</title>
+    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
+    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
+<li>网址名称（便于记忆）：www.qq.com</li>
+</ul>
 <span id="more"></span>
-<blockquote>
-<p>一个基于连接、一个基于非连接；</p>
 <ul>
-<li>写信（对方是否收到、内容是否完整、顺序是否正确<strong>都不能够确定</strong>）</li>
-<li><p>打电话（电话接通、相互通话、结束挂断）</p>
-<p><img src="\images\doc\12.png" alt="image-20211019095441176" style="zoom:50%;" /></p>
-</li>
-</ul>
-<p><strong>隧道网络：【UDP的典型应用】</strong>VPN、VXLAN</p>
-</blockquote>
-<p><strong>TCP是如何保证以上性质的呢？</strong></p>
+<li><p>真正地址：139.180.132.25</p>
 <blockquote>
-<p><strong>三次握手：</strong>建立连接；【解决网络信道不可靠的问题】</p>
-<p> <img src="\images\doc\13.png" alt="image-20211019094935330" style="zoom:50%;" /></p>
-<p><strong>传输确认；</strong></p>
-<p><strong>四次挥手；</strong></p>
-<p> <img src="\images\doc\14.png" alt="image-20211019095316453" style="zoom:50%;" /></p>
+<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
+<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
+<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
 </blockquote>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><p><a href="https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0">https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0</a></p>
 </li>
-<li><p><a href="https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1</a></p>
+<li><p>DNS分级查询</p>
+<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
 </li>
 </ul>
+<blockquote>
+<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
+<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
+</blockquote>
+<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
+<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
+<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
+<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
+<p>略，京东自营… …</p>
+</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -272,6 +241,37 @@
 </ul>
 </li>
 <li><p><a href="https://www.bilibili.com/video/BV1Gh411y7LS?spm_id_from=333.999.0.0">Demo</a>【4’50】</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>TCP&amp;UDP、三次握手&amp;四次挥手</title>
+    <url>/2021/10/19/20211019-TCP-UDP%E3%80%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
+    <content><![CDATA[<p><strong>TCP和UDP的区别：</strong>TCP和UDP都工作在传输层，目标都是在程序之间传输数据；</p>
+<span id="more"></span>
+<blockquote>
+<p>一个基于连接、一个基于非连接；</p>
+<ul>
+<li>写信（对方是否收到、内容是否完整、顺序是否正确<strong>都不能够确定</strong>）</li>
+<li><p>打电话（电话接通、相互通话、结束挂断）</p>
+<p><img src="\images\doc\12.png" alt="image-20211019095441176" style="zoom:50%;" /></p>
+</li>
+</ul>
+<p><strong>隧道网络：【UDP的典型应用】</strong>VPN、VXLAN</p>
+</blockquote>
+<p><strong>TCP是如何保证以上性质的呢？</strong></p>
+<blockquote>
+<p><strong>三次握手：</strong>建立连接；【解决网络信道不可靠的问题】</p>
+<p> <img src="\images\doc\13.png" alt="image-20211019094935330" style="zoom:50%;" /></p>
+<p><strong>传输确认；</strong></p>
+<p><strong>四次挥手；</strong></p>
+<p> <img src="\images\doc\14.png" alt="image-20211019095316453" style="zoom:50%;" /></p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><p><a href="https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0">https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0</a></p>
+</li>
+<li><p><a href="https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1</a></p>
 </li>
 </ul>
 ]]></content>
@@ -795,26 +795,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>Django-2-Git&amp;Docker部署</title>
-    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
-<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
-<span id="more"></span>
-<blockquote>
-<p>Host server1</p>
-<p>​    HostName: 公网IP 139.224.111.142</p>
-<p>​    UserName: kunkun</p>
-</blockquote>
-<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
-<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
-<ul>
-<li>ssh server1</li>
-<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
-</ul>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
     <title>Django-1.概论和python语法</title>
     <url>/2021/10/31/20211031-Django-1-%E6%A6%82%E8%AE%BA%E5%92%8Cpython%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<ul>
@@ -885,6 +865,26 @@ STARLINK-1008
 <h3 id="相关网址"><a href="#相关网址" class="headerlink" title="相关网址"></a>相关网址</h3><ul>
 <li><a href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a></li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Django-2-Git&amp;Docker部署</title>
+    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
+<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
+<span id="more"></span>
+<blockquote>
+<p>Host server1</p>
+<p>​    HostName: 公网IP 139.224.111.142</p>
+<p>​    UserName: kunkun</p>
+</blockquote>
+<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
+<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
+<ul>
+<li>ssh server1</li>
+<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
+</ul>
+</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -964,6 +964,32 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>地理名词中英文对照</title>
+    <url>/2021/11/02/20211102-%E5%9C%B0%E7%90%86%E5%90%8D%E8%AF%8D%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7/</url>
+    <content><![CDATA[<h1 id="地理名词中英文对照"><a href="#地理名词中英文对照" class="headerlink" title="地理名词中英文对照"></a>地理名词中英文对照</h1><ul>
+<li><font color='orange'><strong>RAAN:</strong> </font>the right ascension of the ascending node 升交点黄经</li>
+<li><font color='orange'><strong>春分点:</strong> </font>the first point of aries</li>
+<li><p><font color='orange'><strong>LTAN:</strong> </font>local time of the ascending node</p>
+</li>
+<li><p><font color='orange'><strong>heliocentric orbits:</strong></font>日心轨道</p>
+</li>
+<li><p><font color='orange'><strong>ecliptic:</strong></font>黄道</p>
+</li>
+<li><p><font color='orange'><strong>celestial sphere:</strong></font>天球</p>
+</li>
+<li><p><font color='orange'><strong>perpendicular projection:</strong></font>垂直射影</p>
+</li>
+<li><p><font color='orange'><strong>True anomaly</strong></font>：真近点角 <a href="https://en.wikipedia.org/wiki/True_anomaly">https://en.wikipedia.org/wiki/True_anomaly</a></p>
+</li>
+<li><p><font color='orange'><strong>Eccentric anomaly</strong></font>：偏近点角 <a href="https://en.wikipedia.org/wiki/Eccentric_anomaly">https://en.wikipedia.org/wiki/Eccentric_anomaly</a></p>
+</li>
+<li><font color='cornflowerblue'>2 * semi-major-axis == apoapsis(远地点) + periapsis(近地点)</font>
+
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Walker Constellation</title>
     <url>/2021/11/02/20211102-Walker-Constellation/</url>
     <content><![CDATA[<h3 id="卫星星座设计"><a href="#卫星星座设计" class="headerlink" title="卫星星座设计"></a>卫星星座设计</h3><p>卫星星座设计经常被误解为仅仅是在修改后的轨道上复制单个卫星的多个副本的行为。卫星星座设计过程有点类似于开发多细胞生物，每个细胞代表一个卫星。</p>
@@ -1028,32 +1054,6 @@ STARLINK-1008
 <li>具体理论和介绍参见：<a href="https://en.wikipedia.org/wiki/Satellite_constellation">https://en.wikipedia.org/wiki/Satellite_constellation</a></li>
 <li><a href="https://astrome.net/blogs/the-art-of-satellite-constellation-design-what-you-need-to-know/">https://astrome.net/blogs/the-art-of-satellite-constellation-design-what-you-need-to-know/</a></li>
 <li><a href="http://www.jos.org.cn/html/2014/5/4581.htm#outline_anchor_17">http://www.jos.org.cn/html/2014/5/4581.htm#outline_anchor_17</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>地理名词中英文对照</title>
-    <url>/2021/11/02/20211102-%E5%9C%B0%E7%90%86%E5%90%8D%E8%AF%8D%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7/</url>
-    <content><![CDATA[<h1 id="地理名词中英文对照"><a href="#地理名词中英文对照" class="headerlink" title="地理名词中英文对照"></a>地理名词中英文对照</h1><ul>
-<li><font color='orange'><strong>RAAN:</strong> </font>the right ascension of the ascending node 升交点黄经</li>
-<li><font color='orange'><strong>春分点:</strong> </font>the first point of aries</li>
-<li><p><font color='orange'><strong>LTAN:</strong> </font>local time of the ascending node</p>
-</li>
-<li><p><font color='orange'><strong>heliocentric orbits:</strong></font>日心轨道</p>
-</li>
-<li><p><font color='orange'><strong>ecliptic:</strong></font>黄道</p>
-</li>
-<li><p><font color='orange'><strong>celestial sphere:</strong></font>天球</p>
-</li>
-<li><p><font color='orange'><strong>perpendicular projection:</strong></font>垂直射影</p>
-</li>
-<li><p><font color='orange'><strong>True anomaly</strong></font>：真近点角 <a href="https://en.wikipedia.org/wiki/True_anomaly">https://en.wikipedia.org/wiki/True_anomaly</a></p>
-</li>
-<li><p><font color='orange'><strong>Eccentric anomaly</strong></font>：偏近点角 <a href="https://en.wikipedia.org/wiki/Eccentric_anomaly">https://en.wikipedia.org/wiki/Eccentric_anomaly</a></p>
-</li>
-<li><font color='cornflowerblue'>2 * semi-major-axis == apoapsis(远地点) + periapsis(近地点)</font>
-
-</li>
 </ul>
 ]]></content>
   </entry>
@@ -2007,7 +2007,8 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
   <entry>
     <title>20220102-Day1.笨拙的手指</title>
     <url>/2022/01/02/20220102-Day1-%E7%AC%A8%E6%8B%99%E7%9A%84%E6%89%8B%E6%8C%87/</url>
-    <content><![CDATA[<h3 id="笨拙的手指"><a href="#笨拙的手指" class="headerlink" title="笨拙的手指"></a>笨拙的手指</h3><h4 id="1-【暴力】"><a href="#1-【暴力】" class="headerlink" title="1. 【暴力】"></a>1. 【暴力】</h4><blockquote>
+    <content><![CDATA[<h3 id="Day01-笨拙的手指"><a href="#Day01-笨拙的手指" class="headerlink" title="Day01. 笨拙的手指"></a>Day01. 笨拙的手指</h3><span id="more"></span>
+<h4 id="1-【暴力】"><a href="#1-【暴力】" class="headerlink" title="1. 【暴力】"></a>1. 【暴力】</h4><blockquote>
 <p>思想：直接暴力枚举，对于二进制的每一位进行替换，若转化出来数字的三进制和题目中第二个字串只差一个字母，则输出该数字。否则，恢复原数组，并对下一位进行上述操作。</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>;</span><br><span class="line"><span class="keyword">char</span> e1[N], e2[N];</span><br><span class="line"><span class="keyword">int</span> n1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stox</span><span class="params">(<span class="keyword">char</span> e1[], <span class="keyword">int</span> base)</span></span>&#123;</span><br><span class="line">    string str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(e1);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;len1; i++)&#123;</span><br><span class="line">        sum +=  (e1[i]-<span class="string">&#x27;0&#x27;</span>) * <span class="built_in">pow</span>(base, len1-i<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">string <span class="title">itos</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> radix)</span></span>&#123;</span><br><span class="line">    string ans = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">		<span class="keyword">int</span> t = n % radix;</span><br><span class="line">		<span class="keyword">if</span>(t &gt;=<span class="number">0</span> &amp;&amp; t &lt;= <span class="number">9</span>)	ans + = t + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">		<span class="keyword">else</span> ans += t - <span class="number">10</span> + <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		n /= radix;</span><br><span class="line">	&#125; <span class="keyword">while</span>(n != <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(),ans.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isOK</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">char</span> e2[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    string s = <span class="built_in">itos</span>(n,<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] != e2[i])&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag == <span class="number">0</span>)    flag = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span>    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">1</span>)   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;e1&gt;&gt;e2;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="built_in">strlen</span>(e1); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(e1[i] == <span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">            e1[i] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">            n1 = <span class="built_in">stox</span>(e1, <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isOK</span>(n1, e2))&#123;</span><br><span class="line">                cout&lt;&lt;n1&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            e1[i] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            e1[i] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            n1 = <span class="built_in">stox</span>(e1, <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isOK</span>(n1, e2))&#123;</span><br><span class="line">                cout&lt;&lt;n1&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            e1[i] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
