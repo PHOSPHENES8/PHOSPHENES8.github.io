@@ -686,14 +686,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>Tail Latency</title>
-    <url>/2021/10/21/20211021-Tail-Latency/</url>
-    <content><![CDATA[<h3 id="尾部延迟Tail-Latency"><a href="#尾部延迟Tail-Latency" class="headerlink" title="尾部延迟Tail Latency"></a>尾部延迟Tail Latency</h3><p>广泛存在于高并发系统中。开发和运维高并发系统的时候，会出现：明明系统已经调优完毕，该异步的异步，该减少互斥的地方引入无锁，该减少的IO的地方更换引擎或者硬件，该调节内核的调节相应参数。</p>
-<p>然而如果在系统中引入实时监控，总会<strong>有少量响应的延迟高于均值</strong>，我们把这些响应称为尾延迟（Tail Latency）。<strong>对于大规模分布式系统而言，尾延迟的影响尤其严重，例如大规模搜索引擎，单个请求可能就会发送到上万台服务器，系统不得不等待尾延迟响应之后才能返回给用户。</strong></p>
-<p>尾延迟可能是程序设计本身导致的毛病。但是及时程序设计完全无误，尾延迟依然可能存在。实际上，硬件、操作系统本身，都可能导致尾延迟响应，例如：主机系统其他进程的影响，应用程序中的线程调度、CPU功耗设计等。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Erasure Code</title>
     <url>/2021/10/21/20211021-Erasure-Code/</url>
     <content><![CDATA[<h3 id="Erasure-Code纠删码"><a href="#Erasure-Code纠删码" class="headerlink" title="Erasure Code纠删码"></a>Erasure Code纠删码</h3><ul>
@@ -735,6 +727,14 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>Tail Latency</title>
+    <url>/2021/10/21/20211021-Tail-Latency/</url>
+    <content><![CDATA[<h3 id="尾部延迟Tail-Latency"><a href="#尾部延迟Tail-Latency" class="headerlink" title="尾部延迟Tail Latency"></a>尾部延迟Tail Latency</h3><p>广泛存在于高并发系统中。开发和运维高并发系统的时候，会出现：明明系统已经调优完毕，该异步的异步，该减少互斥的地方引入无锁，该减少的IO的地方更换引擎或者硬件，该调节内核的调节相应参数。</p>
+<p>然而如果在系统中引入实时监控，总会<strong>有少量响应的延迟高于均值</strong>，我们把这些响应称为尾延迟（Tail Latency）。<strong>对于大规模分布式系统而言，尾延迟的影响尤其严重，例如大规模搜索引擎，单个请求可能就会发送到上万台服务器，系统不得不等待尾延迟响应之后才能返回给用户。</strong></p>
+<p>尾延迟可能是程序设计本身导致的毛病。但是及时程序设计完全无误，尾延迟依然可能存在。实际上，硬件、操作系统本身，都可能导致尾延迟响应，例如：主机系统其他进程的影响，应用程序中的线程调度、CPU功耗设计等。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>What does Recilience exactly means in System Building</title>
     <url>/2021/10/21/20211021-What-does-Recilience-exactly-means-in-System-Building/</url>
     <content><![CDATA[<blockquote>
@@ -764,6 +764,18 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>Import TLE data into STK</title>
+    <url>/2021/10/29/20211029-Import-TLE-data-into-STK/</url>
+    <content><![CDATA[<h3 id="Matlab函数说明"><a href="#Matlab函数说明" class="headerlink" title="Matlab函数说明"></a>Matlab函数说明</h3><ul>
+<li>lla2ecef: Convert geodetic coordinates to Earth-centered Earth-fixed coordinates</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://blog.csdn.net/caijibai/article/details/120176707">用STK导入段时间TLE数据</a></li>
+<li>STK学习资料：<a href="https://blog.csdn.net/stk10/category_1364277.html">https://blog.csdn.net/stk10/category_1364277.html</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>What is Serverless Computing?</title>
     <url>/2021/10/23/20211023-What-is-Serverless-Computing/</url>
     <content><![CDATA[<p>Serverless Computing：无线服务器</p>
@@ -780,38 +792,6 @@ STARLINK-1008
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://www.alibabacloud.com/zh/knowledge/what-is-serverless">https://www.alibabacloud.com/zh/knowledge/what-is-serverless</a></li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Import TLE data into STK</title>
-    <url>/2021/10/29/20211029-Import-TLE-data-into-STK/</url>
-    <content><![CDATA[<h3 id="Matlab函数说明"><a href="#Matlab函数说明" class="headerlink" title="Matlab函数说明"></a>Matlab函数说明</h3><ul>
-<li>lla2ecef: Convert geodetic coordinates to Earth-centered Earth-fixed coordinates</li>
-</ul>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><a href="https://blog.csdn.net/caijibai/article/details/120176707">用STK导入段时间TLE数据</a></li>
-<li>STK学习资料：<a href="https://blog.csdn.net/stk10/category_1364277.html">https://blog.csdn.net/stk10/category_1364277.html</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Django-2-Git&amp;Docker部署</title>
-    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
-<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
-<span id="more"></span>
-<blockquote>
-<p>Host server1</p>
-<p>​    HostName: 公网IP 139.224.111.142</p>
-<p>​    UserName: kunkun</p>
-</blockquote>
-<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
-<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
-<ul>
-<li>ssh server1</li>
-<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
-</ul>
-</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -888,6 +868,34 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>Django-2-Git&amp;Docker部署</title>
+    <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
+<p><img src="/images/doc/5.png" alt="image-20211101171619017" style="zoom:80%;" /></p>
+<span id="more"></span>
+<blockquote>
+<p>Host server1</p>
+<p>​    HostName: 公网IP 139.224.111.142</p>
+<p>​    UserName: kunkun</p>
+</blockquote>
+<h3 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h3><p> <img src="/images/doc/6.png" alt="image-20211101180949177" style="zoom: 80%;" /></p>
+<h3 id="Django镜像"><a href="#Django镜像" class="headerlink" title="Django镜像"></a>Django镜像</h3><blockquote>
+<ul>
+<li>ssh server1</li>
+<li>ssh kunkun@localhost -p 20000 【ssh登录端口】</li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Orbit Phasing</title>
+    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
+    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>RAAN</title>
     <url>/2021/11/02/20211102-RAAN/</url>
     <content><![CDATA[<h3 id="RAAN-Right-Ascension-of-the-Ascending-Node"><a href="#RAAN-Right-Ascension-of-the-Ascending-Node" class="headerlink" title="RAAN: Right Ascension of the Ascending Node"></a>RAAN: Right Ascension of the Ascending Node</h3><ul>
@@ -911,14 +919,6 @@ STARLINK-1008
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li><a href="https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node">https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node</a></li>
 <li><a href="https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738">https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Orbit Phasing</title>
-    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
-    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
 </ul>
 ]]></content>
   </entry>
@@ -961,42 +961,6 @@ STARLINK-1008
 <p><img src="/images/doc/3.png" alt="image-20211102221622171" style="zoom:80%;" /></p>
 <p> <img src="/images/doc/2.png" alt="image-20211102215108648" style="zoom:80%;" /></p>
 <p><img src="/images/doc/1.png" alt="image-20211102223038446" style="zoom: 67%;" /></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>地理名词中英文对照</title>
-    <url>/2021/11/02/20211102-%E5%9C%B0%E7%90%86%E5%90%8D%E8%AF%8D%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7/</url>
-    <content><![CDATA[<h1 id="地理名词中英文对照"><a href="#地理名词中英文对照" class="headerlink" title="地理名词中英文对照"></a>地理名词中英文对照</h1><ul>
-<li><font color='orange'><strong>RAAN:</strong> </font>the right ascension of the ascending node 升交点黄经</li>
-<li><font color='orange'><strong>春分点:</strong> </font>the first point of aries</li>
-<li><p><font color='orange'><strong>LTAN:</strong> </font>local time of the ascending node</p>
-</li>
-<li><p><font color='orange'><strong>heliocentric orbits:</strong></font>日心轨道</p>
-</li>
-<li><p><font color='orange'><strong>ecliptic:</strong></font>黄道</p>
-</li>
-<li><p><font color='orange'><strong>celestial sphere:</strong></font>天球</p>
-</li>
-<li><p><font color='orange'><strong>perpendicular projection:</strong></font>垂直射影</p>
-</li>
-<li><p><font color='orange'><strong>True anomaly</strong></font>：真近点角 <a href="https://en.wikipedia.org/wiki/True_anomaly">https://en.wikipedia.org/wiki/True_anomaly</a></p>
-</li>
-<li><p><font color='orange'><strong>Eccentric anomaly</strong></font>：偏近点角 <a href="https://en.wikipedia.org/wiki/Eccentric_anomaly">https://en.wikipedia.org/wiki/Eccentric_anomaly</a></p>
-</li>
-<li><font color='cornflowerblue'>2 * semi-major-axis == apoapsis(远地点) + periapsis(近地点)</font>
-
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>STK-3-CBF(Central Body Fixed Frame)</title>
-    <url>/2021/11/03/20211103-STK-3-CBF-Central-Body-Fixed-Frame/</url>
-    <content><![CDATA[<h3 id="CBF中心体坐标系-Central-Body-Fixed-Frame"><a href="#CBF中心体坐标系-Central-Body-Fixed-Frame" class="headerlink" title="CBF中心体坐标系(Central Body Fixed Frame)"></a>CBF中心体坐标系(Central Body Fixed Frame)</h3><p>视线约束主要是考虑信号传播路径中地面障碍物的影响。</p>
-<p>大地通常被视为一个椭圆体，在中心体坐标系（central body frame）中认为该椭圆体的形状是固定的。在椭圆体模型中，地面认为是局部平坦的（不考虑高山、丘陵、山谷等），地面模型非常简单。对地面进行更精确的建模需要AzEI蒙版或者地形蒙版工具，采用不同的访问约束（Access Constraints）来建模。</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/63365900">https://zhuanlan.zhihu.com/p/63365900</a></li>
-</ul>
 ]]></content>
   </entry>
   <entry>
@@ -1064,6 +1028,42 @@ STARLINK-1008
 <li>具体理论和介绍参见：<a href="https://en.wikipedia.org/wiki/Satellite_constellation">https://en.wikipedia.org/wiki/Satellite_constellation</a></li>
 <li><a href="https://astrome.net/blogs/the-art-of-satellite-constellation-design-what-you-need-to-know/">https://astrome.net/blogs/the-art-of-satellite-constellation-design-what-you-need-to-know/</a></li>
 <li><a href="http://www.jos.org.cn/html/2014/5/4581.htm#outline_anchor_17">http://www.jos.org.cn/html/2014/5/4581.htm#outline_anchor_17</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>地理名词中英文对照</title>
+    <url>/2021/11/02/20211102-%E5%9C%B0%E7%90%86%E5%90%8D%E8%AF%8D%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7/</url>
+    <content><![CDATA[<h1 id="地理名词中英文对照"><a href="#地理名词中英文对照" class="headerlink" title="地理名词中英文对照"></a>地理名词中英文对照</h1><ul>
+<li><font color='orange'><strong>RAAN:</strong> </font>the right ascension of the ascending node 升交点黄经</li>
+<li><font color='orange'><strong>春分点:</strong> </font>the first point of aries</li>
+<li><p><font color='orange'><strong>LTAN:</strong> </font>local time of the ascending node</p>
+</li>
+<li><p><font color='orange'><strong>heliocentric orbits:</strong></font>日心轨道</p>
+</li>
+<li><p><font color='orange'><strong>ecliptic:</strong></font>黄道</p>
+</li>
+<li><p><font color='orange'><strong>celestial sphere:</strong></font>天球</p>
+</li>
+<li><p><font color='orange'><strong>perpendicular projection:</strong></font>垂直射影</p>
+</li>
+<li><p><font color='orange'><strong>True anomaly</strong></font>：真近点角 <a href="https://en.wikipedia.org/wiki/True_anomaly">https://en.wikipedia.org/wiki/True_anomaly</a></p>
+</li>
+<li><p><font color='orange'><strong>Eccentric anomaly</strong></font>：偏近点角 <a href="https://en.wikipedia.org/wiki/Eccentric_anomaly">https://en.wikipedia.org/wiki/Eccentric_anomaly</a></p>
+</li>
+<li><font color='cornflowerblue'>2 * semi-major-axis == apoapsis(远地点) + periapsis(近地点)</font>
+
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>STK-3-CBF(Central Body Fixed Frame)</title>
+    <url>/2021/11/03/20211103-STK-3-CBF-Central-Body-Fixed-Frame/</url>
+    <content><![CDATA[<h3 id="CBF中心体坐标系-Central-Body-Fixed-Frame"><a href="#CBF中心体坐标系-Central-Body-Fixed-Frame" class="headerlink" title="CBF中心体坐标系(Central Body Fixed Frame)"></a>CBF中心体坐标系(Central Body Fixed Frame)</h3><p>视线约束主要是考虑信号传播路径中地面障碍物的影响。</p>
+<p>大地通常被视为一个椭圆体，在中心体坐标系（central body frame）中认为该椭圆体的形状是固定的。在椭圆体模型中，地面认为是局部平坦的（不考虑高山、丘陵、山谷等），地面模型非常简单。对地面进行更精确的建模需要AzEI蒙版或者地形蒙版工具，采用不同的访问约束（Access Constraints）来建模。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/63365900">https://zhuanlan.zhihu.com/p/63365900</a></li>
 </ul>
 ]]></content>
   </entry>
@@ -1393,6 +1393,34 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>20211221-Pareto最优</title>
+    <url>/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/</url>
+    <content><![CDATA[<h3 id="Pareto-Optimality-帕累托最优"><a href="#Pareto-Optimality-帕累托最优" class="headerlink" title="Pareto Optimality 帕累托最优"></a>Pareto Optimality 帕累托最优</h3><p>帕累托最优，是经济学中的重要概念，并且在博弈论、工程学和社会科学中有着广泛的应用。</p>
+<span id="more"></span>
+<h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
+<li><p>帕累托改善：要求在提高某些人福利的时候不能减少任何一个人的福利。</p>
+<blockquote>
+<p>和<strong>功利主义</strong>的比较：功利主义允许提高福利总和而减少一些人的福利。</p>
+</blockquote>
+</li>
+<li><p>帕累托最优：不可能再有更多的<strong>帕累托改善</strong>的情况，即不可能在不使任何其他人受损的情况下再改善某些人的情况。<font color='orange'><strong>从此以后，非损人不能利己。</strong></font></p>
+</li>
+</ul>
+<h4 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h4><ul>
+<li><p>示例1：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
+</blockquote>
+</li>
+<li><p>示例2：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>20211225-Primal-Dual原对偶问题</title>
     <url>/2021/12/25/20211225-Primal-Dual%E5%8E%9F%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h3 id="Primal-Dual原始-对偶问题"><a href="#Primal-Dual原始-对偶问题" class="headerlink" title="Primal-Dual原始-对偶问题"></a>Primal-Dual原始-对偶问题</h3><h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h4><ul>
@@ -1438,31 +1466,26 @@ g(u, v)=\inf _{x \in D} L(x, u, v)=\inf _{x \in D}\left[f_{0}(x)+\sum_{i=1}^{m} 
 ]]></content>
   </entry>
   <entry>
-    <title>20211221-Pareto最优</title>
-    <url>/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/</url>
-    <content><![CDATA[<h3 id="Pareto-Optimality-帕累托最优"><a href="#Pareto-Optimality-帕累托最优" class="headerlink" title="Pareto Optimality 帕累托最优"></a>Pareto Optimality 帕累托最优</h3><p>帕累托最优，是经济学中的重要概念，并且在博弈论、工程学和社会科学中有着广泛的应用。</p>
-<span id="more"></span>
-<h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
-<li><p>帕累托改善：要求在提高某些人福利的时候不能减少任何一个人的福利。</p>
-<blockquote>
-<p>和<strong>功利主义</strong>的比较：功利主义允许提高福利总和而减少一些人的福利。</p>
-</blockquote>
-</li>
-<li><p>帕累托最优：不可能再有更多的<strong>帕累托改善</strong>的情况，即不可能在不使任何其他人受损的情况下再改善某些人的情况。<font color='orange'><strong>从此以后，非损人不能利己。</strong></font></p>
-</li>
+    <title>20211225-如何理解0-1背包是NPC问题</title>
+    <url>/2021/12/25/20211225-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A30-1%E8%83%8C%E5%8C%85%E6%98%AFNPC%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="如何理解0-1背包是NPC问题"><a href="#如何理解0-1背包是NPC问题" class="headerlink" title="如何理解0-1背包是NPC问题?"></a>如何理解0-1背包是NPC问题?</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="1. 分析"></a>1. 分析</h4><blockquote>
+<ul>
+<li><p>在0-1背包问题中，我们需要2个输入（一个数组和一个整数）来解决这个问题。</p>
+<ul>
+<li>n个项目的数组$\{n_1, n_2, …\}$，每个项目都有它的价值指数和权重指数；</li>
+<li>整数W作为最大可接受的重量。</li>
 </ul>
-<h4 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h4><ul>
-<li><p>示例1：</p>
-<blockquote>
-<p>假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
-</blockquote>
 </li>
-<li><p>示例2：</p>
-<blockquote>
-<p>假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。</p>
-</blockquote>
+<li><p>假设<code>n=10, W=8</code>，则：</p>
+<p><code>n = [n1, n2, ..., n10], W=1000</code>，因此时间复杂度为<code>T（n）= O（nW）= O（80）</code>。</p>
 </li>
+<li><p>若将<code>n</code>的大小加倍：<code>T（n）= O（nW）= O（20 * 8）= O（160）</code>;</p>
+</li>
+<li>若将<code>W</code>的大小加倍：并不意味着W = 20，而是长度是两倍，即<code>W = 10000000</code>，因此：<code>T（n）= O（nW）= 0（10 * 128）= 0（1280）</code>；</li>
+<li>因此所需时间以<font color='cornflowerblue'><strong>指数</strong></font>增加，这是一个<font color='orange'><strong>NPC问题</strong></font>。</li>
+<li>因此，它是一个伪多项式。</li>
 </ul>
+</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -1590,29 +1613,6 @@ g(u, v)=\inf _{x \in D} L(x, u, v)=\inf _{x \in D}\left[f_{0}(x)+\sum_{i=1}^{m} 
 ]]></content>
   </entry>
   <entry>
-    <title>20211225-如何理解0-1背包是NPC问题</title>
-    <url>/2021/12/25/20211225-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A30-1%E8%83%8C%E5%8C%85%E6%98%AFNPC%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="如何理解0-1背包是NPC问题"><a href="#如何理解0-1背包是NPC问题" class="headerlink" title="如何理解0-1背包是NPC问题?"></a>如何理解0-1背包是NPC问题?</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="1. 分析"></a>1. 分析</h4><blockquote>
-<ul>
-<li><p>在0-1背包问题中，我们需要2个输入（一个数组和一个整数）来解决这个问题。</p>
-<ul>
-<li>n个项目的数组$\{n_1, n_2, …\}$，每个项目都有它的价值指数和权重指数；</li>
-<li>整数W作为最大可接受的重量。</li>
-</ul>
-</li>
-<li><p>假设<code>n=10, W=8</code>，则：</p>
-<p><code>n = [n1, n2, ..., n10], W=1000</code>，因此时间复杂度为<code>T（n）= O（nW）= O（80）</code>。</p>
-</li>
-<li><p>若将<code>n</code>的大小加倍：<code>T（n）= O（nW）= O（20 * 8）= O（160）</code>;</p>
-</li>
-<li>若将<code>W</code>的大小加倍：并不意味着W = 20，而是长度是两倍，即<code>W = 10000000</code>，因此：<code>T（n）= O（nW）= 0（10 * 128）= 0（1280）</code>；</li>
-<li>因此所需时间以<font color='cornflowerblue'><strong>指数</strong></font>增加，这是一个<font color='orange'><strong>NPC问题</strong></font>。</li>
-<li>因此，它是一个伪多项式。</li>
-</ul>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
     <title>20220101-《算法导论》第25章-每对顶点间的最短距离</title>
     <url>/2022/01/01/20220101-%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%E7%AC%AC25%E7%AB%A0-%E6%AF%8F%E5%AF%B9%E9%A1%B6%E7%82%B9%E9%97%B4%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB/</url>
     <content><![CDATA[<h3 id="学习笔记：《算法导论》第25章-每对顶点间的最短距离"><a href="#学习笔记：《算法导论》第25章-每对顶点间的最短距离" class="headerlink" title="学习笔记：《算法导论》第25章-每对顶点间的最短距离"></a>学习笔记：《算法导论》第25章-每对顶点间的最短距离</h3><h4 id="0-提出背景"><a href="#0-提出背景" class="headerlink" title="0. 提出背景"></a>0. 提出背景</h4><ul>
@@ -1709,125 +1709,6 @@ g(u, v)=\inf _{x \in D} L(x, u, v)=\inf _{x \in D}\left[f_{0}(x)+\sum_{i=1}^{m} 
 <li><strong>提出</strong>：运用了<strong>重赋权</strong>技术；</li>
 <li><strong>执行方式</strong>：如果所有边权w非负，则把每对顶点依次作为源点来执行Dijkstra算法，就可以找出每对顶点间的最短路径，可以使用斐波那契最小优先队列进行优化；如果G含有负权边但是不含有负权的回路，就只计算一个心的负权边的集合。</li>
 <li>重赋权值不会改变最短路径。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20220101-《算法导论》第26章-最大流</title>
-    <url>/2022/01/01/20220101-%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%E7%AC%AC26%E7%AB%A0-%E6%9C%80%E5%A4%A7%E6%B5%81/</url>
-    <content><![CDATA[<h3 id="学习笔记：《算法导论》第26章-最大流"><a href="#学习笔记：《算法导论》第26章-最大流" class="headerlink" title="学习笔记：《算法导论》第26章-最大流"></a>学习笔记：《算法导论》第26章-最大流</h3><h4 id="0-背景"><a href="#0-背景" class="headerlink" title="0. 背景"></a>0. 背景</h4><ul>
-<li>可以将有向图理解成一个”流网络“，用来回答有关物流方面的问题。</li>
-<li>设想某物质从产生它的源点经过一个系统，流向消耗该物资的过程。源点以固定速度产生该物质，而汇点则用同样的速度消耗该物质。从直观上看，系统中任何一点的物质的”流“为该物质在系统中运行的速度；</li>
-<li><strong>应用场景</strong>：模型化流经管道的液体、通过装配线的部件、电网中的电流或通讯网络传送的信息等；</li>
-</ul>
-<span id="more"></span>
-<h4 id="1-最大流的概念"><a href="#1-最大流的概念" class="headerlink" title="1. 最大流的概念"></a>1. 最大流的概念</h4><ul>
-<li>流网络中的每条有向边可以被认为是传输物质的管道。</li>
-<li>每个管道都有一个固定的容量，可以看作是物质能够流经该管道的最大速度。</li>
-<li><strong>流守恒（flow conservation）</strong>：物质进入某顶点的速度必须等于该顶点的速度。</li>
-<li>当物质是电流时，流守恒与基尔霍夫电流定律等价；</li>
-<li><strong>最大流问题：</strong>在不违背容量限制的条件下，把物质从源点传输到汇点的最大速率是多少；</li>
-<li><strong>流网络</strong>：<ul>
-<li>$G=(V, E)$是一个有向图，其中每条边$(u, v) \in E$均有一非负容量$c(u, v) \geqslant 0$。如果$(u, v) \notin E$，则假定$c(u, v)=0$。</li>
-</ul>
-</li>
-<li><strong>流：</strong><ul>
-<li>$G=(V, E)$是一个有向图，其容量函数为$c$。设$s$为网络的源点，$t$为汇点。$G$的流是一个实值函数$f: V \times V \rightarrow \mathbf{R}$，且满足下列<font color='orange'><strong>三个性质</strong></font>：<ul>
-<li><font color='cornflowerblue'><strong>容量限制</strong></font>：对所有$u, v \in V$，要求$f(u, v) \leqslant c(u, v)$；</li>
-<li><font color='cornflowerblue'><strong>容量守恒</strong></font>：对所有$u \in V-\{s, t\}$，要求$\sum_{v \in V} f(u, v)=0$；</li>
-<li><font color='cornflowerblue'><strong>反对称性</strong></font>：对所有$u, v \in V$，要求$f(u, v)=-f(v, u)$；</li>
-</ul>
-</li>
-<li>$f(u, v)$：称为从顶点u到顶点v的<strong>流</strong>；</li>
-<li><strong>流$f$的值</strong>：$|f|=\sum_{v \in V} f(s, v)$，即从源点出发的总流；</li>
-</ul>
-</li>
-<li>最大流问题实际上是给出一个具有源点$s$和汇点$t$的流网络$G$，希望找出从$s$到$t$的最大值流；</li>
-<li><strong>对流的处理：</strong><ul>
-<li>隐含求和记号：其中任何一个自变量或两个自变量可以是顶点的集合，他们所表示的值是对自变量所代表元素的所有可能情形求和。例如，如果X和Y是顶点的集合，则：$f(X, Y)=\sum_{x \in X} \sum_{y \in Y} f(x, y)$；</li>
-</ul>
-</li>
-<li><strong>几个引理：</strong><ul>
-<li>对所有$X \subseteq V, f(X, X)=0$；</li>
-<li>对所有$X, Y \subseteq V, f(X, Y)=-f(Y, X)$；</li>
-<li>对所有$X, Y, Z \subseteq V$，其中$X \cap Y=\varnothing$，有：<ul>
-<li>$f(X \cup Y, Z)=f(X, Z)+f(Y, Z)$；</li>
-<li>$f(Z, X \cup Y)=f(Z, X)+f(Z, Y)$；</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-Ford-Fulkerson方法"><a href="#2-Ford-Fulkerson方法" class="headerlink" title="2. Ford-Fulkerson方法"></a>2. Ford-Fulkerson方法</h4><ul>
-<li><p>Ford-Fulkerson方法依赖于三种重要思想：</p>
-<ul>
-<li>残留网络（residual network）；</li>
-<li>增广路径（augmenting path）：可以看作是从源点s到汇点t之间的一条路径，沿该路径可以压入更多的流，从而增加流的值；</li>
-<li>割（cut）【用流网络的割来描述最大流的值】；</li>
-</ul>
-</li>
-<li><p>Ford-Fulkerson方法是一种迭代方法：</p>
-<ul>
-<li>初始状态时流的值为0；</li>
-<li>在每次迭代中，可以通过寻找一条”增广路径“来增加流值；</li>
-<li>重复上一步骤，知道所有增广路径均被找出位置；</li>
-</ul>
-</li>
-<li><p>最大流最小割定理说明：当算法停止时，上述过程可以产生最大流；</p>
-</li>
-<li><p><strong>残留网络：</strong>假设$f$为$G$中的一个流，并考察一对顶点$u, v \in V$：</p>
-<ul>
-<li><strong>残留容量</strong>：在不超过容量$c(u,v)$的条件下，从u到v之间可以压入的额外网络流量，就是$(u,v)$的残留容量，定义为：$c_{f}(u, v)=c(u, v)-f(u, v)$；</li>
-<li><strong>残留网络</strong>：给定一个流网络$G=(V,E)$和流$f$，由$f$压得的G的残留网络是$G_{f}=\left(V, E_{f}\right)$, $\begin{equation}<br>E_{f}=\left\{(u, v) \in V \times V: c_{f}(u, v)&gt;0\right\}<br>\end{equation}$；</li>
-</ul>
-</li>
-<li><p><font color='cornflowerblue'><strong>引理1：</strong></font>设$G=(V, E)$是源点为s、汇点为t的一个流网络，且f为G中的一个流。设$G_{f}$是由导出的G的残留网络，且$f^{‘}$为$G_{f}$中的一个流，那么定义$f+f^{‘}$是G中的一个流，其值为$\left|f+f^{\prime}\right|=|f|+\left|f^{\prime}\right|$；</p>
-</li>
-<li><p><strong>增广路径：</strong>残留网络$G_{f}$中从s到t的一条简单路径；</p>
-</li>
-<li><p><strong>残留容量</strong>：能够沿一条增广路径p的每条边传输的网络流的最大量为p的残留容量，定义为：</p>
-<script type="math/tex; mode=display">
-c_{f}(p)=\min \left\{c_{f}(u, v):(u, v)\right. 在  p  上  \}</script></li>
-<li><p><font color='cornflowerblue'><strong>引理2：</strong></font>设$G=(V, E)$是一个流网络，f是G的一个流，并设p是$G_f$中的一条增广路径，定义函数$f_p$为：</p>
-<script type="math/tex; mode=display">
-f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \text { 上 } \\ -c_{f}(p) & \text { 如果 }(v, u) \text { 在 } p \text { 上 } \\ 0 & \text { 否则 }\end{cases}</script><p>​            则定义$f_p$为$G_f$上的一个流。</p>
-</li>
-<li><p><font color='cornflowerblue'><strong>引理3：</strong></font>通过 $f^{\prime}=f+f_{p}$ 定义一个函数 $f^{\prime}: V \times V \rightarrow \mathbf{R}$ ，则 $f^{\prime}$ 是 $G$ 的一个流， 其值$\left|f^{\prime}\right|=|f|+\left|f_{p}\right|&gt;|f|$；</p>
-</li>
-<li><p><strong>网络的最小割：</strong>是网络中所有割中具有最小容量的割；</p>
-</li>
-<li><p><strong>流网络的割：</strong>Ford-Fulkerson方法沿增广路径反复增加流，直至找出最大流时为止。</p>
-</li>
-<li><p><font color='cornflowerblue'><strong>引理4：</strong></font>设f是源点为s，汇点为t的流网络G中的一个流。并且(S，T)是G的一个割。则通过割(S，T)的净流为$f(S,T)=|f|$。</p>
-</li>
-<li><p><font color='cornflowerblue'><strong>引理5：</strong></font>对一个流网络G中任意流f来说，其值的上界为G的任意割的容量；</p>
-</li>
-<li><p><font color='orange'><strong>最大流最小割定理</strong></font>：如果f是具有源点s和汇点t的流网络G=(V,E)中的一个流，则下列条件等价：</p>
-<ul>
-<li>f是G的一个最大流；</li>
-<li>残留网络$G_f$中不包含增广路径；</li>
-<li>对G的某个割(S,T)，有$|f|=c(S,T)$；</li>
-</ul>
-</li>
-<li><p><strong>Ford-Fulkerson算法：</strong></p>
-<ul>
-<li>在每次迭代中，找出任意增广路径$p$，并把沿$p$每条边的流$f$加上其残留容量$c_f(p)$。</li>
-</ul>
-</li>
-<li><p><strong>Edmonds-Karp算法（EK算法）：</strong>使用bfs实现对增广路径$p$的计算；</p>
-</li>
-</ul>
-<h4 id="3-最大流的经典应用：最大二分匹配"><a href="#3-最大流的经典应用：最大二分匹配" class="headerlink" title="3. 最大流的经典应用：最大二分匹配"></a>3. 最大流的经典应用：最大二分匹配</h4><blockquote>
-<p>可以和匈牙利算法进行比较。</p>
-</blockquote>
-<h4 id="4-最大流24题"><a href="#4-最大流24题" class="headerlink" title="4. 最大流24题"></a>4. 最大流24题</h4><ul>
-<li>cracked：<a href="https://blog.csdn.net/wscffaa/article/details/109580593">https://blog.csdn.net/wscffaa/article/details/109580593</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -2005,37 +1886,122 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 ]]></content>
   </entry>
   <entry>
-    <title>20220102-Day1.笨拙的手指</title>
-    <url>/2022/01/02/20220102-Day1-%E7%AC%A8%E6%8B%99%E7%9A%84%E6%89%8B%E6%8C%87/</url>
-    <content><![CDATA[<h3 id="Day01-笨拙的手指"><a href="#Day01-笨拙的手指" class="headerlink" title="Day01. 笨拙的手指"></a>Day01. 笨拙的手指</h3><span id="more"></span>
-<h4 id="1-【暴力】"><a href="#1-【暴力】" class="headerlink" title="1. 【暴力】"></a>1. 【暴力】</h4><blockquote>
-<p>思想：直接暴力枚举，对于二进制的每一位进行替换，若转化出来数字的三进制和题目中第二个字串只差一个字母，则输出该数字。否则，恢复原数组，并对下一位进行上述操作。</p>
+    <title>20220101-《算法导论》第26章-最大流</title>
+    <url>/2022/01/01/20220101-%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%E7%AC%AC26%E7%AB%A0-%E6%9C%80%E5%A4%A7%E6%B5%81/</url>
+    <content><![CDATA[<h3 id="学习笔记：《算法导论》第26章-最大流"><a href="#学习笔记：《算法导论》第26章-最大流" class="headerlink" title="学习笔记：《算法导论》第26章-最大流"></a>学习笔记：《算法导论》第26章-最大流</h3><h4 id="0-背景"><a href="#0-背景" class="headerlink" title="0. 背景"></a>0. 背景</h4><ul>
+<li>可以将有向图理解成一个”流网络“，用来回答有关物流方面的问题。</li>
+<li>设想某物质从产生它的源点经过一个系统，流向消耗该物资的过程。源点以固定速度产生该物质，而汇点则用同样的速度消耗该物质。从直观上看，系统中任何一点的物质的”流“为该物质在系统中运行的速度；</li>
+<li><strong>应用场景</strong>：模型化流经管道的液体、通过装配线的部件、电网中的电流或通讯网络传送的信息等；</li>
+</ul>
+<span id="more"></span>
+<h4 id="1-最大流的概念"><a href="#1-最大流的概念" class="headerlink" title="1. 最大流的概念"></a>1. 最大流的概念</h4><ul>
+<li>流网络中的每条有向边可以被认为是传输物质的管道。</li>
+<li>每个管道都有一个固定的容量，可以看作是物质能够流经该管道的最大速度。</li>
+<li><strong>流守恒（flow conservation）</strong>：物质进入某顶点的速度必须等于该顶点的速度。</li>
+<li>当物质是电流时，流守恒与基尔霍夫电流定律等价；</li>
+<li><strong>最大流问题：</strong>在不违背容量限制的条件下，把物质从源点传输到汇点的最大速率是多少；</li>
+<li><strong>流网络</strong>：<ul>
+<li>$G=(V, E)$是一个有向图，其中每条边$(u, v) \in E$均有一非负容量$c(u, v) \geqslant 0$。如果$(u, v) \notin E$，则假定$c(u, v)=0$。</li>
+</ul>
+</li>
+<li><strong>流：</strong><ul>
+<li>$G=(V, E)$是一个有向图，其容量函数为$c$。设$s$为网络的源点，$t$为汇点。$G$的流是一个实值函数$f: V \times V \rightarrow \mathbf{R}$，且满足下列<font color='orange'><strong>三个性质</strong></font>：<ul>
+<li><font color='cornflowerblue'><strong>容量限制</strong></font>：对所有$u, v \in V$，要求$f(u, v) \leqslant c(u, v)$；</li>
+<li><font color='cornflowerblue'><strong>容量守恒</strong></font>：对所有$u \in V-\{s, t\}$，要求$\sum_{v \in V} f(u, v)=0$；</li>
+<li><font color='cornflowerblue'><strong>反对称性</strong></font>：对所有$u, v \in V$，要求$f(u, v)=-f(v, u)$；</li>
+</ul>
+</li>
+<li>$f(u, v)$：称为从顶点u到顶点v的<strong>流</strong>；</li>
+<li><strong>流$f$的值</strong>：$|f|=\sum_{v \in V} f(s, v)$，即从源点出发的总流；</li>
+</ul>
+</li>
+<li>最大流问题实际上是给出一个具有源点$s$和汇点$t$的流网络$G$，希望找出从$s$到$t$的最大值流；</li>
+<li><strong>对流的处理：</strong><ul>
+<li>隐含求和记号：其中任何一个自变量或两个自变量可以是顶点的集合，他们所表示的值是对自变量所代表元素的所有可能情形求和。例如，如果X和Y是顶点的集合，则：$f(X, Y)=\sum_{x \in X} \sum_{y \in Y} f(x, y)$；</li>
+</ul>
+</li>
+<li><strong>几个引理：</strong><ul>
+<li>对所有$X \subseteq V, f(X, X)=0$；</li>
+<li>对所有$X, Y \subseteq V, f(X, Y)=-f(Y, X)$；</li>
+<li>对所有$X, Y, Z \subseteq V$，其中$X \cap Y=\varnothing$，有：<ul>
+<li>$f(X \cup Y, Z)=f(X, Z)+f(Y, Z)$；</li>
+<li>$f(Z, X \cup Y)=f(Z, X)+f(Z, Y)$；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Ford-Fulkerson方法"><a href="#2-Ford-Fulkerson方法" class="headerlink" title="2. Ford-Fulkerson方法"></a>2. Ford-Fulkerson方法</h4><ul>
+<li><p>Ford-Fulkerson方法依赖于三种重要思想：</p>
+<ul>
+<li>残留网络（residual network）；</li>
+<li>增广路径（augmenting path）：可以看作是从源点s到汇点t之间的一条路径，沿该路径可以压入更多的流，从而增加流的值；</li>
+<li>割（cut）【用流网络的割来描述最大流的值】；</li>
+</ul>
+</li>
+<li><p>Ford-Fulkerson方法是一种迭代方法：</p>
+<ul>
+<li>初始状态时流的值为0；</li>
+<li>在每次迭代中，可以通过寻找一条”增广路径“来增加流值；</li>
+<li>重复上一步骤，知道所有增广路径均被找出位置；</li>
+</ul>
+</li>
+<li><p>最大流最小割定理说明：当算法停止时，上述过程可以产生最大流；</p>
+</li>
+<li><p><strong>残留网络：</strong>假设$f$为$G$中的一个流，并考察一对顶点$u, v \in V$：</p>
+<ul>
+<li><strong>残留容量</strong>：在不超过容量$c(u,v)$的条件下，从u到v之间可以压入的额外网络流量，就是$(u,v)$的残留容量，定义为：$c_{f}(u, v)=c(u, v)-f(u, v)$；</li>
+<li><strong>残留网络</strong>：给定一个流网络$G=(V,E)$和流$f$，由$f$压得的G的残留网络是$G_{f}=\left(V, E_{f}\right)$, $\begin{equation}<br>E_{f}=\left\{(u, v) \in V \times V: c_{f}(u, v)&gt;0\right\}<br>\end{equation}$；</li>
+</ul>
+</li>
+<li><p><font color='cornflowerblue'><strong>引理1：</strong></font>设$G=(V, E)$是源点为s、汇点为t的一个流网络，且f为G中的一个流。设$G_{f}$是由导出的G的残留网络，且$f^{‘}$为$G_{f}$中的一个流，那么定义$f+f^{‘}$是G中的一个流，其值为$\left|f+f^{\prime}\right|=|f|+\left|f^{\prime}\right|$；</p>
+</li>
+<li><p><strong>增广路径：</strong>残留网络$G_{f}$中从s到t的一条简单路径；</p>
+</li>
+<li><p><strong>残留容量</strong>：能够沿一条增广路径p的每条边传输的网络流的最大量为p的残留容量，定义为：</p>
+<script type="math/tex; mode=display">
+c_{f}(p)=\min \left\{c_{f}(u, v):(u, v)\right. 在  p  上  \}</script></li>
+<li><p><font color='cornflowerblue'><strong>引理2：</strong></font>设$G=(V, E)$是一个流网络，f是G的一个流，并设p是$G_f$中的一条增广路径，定义函数$f_p$为：</p>
+<script type="math/tex; mode=display">
+f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \text { 上 } \\ -c_{f}(p) & \text { 如果 }(v, u) \text { 在 } p \text { 上 } \\ 0 & \text { 否则 }\end{cases}</script><p>​            则定义$f_p$为$G_f$上的一个流。</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>引理3：</strong></font>通过 $f^{\prime}=f+f_{p}$ 定义一个函数 $f^{\prime}: V \times V \rightarrow \mathbf{R}$ ，则 $f^{\prime}$ 是 $G$ 的一个流， 其值$\left|f^{\prime}\right|=|f|+\left|f_{p}\right|&gt;|f|$；</p>
+</li>
+<li><p><strong>网络的最小割：</strong>是网络中所有割中具有最小容量的割；</p>
+</li>
+<li><p><strong>流网络的割：</strong>Ford-Fulkerson方法沿增广路径反复增加流，直至找出最大流时为止。</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>引理4：</strong></font>设f是源点为s，汇点为t的流网络G中的一个流。并且(S，T)是G的一个割。则通过割(S，T)的净流为$f(S,T)=|f|$。</p>
+</li>
+<li><p><font color='cornflowerblue'><strong>引理5：</strong></font>对一个流网络G中任意流f来说，其值的上界为G的任意割的容量；</p>
+</li>
+<li><p><font color='orange'><strong>最大流最小割定理</strong></font>：如果f是具有源点s和汇点t的流网络G=(V,E)中的一个流，则下列条件等价：</p>
+<ul>
+<li>f是G的一个最大流；</li>
+<li>残留网络$G_f$中不包含增广路径；</li>
+<li>对G的某个割(S,T)，有$|f|=c(S,T)$；</li>
+</ul>
+</li>
+<li><p><strong>Ford-Fulkerson算法：</strong></p>
+<ul>
+<li>在每次迭代中，找出任意增广路径$p$，并把沿$p$每条边的流$f$加上其残留容量$c_f(p)$。</li>
+</ul>
+</li>
+<li><p><strong>Edmonds-Karp算法（EK算法）：</strong>使用bfs实现对增广路径$p$的计算；</p>
+</li>
+</ul>
+<h4 id="3-最大流的经典应用：最大二分匹配"><a href="#3-最大流的经典应用：最大二分匹配" class="headerlink" title="3. 最大流的经典应用：最大二分匹配"></a>3. 最大流的经典应用：最大二分匹配</h4><blockquote>
+<p>可以和匈牙利算法进行比较。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>;</span><br><span class="line"><span class="keyword">char</span> e1[N], e2[N];</span><br><span class="line"><span class="keyword">int</span> n1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stox</span><span class="params">(<span class="keyword">char</span> e1[], <span class="keyword">int</span> base)</span></span>&#123;</span><br><span class="line">    string str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(e1);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;len1; i++)&#123;</span><br><span class="line">        sum +=  (e1[i]-<span class="string">&#x27;0&#x27;</span>) * <span class="built_in">pow</span>(base, len1-i<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">string <span class="title">itos</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> radix)</span></span>&#123;</span><br><span class="line">    string ans = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">		<span class="keyword">int</span> t = n % radix;</span><br><span class="line">		<span class="keyword">if</span>(t &gt;=<span class="number">0</span> &amp;&amp; t &lt;= <span class="number">9</span>)	ans + = t + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">		<span class="keyword">else</span> ans += t - <span class="number">10</span> + <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		n /= radix;</span><br><span class="line">	&#125; <span class="keyword">while</span>(n != <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(),ans.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isOK</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">char</span> e2[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    string s = <span class="built_in">itos</span>(n,<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] != e2[i])&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag == <span class="number">0</span>)    flag = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span>    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">1</span>)   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;e1&gt;&gt;e2;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="built_in">strlen</span>(e1); i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(e1[i] == <span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">            e1[i] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">            n1 = <span class="built_in">stox</span>(e1, <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isOK</span>(n1, e2))&#123;</span><br><span class="line">                cout&lt;&lt;n1&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            e1[i] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            e1[i] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            n1 = <span class="built_in">stox</span>(e1, <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isOK</span>(n1, e2))&#123;</span><br><span class="line">                cout&lt;&lt;n1&lt;&lt;endl;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            e1[i] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-【依然暴力，但是稍微优雅一些】"><a href="#2-【依然暴力，但是稍微优雅一些】" class="headerlink" title="2. 【依然暴力，但是稍微优雅一些】"></a>2. 【依然暴力，但是稍微优雅一些】</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(string s, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> c: s)&#123;</span><br><span class="line">        res = res * b + (c - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    string a, b;    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    unordered_set&lt;<span class="keyword">int</span>&gt; S;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; c: a)&#123;</span><br><span class="line">        c ^= <span class="number">1</span>;</span><br><span class="line">        S.<span class="built_in">insert</span>(<span class="built_in">get</span>(a, <span class="number">2</span>));</span><br><span class="line">        c ^= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; c: b)&#123;</span><br><span class="line">        <span class="keyword">char</span> t = c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i + <span class="string">&#x27;0&#x27;</span> != t)&#123;</span><br><span class="line">                c = i + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                <span class="keyword">int</span> x = <span class="built_in">get</span>(b, <span class="number">3</span>);</span><br><span class="line">                <span class="keyword">if</span>(S.<span class="built_in">count</span>(x))&#123;</span><br><span class="line">                    cout&lt;&lt;x&lt;&lt;endl;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        c = t;  <span class="comment">//恢复</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-最大流24题"><a href="#4-最大流24题" class="headerlink" title="4. 最大流24题"></a>4. 最大流24题</h4><ul>
+<li>cracked：<a href="https://blog.csdn.net/wscffaa/article/details/109580593">https://blog.csdn.net/wscffaa/article/details/109580593</a></li>
+</ul>
 ]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
       <tags>
-        <tag>“2022 winter holiday”</tag>
+        <tag>algorithm</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>20220103-Day2-干草堆</title>
-    <url>/2022/01/03/20220103-Day2-%E5%B9%B2%E8%8D%89%E5%A0%86/</url>
-    <content><![CDATA[<h3 id="Day02-干草堆"><a href="#Day02-干草堆" class="headerlink" title="Day02. 干草堆"></a>Day02. 干草堆</h3><span id="more"></span>
-<blockquote>
-<p><strong>思路</strong>：[l, r]区间加c，典型差分</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> A[N], B[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;   cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(k--)&#123;</span><br><span class="line">        <span class="keyword">int</span> x, y;   cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        B[x] += <span class="number">1</span>;</span><br><span class="line">        B[y+<span class="number">1</span>] -= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        A[i] = B[i] + A[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(A + <span class="number">1</span>, A + <span class="number">1</span> + n);</span><br><span class="line">    cout&lt;&lt;A[(n + <span class="number">1</span>)&gt;&gt;<span class="number">1</span>]&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>20220103-Day3-奶牛选美</title>
-    <url>/2022/01/03/20220103-Day3-%E5%A5%B6%E7%89%9B%E9%80%89%E7%BE%8E/</url>
-    <content><![CDATA[<h3 id="Day03-奶牛选美"><a href="#Day03-奶牛选美" class="headerlink" title="Day03. 奶牛选美"></a>Day03. 奶牛选美</h3><span id="more"></span>
-<blockquote>
-<p><strong>思路</strong>：首先dfs标记连通块，然后再暴力枚举从斑块A到斑块B连接方式，使得该连接长度最短。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">60</span>, M = <span class="number">60</span>, inf = <span class="number">120</span>;</span><br><span class="line"><span class="keyword">char</span> maze[N][M];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> r, <span class="keyword">int</span> c, <span class="keyword">char</span> ch)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(maze[r][c] != <span class="string">&#x27;X&#x27;</span>)   <span class="keyword">return</span>;</span><br><span class="line">    maze[r][c] = ch;</span><br><span class="line">    <span class="keyword">if</span>(r - <span class="number">1</span> &gt;= <span class="number">1</span>)   <span class="built_in">dfs</span>(r - <span class="number">1</span>, c, ch);</span><br><span class="line">    <span class="keyword">if</span>(r + <span class="number">1</span> &lt;= n)   <span class="built_in">dfs</span>(r + <span class="number">1</span>, c, ch);</span><br><span class="line">    <span class="keyword">if</span>(c - <span class="number">1</span> &gt;= <span class="number">1</span>)   <span class="built_in">dfs</span>(r, c - <span class="number">1</span>, ch);</span><br><span class="line">    <span class="keyword">if</span>(c + <span class="number">1</span> &lt;= m)   <span class="built_in">dfs</span>(r, c + <span class="number">1</span>, ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mindist</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = inf;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i  &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(maze[i][j] == <span class="string">&#x27;1&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">1</span>; x &lt;= n; x++)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> y = <span class="number">1</span>; y &lt;= m; y++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(maze[x][y] == <span class="string">&#x27;2&#x27;</span>)&#123;</span><br><span class="line">                            res = <span class="built_in">min</span>(res, <span class="built_in">abs</span>(x - i) + <span class="built_in">abs</span>(y - j));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m; j++)</span><br><span class="line">            cin&gt;&gt;maze[i][j];</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">char</span> ch = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m; j++)</span><br><span class="line">            <span class="keyword">if</span>(maze[i][j] == <span class="string">&#x27;X&#x27;</span>)   <span class="built_in">dfs</span>(i, j, ++ch);</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;<span class="built_in">mindist</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
   </entry>
 </search>
