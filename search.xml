@@ -167,6 +167,37 @@
 ]]></content>
   </entry>
   <entry>
+    <title>TCP&amp;UDP、三次握手&amp;四次挥手</title>
+    <url>/2021/10/19/20211019-TCP-UDP%E3%80%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
+    <content><![CDATA[<p><strong>TCP和UDP的区别：</strong>TCP和UDP都工作在传输层，目标都是在程序之间传输数据；</p>
+<span id="more"></span>
+<blockquote>
+<p>一个基于连接、一个基于非连接；</p>
+<ul>
+<li>写信（对方是否收到、内容是否完整、顺序是否正确<strong>都不能够确定</strong>）</li>
+<li><p>打电话（电话接通、相互通话、结束挂断）</p>
+<p><img src="\images\doc\12.png" alt="image-20211019095441176" style="zoom:50%;" /></p>
+</li>
+</ul>
+<p><strong>隧道网络：【UDP的典型应用】</strong>VPN、VXLAN</p>
+</blockquote>
+<p><strong>TCP是如何保证以上性质的呢？</strong></p>
+<blockquote>
+<p><strong>三次握手：</strong>建立连接；【解决网络信道不可靠的问题】</p>
+<p> <img src="\images\doc\13.png" alt="image-20211019094935330" style="zoom:50%;" /></p>
+<p><strong>传输确认；</strong></p>
+<p><strong>四次挥手；</strong></p>
+<p> <img src="\images\doc\14.png" alt="image-20211019095316453" style="zoom:50%;" /></p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><p><a href="https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0">https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0</a></p>
+</li>
+<li><p><a href="https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1</a></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>DNS的工作原理</title>
     <url>/2021/10/18/20211018-DNS%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1 id="DNS域名系统"><a href="#DNS域名系统" class="headerlink" title="DNS域名系统"></a>DNS域名系统</h1><h3 id="0-引入"><a href="#0-引入" class="headerlink" title="0. 引入"></a>0. 引入</h3><ul>
@@ -241,37 +272,6 @@
 </ul>
 </li>
 <li><p><a href="https://www.bilibili.com/video/BV1Gh411y7LS?spm_id_from=333.999.0.0">Demo</a>【4’50】</p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>TCP&amp;UDP、三次握手&amp;四次挥手</title>
-    <url>/2021/10/19/20211019-TCP-UDP%E3%80%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
-    <content><![CDATA[<p><strong>TCP和UDP的区别：</strong>TCP和UDP都工作在传输层，目标都是在程序之间传输数据；</p>
-<span id="more"></span>
-<blockquote>
-<p>一个基于连接、一个基于非连接；</p>
-<ul>
-<li>写信（对方是否收到、内容是否完整、顺序是否正确<strong>都不能够确定</strong>）</li>
-<li><p>打电话（电话接通、相互通话、结束挂断）</p>
-<p><img src="\images\doc\12.png" alt="image-20211019095441176" style="zoom:50%;" /></p>
-</li>
-</ul>
-<p><strong>隧道网络：【UDP的典型应用】</strong>VPN、VXLAN</p>
-</blockquote>
-<p><strong>TCP是如何保证以上性质的呢？</strong></p>
-<blockquote>
-<p><strong>三次握手：</strong>建立连接；【解决网络信道不可靠的问题】</p>
-<p> <img src="\images\doc\13.png" alt="image-20211019094935330" style="zoom:50%;" /></p>
-<p><strong>传输确认；</strong></p>
-<p><strong>四次挥手；</strong></p>
-<p> <img src="\images\doc\14.png" alt="image-20211019095316453" style="zoom:50%;" /></p>
-</blockquote>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><p><a href="https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0">https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0</a></p>
-</li>
-<li><p><a href="https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1</a></p>
 </li>
 </ul>
 ]]></content>
@@ -438,6 +438,28 @@ STARLINK-1008
 <li>卫星数量过多，会影响天文观测，或造成太空垃圾；</li>
 <li>卫星信号接收终端的技术有待提升；</li>
 </ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>边缘计算</title>
+    <url>/2021/10/20/20211020-%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h3><blockquote>
+<p>云计算是一种利用互联网实现随时随地、按需便捷地使用共享计算设施。</p>
+<p>目前的物联网模式，云计算平台，面临海量设备信息接入，功耗过高，带宽不够等难度，很难实时返回数据。</p>
+<p>【优点】资源共享、数据集中处理，可以节约资源</p>
+<p>【缺点】完全依赖云计算的计算机系统，就好比所有的事情都要请示司令部的军队，在需要大量和外界互动时，会显得僵化、反应迟缓；而且如果网络存在问题，就彻底凉凉。</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="边缘计算【数据近端处理】"><a href="#边缘计算【数据近端处理】" class="headerlink" title="边缘计算【数据近端处理】"></a>边缘计算【数据近端处理】</h3><blockquote>
+<p>【定义】在物或者数据源头的一侧采用网络、存储、计算、应用核心能力于一体的开放平台就近提供最近端服务。</p>
+<p>好比让中间的各级军官也开始发挥主观能动性，因此能在一定程度上做出智能判断和行动决策，同时只需要将一部分筛选的信息上传到司令部，大大缓解了网络通讯的压力。即使在和司令部失去联系的情况下，也能做出一部分的决策。</p>
+<p>【优点】边缘计算不仅能缓解网络宽带和数据中心的压力，而且还能提升服务相应能力，保护隐私数据，做到速度、安全、可拓展性、功能性、可靠性合为一体。<strong>适用于计算量极大的情况。</strong></p>
+<p>【关键】边缘计算的关键是边缘设备——“终端”。终端的开发需要使用高云算力的处理芯片来支持（AI领域逐渐衍生出嵌入式神经网络处理器NPU）</p>
+</blockquote>
+<h3 id="雾计算"><a href="#雾计算" class="headerlink" title="雾计算"></a>雾计算</h3><blockquote>
+<p>介于云计算和边缘计算两者之间。</p>
+<p>雾计算是比云计算更靠近地面的云，可以把一些云不需要的数据直接在这一层进行存储和处理，可以减少云的压力，进而提高传输速度，降低时延。</p>
 </blockquote>
 ]]></content>
   </entry>
@@ -664,28 +686,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>边缘计算</title>
-    <url>/2021/10/20/20211020-%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h3><blockquote>
-<p>云计算是一种利用互联网实现随时随地、按需便捷地使用共享计算设施。</p>
-<p>目前的物联网模式，云计算平台，面临海量设备信息接入，功耗过高，带宽不够等难度，很难实时返回数据。</p>
-<p>【优点】资源共享、数据集中处理，可以节约资源</p>
-<p>【缺点】完全依赖云计算的计算机系统，就好比所有的事情都要请示司令部的军队，在需要大量和外界互动时，会显得僵化、反应迟缓；而且如果网络存在问题，就彻底凉凉。</p>
-</blockquote>
-<span id="more"></span>
-<h3 id="边缘计算【数据近端处理】"><a href="#边缘计算【数据近端处理】" class="headerlink" title="边缘计算【数据近端处理】"></a>边缘计算【数据近端处理】</h3><blockquote>
-<p>【定义】在物或者数据源头的一侧采用网络、存储、计算、应用核心能力于一体的开放平台就近提供最近端服务。</p>
-<p>好比让中间的各级军官也开始发挥主观能动性，因此能在一定程度上做出智能判断和行动决策，同时只需要将一部分筛选的信息上传到司令部，大大缓解了网络通讯的压力。即使在和司令部失去联系的情况下，也能做出一部分的决策。</p>
-<p>【优点】边缘计算不仅能缓解网络宽带和数据中心的压力，而且还能提升服务相应能力，保护隐私数据，做到速度、安全、可拓展性、功能性、可靠性合为一体。<strong>适用于计算量极大的情况。</strong></p>
-<p>【关键】边缘计算的关键是边缘设备——“终端”。终端的开发需要使用高云算力的处理芯片来支持（AI领域逐渐衍生出嵌入式神经网络处理器NPU）</p>
-</blockquote>
-<h3 id="雾计算"><a href="#雾计算" class="headerlink" title="雾计算"></a>雾计算</h3><blockquote>
-<p>介于云计算和边缘计算两者之间。</p>
-<p>雾计算是比云计算更靠近地面的云，可以把一些云不需要的数据直接在这一层进行存储和处理，可以减少云的压力，进而提高传输速度，降低时延。</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
     <title>Erasure Code</title>
     <url>/2021/10/21/20211021-Erasure-Code/</url>
     <content><![CDATA[<h3 id="Erasure-Code纠删码"><a href="#Erasure-Code纠删码" class="headerlink" title="Erasure Code纠删码"></a>Erasure Code纠删码</h3><ul>
@@ -735,25 +735,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>What is Serverless Computing?</title>
-    <url>/2021/10/23/20211023-What-is-Serverless-Computing/</url>
-    <content><![CDATA[<p>Serverless Computing：无线服务器</p>
-<p>Serverless优势：</p>
-<ul>
-<li>可用性冗余，以便单个机器故障不会导致服务中断；</li>
-<li>冗余副本的地理分布，以便在发生灾难时保留服务；</li>
-<li>负载平衡和请求路由以有效利用资源；</li>
-<li>相应负载变化进行自动缩放以扩展或缩小系统；</li>
-<li>监控以记录调试或性能调整所需的信息；</li>
-<li>系统升级，包括安全修补；</li>
-<li>迁移到新实例时可用；</li>
-</ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://www.alibabacloud.com/zh/knowledge/what-is-serverless">https://www.alibabacloud.com/zh/knowledge/what-is-serverless</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>What does Recilience exactly means in System Building</title>
     <url>/2021/10/21/20211021-What-does-Recilience-exactly-means-in-System-Building/</url>
     <content><![CDATA[<blockquote>
@@ -779,6 +760,25 @@ STARLINK-1008
 <li><a href="https://zhuanlan.zhihu.com/p/81111394">https://zhuanlan.zhihu.com/p/81111394</a></li>
 <li><a href="https://blog.csdn.net/weixin_45882672/article/details/117531867">https://blog.csdn.net/weixin_45882672/article/details/117531867</a></li>
 <li><a href="https://blog.csdn.net/devopscsdn/article/details/89515885?utm_term=%E8%BD%AF%E4%BB%B6%E7%9A%84resilience&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-4-89515885&amp;spm=3001.4430">https://blog.csdn.net/devopscsdn/article/details/89515885?utm_term=%E8%BD%AF%E4%BB%B6%E7%9A%84resilience&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-4-89515885&amp;spm=3001.4430</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>What is Serverless Computing?</title>
+    <url>/2021/10/23/20211023-What-is-Serverless-Computing/</url>
+    <content><![CDATA[<p>Serverless Computing：无线服务器</p>
+<p>Serverless优势：</p>
+<ul>
+<li>可用性冗余，以便单个机器故障不会导致服务中断；</li>
+<li>冗余副本的地理分布，以便在发生灾难时保留服务；</li>
+<li>负载平衡和请求路由以有效利用资源；</li>
+<li>相应负载变化进行自动缩放以扩展或缩小系统；</li>
+<li>监控以记录调试或性能调整所需的信息；</li>
+<li>系统升级，包括安全修补；</li>
+<li>迁移到新实例时可用；</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://www.alibabacloud.com/zh/knowledge/what-is-serverless">https://www.alibabacloud.com/zh/knowledge/what-is-serverless</a></li>
 </ul>
 ]]></content>
   </entry>
@@ -868,14 +868,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>Orbit Phasing</title>
-    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
-    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Django-2-Git&amp;Docker部署</title>
     <url>/2021/10/31/20211031-Django-2-Git-Docker%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<h3 id="服务器用户分配"><a href="#服务器用户分配" class="headerlink" title="服务器用户分配"></a>服务器用户分配</h3><p> 安装参考链接：见参考文档《2. 配置docker、git环境与项目创建》。</p>
@@ -919,6 +911,14 @@ STARLINK-1008
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li><a href="https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node">https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node</a></li>
 <li><a href="https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738">https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Orbit Phasing</title>
+    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
+    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
 </ul>
 ]]></content>
   </entry>
@@ -1344,6 +1344,34 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>20211221-Pareto最优</title>
+    <url>/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/</url>
+    <content><![CDATA[<h3 id="Pareto-Optimality-帕累托最优"><a href="#Pareto-Optimality-帕累托最优" class="headerlink" title="Pareto Optimality 帕累托最优"></a>Pareto Optimality 帕累托最优</h3><p>帕累托最优，是经济学中的重要概念，并且在博弈论、工程学和社会科学中有着广泛的应用。</p>
+<span id="more"></span>
+<h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
+<li><p>帕累托改善：要求在提高某些人福利的时候不能减少任何一个人的福利。</p>
+<blockquote>
+<p>和<strong>功利主义</strong>的比较：功利主义允许提高福利总和而减少一些人的福利。</p>
+</blockquote>
+</li>
+<li><p>帕累托最优：不可能再有更多的<strong>帕累托改善</strong>的情况，即不可能在不使任何其他人受损的情况下再改善某些人的情况。<font color='orange'><strong>从此以后，非损人不能利己。</strong></font></p>
+</li>
+</ul>
+<h4 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h4><ul>
+<li><p>示例1：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
+</blockquote>
+</li>
+<li><p>示例2：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>20211220-Set Cover Problem</title>
     <url>/2021/12/20/20211220-Set-Cover-Problem/</url>
     <content><![CDATA[<p><strong>Weighted Set Cover (WSC)</strong>：带权集合覆盖问题</p>
@@ -1389,34 +1417,6 @@ STARLINK-1008
 <li>Set Cover Problem | Set 1 (Greedy Approximate Algorithm)</li>
 <li>Vertex Cover Problem | Set 1 (Introduction and Approximate Algorithm)</li>
 <li>Vertex Cover Problem | Set 2 (Dynamic Programming Solution for Tree)</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>20211221-Pareto最优</title>
-    <url>/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/</url>
-    <content><![CDATA[<h3 id="Pareto-Optimality-帕累托最优"><a href="#Pareto-Optimality-帕累托最优" class="headerlink" title="Pareto Optimality 帕累托最优"></a>Pareto Optimality 帕累托最优</h3><p>帕累托最优，是经济学中的重要概念，并且在博弈论、工程学和社会科学中有着广泛的应用。</p>
-<span id="more"></span>
-<h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
-<li><p>帕累托改善：要求在提高某些人福利的时候不能减少任何一个人的福利。</p>
-<blockquote>
-<p>和<strong>功利主义</strong>的比较：功利主义允许提高福利总和而减少一些人的福利。</p>
-</blockquote>
-</li>
-<li><p>帕累托最优：不可能再有更多的<strong>帕累托改善</strong>的情况，即不可能在不使任何其他人受损的情况下再改善某些人的情况。<font color='orange'><strong>从此以后，非损人不能利己。</strong></font></p>
-</li>
-</ul>
-<h4 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h4><ul>
-<li><p>示例1：</p>
-<blockquote>
-<p>假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
-</blockquote>
-</li>
-<li><p>示例2：</p>
-<blockquote>
-<p>假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。</p>
-</blockquote>
-</li>
 </ul>
 ]]></content>
   </entry>
@@ -2002,88 +2002,6 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 <font color='cornflowerblue'> 2022不摆烂: )  </font>
 
 </blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>20220104-EK求最大流</title>
-    <url>/2022/01/04/20220104-EK%E6%B1%82%E6%9C%80%E5%A4%A7%E6%B5%81/</url>
-    <content><![CDATA[<h3 id="EK求最大流"><a href="#EK求最大流" class="headerlink" title="EK求最大流"></a>EK求最大流</h3><h4 id="1-最大流知识点梳理"><a href="#1-最大流知识点梳理" class="headerlink" title="1. 最大流知识点梳理"></a>1. 最大流知识点梳理</h4><ul>
-<li>基本概念<ul>
-<li>流网络，不考虑反向边</li>
-<li>可行流，不考虑反向边<ul>
-<li>两个条件：容量限制、流量守恒</li>
-<li><code>可行流的流量=从源点流出的流量-流入源点的流量</code></li>
-<li>最大流是指<strong><font color='cornflowerblue'>最大可行流</font></strong></li>
-</ul>
-</li>
-<li>残留网络，考虑反向边，残留网络的可行流$f^{‘}$ + 原图的可行流$f$ = 原图的另一个可行流<ul>
-<li><code>|f&#39; + f| = |f&#39;| + |f|</code></li>
-<li><code>|f&#39;|</code> 可能是负数</li>
-</ul>
-</li>
-<li>增广路径</li>
-<li>割<ul>
-<li>割的定义</li>
-<li>割的容量，不考虑反向边，最小割是指<strong><font color='cornflowerblue'>容量最小</font></strong>的割</li>
-<li>割的流量，考虑反向边，<code>f(S, T) &lt;= c(S, T)</code></li>
-<li>对于任意可行流$f$，任意割<code>[S, T]</code>，有<code>|f| = f(S, T) &lt;= c(S, T)</code></li>
-<li>最大流最小割定理<ul>
-<li>可行流$f$是最大流；</li>
-<li>可行流$f$的残留网络中不存在增广路；</li>
-<li>存在某个割<code>[S, T]</code>，有<code>|f| = c(S, T)</code>；</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>算法【网络流的时间复杂度just a joke】<ul>
-<li><strong><font color='orange'>EK算法</font></strong> $O(nm^2)$</li>
-<li><strong><font color='orange'>Dinic算法</font></strong> $O(n^2m)$</li>
-</ul>
-</li>
-<li>应用<ul>
-<li>二分图：二分图匹配、二分图多重匹配</li>
-<li>上下界网络流：无源汇上下界可行流、有源汇上下界最大流、有源汇上下界最小流</li>
-<li>多元汇最大流</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-EK算法具体实现"><a href="#2-EK算法具体实现" class="headerlink" title="2. EK算法具体实现"></a>2. EK算法具体实现</h4><blockquote>
-<p><strong>思路：</strong>首先存下图，建立反向边，构建残余网络，在残余网络中不断寻找增广路径，维护残余网络，将其累加至答案中，知道找不到增广路径。具体代码如下：</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>, M = <span class="number">20010</span>, INF = <span class="number">1e8</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, S, T;</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], f[M], ne[M], idx;   <span class="comment">// f[i]代表编号为i的边的capacity</span></span><br><span class="line"><span class="keyword">int</span> q[N], d[N], pre[N]; <span class="comment">// 当前边的编号、走到这条边的路径中最小的权值（最大的可行流量）、当前边的前驱路径</span></span><br><span class="line"><span class="keyword">bool</span> st[N];             <span class="comment">// 标记bfs过程中已经达到了的点，防止重复搜索</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">    e[idx] = b, f[idx] = c, ne[idx] = h[a], h[a] = idx++;   <span class="comment">// 构建正向边</span></span><br><span class="line">    e[idx] = a, f[idx] = <span class="number">0</span>, ne[idx] = h[b], h[b] = idx++;   <span class="comment">// 构建反向边</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> hh = <span class="number">0</span>, tt = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">memset</span>(st, <span class="literal">false</span>, <span class="keyword">sizeof</span> st);</span><br><span class="line">    </span><br><span class="line">    q[<span class="number">0</span>] = S, st[S] = <span class="literal">true</span>, d[S] = INF; <span class="comment">// 添加编号为1的边，终点为S</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(hh &lt;= tt)&#123;</span><br><span class="line">        <span class="keyword">int</span> t = q[hh++];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = h[t]; ~i; i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> ver = e[i];</span><br><span class="line">            <span class="keyword">if</span>(!st[ver] &amp;&amp; f[i])&#123;   <span class="comment">// 如果当前边的终点还没有到达过，且当前这条边的权值大于0</span></span><br><span class="line">                st[ver] = <span class="literal">true</span>;</span><br><span class="line">                d[ver] = <span class="built_in">min</span>(d[t], f[i]);</span><br><span class="line">                pre[ver] = i;</span><br><span class="line">                <span class="keyword">if</span>(ver == T)    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                q[++tt] = ver;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">EK</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> r = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">bfs</span>())&#123;   <span class="comment">// 若当前残留网络中还可以找到增广路径，则累加到r中，并修改这条路径中正向边和反向边的权值</span></span><br><span class="line">        r += d[T];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = T; i != S; i = e[pre[i] ^ <span class="number">1</span>])&#123;  <span class="comment">// 回溯</span></span><br><span class="line">            f[pre[i]] -= d[T];</span><br><span class="line">            f[pre[i] ^ <span class="number">1</span>] += d[T];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;S&gt;&gt;T;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span> (m --)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, c;    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="built_in">add</span>(a, b, c);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;<span class="built_in">EK</span>()&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-Dinic算法具体实现"><a href="#3-Dinic算法具体实现" class="headerlink" title="3. Dinic算法具体实现"></a>3. Dinic算法具体实现</h4><blockquote>
-<p><strong>概念：</strong>在稀疏图上和EK算法效果差不多，但是在稠密图上优势明显。</p>
-<p><strong>思路：</strong>EK算法在寻找增广路径时候是一条一条找的，显然比较低效。因此Dinic实现了多路增广；</p>
-<ul>
-<li><strong>多路增广：</strong>在使用EK算法时，由于我们使用bfs找增广路，当每次贪心取得一条增广路并增广后，我们从汇点沿着增广路往前走，很可能会遇见一些点实际经过的流量小于该点所有入度的容量和，或者说在残量网络中，该点的入度和出度均大于0。我们可以利用该店后向弧的残量向该点前向弧增广。由于涉及回溯，bfs不适用；</li>
-<li><strong>当前弧优化：</strong>对于增广操作，对于任意节点，我们每增广它的一条前向弧，意味着这条弧后所有的边都被我们多路增广过了，当我们再次处理该节点时，可以不用考虑这条弧。或者说，如果一条边已经被增广过，那么它就没有可能被增广第二次。那么我们下一次进行增广时，可以不走那些已经被增广过的边。</li>
-</ul>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10010</span>, M = <span class="number">200010</span>, INF = <span class="number">1e8</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, S, T;</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], f[M], ne[M], idx;</span><br><span class="line"><span class="keyword">int</span> q[N], d[N], cur[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">    e[idx] = b, f[idx] = c, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">    e[idx] = a, f[idx] = <span class="number">0</span>, ne[idx] = h[b], h[b] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> hh = <span class="number">0</span>, tt = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(d, <span class="number">-1</span>, <span class="keyword">sizeof</span> d);</span><br><span class="line">    q[<span class="number">0</span>] = S, d[S] = <span class="number">0</span>, cur[S] = h[S];</span><br><span class="line">    <span class="keyword">while</span>(hh &lt;= tt)&#123;</span><br><span class="line">        <span class="keyword">int</span> t = q[hh++];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = h[t]; ~i; i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> ver = e[i]; <span class="comment">// 当前弧优化</span></span><br><span class="line">            <span class="keyword">if</span>(d[ver] == <span class="number">-1</span> &amp;&amp; f[i])&#123;</span><br><span class="line">                d[ver] = d[t] + <span class="number">1</span>;</span><br><span class="line">                cur[ver] = h[ver];</span><br><span class="line">                <span class="keyword">if</span>(ver == T)    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                q[++tt] = ver;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> limit)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(u == T)  <span class="keyword">return</span> limit;</span><br><span class="line">    <span class="keyword">int</span> flow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = cur[u]; ~i &amp;&amp; flow &lt; limit; i = ne[i])&#123;</span><br><span class="line">        cur[u] = i;</span><br><span class="line">        <span class="keyword">int</span> ver = e[i];</span><br><span class="line">        <span class="keyword">if</span>(d[ver] == d[u] + <span class="number">1</span> &amp;&amp; f[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> t = <span class="built_in">find</span>(ver, <span class="built_in">min</span>(f[i], limit - flow));</span><br><span class="line">            <span class="keyword">if</span>(!t)  d[ver] = <span class="number">-1</span>;</span><br><span class="line">            f[i] -= t;f[i ^ <span class="number">1</span>] += t, flow += t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dinic</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> r = <span class="number">0</span>, flow;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">bfs</span>())    <span class="keyword">while</span>(flow = <span class="built_in">find</span>(S, INF))  r += flow;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;S&gt;&gt;T;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, c;    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="built_in">add</span>(a, b, c);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;<span class="built_in">dinic</span>()&lt;&lt;endl;    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>20220104-费用流</title>
-    <url>/2022/01/04/20220104-%E8%B4%B9%E7%94%A8%E6%B5%81/</url>
-    <content><![CDATA[<h3 id="费用流"><a href="#费用流" class="headerlink" title="费用流"></a>费用流</h3><h4 id="1-最小费用最大流Minimum-Cost-Maximum-Flow"><a href="#1-最小费用最大流Minimum-Cost-Maximum-Flow" class="headerlink" title="1. 最小费用最大流Minimum Cost Maximum Flow"></a>1. 最小费用最大流Minimum Cost Maximum Flow</h4><ul>
-<li>基本概念：网络上的每条边，除了容量外，还有一个属性：单位费用。一条边上的<code>费用 = 流量 × 单位费用</code>；</li>
-<li>解决思路：我们已经知道，只要建了反向边，无论增广的顺序是怎样的，都能求出最大流。所以我们只需要每次都增广费用最少的一条路径即可。具体而言，<strong><font color='cornflowerblue'>将EK算法中的BFS换成SPFA</font></strong>即可；</li>
-</ul>
-<h4 id="2-典型举例"><a href="#2-典型举例" class="headerlink" title="2. 典型举例"></a>2. 典型举例</h4><ul>
-<li><p><strong>模板题</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5010</span>, M = <span class="number">100010</span>, INF = <span class="number">1e8</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, S, T;</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], f[M], w[M], ne[M], idx;</span><br><span class="line"><span class="keyword">int</span> q[N], d[N], pre[N], incf[N];</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    e[idx] = b, f[idx] = c, w[idx] = d, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">    e[idx] = a, f[idx] = <span class="number">0</span>, w[idx] = -d, ne[idx] = h[b], h[b] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">spfa</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> hh = <span class="number">0</span>, tt = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">memset</span>(d, <span class="number">0x3f</span>, <span class="keyword">sizeof</span> d);</span><br><span class="line">    <span class="built_in">memset</span>(incf, <span class="number">0</span>, <span class="keyword">sizeof</span> incf);</span><br><span class="line">    q[<span class="number">0</span>] = S, d[S] = <span class="number">0</span>, incf[S] = INF;</span><br><span class="line">    <span class="keyword">while</span>(hh != tt)&#123;</span><br><span class="line">        <span class="keyword">int</span> t = q[hh++];</span><br><span class="line">        <span class="keyword">if</span>(hh == N) hh = <span class="number">0</span>;</span><br><span class="line">        st[t] = <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = h[t]; ~i; i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> ver = e[i];</span><br><span class="line">            <span class="keyword">if</span>(f[i] &amp;&amp; d[ver] &gt; d[t] + w[i])&#123;</span><br><span class="line">                d[ver] = d[t] + w[i];</span><br><span class="line">                pre[ver] = i;</span><br><span class="line">                incf[ver] = <span class="built_in">min</span>(f[i], incf[t]);</span><br><span class="line">                <span class="keyword">if</span>(!st[ver])&#123;</span><br><span class="line">                    q[tt++] = ver;</span><br><span class="line">                    <span class="keyword">if</span>(tt == N) tt = <span class="number">0</span>;</span><br><span class="line">                    st[ver] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> incf[T] &gt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EK</span><span class="params">(<span class="keyword">int</span>&amp; flow, <span class="keyword">int</span>&amp; cost)</span></span>&#123;</span><br><span class="line">    flow = cost = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">spfa</span>())&#123;</span><br><span class="line">        <span class="keyword">int</span> t = incf[T];</span><br><span class="line">        flow += t, cost += t * d[T];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = T; i != S; i = e[pre[i] ^ <span class="number">1</span>])&#123;</span><br><span class="line">            f[pre[i]] -= t;</span><br><span class="line">            f[pre[i] ^ <span class="number">1</span>] += t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;S&gt;&gt;T;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, c, d; cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d;</span><br><span class="line">        <span class="built_in">add</span>(a, b, c, d);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> flow, cost;</span><br><span class="line">    <span class="built_in">EK</span>(flow, cost);</span><br><span class="line">    cout&lt;&lt;flow&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;cost&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p><strong>运输问题</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">160</span>, M = <span class="number">5150</span> * <span class="number">2</span> + <span class="number">10</span>, INF = <span class="number">1e8</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, S, T;</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], f[M], w[M], ne[M], idx;</span><br><span class="line"><span class="keyword">int</span> q[N], d[N], pre[N], incf[N];</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    e[idx] = b, f[idx] = c, w[idx] = d, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">    e[idx] = a, f[idx] = <span class="number">0</span>, w[idx] = -d, ne[idx] = h[b], h[b] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">spfa</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> hh = <span class="number">0</span>, tt = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">memset</span>(d, <span class="number">0x3f</span>, <span class="keyword">sizeof</span> d);</span><br><span class="line">    <span class="built_in">memset</span>(incf, <span class="number">0</span>, <span class="keyword">sizeof</span> incf);</span><br><span class="line">    q[<span class="number">0</span>] = S, d[S] = <span class="number">0</span>, incf[S] = INF;</span><br><span class="line">    <span class="keyword">while</span>(hh != tt)&#123;</span><br><span class="line">        <span class="keyword">int</span> t = q[hh++];</span><br><span class="line">        <span class="keyword">if</span>(hh == N) hh = <span class="number">0</span>;</span><br><span class="line">        st[t] = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = h[t]; ~i; i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> ver = e[i];</span><br><span class="line">            <span class="keyword">if</span>(f[i] &amp;&amp; d[ver] &gt; d[t] + w[i])&#123;</span><br><span class="line">                d[ver] = d[t] + w[i];</span><br><span class="line">                pre[ver] = i;</span><br><span class="line">                incf[ver] = <span class="built_in">min</span>(incf[t], f[i]);</span><br><span class="line">                <span class="keyword">if</span>(!st[ver])&#123;</span><br><span class="line">                    q[tt++] = ver;</span><br><span class="line">                    <span class="keyword">if</span>(tt == N) tt = <span class="number">0</span>;</span><br><span class="line">                    st[ver] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> incf[T] &gt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">EK</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cost = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">spfa</span>())&#123;</span><br><span class="line">        <span class="keyword">int</span> t = incf[T];</span><br><span class="line">        cost += t * d[T];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = T; i != S; i = e[pre[i] ^ <span class="number">1</span>])&#123;</span><br><span class="line">            f[pre[i]] -= t;</span><br><span class="line">            f[pre[i] ^ <span class="number">1</span>] += t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cost;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;m&gt;&gt;n;</span><br><span class="line">    S = <span class="number">0</span>, T = m + n + <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a;  cin&gt;&gt;a;</span><br><span class="line">        <span class="built_in">add</span>(S, i, a, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> b;  cin&gt;&gt;b;</span><br><span class="line">        <span class="built_in">add</span>(m + i, T, b, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            <span class="keyword">int</span> c;  cin&gt;&gt;c;</span><br><span class="line">            <span class="built_in">add</span>(i, m + j, INF, c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;<span class="built_in">EK</span>()&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; idx; i += <span class="number">2</span>)&#123;</span><br><span class="line">        f[i] += f[i ^ <span class="number">1</span>], f[i ^ <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        w[i] = -w[i], w[i ^ <span class="number">1</span>] = -w[i ^ <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;-<span class="built_in">EK</span>()&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>负载平衡问题</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>, M = <span class="number">610</span>, INF = <span class="number">1e8</span>;</span><br><span class="line"><span class="keyword">int</span> n, S, T;</span><br><span class="line"><span class="keyword">int</span> s[N];</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], f[M], w[M], ne[M], idx;</span><br><span class="line"><span class="keyword">int</span> q[N], d[N], pre[N], incf[N];</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    e[idx] = b, f[idx] = c, w[idx] = d, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">    e[idx] = a, f[idx] = <span class="number">0</span>, w[idx] = -d, ne[idx] = h[b], h[b] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">spfa</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> hh = <span class="number">0</span>, tt = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">memset</span>(d, <span class="number">0x3f</span>, <span class="keyword">sizeof</span> d);</span><br><span class="line">    <span class="built_in">memset</span>(incf, <span class="number">0</span>, <span class="keyword">sizeof</span> incf);</span><br><span class="line">    q[<span class="number">0</span>] = S, d[S] = <span class="number">0</span>, incf[S] = INF;</span><br><span class="line">    <span class="keyword">while</span>(hh != tt)&#123;</span><br><span class="line">        <span class="keyword">int</span> t = q[hh++];</span><br><span class="line">        <span class="keyword">if</span>(hh == N) hh = <span class="number">0</span>;</span><br><span class="line">        st[t] = <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = h[t]; ~i; i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> ver = e[i];</span><br><span class="line">            <span class="keyword">if</span>(f[i] &amp;&amp; d[ver] &gt; d[t] + w[i])&#123;</span><br><span class="line">                d[ver] = d[t] + w[i];</span><br><span class="line">                pre[ver] = i;</span><br><span class="line">                incf[ver] = <span class="built_in">min</span>(f[i], incf[t]);</span><br><span class="line">                <span class="keyword">if</span>(!st[ver])&#123;</span><br><span class="line">                    q[tt++] = ver;</span><br><span class="line">                    <span class="keyword">if</span>(tt == N) tt = <span class="number">0</span>;</span><br><span class="line">                    st[ver] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> incf[T] &gt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">EK</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cost = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">spfa</span>())&#123;</span><br><span class="line">        <span class="keyword">int</span> t = incf[T];</span><br><span class="line">        cost += t * d[T];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = T; i !=S; i = e[pre[i] ^ <span class="number">1</span>])&#123;</span><br><span class="line">            f[pre[i]] -= t;</span><br><span class="line">            f[pre[i] ^ <span class="number">1</span>] += t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cost;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    S = <span class="number">0</span>, T = n + <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        cin&gt;&gt;s[i];</span><br><span class="line">        tot += s[i];</span><br><span class="line">        <span class="built_in">add</span>(i, i &lt; n ? i + <span class="number">1</span> : <span class="number">1</span>, INF, <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">add</span>(i, i &gt; <span class="number">1</span> ? i - <span class="number">1</span> : n, INF, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    tot /= n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(tot &lt; s[i])      <span class="built_in">add</span>(S, i, s[i] - tot, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(tot &gt; s[i]) <span class="built_in">add</span>(i, T, tot - s[i], <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout&lt;&lt;<span class="built_in">EK</span>()&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 ]]></content>
   </entry>
 </search>
