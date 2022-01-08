@@ -2086,4 +2086,236 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 </ul>
 ]]></content>
   </entry>
+  <entry>
+    <title>20220106-Prufer编码</title>
+    <url>/2022/01/06/20220106-Prufer%E7%BC%96%E7%A0%81/</url>
+    <content><![CDATA[<h3 id="Prufer编码"><a href="#Prufer编码" class="headerlink" title="Prufer编码"></a>Prufer编码</h3><h4 id="0-背景"><a href="#0-背景" class="headerlink" title="0. 背景"></a>0. 背景</h4><ul>
+<li>无根树和Prufer编码是一一对应的；</li>
+</ul>
+<span id="more"></span>
+<h4 id="1-算法"><a href="#1-算法" class="headerlink" title="1. 算法"></a>1. 算法</h4><ul>
+<li><p><strong><font color='cornflowerblue'>树编码为Prufer序列：</font></strong>Prufer序列初始为空。每次从树上选出一个编号最小的叶子节点，然后将与该叶子节点相邻的那个节点的编号写入prufer序列的末尾，之后从树上删掉这个叶子节点。循环这个步骤n-2次，最后得到一个长度为n-2的prufer序列（此时树中只有一条边，我们就不管它了）。具体步骤演示见<a href="https://www.cnblogs.com/jianglangcaijin/p/5989930.html">参考</a></p>
+</li>
+<li><p><strong><font color='cornflowerblue'>由Prufer序列得到树：</font></strong>首先，将每个节点的度数设为1加上该节点在Prufer序列中出现的次数。然后以下循环执行n-2次。第i次循环，选择此时度数为1的编号最小的节点u，将其与此时Prufer序列的第i个元素v连边，然后将u和v的度数都减去1。这n-2次执行完之后，仅剩下两个节点他们的度数都是1，将这两个点连边，这样就得到一个有n-1条边的树。具体步骤演示见<a href="https://www.cnblogs.com/jianglangcaijin/p/5989930.html">参考</a></p>
+</li>
+<li><p><strong><font color='cornflowerblue'>Cayley公式：</font></strong>n个节点带标号的无根树有$n^{n-2}$个。</p>
+</li>
+</ul>
+<h4 id="2-应用"><a href="#2-应用" class="headerlink" title="2. 应用"></a>2. 应用</h4>]]></content>
+  </entry>
+  <entry>
+    <title>20220106-朱刘算法</title>
+    <url>/2022/01/06/20220106-%E6%9C%B1%E5%88%98%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="朱刘算法"><a href="#朱刘算法" class="headerlink" title="朱刘算法"></a>朱刘算法</h3><h4 id="0-背景"><a href="#0-背景" class="headerlink" title="0. 背景"></a>0. 背景</h4><ul>
+<li><p>无向图：最小生成树；</p>
+</li>
+<li><p>有向图：最小树形图；</p>
+</li>
+<li><p><strong>联系：</strong>如果把一个树形图的有向边替换成无向边，它会变成一棵生成树。但不同于生成树，树形图中会确定一个根，它必须满足根能够到达每个结点。最小树形图是所有树形图中边权和最小的一个。</p>
+<blockquote>
+<p>首先我们知道 【树】的根节点没有入边 出边可以无限多，而其他节点出边也可以无限多 但<strong><font color='cornflowerblue'>入边只有一条</font></strong>。</p>
+<p>既然要所有点都在树内 我们就贪心地选取<strong><font color='cornflowerblue'>所有入点u的边中权值最小的</font></strong>。</p>
+<p>如果此时能形成一棵树 那无疑就是最优解,可以直接直觉认为 当前选的n-1条边中<strong><font color='cornflowerblue'>没有边成环就能形成树</font></strong>.</p>
+<p>如果有环我们就进行<strong><font color='cornflowerblue'>缩点 </font></strong>【把在同一个环内的点看成一个点 同时更新指向环中任意一点的边权】</p>
+<p><img src="https://cdn.luogu.com.cn/upload/pic/22858.png" alt="qaq"></p>
+</blockquote>
+</li>
+</ul>
+<span id="more"></span>
+<h4 id="1-算法"><a href="#1-算法" class="headerlink" title="1. 算法"></a>1. 算法</h4><ul>
+<li><p><strong><font color='cornflowerblue'>基本思想：</font></strong>每次贪心地选出每个点最小的父亲，得出的图如果不是树形图，那么将选出的环进行缩点，对边权进行修改，然后迭代这个过程，直到图变为最小树形图为止。</p>
+</li>
+<li><p><strong><font color='cornflowerblue'>Tarjan优化（懒惰删除法🐕）：</font></strong> </p>
+<ul>
+<li>朱刘相当于最小生成树中B字开头的算法,而现在介绍的优化，其实相当于prim。</li>
+<li>枚举每个<strong>原图</strong>中的节点x，然后不停地把边(pre[x],x)加入最小树形图，答案累加in[x]，在某一时刻发现出现了环，删除该环内部所有边，然后暴力把每个指向该环的边(u,v)，令边权减去in[v],然后将这个环缩成一个点,然后迭代进行，直至到达根节点r，这样还是O(nm)。</li>
+<li>考虑优化，我们对于每个点x建一棵左偏树$T_x$，然后我们就可以在O(1)的时间复杂度查询一个节点的最小入边，缩环的时候直接合并左偏树即可，边权减打标记即可,因此我们需要很好的实现标记下放，一次对环的合并我们不妨及做log(n)，每个节点属于哪个环可以用<strong><font color='cornflowerblue'>并查集路径压缩+按秩合并</font></strong>，删除节点可以用延迟删除($N_5$)，那么最终时间复杂度不难分析的出来是O(m+nlog(n))。</li>
+</ul>
+<blockquote>
+<ul>
+<li>求没有确定的根的树形图:建立一个超级根r，以它为根跑算法,只要将r向原图每个点连接一条权值大于原图中所有边的边权的边，这样选这些边肯定不划算，因此只会选择一条。</li>
+<li>判无解的奇技淫巧:从小到大依次枚举每个点i,加入边$(i,(i+1)\%n+1,+∞)$,这样如果你最后得到的答案为+∞，那么就无解了。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="2-应用"><a href="#2-应用" class="headerlink" title="2. 应用"></a>2. 应用</h4><ul>
+<li><p>不确定根的最小树形图：</p>
+<blockquote>
+<p>这次我们不规定树形图的根，要求最小树形图。</p>
+<p>容易发现我们建立一个超级源点，然后向每一个结点连长度为 infinf 的边，最后算出答案后减去 infinf 即可。发现为了使答案更优，最多只会从超级源点连出一条边，从而保证了去掉超级源点后的根是唯一的。</p>
+<p>时间复杂度 O(nm)。</p>
+</blockquote>
+</li>
+<li><p>滑雪</p>
+<blockquote>
+<p>朴素算法不能通过，考虑利用这题的性质。我们先搜出能够到达的所有点，再将边以终点高度为第一关键字，边权为第二关键字排序后，跑 Kruskal 即可。时间复杂度 O(mlogm)。</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220107-二分图多重匹配</title>
+    <url>/2022/01/07/20220107-%E4%BA%8C%E5%88%86%E5%9B%BE%E5%A4%9A%E9%87%8D%E5%8C%B9%E9%85%8D/</url>
+    <content><![CDATA[<h3 id="二分图多重匹配"><a href="#二分图多重匹配" class="headerlink" title="二分图多重匹配"></a>二分图多重匹配</h3><h4 id="1-二分图匹配、二分图多重匹配"><a href="#1-二分图匹配、二分图多重匹配" class="headerlink" title="1. 二分图匹配、二分图多重匹配"></a>1. 二分图匹配、二分图多重匹配</h4><ul>
+<li><strong>简洁定义：</strong><ul>
+<li><strong><font color='cornflowerblue'>二分图匹配：</font></strong>边数最多的匹配；</li>
+<li><strong><font color='cornflowerblue'>二分图多重匹配：</font></strong>规定一个点要与L条边匹配。同时根据是否有边权，可划分为：<ul>
+<li>二分图最大多重匹配；</li>
+<li>二分图最大权多重匹配（二分图多重最佳完美匹配）；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>联系：</strong>当<code>L == 1</code>时，二分图多重匹配退化为二分图匹配。</li>
+</ul>
+<span id="more"></span>
+<h4 id="2-二分图多重匹配算法"><a href="#2-二分图多重匹配算法" class="headerlink" title="2. 二分图多重匹配算法"></a>2. 二分图多重匹配算法</h4><ul>
+<li><strong>二分图最大多重匹配：</strong><ul>
+<li>在原图上建立源点S和汇点T；</li>
+<li>S向每个X方点连一条容量为该X方点L值的边，每个Y方点向T连一条容量为该Y方点L值的边；</li>
+<li>原来二分图中各边在新的网络中仍存在，容量为1（若该边可以使用多次则容量大于1）；</li>
+<li>求网络的最大流，就是该二分图多重最大匹配的值。</li>
+</ul>
+</li>
+<li><strong>二分图最大权多重匹配：</strong><ul>
+<li>在原图上建立源点S和汇点T；</li>
+<li>S向每个X方点连一条容量为该X方点L值、费用为0的边，每个Y方点向T连一条容量为该Y方点L值、费用为0的边；</li>
+<li>原来二分图中各边在新的网络中仍存在，容量为1（若该边可以使用多次则容量大于1），费用为该边的权值；</li>
+<li>求网络的最大费用流，就是该二分图多重最优匹配的值。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-典型例题"><a href="#3-典型例题" class="headerlink" title="3. 典型例题"></a>3. 典型例题</h4><ul>
+<li><strong>稳定的牛分配</strong></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220108-路径重建</title>
+    <url>/2022/01/08/20220108-%E8%B7%AF%E5%BE%84%E9%87%8D%E5%BB%BA/</url>
+    <content><![CDATA[<h3 id="路径重建"><a href="#路径重建" class="headerlink" title="路径重建"></a>路径重建</h3><p>本篇文章主要收集了和路径重建相关的算法题，希望会对目前所研究的问题带来些启发。</p>
+<h4 id="1-阻断"><a href="#1-阻断" class="headerlink" title="1. 阻断"></a>1. 阻断</h4><blockquote>
+<ul>
+<li>题意：<a href="https://www.luogu.com.cn/problem/P4374">https://www.luogu.com.cn/problem/P4374</a></li>
+<li>分析：</li>
+<li>思路：<ul>
+<li>不用树剖， 先把新加道路按照从小到大排序，每次向上走时原来访问过的就可以直接跳过（答案不会更优），之后直接用类似并查集的方法即可</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> ans[<span class="number">50010</span>];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> par[<span class="number">50010</span>][<span class="number">17</span>];</span><br><span class="line"><span class="keyword">int</span> dep[<span class="number">50010</span>], po[<span class="number">50010</span>], to[<span class="number">50010</span>];</span><br><span class="line">vector&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; G[<span class="number">50010</span>];</span><br><span class="line">pair&lt;<span class="keyword">int</span>, pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; roads[<span class="number">50010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getto</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(to[x] == x)  <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> to[x] = <span class="built_in">getto</span>(to[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; G[x].<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> y = G[x][i].first, id = G[x][i].second;</span><br><span class="line">        <span class="keyword">if</span>(y == p)  <span class="keyword">continue</span>;</span><br><span class="line">        po[id] = y;</span><br><span class="line">        par[y][<span class="number">0</span>] = x;</span><br><span class="line">        dep[y] = dep[x] + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(y, x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x] &lt; dep[y]) <span class="built_in">swap</span>(x, y);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">16</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dep[par[x][i]] &gt;= dep[y])&#123;</span><br><span class="line">            x = par[x][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x == y)  <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">16</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(par[x][i] != par[y][i])&#123;</span><br><span class="line">            x = par[x][i], y = par[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> par[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x, y;   cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        G[x].<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(y, i));</span><br><span class="line">        G[y].<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(x, i));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x, y, z;    cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        roads[i] = <span class="built_in">make_pair</span>(z, <span class="built_in">make_pair</span>(x, y));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dep[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">16</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            par[j][i] = par[par[j][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) to[i] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) ans[i] = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">sort</span>(roads+<span class="number">1</span>, roads+m+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v = roads[i].first;</span><br><span class="line">        <span class="keyword">int</span> x = roads[i].second.first, y = roads[i].second.second;</span><br><span class="line">        <span class="keyword">int</span> xy = <span class="built_in">lca</span>(x, y);</span><br><span class="line">        <span class="keyword">for</span>(x = <span class="built_in">getto</span>(x); dep[x] &gt; dep[xy]; x = <span class="built_in">getto</span>(par[x][<span class="number">0</span>]))&#123;</span><br><span class="line">            ans[x] = v;</span><br><span class="line">            to[x] = par[x][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(y = <span class="built_in">getto</span>(y); dep[y] &gt; dep[xy]; y = <span class="built_in">getto</span>(par[y][<span class="number">0</span>]))&#123;</span><br><span class="line">            ans[y] = v;</span><br><span class="line">            to[y] = par[y][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)  cout&lt;&lt;ans[po[i]]&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220108-最近公共祖先</title>
+    <url>/2022/01/08/20220108-%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</url>
+    <content><![CDATA[<h3 id="最近公共祖先"><a href="#最近公共祖先" class="headerlink" title="最近公共祖先"></a>最近公共祖先</h3><h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
+<li><strong>定义</strong>：树上任意两点向根节点靠近的路上重合的深度最大的点；</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p><strong>图示定义 </strong>：<strong><font color='cornflowerblue'>蓝色节点</font></strong>和<strong><font color='pink'>粉色节点</font></strong>的最近公共祖先是<strong><font color='green'>绿色点</font></strong>；</p>
+<p><img src="C:\Users\kunkun\AppData\Roaming\Typora\typora-user-images\image-20220108140328746.png" alt="image-20220108140328746" style="zoom:50%;" /></p>
+</li>
+</ul>
+<h4 id="2-求解LCA方法"><a href="#2-求解LCA方法" class="headerlink" title="2. 求解LCA方法"></a>2. 求解LCA方法</h4><ul>
+<li><p><strong>向上标记法：</strong>暴力。两个节点平层同时向上跳，直到相遇，相遇的点即为LCA。如果有m次查询，那么时间复杂度为<code>O(mn)</code>。</p>
+</li>
+<li><p><strong>倍增法：</strong>如果使用暴力算法求解，对于深度较大的树需要很久的时间，考虑采用倍增的方式来优化，具体而言：</p>
+<blockquote>
+<ul>
+<li><strong>符号表示</strong>：<ul>
+<li><code>fa[i, j]</code>：表示从<code>i</code>开始，向上走$2^j$步，即表示节点<code>i</code>的第<code>j+1</code>位祖先。其中$0\le j\le \log n$；</li>
+<li><code>depth[i]</code>：表示深度；</li>
+<li><strong>哨兵</strong>：从<code>i</code>开始，向上走$2^j$步，如果跳过根节点，则<code>fa[i, j] = 0</code>,<code>depth[0] = 0</code>（表示节点0是第0层）。</li>
+</ul>
+</li>
+<li><strong>步骤</strong>：<ul>
+<li>先将两个点跳到同一层；</li>
+<li>让两个点同时往上跳，一直跳到它们的最近公共祖先的下一层；</li>
+</ul>
+</li>
+<li><strong>时间复杂度</strong>：预处理<font color='red'>$O(n\log n)$</font>、查询<font color='red'>$O(\log n)$</font>。</li>
+<li>注：这里倍增的思想一部分来自<strong>整数拼凑（11 = 8 + 2 + 1 = 1011）</strong>。我们知道如果<code>fa[i,k]==fa[j,k]</code>，则说明在跳了$2^k$步之后找到了公共祖先，但是该节点不一定是最近的；但反之，如果<code>fa[i,k]!=fa[j,k]</code>，则说明节点<code>i</code>和节点<code>j</code>还没有找到公共祖先。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>Tarjan：</strong>优雅的<strong><font color='cornflowerblue'>离线求LCA</font></strong>做法，时间复杂度为<code>O(m + n)</code>。</p>
+<blockquote>
+<ul>
+<li><p><strong>在线算法</strong>：读入一个输入，得到一个输出；</p>
+</li>
+<li><p><strong>离线算法</strong>：将输入全部读入，之后才处理输出；</p>
+</li>
+<li><p><strong>本质</strong>：对向上标记算法的优化。</p>
+</li>
+<li><p><strong>思想</strong>：首先深度优先遍历：</p>
+<ul>
+<li><p>如果当前节点涉及到某一个询问，且询问的另一个点已经访问过，则可以得出答案；</p>
+</li>
+<li><p>反之，标记节点<code>x</code>已访问过，直到访问到另一个节点。</p>
+</li>
+<li><p><strong>举例</strong>：假设询问为节点4和节点9，从根节点出发，访问到x并标记已访问；发现节点9并没有被访问，所以不管，继续走；回溯，遍历，当遇到9的时候，发现另一个点4已经访问过了，所以此时两个点的LCA就是更新到了的4的祖先，节点1。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/05/18/1973_f79af40479-20190518163041445.png" alt="20190518163041445.png" style="zoom:50%;" /></p>
+<p>如果在回溯的时候更新祖先节点，假设fa[x]为点x的祖先节点，从节点1→节点2→节点4→节点7，到达叶子节点之后回溯，标记<code>fa[7] = 4</code>；再遍历到节点8回溯，标记<code>fa[8] = 4</code>；继续回溯，标记<code>fa[4] = 2</code>；再遍历到节点5回溯，标记<code>fa[5] = 2</code>……随着回溯的当前层数越浅，各个节点最终指向的祖先也越来越高，所以如果另一个节点已经标记，说明那个点的祖先就一定时两个点的LCA。同时，在访问到一个点时，可以一并解决所有与这个点有关的询问，所以可以使用<strong>邻接表或向量</strong>来进行存储。</p>
+</li>
+<li><p>该思路基于深度优先遍历，可以将所有的点分为3类 ：</p>
+</li>
+</ul>
+<p><img src="C:\Users\kunkun\AppData\Roaming\Typora\typora-user-images\image-20220108174027363.png" alt="image-20220108174027363" style="zoom:50%;" /></p>
+<ul>
+<li><strong><font color='cornflowerblue'>第1类</font></strong>：未被搜索过的点；</li>
+<li><strong><font color='red'>第2类</font></strong>：正在搜索的分支；</li>
+<li><strong><font color='green'>第3类</font></strong>：已经遍历过，且回溯过的点；</li>
+</ul>
+<p>其中第2类和第3类节点已经通过并查集合并成一个集合，因此具体步骤如下：</p>
+<ul>
+<li>在进入递归层时，将点标记为<code>1</code>；</li>
+<li>搜索所有没有遍历过的边且与该点连接的点，搜索回溯后，完成集合合并；</li>
+<li>将所有与该层点有关系的询问，全部遍历，当另一个点已经被标记为2，则找到了最近公共祖先，就是另一个点的并查集标记节点；</li>
+<li>最后回溯时，将该节点标记为2；</li>
+<li><p>注意：<font color='red'>先将要拓展的节点展开，回溯时再进行集合合并</font>。</p>
+</li>
+<li><p>首先求出所有点到根节点的距离<code>depth[]</code>，设节点<code>x</code>和节点<code>y</code>的最近公共祖先是<code>p</code>， 则节点<code>x</code>和节点<code>y</code>的最近距离为<code>depth[x] + depth[y] - 2* depth[p]</code>；</p>
+</li>
+<li>在深度优先遍历<code>1</code>号节点中的节点<code>u</code>时，需要把节点<code>u</code>的查询的另外一个点的最短距离进行计算并存储，最后把节点<code>u</code>合并到上一节点的集合。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>树剖：</strong>把一棵树按子树大小分为链。【<a href="https://blog.csdn.net/qq_43326267/article/details/89791152">参考</a>】</p>
+<blockquote>
+<ul>
+<li><p><strong>基本操作：</strong>求x到y的路径边权和（或对所有边权进行修改）；</p>
+</li>
+<li><p><strong>启发：</strong>可以使用树剖思路解决LCA。具体而言，直接判断节点x和节点y是否在同一条链上：</p>
+<ul>
+<li>若不在同一条链上，则深度较大的节点跳转到链头的父节点，即跳出这条链；</li>
+<li>若在同一条链上，则深度较浅的节点即为LCA。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong><font color='orange'>定理：对于一张无向图，如果存在最小生成树和（严格）次小生成树，那么对于任何一颗最小生成树，都存在一棵（严格）次小生成树，使得这两棵树只有一条边不同。</font></strong></p>
+</li>
+</ul>
+<h4 id="3-经典例题"><a href="#3-经典例题" class="headerlink" title="3. 经典例题"></a>3. 经典例题</h4><ul>
+<li><p><strong>祖孙询问（倍增法）</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">40010</span>, M = <span class="number">2</span> * N;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], ne[M], idx;</span><br><span class="line"><span class="keyword">int</span> depth[N], fa[N][<span class="number">26</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> root)</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(depth, <span class="number">0x3f</span>, <span class="keyword">sizeof</span> depth);</span><br><span class="line">    depth[<span class="number">0</span>] = <span class="number">0</span>, depth[root] = <span class="number">1</span>;</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(root);</span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">        <span class="keyword">int</span> t = q.<span class="built_in">front</span>();  q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = h[t]; i != <span class="number">-1</span>; i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> j = e[i];</span><br><span class="line">            <span class="keyword">if</span>(depth[j] &gt; depth[t] + <span class="number">1</span>)&#123;    <span class="comment">// 说明j还没有被搜索过</span></span><br><span class="line">                depth[j] = depth[t] + <span class="number">1</span>;</span><br><span class="line">                q.<span class="built_in">push</span>(j);</span><br><span class="line">                fa[j][<span class="number">0</span>] = t;   <span class="comment">// 节点j的父节点为t</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= <span class="number">15</span>; k++)&#123;</span><br><span class="line">                    <span class="comment">//从j跳2^k步长的距离，相当于从j连续跳两个2^(k-1)步长的距离</span></span><br><span class="line">                    fa[j][k] = fa[fa[j][k - <span class="number">1</span>]][k - <span class="number">1</span>];  </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 保证a在b的下面</span></span><br><span class="line">    <span class="keyword">if</span>(depth[a] &lt; depth[b]) <span class="built_in">swap</span>(a, b);</span><br><span class="line">    <span class="comment">// 移动a，使得a和b平层</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">15</span>; k &gt;= <span class="number">0</span>; k--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(depth[fa[a][k]] &gt;= depth[b])&#123;</span><br><span class="line">            a = fa[a][k];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(a == b)  <span class="keyword">return</span> a;</span><br><span class="line">    <span class="comment">// 利用整数拼凑的思想，节点a和节点b同时上移直到找到公共节点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">15</span>; k &gt;= <span class="number">0</span>; k--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(fa[a][k] != fa[b][k])&#123;</span><br><span class="line">            a = fa[a][k];</span><br><span class="line">            b = fa[b][k];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 循环结束，到达LCA下一层</span></span><br><span class="line">    <span class="keyword">return</span> fa[a][<span class="number">0</span>];    <span class="comment">// 返回节点a的父节点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">int</span> root = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;   cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        <span class="keyword">if</span>(b == <span class="number">-1</span>) root = a;</span><br><span class="line">        <span class="keyword">else</span>    <span class="built_in">add</span>(a, b), <span class="built_in">add</span>(b, a);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">bfs</span>(root);  <span class="comment">// 建树</span></span><br><span class="line">    </span><br><span class="line">    cin&gt;&gt;m;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;   cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="built_in">lca</span>(a, b);</span><br><span class="line">        <span class="keyword">if</span>(p == a)  <span class="built_in">puts</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(p == b) <span class="built_in">puts</span>(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span>    <span class="built_in">puts</span>(<span class="string">&quot;0&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>距离（Tarjan算法）</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; PII;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10010</span>, M = N * <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], ne[M], w[M], idx;</span><br><span class="line"><span class="keyword">int</span> dist[N], p[N], res[M], st[N];</span><br><span class="line">vector&lt;PII&gt; query[N];   <span class="comment">// [查询另一个点, 查询序号]</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> fa)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i])&#123;</span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span>(j == fa) <span class="keyword">continue</span>;</span><br><span class="line">        dist[j] = dist[u] + w[i];</span><br><span class="line">        <span class="built_in">dfs</span>(j, u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p[x] != x)   p[x] = <span class="built_in">find</span>(p[x]);</span><br><span class="line">    <span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    st[u] = <span class="number">1</span>;  <span class="comment">// 标记当前正在搜索的点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i])&#123;  <span class="comment">// 遍历所有邻点</span></span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span>(!st[j])&#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(j);</span><br><span class="line">            p[j] = u; <span class="comment">// 将节点j合并到父节点u中</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> item: query[u])&#123;</span><br><span class="line">        <span class="keyword">int</span> y = item.first, id = item.second;</span><br><span class="line">        <span class="keyword">if</span>(st[y] == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> anc = <span class="built_in">find</span>(y);</span><br><span class="line">            res[id] = dist[u] + dist[y] - dist[anc] * <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    st[u] = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, c;    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="built_in">add</span>(a, b, c), <span class="built_in">add</span>(b, a, c);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;   cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        <span class="keyword">if</span>(a != b)&#123; <span class="comment">// 二者不相等的时候才需要记录查询</span></span><br><span class="line">            query[a].<span class="built_in">push_back</span>(&#123;b, i&#125;);</span><br><span class="line">            query[b].<span class="built_in">push_back</span>(&#123;a, i&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) p[i] = i;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">-1</span>); <span class="comment">// 初始化dist数据，处理每个点和1号节点的距离</span></span><br><span class="line">    <span class="built_in">tarjan</span>(<span class="number">1</span>);  <span class="comment">// 随便拿一个点当作根节点</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)  cout&lt;&lt;res[i]&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+  </entry>
 </search>
