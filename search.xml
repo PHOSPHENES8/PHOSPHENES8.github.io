@@ -8,67 +8,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Basic Concepts about Satellite</title>
-    <url>/2021/10/15/20211015-Concepts-about-Satellite/</url>
-    <content><![CDATA[<h1 id="初识卫星"><a href="#初识卫星" class="headerlink" title="初识卫星"></a>初识卫星</h1><ul>
-<li><p><strong>Elevation &amp; Inclination</strong></p>
-</li>
-<li><p><strong>链路：</strong>与卫星通信的路径（通常它也指通信本身）：</p>
-</li>
-<li>上行链路将地面信号上传给卫星。<ul>
-<li>下行链路将卫星的信号发回地面。</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p>星间链路在卫星间传递信号。</p>
-</li>
-<li><p><strong>低地球轨道：</strong>在几百千米到 1,000 千米的轨道上。</p>
-<ul>
-<li><p>周期：大约 90 分钟。</p>
-</li>
-<li><p>能通过卫星间的转播信号来提供连续的世界范围内的覆盖。如果这个网络包括极地或接近极地的轨道，就能够提供极地和高纬度地区的覆盖，这是静止轨道卫星做不到的。因为卫星处于较低的轨道上，这些卫星的往返传输时间就相对很短(来去地面的时间为0.005秒)，消除了回声控制和其他特殊处理的需要。</p>
-</li>
-<li><p>将LEO轨道卫星用于这个目的的缺点就是这个网络需要很多颗卫星。任何观察者看到卫星经过头顶的时间只是大约90分钟轨道周期中的10分钟，所以要给沿着卫星星下点轨迹的单个地面覆盖带提供连续覆盖，就需要九颗卫星(对于高度是500千米的轨道，其覆盖带宽度大约是3,000千米。对于更广的覆盖区域，需要更加可观的卫星数量。例如，广泛用于军事和商业目的的Iridium星座，拥有66颗卫星，这些卫星分布在六条高度为780千米的不同轨道上。这六条轨道位于不同的轨道平面上，每个的轨道倾角为86.4°。</p>
-</li>
-<li><p>低地球轨道还被用于不需要实时通信的任务中。这样的任务只需要一颗或很少的卫星。例如，虽然数据不需要立即传给地面的使用者，但是可以储存并且在卫星经过地面站时再传送(这种安排称为“存储－加－传送”)。</p>
-</li>
-<li><p>对于不是时间紧迫的任务，LEO卫星相对于地球的运动意味着，极轨道上的单颗卫星能够覆</p>
-<p>盖全球。如果轨道周期恰当选择，那么连续轨道线上的地面覆盖面积就是彼此相连的，一颗极地轨道卫星就能在一天里看到地面上的任意点两次。</p>
-</li>
-<li><p>一些任务需要低轨道。地球观测和侦察卫星要拍摄高分辨率的地球照片，就必须靠近地球来得到这样的分辨率。例如，美国的Keyhole卫星被放置在远地点和近地点分别为1,000千米和300千米的椭圆轨道上，该卫星是为了获得用于情报目的的光学照片。这些都已经被相似轨道上的新一代的成像卫星所取代。由于这些卫星有相对于地球的运动，所以它们就不能提供对某一特定区域的连续覆盖。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>大气的影响：</strong>大气密度在空间和时间上的变化，所以就有了能够预测低轨道卫星未来某点精确度的固有限制。</p>
-</li>
-<li><p><strong>卫星相对地球表面的运动P35：</strong>考虑处于高度为几百千米轨道上卫星的情况。这样的卫星其轨道周期大约是90分钟。在这90分钟里，赤道上的地球表面会旋转约2,500千米。因此，过了一个周期之后，卫星所掠过的点位于赤道上距离本周期开始时轨道对应的地面点以西2,500千米处的地方。</p>
-<blockquote>
-<p><img src="/images/image-20211015231251782.png" alt="image-20211015231251782"></p>
-<p><img src="/images/image-20211015231309789.png" alt="image-20211015231309789"></p>
-</blockquote>
-</li>
-<li><p><strong>卫星的仰角：</strong>卫星的仰角是卫星与某一特定地面点连线和本地水平面之间的夹角。特别地，给定时间的仰角取决于描述卫星和地面观察者相对位置的几个参数。这些参数包括观察者的纬度和经度、卫星的高度、轨道倾角θ和卫星在轨道上的位置(卫星的纬度和经度)。</p>
-</li>
-<li><p><strong>覆盖区域：</strong>覆盖区域的外缘是圆形的，其半径仅仅取决于卫星的高度。然而，地面站一般只有在大于仰角的最小值时才能进行通信。</p>
-</li>
-<li><p><strong>上行链和下行链：</strong><a href="https://ithelp.ithome.com.tw/articles/10236019">https://ithelp.ithome.com.tw/articles/10236019</a></p>
-</li>
-<li><p><strong>Co-located Antennas ：</strong><a href="https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/">https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/</a></p>
-</li>
-<li><p><strong>Two Line Element set：</strong>TLE是一种包含卫星标识符和轨道参数的标准表示法。</p>
-</li>
-<li><p><strong>Bitmap：</strong>可以以非常高的空间利用率下保存大量的0-1状态。</p>
-</li>
-</ul>
-<ul>
-<li><a href="https://www.cnblogs.com/dragonsuc/p/10993938.html">https://www.cnblogs.com/dragonsuc/p/10993938.html</a></li>
-<li><a href="http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html">http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html</a>)</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>CDN的工作原理</title>
     <url>/2021/10/15/20211015-The-Pricinple-of-CDN/</url>
     <content><![CDATA[<h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p><strong>1. 上线一个网站都需要哪几个步骤呢？</strong></p>
@@ -136,64 +75,63 @@
 ]]></content>
   </entry>
   <entry>
-    <title>DNS、MAC和IP</title>
-    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
-    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
-<li>网址名称（便于记忆）：www.qq.com</li>
+    <title>Basic Concepts about Satellite</title>
+    <url>/2021/10/15/20211015-Concepts-about-Satellite/</url>
+    <content><![CDATA[<h1 id="初识卫星"><a href="#初识卫星" class="headerlink" title="初识卫星"></a>初识卫星</h1><ul>
+<li><p><strong>Elevation &amp; Inclination</strong></p>
+</li>
+<li><p><strong>链路：</strong>与卫星通信的路径（通常它也指通信本身）：</p>
+</li>
+<li>上行链路将地面信号上传给卫星。<ul>
+<li>下行链路将卫星的信号发回地面。</li>
+</ul>
+</li>
 </ul>
 <span id="more"></span>
 <ul>
-<li><p>真正地址：139.180.132.25</p>
-<blockquote>
-<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
-<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
-<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
-</blockquote>
+<li><p>星间链路在卫星间传递信号。</p>
 </li>
-<li><p>DNS分级查询</p>
-<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
-</li>
-</ul>
-<blockquote>
-<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
-<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
-</blockquote>
-<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
-<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
-<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
-<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
-<p>略，京东自营… …</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>TCP&amp;UDP、三次握手&amp;四次挥手</title>
-    <url>/2021/10/19/20211019-TCP-UDP%E3%80%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
-    <content><![CDATA[<p><strong>TCP和UDP的区别：</strong>TCP和UDP都工作在传输层，目标都是在程序之间传输数据；</p>
-<span id="more"></span>
-<blockquote>
-<p>一个基于连接、一个基于非连接；</p>
+<li><p><strong>低地球轨道：</strong>在几百千米到 1,000 千米的轨道上。</p>
 <ul>
-<li>写信（对方是否收到、内容是否完整、顺序是否正确<strong>都不能够确定</strong>）</li>
-<li><p>打电话（电话接通、相互通话、结束挂断）</p>
-<p><img src="\images\doc\12.png" alt="image-20211019095441176" style="zoom:50%;" /></p>
+<li><p>周期：大约 90 分钟。</p>
+</li>
+<li><p>能通过卫星间的转播信号来提供连续的世界范围内的覆盖。如果这个网络包括极地或接近极地的轨道，就能够提供极地和高纬度地区的覆盖，这是静止轨道卫星做不到的。因为卫星处于较低的轨道上，这些卫星的往返传输时间就相对很短(来去地面的时间为0.005秒)，消除了回声控制和其他特殊处理的需要。</p>
+</li>
+<li><p>将LEO轨道卫星用于这个目的的缺点就是这个网络需要很多颗卫星。任何观察者看到卫星经过头顶的时间只是大约90分钟轨道周期中的10分钟，所以要给沿着卫星星下点轨迹的单个地面覆盖带提供连续覆盖，就需要九颗卫星(对于高度是500千米的轨道，其覆盖带宽度大约是3,000千米。对于更广的覆盖区域，需要更加可观的卫星数量。例如，广泛用于军事和商业目的的Iridium星座，拥有66颗卫星，这些卫星分布在六条高度为780千米的不同轨道上。这六条轨道位于不同的轨道平面上，每个的轨道倾角为86.4°。</p>
+</li>
+<li><p>低地球轨道还被用于不需要实时通信的任务中。这样的任务只需要一颗或很少的卫星。例如，虽然数据不需要立即传给地面的使用者，但是可以储存并且在卫星经过地面站时再传送(这种安排称为“存储－加－传送”)。</p>
+</li>
+<li><p>对于不是时间紧迫的任务，LEO卫星相对于地球的运动意味着，极轨道上的单颗卫星能够覆</p>
+<p>盖全球。如果轨道周期恰当选择，那么连续轨道线上的地面覆盖面积就是彼此相连的，一颗极地轨道卫星就能在一天里看到地面上的任意点两次。</p>
+</li>
+<li><p>一些任务需要低轨道。地球观测和侦察卫星要拍摄高分辨率的地球照片，就必须靠近地球来得到这样的分辨率。例如，美国的Keyhole卫星被放置在远地点和近地点分别为1,000千米和300千米的椭圆轨道上，该卫星是为了获得用于情报目的的光学照片。这些都已经被相似轨道上的新一代的成像卫星所取代。由于这些卫星有相对于地球的运动，所以它们就不能提供对某一特定区域的连续覆盖。</p>
 </li>
 </ul>
-<p><strong>隧道网络：【UDP的典型应用】</strong>VPN、VXLAN</p>
-</blockquote>
-<p><strong>TCP是如何保证以上性质的呢？</strong></p>
+</li>
+<li><p><strong>大气的影响：</strong>大气密度在空间和时间上的变化，所以就有了能够预测低轨道卫星未来某点精确度的固有限制。</p>
+</li>
+<li><p><strong>卫星相对地球表面的运动P35：</strong>考虑处于高度为几百千米轨道上卫星的情况。这样的卫星其轨道周期大约是90分钟。在这90分钟里，赤道上的地球表面会旋转约2,500千米。因此，过了一个周期之后，卫星所掠过的点位于赤道上距离本周期开始时轨道对应的地面点以西2,500千米处的地方。</p>
 <blockquote>
-<p><strong>三次握手：</strong>建立连接；【解决网络信道不可靠的问题】</p>
-<p> <img src="\images\doc\13.png" alt="image-20211019094935330" style="zoom:50%;" /></p>
-<p><strong>传输确认；</strong></p>
-<p><strong>四次挥手；</strong></p>
-<p> <img src="\images\doc\14.png" alt="image-20211019095316453" style="zoom:50%;" /></p>
+<p><img src="/images/image-20211015231251782.png" alt="image-20211015231251782"></p>
+<p><img src="/images/image-20211015231309789.png" alt="image-20211015231309789"></p>
 </blockquote>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><p><a href="https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0">https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0</a></p>
 </li>
-<li><p><a href="https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1</a></p>
+<li><p><strong>卫星的仰角：</strong>卫星的仰角是卫星与某一特定地面点连线和本地水平面之间的夹角。特别地，给定时间的仰角取决于描述卫星和地面观察者相对位置的几个参数。这些参数包括观察者的纬度和经度、卫星的高度、轨道倾角θ和卫星在轨道上的位置(卫星的纬度和经度)。</p>
 </li>
+<li><p><strong>覆盖区域：</strong>覆盖区域的外缘是圆形的，其半径仅仅取决于卫星的高度。然而，地面站一般只有在大于仰角的最小值时才能进行通信。</p>
+</li>
+<li><p><strong>上行链和下行链：</strong><a href="https://ithelp.ithome.com.tw/articles/10236019">https://ithelp.ithome.com.tw/articles/10236019</a></p>
+</li>
+<li><p><strong>Co-located Antennas ：</strong><a href="https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/">https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/</a></p>
+</li>
+<li><p><strong>Two Line Element set：</strong>TLE是一种包含卫星标识符和轨道参数的标准表示法。</p>
+</li>
+<li><p><strong>Bitmap：</strong>可以以非常高的空间利用率下保存大量的0-1状态。</p>
+</li>
+</ul>
+<ul>
+<li><a href="https://www.cnblogs.com/dragonsuc/p/10993938.html">https://www.cnblogs.com/dragonsuc/p/10993938.html</a></li>
+<li><a href="http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html">http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html</a>)</li>
 </ul>
 ]]></content>
   </entry>
@@ -272,6 +210,68 @@
 </ul>
 </li>
 <li><p><a href="https://www.bilibili.com/video/BV1Gh411y7LS?spm_id_from=333.999.0.0">Demo</a>【4’50】</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>DNS、MAC和IP</title>
+    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
+    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
+<li>网址名称（便于记忆）：www.qq.com</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p>真正地址：139.180.132.25</p>
+<blockquote>
+<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
+<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
+<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
+</blockquote>
+</li>
+<li><p>DNS分级查询</p>
+<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
+</li>
+</ul>
+<blockquote>
+<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
+<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
+</blockquote>
+<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
+<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
+<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
+<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
+<p>略，京东自营… …</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>TCP&amp;UDP、三次握手&amp;四次挥手</title>
+    <url>/2021/10/19/20211019-TCP-UDP%E3%80%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
+    <content><![CDATA[<p><strong>TCP和UDP的区别：</strong>TCP和UDP都工作在传输层，目标都是在程序之间传输数据；</p>
+<span id="more"></span>
+<blockquote>
+<p>一个基于连接、一个基于非连接；</p>
+<ul>
+<li>写信（对方是否收到、内容是否完整、顺序是否正确<strong>都不能够确定</strong>）</li>
+<li><p>打电话（电话接通、相互通话、结束挂断）</p>
+<p><img src="\images\doc\12.png" alt="image-20211019095441176" style="zoom:50%;" /></p>
+</li>
+</ul>
+<p><strong>隧道网络：【UDP的典型应用】</strong>VPN、VXLAN</p>
+</blockquote>
+<p><strong>TCP是如何保证以上性质的呢？</strong></p>
+<blockquote>
+<p><strong>三次握手：</strong>建立连接；【解决网络信道不可靠的问题】</p>
+<p> <img src="\images\doc\13.png" alt="image-20211019094935330" style="zoom:50%;" /></p>
+<p><strong>传输确认；</strong></p>
+<p><strong>四次挥手；</strong></p>
+<p> <img src="\images\doc\14.png" alt="image-20211019095316453" style="zoom:50%;" /></p>
+</blockquote>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><p><a href="https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0">https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0</a></p>
+</li>
+<li><p><a href="https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1</a></p>
 </li>
 </ul>
 ]]></content>
@@ -438,28 +438,6 @@ STARLINK-1008
 <li>卫星数量过多，会影响天文观测，或造成太空垃圾；</li>
 <li>卫星信号接收终端的技术有待提升；</li>
 </ul>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>边缘计算</title>
-    <url>/2021/10/20/20211020-%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h3><blockquote>
-<p>云计算是一种利用互联网实现随时随地、按需便捷地使用共享计算设施。</p>
-<p>目前的物联网模式，云计算平台，面临海量设备信息接入，功耗过高，带宽不够等难度，很难实时返回数据。</p>
-<p>【优点】资源共享、数据集中处理，可以节约资源</p>
-<p>【缺点】完全依赖云计算的计算机系统，就好比所有的事情都要请示司令部的军队，在需要大量和外界互动时，会显得僵化、反应迟缓；而且如果网络存在问题，就彻底凉凉。</p>
-</blockquote>
-<span id="more"></span>
-<h3 id="边缘计算【数据近端处理】"><a href="#边缘计算【数据近端处理】" class="headerlink" title="边缘计算【数据近端处理】"></a>边缘计算【数据近端处理】</h3><blockquote>
-<p>【定义】在物或者数据源头的一侧采用网络、存储、计算、应用核心能力于一体的开放平台就近提供最近端服务。</p>
-<p>好比让中间的各级军官也开始发挥主观能动性，因此能在一定程度上做出智能判断和行动决策，同时只需要将一部分筛选的信息上传到司令部，大大缓解了网络通讯的压力。即使在和司令部失去联系的情况下，也能做出一部分的决策。</p>
-<p>【优点】边缘计算不仅能缓解网络宽带和数据中心的压力，而且还能提升服务相应能力，保护隐私数据，做到速度、安全、可拓展性、功能性、可靠性合为一体。<strong>适用于计算量极大的情况。</strong></p>
-<p>【关键】边缘计算的关键是边缘设备——“终端”。终端的开发需要使用高云算力的处理芯片来支持（AI领域逐渐衍生出嵌入式神经网络处理器NPU）</p>
-</blockquote>
-<h3 id="雾计算"><a href="#雾计算" class="headerlink" title="雾计算"></a>雾计算</h3><blockquote>
-<p>介于云计算和边缘计算两者之间。</p>
-<p>雾计算是比云计算更靠近地面的云，可以把一些云不需要的数据直接在这一层进行存储和处理，可以减少云的压力，进而提高传输速度，降低时延。</p>
 </blockquote>
 ]]></content>
   </entry>
@@ -686,6 +664,28 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>边缘计算</title>
+    <url>/2021/10/20/20211020-%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h3><blockquote>
+<p>云计算是一种利用互联网实现随时随地、按需便捷地使用共享计算设施。</p>
+<p>目前的物联网模式，云计算平台，面临海量设备信息接入，功耗过高，带宽不够等难度，很难实时返回数据。</p>
+<p>【优点】资源共享、数据集中处理，可以节约资源</p>
+<p>【缺点】完全依赖云计算的计算机系统，就好比所有的事情都要请示司令部的军队，在需要大量和外界互动时，会显得僵化、反应迟缓；而且如果网络存在问题，就彻底凉凉。</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="边缘计算【数据近端处理】"><a href="#边缘计算【数据近端处理】" class="headerlink" title="边缘计算【数据近端处理】"></a>边缘计算【数据近端处理】</h3><blockquote>
+<p>【定义】在物或者数据源头的一侧采用网络、存储、计算、应用核心能力于一体的开放平台就近提供最近端服务。</p>
+<p>好比让中间的各级军官也开始发挥主观能动性，因此能在一定程度上做出智能判断和行动决策，同时只需要将一部分筛选的信息上传到司令部，大大缓解了网络通讯的压力。即使在和司令部失去联系的情况下，也能做出一部分的决策。</p>
+<p>【优点】边缘计算不仅能缓解网络宽带和数据中心的压力，而且还能提升服务相应能力，保护隐私数据，做到速度、安全、可拓展性、功能性、可靠性合为一体。<strong>适用于计算量极大的情况。</strong></p>
+<p>【关键】边缘计算的关键是边缘设备——“终端”。终端的开发需要使用高云算力的处理芯片来支持（AI领域逐渐衍生出嵌入式神经网络处理器NPU）</p>
+</blockquote>
+<h3 id="雾计算"><a href="#雾计算" class="headerlink" title="雾计算"></a>雾计算</h3><blockquote>
+<p>介于云计算和边缘计算两者之间。</p>
+<p>雾计算是比云计算更靠近地面的云，可以把一些云不需要的数据直接在这一层进行存储和处理，可以减少云的压力，进而提高传输速度，降低时延。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>Erasure Code</title>
     <url>/2021/10/21/20211021-Erasure-Code/</url>
     <content><![CDATA[<h3 id="Erasure-Code纠删码"><a href="#Erasure-Code纠删码" class="headerlink" title="Erasure Code纠删码"></a>Erasure Code纠删码</h3><ul>
@@ -888,6 +888,14 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
+    <title>Orbit Phasing</title>
+    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
+    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>RAAN</title>
     <url>/2021/11/02/20211102-RAAN/</url>
     <content><![CDATA[<h3 id="RAAN-Right-Ascension-of-the-Ascending-Node"><a href="#RAAN-Right-Ascension-of-the-Ascending-Node" class="headerlink" title="RAAN: Right Ascension of the Ascending Node"></a>RAAN: Right Ascension of the Ascending Node</h3><ul>
@@ -911,14 +919,6 @@ STARLINK-1008
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li><a href="https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node">https://en.wikipedia.org/wiki/Longitude_of_the_ascending_node</a></li>
 <li><a href="https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738">https://baike.baidu.com/item/%E5%8D%87%E4%BA%A4%E7%82%B9%E7%BB%8F%E5%BA%A6/5908738</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Orbit Phasing</title>
-    <url>/2021/11/02/20211102-Orbit-Phasing/</url>
-    <content><![CDATA[<h1 id="Orbit-phasing"><a href="#Orbit-phasing" class="headerlink" title="Orbit phasing"></a>Orbit phasing</h1><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li><a href="https://en.wikipedia.org/wiki/Orbit_phasing">https://en.wikipedia.org/wiki/Orbit_phasing</a></li>
 </ul>
 ]]></content>
   </entry>
@@ -1344,34 +1344,6 @@ STARLINK-1008
 ]]></content>
   </entry>
   <entry>
-    <title>20211221-Pareto最优</title>
-    <url>/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/</url>
-    <content><![CDATA[<h3 id="Pareto-Optimality-帕累托最优"><a href="#Pareto-Optimality-帕累托最优" class="headerlink" title="Pareto Optimality 帕累托最优"></a>Pareto Optimality 帕累托最优</h3><p>帕累托最优，是经济学中的重要概念，并且在博弈论、工程学和社会科学中有着广泛的应用。</p>
-<span id="more"></span>
-<h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
-<li><p>帕累托改善：要求在提高某些人福利的时候不能减少任何一个人的福利。</p>
-<blockquote>
-<p>和<strong>功利主义</strong>的比较：功利主义允许提高福利总和而减少一些人的福利。</p>
-</blockquote>
-</li>
-<li><p>帕累托最优：不可能再有更多的<strong>帕累托改善</strong>的情况，即不可能在不使任何其他人受损的情况下再改善某些人的情况。<font color='orange'><strong>从此以后，非损人不能利己。</strong></font></p>
-</li>
-</ul>
-<h4 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h4><ul>
-<li><p>示例1：</p>
-<blockquote>
-<p>假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
-</blockquote>
-</li>
-<li><p>示例2：</p>
-<blockquote>
-<p>假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。</p>
-</blockquote>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>20211220-Set Cover Problem</title>
     <url>/2021/12/20/20211220-Set-Cover-Problem/</url>
     <content><![CDATA[<p><strong>Weighted Set Cover (WSC)</strong>：带权集合覆盖问题</p>
@@ -1417,6 +1389,34 @@ STARLINK-1008
 <li>Set Cover Problem | Set 1 (Greedy Approximate Algorithm)</li>
 <li>Vertex Cover Problem | Set 1 (Introduction and Approximate Algorithm)</li>
 <li>Vertex Cover Problem | Set 2 (Dynamic Programming Solution for Tree)</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20211221-Pareto最优</title>
+    <url>/2021/12/21/20211221-Pareto%E6%9C%80%E4%BC%98/</url>
+    <content><![CDATA[<h3 id="Pareto-Optimality-帕累托最优"><a href="#Pareto-Optimality-帕累托最优" class="headerlink" title="Pareto Optimality 帕累托最优"></a>Pareto Optimality 帕累托最优</h3><p>帕累托最优，是经济学中的重要概念，并且在博弈论、工程学和社会科学中有着广泛的应用。</p>
+<span id="more"></span>
+<h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
+<li><p>帕累托改善：要求在提高某些人福利的时候不能减少任何一个人的福利。</p>
+<blockquote>
+<p>和<strong>功利主义</strong>的比较：功利主义允许提高福利总和而减少一些人的福利。</p>
+</blockquote>
+</li>
+<li><p>帕累托最优：不可能再有更多的<strong>帕累托改善</strong>的情况，即不可能在不使任何其他人受损的情况下再改善某些人的情况。<font color='orange'><strong>从此以后，非损人不能利己。</strong></font></p>
+</li>
+</ul>
+<h4 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h4><ul>
+<li><p>示例1：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损。</p>
+</blockquote>
+</li>
+<li><p>示例2：</p>
+<blockquote>
+<p>假设现在有两个人，甲和乙，分10块蛋糕10个包子。甲喜欢吃蛋糕而乙喜欢吃包子，而且甲讨厌吃包子，乙讨厌吃蛋糕（甲包子吃得越多越不开心，乙蛋糕吃得越多越不开心）。这种情形下，帕累托最优应当是：把10块蛋糕全部给甲，把10个包子全部给乙。因为任何其他的分配都会使得至少一个人手里拿着一些自己讨厌的东西，比如甲拥有10块蛋糕以及2个包子，乙拥有8个包子。这个时候，如果把2个包子从甲的手里转移到乙的手里，甲和乙都变得比原来更开心了，同时这样的转移并不会使得任何一方的利益受损。</p>
+</blockquote>
+</li>
 </ul>
 ]]></content>
   </entry>
@@ -2087,23 +2087,6 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 ]]></content>
   </entry>
   <entry>
-    <title>20220106-Prufer编码</title>
-    <url>/2022/01/06/20220106-Prufer%E7%BC%96%E7%A0%81/</url>
-    <content><![CDATA[<h3 id="Prufer编码"><a href="#Prufer编码" class="headerlink" title="Prufer编码"></a>Prufer编码</h3><h4 id="0-背景"><a href="#0-背景" class="headerlink" title="0. 背景"></a>0. 背景</h4><ul>
-<li>无根树和Prufer编码是一一对应的；</li>
-</ul>
-<span id="more"></span>
-<h4 id="1-算法"><a href="#1-算法" class="headerlink" title="1. 算法"></a>1. 算法</h4><ul>
-<li><p><strong><font color='cornflowerblue'>树编码为Prufer序列：</font></strong>Prufer序列初始为空。每次从树上选出一个编号最小的叶子节点，然后将与该叶子节点相邻的那个节点的编号写入prufer序列的末尾，之后从树上删掉这个叶子节点。循环这个步骤n-2次，最后得到一个长度为n-2的prufer序列（此时树中只有一条边，我们就不管它了）。具体步骤演示见<a href="https://www.cnblogs.com/jianglangcaijin/p/5989930.html">参考</a></p>
-</li>
-<li><p><strong><font color='cornflowerblue'>由Prufer序列得到树：</font></strong>首先，将每个节点的度数设为1加上该节点在Prufer序列中出现的次数。然后以下循环执行n-2次。第i次循环，选择此时度数为1的编号最小的节点u，将其与此时Prufer序列的第i个元素v连边，然后将u和v的度数都减去1。这n-2次执行完之后，仅剩下两个节点他们的度数都是1，将这两个点连边，这样就得到一个有n-1条边的树。具体步骤演示见<a href="https://www.cnblogs.com/jianglangcaijin/p/5989930.html">参考</a></p>
-</li>
-<li><p><strong><font color='cornflowerblue'>Cayley公式：</font></strong>n个节点带标号的无根树有$n^{n-2}$个。</p>
-</li>
-</ul>
-<h4 id="2-应用"><a href="#2-应用" class="headerlink" title="2. 应用"></a>2. 应用</h4>]]></content>
-  </entry>
-  <entry>
     <title>20220106-朱刘算法</title>
     <url>/2022/01/06/20220106-%E6%9C%B1%E5%88%98%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h3 id="朱刘算法"><a href="#朱刘算法" class="headerlink" title="朱刘算法"></a>朱刘算法</h3><h4 id="0-背景"><a href="#0-背景" class="headerlink" title="0. 背景"></a>0. 背景</h4><ul>
@@ -2156,6 +2139,23 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 ]]></content>
   </entry>
   <entry>
+    <title>20220106-Prufer编码</title>
+    <url>/2022/01/06/20220106-Prufer%E7%BC%96%E7%A0%81/</url>
+    <content><![CDATA[<h3 id="Prufer编码"><a href="#Prufer编码" class="headerlink" title="Prufer编码"></a>Prufer编码</h3><h4 id="0-背景"><a href="#0-背景" class="headerlink" title="0. 背景"></a>0. 背景</h4><ul>
+<li>无根树和Prufer编码是一一对应的；</li>
+</ul>
+<span id="more"></span>
+<h4 id="1-算法"><a href="#1-算法" class="headerlink" title="1. 算法"></a>1. 算法</h4><ul>
+<li><p><strong><font color='cornflowerblue'>树编码为Prufer序列：</font></strong>Prufer序列初始为空。每次从树上选出一个编号最小的叶子节点，然后将与该叶子节点相邻的那个节点的编号写入prufer序列的末尾，之后从树上删掉这个叶子节点。循环这个步骤n-2次，最后得到一个长度为n-2的prufer序列（此时树中只有一条边，我们就不管它了）。具体步骤演示见<a href="https://www.cnblogs.com/jianglangcaijin/p/5989930.html">参考</a></p>
+</li>
+<li><p><strong><font color='cornflowerblue'>由Prufer序列得到树：</font></strong>首先，将每个节点的度数设为1加上该节点在Prufer序列中出现的次数。然后以下循环执行n-2次。第i次循环，选择此时度数为1的编号最小的节点u，将其与此时Prufer序列的第i个元素v连边，然后将u和v的度数都减去1。这n-2次执行完之后，仅剩下两个节点他们的度数都是1，将这两个点连边，这样就得到一个有n-1条边的树。具体步骤演示见<a href="https://www.cnblogs.com/jianglangcaijin/p/5989930.html">参考</a></p>
+</li>
+<li><p><strong><font color='cornflowerblue'>Cayley公式：</font></strong>n个节点带标号的无根树有$n^{n-2}$个。</p>
+</li>
+</ul>
+<h4 id="2-应用"><a href="#2-应用" class="headerlink" title="2. 应用"></a>2. 应用</h4>]]></content>
+  </entry>
+  <entry>
     <title>20220107-二分图多重匹配</title>
     <url>/2022/01/07/20220107-%E4%BA%8C%E5%88%86%E5%9B%BE%E5%A4%9A%E9%87%8D%E5%8C%B9%E9%85%8D/</url>
     <content><![CDATA[<h3 id="二分图多重匹配"><a href="#二分图多重匹配" class="headerlink" title="二分图多重匹配"></a>二分图多重匹配</h3><h4 id="1-二分图匹配、二分图多重匹配"><a href="#1-二分图匹配、二分图多重匹配" class="headerlink" title="1. 二分图匹配、二分图多重匹配"></a>1. 二分图匹配、二分图多重匹配</h4><ul>
@@ -2190,23 +2190,6 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 <h4 id="3-典型例题"><a href="#3-典型例题" class="headerlink" title="3. 典型例题"></a>3. 典型例题</h4><ul>
 <li><strong>稳定的牛分配</strong></li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>20220108-路径重建</title>
-    <url>/2022/01/08/20220108-%E8%B7%AF%E5%BE%84%E9%87%8D%E5%BB%BA/</url>
-    <content><![CDATA[<h3 id="路径重建"><a href="#路径重建" class="headerlink" title="路径重建"></a>路径重建</h3><p>本篇文章主要收集了和路径重建相关的算法题，希望会对目前所研究的问题带来些启发。</p>
-<h4 id="1-阻断"><a href="#1-阻断" class="headerlink" title="1. 阻断"></a>1. 阻断</h4><blockquote>
-<ul>
-<li>题意：<a href="https://www.luogu.com.cn/problem/P4374">https://www.luogu.com.cn/problem/P4374</a></li>
-<li>分析：</li>
-<li>思路：<ul>
-<li>不用树剖， 先把新加道路按照从小到大排序，每次向上走时原来访问过的就可以直接跳过（答案不会更优），之后直接用类似并查集的方法即可</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> ans[<span class="number">50010</span>];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> par[<span class="number">50010</span>][<span class="number">17</span>];</span><br><span class="line"><span class="keyword">int</span> dep[<span class="number">50010</span>], po[<span class="number">50010</span>], to[<span class="number">50010</span>];</span><br><span class="line">vector&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; G[<span class="number">50010</span>];</span><br><span class="line">pair&lt;<span class="keyword">int</span>, pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; roads[<span class="number">50010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getto</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(to[x] == x)  <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> to[x] = <span class="built_in">getto</span>(to[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; G[x].<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> y = G[x][i].first, id = G[x][i].second;</span><br><span class="line">        <span class="keyword">if</span>(y == p)  <span class="keyword">continue</span>;</span><br><span class="line">        po[id] = y;</span><br><span class="line">        par[y][<span class="number">0</span>] = x;</span><br><span class="line">        dep[y] = dep[x] + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(y, x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x] &lt; dep[y]) <span class="built_in">swap</span>(x, y);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">16</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dep[par[x][i]] &gt;= dep[y])&#123;</span><br><span class="line">            x = par[x][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x == y)  <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">16</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(par[x][i] != par[y][i])&#123;</span><br><span class="line">            x = par[x][i], y = par[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> par[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x, y;   cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        G[x].<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(y, i));</span><br><span class="line">        G[y].<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(x, i));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x, y, z;    cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        roads[i] = <span class="built_in">make_pair</span>(z, <span class="built_in">make_pair</span>(x, y));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dep[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">16</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            par[j][i] = par[par[j][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) to[i] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) ans[i] = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">sort</span>(roads+<span class="number">1</span>, roads+m+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v = roads[i].first;</span><br><span class="line">        <span class="keyword">int</span> x = roads[i].second.first, y = roads[i].second.second;</span><br><span class="line">        <span class="keyword">int</span> xy = <span class="built_in">lca</span>(x, y);</span><br><span class="line">        <span class="keyword">for</span>(x = <span class="built_in">getto</span>(x); dep[x] &gt; dep[xy]; x = <span class="built_in">getto</span>(par[x][<span class="number">0</span>]))&#123;</span><br><span class="line">            ans[x] = v;</span><br><span class="line">            to[x] = par[x][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(y = <span class="built_in">getto</span>(y); dep[y] &gt; dep[xy]; y = <span class="built_in">getto</span>(par[y][<span class="number">0</span>]))&#123;</span><br><span class="line">            ans[y] = v;</span><br><span class="line">            to[y] = par[y][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)  cout&lt;&lt;ans[po[i]]&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -2316,6 +2299,23 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; PII;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10010</span>, M = N * <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], ne[M], w[M], idx;</span><br><span class="line"><span class="keyword">int</span> dist[N], p[N], res[M], st[N];</span><br><span class="line">vector&lt;PII&gt; query[N];   <span class="comment">// [查询另一个点, 查询序号]</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> fa)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i])&#123;</span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span>(j == fa) <span class="keyword">continue</span>;</span><br><span class="line">        dist[j] = dist[u] + w[i];</span><br><span class="line">        <span class="built_in">dfs</span>(j, u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p[x] != x)   p[x] = <span class="built_in">find</span>(p[x]);</span><br><span class="line">    <span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    st[u] = <span class="number">1</span>;  <span class="comment">// 标记当前正在搜索的点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i])&#123;  <span class="comment">// 遍历所有邻点</span></span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span>(!st[j])&#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(j);</span><br><span class="line">            p[j] = u; <span class="comment">// 将节点j合并到父节点u中</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> item: query[u])&#123;</span><br><span class="line">        <span class="keyword">int</span> y = item.first, id = item.second;</span><br><span class="line">        <span class="keyword">if</span>(st[y] == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> anc = <span class="built_in">find</span>(y);</span><br><span class="line">            res[id] = dist[u] + dist[y] - dist[anc] * <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    st[u] = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, c;    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="built_in">add</span>(a, b, c), <span class="built_in">add</span>(b, a, c);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;   cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        <span class="keyword">if</span>(a != b)&#123; <span class="comment">// 二者不相等的时候才需要记录查询</span></span><br><span class="line">            query[a].<span class="built_in">push_back</span>(&#123;b, i&#125;);</span><br><span class="line">            query[b].<span class="built_in">push_back</span>(&#123;a, i&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) p[i] = i;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">-1</span>); <span class="comment">// 初始化dist数据，处理每个点和1号节点的距离</span></span><br><span class="line">    <span class="built_in">tarjan</span>(<span class="number">1</span>);  <span class="comment">// 随便拿一个点当作根节点</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)  cout&lt;&lt;res[i]&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220108-路径重建</title>
+    <url>/2022/01/08/20220108-%E8%B7%AF%E5%BE%84%E9%87%8D%E5%BB%BA/</url>
+    <content><![CDATA[<h3 id="路径重建"><a href="#路径重建" class="headerlink" title="路径重建"></a>路径重建</h3><p>本篇文章主要收集了和路径重建相关的算法题，希望会对目前所研究的问题带来些启发。</p>
+<h4 id="1-阻断"><a href="#1-阻断" class="headerlink" title="1. 阻断"></a>1. 阻断</h4><blockquote>
+<ul>
+<li>题意：<a href="https://www.luogu.com.cn/problem/P4374">https://www.luogu.com.cn/problem/P4374</a></li>
+<li>分析：</li>
+<li>思路：<ul>
+<li>不用树剖， 先把新加道路按照从小到大排序，每次向上走时原来访问过的就可以直接跳过（答案不会更优），之后直接用类似并查集的方法即可</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> ans[<span class="number">50010</span>];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> par[<span class="number">50010</span>][<span class="number">17</span>];</span><br><span class="line"><span class="keyword">int</span> dep[<span class="number">50010</span>], po[<span class="number">50010</span>], to[<span class="number">50010</span>];</span><br><span class="line">vector&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; G[<span class="number">50010</span>];</span><br><span class="line">pair&lt;<span class="keyword">int</span>, pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; roads[<span class="number">50010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getto</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(to[x] == x)  <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> to[x] = <span class="built_in">getto</span>(to[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; G[x].<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> y = G[x][i].first, id = G[x][i].second;</span><br><span class="line">        <span class="keyword">if</span>(y == p)  <span class="keyword">continue</span>;</span><br><span class="line">        po[id] = y;</span><br><span class="line">        par[y][<span class="number">0</span>] = x;</span><br><span class="line">        dep[y] = dep[x] + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(y, x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x] &lt; dep[y]) <span class="built_in">swap</span>(x, y);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">16</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dep[par[x][i]] &gt;= dep[y])&#123;</span><br><span class="line">            x = par[x][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x == y)  <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">16</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(par[x][i] != par[y][i])&#123;</span><br><span class="line">            x = par[x][i], y = par[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> par[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x, y;   cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        G[x].<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(y, i));</span><br><span class="line">        G[y].<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(x, i));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x, y, z;    cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        roads[i] = <span class="built_in">make_pair</span>(z, <span class="built_in">make_pair</span>(x, y));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dep[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">16</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            par[j][i] = par[par[j][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) to[i] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) ans[i] = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">sort</span>(roads+<span class="number">1</span>, roads+m+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> v = roads[i].first;</span><br><span class="line">        <span class="keyword">int</span> x = roads[i].second.first, y = roads[i].second.second;</span><br><span class="line">        <span class="keyword">int</span> xy = <span class="built_in">lca</span>(x, y);</span><br><span class="line">        <span class="keyword">for</span>(x = <span class="built_in">getto</span>(x); dep[x] &gt; dep[xy]; x = <span class="built_in">getto</span>(par[x][<span class="number">0</span>]))&#123;</span><br><span class="line">            ans[x] = v;</span><br><span class="line">            to[x] = par[x][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(y = <span class="built_in">getto</span>(y); dep[y] &gt; dep[xy]; y = <span class="built_in">getto</span>(par[y][<span class="number">0</span>]))&#123;</span><br><span class="line">            ans[y] = v;</span><br><span class="line">            to[y] = par[y][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)  cout&lt;&lt;ans[po[i]]&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
 </search>
