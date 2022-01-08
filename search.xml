@@ -2201,7 +2201,7 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 <span id="more"></span>
 <ul>
 <li><p><strong>图示定义 </strong>：<strong><font color='cornflowerblue'>蓝色节点</font></strong>和<strong><font color='pink'>粉色节点</font></strong>的最近公共祖先是<strong><font color='green'>绿色点</font></strong>；</p>
-<p><img src="https://s2.loli.net/2022/01/08/XPHlGNfWUedMEcQ.png" alt="image-20220108140328746" style="zoom:50%;" /></p>
+<p><img src="https://s2.loli.net/2022/01/08/XPHlGNfWUedMEcQ.png" alt="image-20220108140328746.png"></p>
 </li>
 </ul>
 <h4 id="2-求解LCA方法"><a href="#2-求解LCA方法" class="headerlink" title="2. 求解LCA方法"></a>2. 求解LCA方法</h4><ul>
@@ -2250,7 +2250,7 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 <li><p>该思路基于深度优先遍历，可以将所有的点分为3类 ：</p>
 </li>
 </ul>
-<p><img src="https://s2.loli.net/2022/01/08/C4BN9hbyUmRlPce.png" alt="image-20220108174027363" style="zoom:50%;" /></p>
+<p><img src="https://s2.loli.net/2022/01/08/C4BN9hbyUmRlPce.png" alt="image-20220108174027363.png"></p>
 <ul>
 <li><strong><font color='cornflowerblue'>第1类</font></strong>：未被搜索过的点；</li>
 <li><strong><font color='red'>第2类</font></strong>：正在搜索的分支；</li>
