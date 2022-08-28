@@ -2447,4 +2447,433 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 </ul>
 ]]></content>
   </entry>
+  <entry>
+    <title>20220116-Steiner树</title>
+    <url>/2022/01/16/20220116-Steiner%E6%A0%91/</url>
+    <content><![CDATA[<h3 id="Steiner树"><a href="#Steiner树" class="headerlink" title="Steiner树"></a>Steiner树</h3><p>斯坦纳树问题是组合优化问题，与最小生成树相似，是最短网络的一种。</p>
+<ul>
+<li>最小生成树是在给定的点集和边中寻求最短网络使所有点连通。</li>
+<li>最小斯坦纳树允许在给定点外增加额外的点，使生成的最短网络开销最小。</li>
+</ul>
+<span id="more"></span>
+<h4 id="1-问题引入"><a href="#1-问题引入" class="headerlink" title="1. 问题引入"></a>1. 问题引入</h4><ul>
+<li>将三个村庄用总长为极小的道路连接起来。数学表述为：在平面内给定三个点 A、B、C找出平面内第四个点P，使得和数$a+b+c$为最短，这里$a、b、c$ 分别表示从P 到A、B、C的距离。</li>
+<li>【问题推广】斯坦纳树问题：给定$n$个点 ，试求连接此$n$个点$A_1,A_2,…, A_n$，总长最短的直线段连接系统，并且任意两点都可由系统中的直线段组成的折线连接起来</li>
+</ul>
+<p><a href="https://oi-wiki.org/graph/steiner-tree/">https://oi-wiki.org/graph/steiner-tree/</a></p>
+<h4 id="2-问题推广"><a href="#2-问题推广" class="headerlink" title="2. 问题推广"></a>2. 问题推广</h4><p><a href="https://oi-wiki.org/graph/steiner-tree/">https://oi-wiki.org/graph/steiner-tree/</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220115-无标注网络</title>
+    <url>/2022/01/15/20220115-%E6%97%A0%E6%A0%87%E6%B3%A8%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h3 id="无标注网络"><a href="#无标注网络" class="headerlink" title="无标注网络"></a>无标注网络</h3><ul>
+<li><p><strong>ER随机网络</strong>：埃尔德什（Paul Erdos）-雷尼(Alfred Renyi)随机网络。生成网络描述如下：</p>
+<blockquote>
+<ol>
+<li>从N个孤立节点开始；</li>
+<li>选择一对节点，产生一个0-1之间的随机数。如果该随机数小于p，则这对节点之间放一条连接；否则，该节点对保持不连接；</li>
+<li>对所有N(N-1)/2个节点对重复步骤2。</li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>规则网络</strong>：指平移对称性晶格，任何一个格点的近邻数目都相同。</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220119-路由算法</title>
+    <url>/2022/01/19/20220119-%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h3><p>路由算法是路由协议必须高效地提供其功能，尽量减少软件和应用的开销。路由器使用路由算法来找到到达目的地的最佳路由。</p>
+<span id="more"></span>
+<h4 id="1-传统路由算法"><a href="#1-传统路由算法" class="headerlink" title="1. 传统路由算法"></a>1. 传统路由算法</h4><ul>
+<li><p><strong>分类：</strong>①总体式路由算法；②分散式路由算法；</p>
+<ul>
+<li><p>总体式（对应LS算法，链路状态）：每个路由器都拥有网络中所有其他路由器的全部信息以及网络的流量状态。</p>
+<blockquote>
+<p><strong>链路状态算法【短路径优先算法】：</strong>把路由信息散布到网络的每个节点，不过每个路由器只发送路由表中描述自己连接状态的部分；</p>
+<p><strong>适合情况：</strong>网络规模较大时，链路状态路由选择更可取些。另外，链路状态协议能够为安全起见把机密信息隔离在特殊区域，或避开网上正在进行计算机辅助计算、多媒体通讯等拥挤区域。并且路由选择信息表在必要时进行交换而不是规律性地交换，这样可以减少网络上的信息流量。链路状态路由选择比距离向量路由选择需要更强的处理能力，它可以对路由选择过程提供更多的控制和对变化相应更快。路由选择可以基于避开拥塞区、线路的速度、线路的费用或各种优先级别。Dijkstra算法用于计算路由，根据如下：</p>
+<ul>
+<li>分组到达目的站经过的路由器数量（路由中继Hop），并且hop跳数越少越好；</li>
+<li>局域网间传输线路的速度。有些路由使用低速异步链接，而另一些路由使用高速数字链路。</li>
+<li>信息拥塞将造成延迟。如果一台工作站传送一个大文件，路由器可以通过不同的路径发送分组以避免交通阻塞。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>分散式（对应DV算法，距离向量）：每个路由器只有与它直接相连的路由器的信息，没有网络中的每个路由器的信息。</p>
+<blockquote>
+<p><strong>距离向量算法【Bellman-Ford算法】：</strong>网络中每个路由器发送路由表的全部或部分，但只发给其邻居。距离向量路由选择协议的分组传送路由是根据到接收站的跳数或费用决定的，这些信息由各相邻的路由器提供。技术上通常都遵循Bellman-Ford算法。（一个路由器有几个端口，每个端口都有指定的价值，这些价值是由网络管理员设定的。用使用一条路线实际费用的多少，作为一种衡量手段表明一条路线比另一条好或坏。）通用距离向量路由选择协议由：RIP和IGRP。</p>
+<p><strong>不适合情况</strong>：不适合于有几百个路由器的大型网络或经常要更新的网络。在大型网络中，表的更新过程可能过长，以至于最远的路由器的选择表不大可能与其他表同步更新。它告诉在网络中每个节点的最远和最近距离。在距离表中的这个信息是根据临近节点信息的改变实时更新的。</p>
+</blockquote>
+</li>
+<li><p>链接状态算法到处发送较少的更新信息，距离向量算法只向相邻路由器发送较多的更新信息。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>收敛：</strong>在最佳路径的判断上所有路由器达到一致的过程。当某个网络事件引起路由可用或不可用时，路由器就发出更新信息。路由更新信息遍及整个网络，引发重新计算最佳路径，最终达到所有路由器一致公认的最佳路径。收敛慢的路由算法会造成路径循环或网络中断。</p>
+</li>
+<li><p><strong>核心：</strong>路由选择算法。设计路由算法时需要考虑的技术要素有：</p>
+<ul>
+<li>选择最短路由还是最佳路由；</li>
+<li>通信子网是采用虚电路操作方式还是采用数据报的操作方式；</li>
+<li>采用分布式路由算法还是采用集中式路由算法；</li>
+<li>考虑关于网络拓扑、流量和延迟等网络信息的来源；</li>
+<li>确定采用静态路由还是动态路由；</li>
+</ul>
+</li>
+<li><p><strong>各路由算法的区别点包括：</strong>静态与动态、单路径与多路径、平坦与分层、主机智能与路由器智能、域内与域间、链路状态与距离向量；</p>
+<ul>
+<li>静态路由选择：路由器可以依赖人工编程把选择的路径输进设备。</li>
+<li>动态路由选择：依靠路由器收集网络信息和建立自己的路由表。路由器相互交换路由表，并且归并这些路由信息建立更新的路由表。从其他路由器上获得的信息，提供到网络上目的站点的路由终极数或与路径相关的费用。同时每个路由选择设备上的路由表，应该包含大体上一致的路由选择信息。</li>
+<li></li>
+</ul>
+</li>
+<li><p>metric是路由算法用以确定到达目的地的最佳路径的计量标准，如路径长度；</p>
+</li>
+<li><p><strong>路由选择协议：</strong>当两台非直接连接的计算机需要经过几个网络通信时，通常就需要路由器，路由器提供一种方法来开辟通过一个网状联结的路径。路由选择协议的任务是：为路由器提供他们建立通过网状网络最佳路径所需要的相互共享的路由信息。当一个计算机发送一个分组时，在网络上网络协议栈的每一层都附加一些信息给它。在接收方的对等层协议可以读出这些信息。这些信息类似于通信会话的某些部分。网络层的协议附加路由选择信息，这可能是通过一个网络的完整路径或是一些指示分组应该采用哪条路径的优先值、发送方添加的网络层信息只能由路由器或接收方的网络层协议读取。中继器和桥接器不能识别网络层信息，只能传送和转发分组。</p>
+</li>
+<li><p><strong>路由选择算法：</strong>一个路由器设备可能有两个或多个可以发送数据分组的端口。它必须有一张转发表为每一个端口标明一个特定地址。早期路由器不和其他路由器交换网络上有关路由器的信息，因此一个路由器通常沿着每条路径发送数据分组，分组充满网络，并且发送的一些分组在网络上无休止地循环。</p>
+</li>
+<li><p><strong>路由的费用：</strong>通常是根据传输介质确定的。最便宜的路径可能不是最快的，但是对某些类型的传输却更为可取。最常用的链路状态路由选择协议是优先开放最短路径（OSPF），它和OSI的中间系统到中间系统是类似的。OSPF路由选择表仅当在需要时更新，而不是定时更换。这有效地较少了通信流量和节省了网络带宽。通过网络的路径由上述标准选定。一个网络管理员可以根据信息传送的类型编制通过网络的路径。例如，当路线有较高数据传输率时，即使通过网络的那条路径有较多的HOP数也是可取的；此外对于不重要的信息将安排在低速低值的线路上传送。</p>
+</li>
+<li><p><strong>自治环境：</strong>一个区域是一些使用相同路由选择协议的主机和路由器的集合，它们使用相同的路由选择协议和由单一机构管理。</p>
+</li>
+<li><p><strong>内部/域内协议</strong></p>
+</li>
+<li><p><strong>外部/域间协议</strong></p>
+</li>
+</ul>
+<h4 id="2-卫星网络路由"><a href="#2-卫星网络路由" class="headerlink" title="2. 卫星网络路由"></a>2. 卫星网络路由</h4><ul>
+<li><p><strong>早期</strong>：快照技术，基于虚拟拓扑的集中式路由机制；</p>
+</li>
+<li><p><strong>改进算法：</strong></p>
+<ul>
+<li><p>由于卫星网络内部的星间相对位置通常相对固定，一部分工作提出基于虚拟节点的分布式路由机制。基于已知的星间相对位置的信息，根据星上存储的预先计算生成的映射表选择转发接口，或者邻居之间交换位置信息和移动方向信息，比较邻居距目的地址绝对距离得到下一条路由。</p>
+<blockquote>
+<ul>
+<li>优点：避免了基于虚拟拓扑的集中式路由机制存在的路由表存储开销巨大的问题；</li>
+<li>弊端：由于卫星高速运动，卫星与用户之间切换频繁，获取落地卫星标识会产生大量的位置更新开销。此外由于卫星位置具有时变性，部分解决方案需要邻居间定期交换状态信息。随着卫星星座规模的增大，邻居间消息交换愈发频繁，导致卫星网络中带宽资源浪费严重。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>现有地面基于IP的分布式路由协议迁移应用能充分发挥地面互联网的优势，但是现有的分布式IP路由协议主要是针对地面互联网设计，其拓扑基本稳定，这导致协议对一体化网络链路连接关系高动态变化场景应对不足，路由频繁更新使协议可用性受到极大影响。相应的改进算法，尝试利用卫星周期运行规律，引入预测信息，优化一体化网络路由机制设计，如OSPF+、BGP+等。</p>
+<blockquote>
+<ul>
+<li>缺点：规模增大使得需要预测的指标增多，对卫星存储能力和计算能力提出了更高的要求，频繁的消息交换也给卫星能耗带来更大挑战。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>基于位置的天地一体化网络路由寻址机制：创新之处在于以下方面：</p>
+<blockquote>
+<ul>
+<li>不需要通过获取邻居信息计算下一跳，仅 需要从IP地址中获取目的地址的位置信息来计算方位，由选择算法计算得到的卫星自身最优的接口直接进行数据分组转发。同时算法结合传统路由表查找机制的优势，提出星上临时路由表的概念，将分布式计算结果存储到路由表中，当卫星与目的地址相对位置发生改变时，更新临时路由表。临时路由表使LA-ISTN对于连续数据传输支持度更高。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>路由机制：</strong></p>
+<ul>
+<li><p>LA-ISTN：</p>
+<blockquote>
+<ul>
+<li>算法1：首先查找临时路由表，若查找成功，将数据分组从路由表中记录的接口转发给目的用户；否则选择对应最小接接口方向角的转发接口，将数据分组从该接口转发给下一条邻居卫星节点。</li>
+<li>由于单颗卫星的计算能力不足，卫星接口方向角的获得和计算开销对此类卫星网络压力大，因此引申出算法2；</li>
+<li>算法2：利用星间邻居相对位置来选择转发接口——目的地址与卫星的相对方位根据目的IP地址中记录的位置信息计算得到。它将复杂的接口选择问题转化为选择轨内星间链路或轨间星间链路转发的问题。考虑不同维度轨间星间链路的长度有区别，在选择最优转发接口时：<ul>
+<li>若目的地址相对当前卫星处于较高纬度，优先轨内转发；</li>
+<li>若目的地址相对当前卫星处于较低纬度，优先轨间转发；</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>临时路由表：星上存储临时接入<strong>当前卫星的终端路由信息</strong>和<strong>LA-ISTN生成的路由表项</strong>。当卫星与目的地址的相对位置发生改变时，清除当前路由表项信息，以保证临时路由表中记录始终是有效的。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>机理分析：</strong></p>
+<ul>
+<li>最后一跳寻址可达性分析：分布式位置路由算法存在不可达问题在于路由的最后一条。卫星覆盖区域重叠导致用户节点位于当前卫星覆盖范围内但并未接入当前卫星的情况发生。在LA-ISTN中，寻址机制将继续选取靠近目的位置的接口方向进行转发。</li>
+<li>轨间链路断开及拼缝位置寻址可达性分析</li>
+<li>开销分析</li>
+<li>性能分析</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>《Loop-Free Hybrid Single-Path/Flooding Routing Algorithms with Guaranteed Delivery for Wireless Networks》</p>
+</li>
+<li><p><strong>想法</strong>：</p>
+<ul>
+<li>选择方向角最小的那个，但是不知道原因orz</li>
+<li>compass routing, 选择与当前节点的夹角和当前节点和目的节点夹角最小的节点；</li>
+<li>MFR (most forward within radius)</li>
+<li>distance, progress, and direction-based approaches</li>
+<li>蚁群算法：分布计算、信息正反馈、启发式搜索特征，本质是进化算法中的一种启发式全局优化算法。和传统的路由算法相较，该算法在网络路由中具有信息分布式性、动态性、随机性和异步性等特点，而这些特点正好能满足网络路由的需要。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220120-蚁群算法</title>
+    <url>/2022/01/20/20220120-%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="蚁群算法"><a href="#蚁群算法" class="headerlink" title="蚁群算法"></a>蚁群算法</h3><blockquote>
+<p>蚁群算法具有分布计算、信息正反馈、启发式搜索特征，本质是进化算法中的一种启发式全局优化算法。蚁群算法应用广泛，如旅行商问题、指派问题、job-shop调度问题、车辆路径问题、图着色问题、网络路由问题等。和传统的路由算法相较，该算法在网络路由中具有信息分布式性、动态性、随机性和异步性等特点，而这些特点正好能满足网络路由的需要。</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="1-蚁群算法的特点"><a href="#1-蚁群算法的特点" class="headerlink" title="1. 蚁群算法的特点"></a>1. 蚁群算法的特点</h3><ul>
+<li>高度结构化的组织：虽然蚂蚁的个体行为极其简单，但由个体组成的蚁群却构成高度结构化的社会组织，蚂蚁社会的成员有分工，有相互的通信和信息传递；</li>
+<li>自然优化：蚁群在觅食过程中，在没有任何提示下总能找到从蚁巢到事物源之间的最短路径。当经过的路线上出现障碍物时，还能迅速找到新的最优路径；</li>
+<li>信息正反馈：蚂蚁在寻找食物时，在其经过的路径上释放信息素（外激素）。蚂蚁基本没有视觉，但能在小范围内察觉同类散发的信息素的轨迹，由此来决定何去何从，并倾向于朝向信息素强度高的方向移动。由于采用正反馈机制，使得搜索过程不断收敛，最终逼近最优解；</li>
+<li>自催化行为：某条路径上走过的蚂蚁越多，留下的信息素也越多（随时间蒸发一部分），后来蚂蚁选择该路径的概率也越高。</li>
+<li>搜索过程采用分布式计算方式，多个个体同时进行并行计算，大大提高了算法的计算能力和运行效率；</li>
+<li>启发式的概率搜索方式不容易陷入局部最优，易于找到全局最优解；</li>
+</ul>
+<h3 id="2-蚁群算法的基本思想"><a href="#2-蚁群算法的基本思想" class="headerlink" title="2. 蚁群算法的基本思想"></a>2. 蚁群算法的基本思想</h3><ul>
+<li>首先根据具体问题设置多只蚂蚁，分头并行搜索；</li>
+<li>每只蚂蚁完成一次周游后，在行进的路上释放信息素，信息素量与解的质量成正比；</li>
+<li>蚂蚁路径的选择根据信息素强度大小（初始信息素设为相等），同时考虑两点之间的距离，采用随机的局部搜索策略。这使得距离较短的边上的信息素量较大，后来的蚂蚁选择该边的概率也较大；</li>
+<li>每只蚂蚁只能走合法线路（经过城市1次且仅1次），为此设置禁忌表来控制；</li>
+<li>所有蚂蚁都搜索完一次就是迭代一次，每迭代一次就对所有的边做一次信息素更新，原来的蚂蚁死掉，新的蚂蚁进行新一轮搜索；</li>
+<li>更新信息素包括原有信息素的蒸发和经过路径上信息素的增加；</li>
+<li>达到预定的迭代步数，或出现停滞现象（所有蚂蚁都选择同样的路径，解不再变化），则算法结束，以当前最优解作为问题的最优解；</li>
+</ul>
+<h4 id="3-需要关注的计算公式"><a href="#3-需要关注的计算公式" class="headerlink" title="3. 需要关注的计算公式"></a>3. 需要关注的计算公式</h4><ul>
+<li>信息素的更新计算</li>
+<li>蚂蚁的转移概率计算公式</li>
+<li>具体实例说明：<a href="https://cloud.tencent.com/developer/article/1704718">https://cloud.tencent.com/developer/article/1704718</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220410-cKDTree</title>
+    <url>/2022/04/10/20220410-cKDTree/</url>
+    <content><![CDATA[<h3 id="cKDTree"><a href="#cKDTree" class="headerlink" title="cKDTree"></a>cKDTree</h3><blockquote>
+<ul>
+<li>KDTree：是查找大数据的最近邻居的快速方法；</li>
+<li>作用：快速将GPS点位根据最邻近距离投影到最近路网（两千万点位在2min内完成匹配）；</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<h4 id="0-基本基础"><a href="#0-基本基础" class="headerlink" title="0. 基本基础"></a>0. 基本基础</h4><ul>
+<li><strong>ARCGIS</strong></li>
+<li><strong>空间索引：</strong>指依据空间对象的位置和形状或空间对象之间的某种空间关系按照一定顺序排列的一种数据结构，其中包含空间对象的概要信息，如对象的标识、外界矩形以及指向空间对象实体的指针。作为一种辅助性的空间数据结构，空间索引介于空间操作算法和空间对象之间，通过筛选，排除大量与特定操作无关的空间对象，从而提高空间操作的速度和效率。</li>
+<li><strong>研究历程：</strong>当前数据搜索的一个关键问题是速度。提高速度的核心技术是空间索引。空间索引是由空间位置到空间对象的映射关系。但空间索引技术并不单是为了提高显示速度。其技术核心是：根据搜索条件，比如一个矩阵，迅速找到与该矩形相交的所有空间对象集合。当数据量巨大，矩形框相对于全图很小时，这个集合相对于全图数据集大为缩小，从而减少了后续的处理复杂度。</li>
+<li>传统的空间索引一般是指对连续的地图进行网格化，从而将地图信息转化为矩阵信息进行有序存储，但网格化的问题是，如果网格分得过大，一个网格内会包含多条路段，因此即使可以快速定位到网格，依然还需要进行二次运算来判断最终的路段。考虑到目前计算机硬件能力足够，我们在进行网格化的时候可以进一步精细化，以存储换速度。因此，在此我们不再对路网进行网格索引，而直接对路段进行<strong>等距拆分为点</strong>。拆分完毕之后，一个路段便对应着多个点位，并共同构成了一个固定的路网空间索引表（路段ID，路段点经纬度，路段信息等）。而我们接下来要做的，就是<strong>找出每个GPS点位距离最近的路网空间点位</strong>，然后再将路网信息一并merge过来，即可完成路网的临近匹配了。之后我们的问题就转变为：<strong><font color='cornflowerblue'>给出A，B两个坐标矩阵，如何以最快的速度从A中找出距离B内每一个点最近的点位索引。</font></strong></li>
+</ul>
+<h4 id="1-KDTree"><a href="#1-KDTree" class="headerlink" title="1. KDTree"></a>1. KDTree</h4><ul>
+<li>KDTree是一个非常高效的最邻近搜索算法，通过建立索引树来提高检索速度。在Python中使用也非常简单，直接调用<code>scipy.spatial</code>即可。但KDTree包的问题在于，其本身是不支持以经纬度球面距离为metric来进行搜索的。而如果我们不进行经纬度转化，直接调用KDTree的话，会由于计算出的距离误差而导致我们的搜索出现偏差。</li>
+<li>参考矩阵：相当于我们的路网空间索引矩阵；</li>
+<li>对比矩阵：相当于我们的GPS点位矩阵；</li>
+</ul>
+<h4 id="2-具体示例"><a href="#2-具体示例" class="headerlink" title="2. 具体示例"></a>2. 具体示例</h4><blockquote>
+<p>给定数据集A（包含1,000,000条数据），求集合X（包含10,000个点）中的每个点的最邻近点，返回应该是10,000个索引。</p>
+</blockquote>
+<ul>
+<li><p><code>cdist</code>代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t = time.time()</span><br><span class="line">nn = np.array([])</span><br><span class="line">jump = <span class="number">1000</span></span><br><span class="line">nloop = np.ceil(A.shape[<span class="number">0</span>]/jump).astypr(<span class="built_in">int</span>)</span><br><span class="line"><span class="keyword">for</span> ii <span class="keyword">in</span> <span class="built_in">range</span>(nloop):</span><br><span class="line">    temp = cdist(X, A[ii*jump : (ii+<span class="number">1</span>)*jump])</span><br><span class="line">    nn = np.append(nn, np.argmin(temp, axis = <span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Elapsed time: &#x27;</span>, time.time() - t)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>cKDTree</code>代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t = time.time()</span><br><span class="line">tree = cKDTree(X)</span><br><span class="line">nn = tree.query(A, <span class="number">1</span>, n_jobs=<span class="number">4</span>)[<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Elapsed time: &#x27;</span>, time.time() - t)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-KD-Tree"><a href="#3-KD-Tree" class="headerlink" title="3. KD-Tree"></a>3. KD-Tree</h4><ul>
+<li><strong>应用举例：</strong>SIFT算法中做特征点匹配时利用到KDTree。特征点匹配实际上就是通过距离函数在高维矢量之间进行相似性检索的问题。</li>
+<li><strong>索引结构中相似性查询：</strong><ul>
+<li>范围查询：给定查询点和查询距离的阈值，从数据集中找出所有与查询点距离小于阈值的数据；</li>
+<li>K近邻查询：给定查询点和正整数K，从数据集中找出距离查询点最近的K个数据；</li>
+</ul>
+</li>
+<li><strong>特征匹配算子：</strong><ul>
+<li>线性扫描法：将数据集中的点与查询点逐一进行距离比较；</li>
+<li>建立数据索引，然后再进行快速匹配：实际数据一般都会呈现出簇状的聚类形态，通过设计有效的索引结构可以大大加快检索的速度。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><p><a href="http://t.zoukankan.com/wellp-p-8552774.html">Kdtree原理以及 vs Octree</a></p>
+</li>
+<li><p><a href="https://www.lmlphp.com/user/980/article/item/22702/">KDTree学习笔记</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/53992405">https://zhuanlan.zhihu.com/p/53992405</a></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220404-dataloader深入剖析</title>
+    <url>/2022/04/04/20220404-dataloader%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90/</url>
+    <content><![CDATA[<h3 id="DataLoader深入剖析"><a href="#DataLoader深入剖析" class="headerlink" title="DataLoader深入剖析"></a>DataLoader深入剖析</h3><p>DataLoader本质是一个可迭代对象：</p>
+<blockquote>
+<ul>
+<li><p>使用<code>iter()</code>访问，不能使用<code>next()</code>访问</p>
+</li>
+<li><p>使用<code>iter(dataloader)</code>返回的是一个迭代器，然后可以使用<code>next()</code>访问</p>
+</li>
+<li>也可以使用<code>for inputs, labels in dataloaders</code>进行可迭代对象的访问</li>
+<li>一般我们实现一个dataset对象，传入到dataloader中，然后内部使用<code>yeild</code>返回每一个batch的数据；</li>
+</ul>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220416-Mininet入门学习</title>
+    <url>/2022/04/16/20220416-Mininet%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h3 id="Mininet入门学习"><a href="#Mininet入门学习" class="headerlink" title="Mininet入门学习"></a>Mininet入门学习</h3><blockquote>
+<p>基本介绍，参见：<a href="https://github.com/mininet/mininet/wiki/Introduction-to-Mininet#what">官方说明</a></p>
+</blockquote>
+<span id="more"></span>
+<h4 id="1-Mininet基本操作"><a href="#1-Mininet基本操作" class="headerlink" title="1. Mininet基本操作"></a>1. Mininet基本操作</h4><ul>
+<li>Creating Topologies</li>
+<li>Setting Performance Parameters</li>
+<li>Running Programs in Hosts</li>
+<li>New: <code>popen()</code>/<code>pexec()</code> interface</li>
+<li>Host Configuration Methods</li>
+<li>Naming in Mininet</li>
+<li>Customizing mn using —custom files</li>
+</ul>
+<h4 id="2-Host-Configuraton-Methods"><a href="#2-Host-Configuraton-Methods" class="headerlink" title="2. Host Configuraton Methods"></a>2. Host Configuraton Methods</h4><ul>
+<li><code>IP()</code>：return IP address of a host or specific interface.</li>
+<li><code>MAC()</code>：return MAC address of a host or specific interface.</li>
+<li><code>setARP()</code>：add a static ARP entry to a host’s ARP cache.</li>
+<li><code>setIP()</code>：set the IP address for a host or specific interface.</li>
+<li><code>setMAC()</code>：set the MAC address for a host or specific interface.</li>
+</ul>
+<h4 id="3-Customizing-mn-using-custom-files"><a href="#3-Customizing-mn-using-custom-files" class="headerlink" title="3. Customizing mn using --custom files"></a>3. Customizing <code>mn</code> using <code>--custom</code> files</h4><h4 id="4-Understanding-the-Mininet-API"><a href="#4-Understanding-the-Mininet-API" class="headerlink" title="4. Understanding the Mininet API"></a>4. Understanding the Mininet API</h4><ul>
+<li><p>可以将Mininet的API划分为以下3个主要层级：</p>
+<ul>
+<li><p><strong>Low-level API：</strong> consists of the base node and link classes (such as <code>Host</code>, <code>Switch</code>, and <code>Link</code> and their subclasses) . <strong>Low-level API: nodes and links</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">h1 = Host( <span class="string">&#x27;h1&#x27;</span> )                                 </span><br><span class="line">h2 = Host( <span class="string">&#x27;h2&#x27;</span> )                             </span><br><span class="line">s1 = OVSSwitch( <span class="string">&#x27;s1&#x27;</span>, inNamespace=<span class="literal">False</span> )                             </span><br><span class="line">c0 = Controller( <span class="string">&#x27;c0&#x27;</span>, inNamespace=<span class="literal">False</span> )      </span><br><span class="line">Link( h1, s1 )     </span><br><span class="line">Link( h2, s1 )                                 </span><br><span class="line">h1.setIP( <span class="string">&#x27;10.1/8&#x27;</span> )                                 </span><br><span class="line">h2.setIP( <span class="string">&#x27;10.2/8&#x27;</span> )                           </span><br><span class="line">c0.start()                           </span><br><span class="line">s1.start( [ c0 ] )                                     </span><br><span class="line"><span class="built_in">print</span>( h1.cmd( <span class="string">&#x27;ping -c1&#x27;</span>, h2.IP() ) )</span><br><span class="line">s1.stop()                            </span><br><span class="line">c0.stop() </span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Mid-level API：</strong>adds the <code>Mininet</code> object which serves as a container for nodes and links. (such as <code>addHost()</code>, <code>addSwitch()</code>, and <code>addLink()</code>) , as well as network configuration, startup and shutdown (notably <code>start()</code> and <code>stop()</code>). <strong>Mid-level API: Network object</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">net = Mininet()</span><br><span class="line">h1 = net.addHost( <span class="string">&#x27;h1&#x27;</span> )</span><br><span class="line">h2 = net.addHost( <span class="string">&#x27;h2&#x27;</span> )</span><br><span class="line">s1 = net.addSwitch( <span class="string">&#x27;s1&#x27;</span> )</span><br><span class="line">c0 = net.addController( <span class="string">&#x27;c0&#x27;</span> )</span><br><span class="line">net.addLink( h1, s1 )</span><br><span class="line">net.addLink( h2, s1 )</span><br><span class="line">net.start()</span><br><span class="line"><span class="built_in">print</span>( h1.cmd( <span class="string">&#x27;ping -c1&#x27;</span>, h2.IP() ) )</span><br><span class="line">CLI( net )</span><br><span class="line">net.stop()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>High-level API：</strong>adds a topology template abstraction.  The <code>Topo</code> class, which provides the ability to create reusable, parametrized topology templates. These templates can be passed to the <code>mn</code> command (via the <code>--custom</code> option) and used from the command line. <strong>High-level API: Topology templates</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleSwitchTopo</span>(<span class="params"> Topo </span>):</span>                                     </span><br><span class="line">    <span class="string">&quot;Single Switch Topology&quot;</span>                        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">build</span>(<span class="params"> self, count=<span class="number">1</span> </span>):</span>                 </span><br><span class="line">        hosts = [ self.addHost( <span class="string">&#x27;h%d&#x27;</span> % i )                       </span><br><span class="line">                  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>( <span class="number">1</span>, count + <span class="number">1</span> ) ]                </span><br><span class="line">        s1 = self.addSwitch( <span class="string">&#x27;s1&#x27;</span> )    </span><br><span class="line">        <span class="keyword">for</span> h <span class="keyword">in</span> hosts:                   </span><br><span class="line">            self.addLink( h, s1 )                               </span><br><span class="line"></span><br><span class="line">net = Mininet( topo=SingleSwitchTopo( <span class="number">3</span> ) )                 </span><br><span class="line">net.start()       </span><br><span class="line">CLI( net )                                        </span><br><span class="line">net.stop()   </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-Measuring-Performance"><a href="#5-Measuring-Performance" class="headerlink" title="5. Measuring Performance"></a>5. Measuring Performance</h4><ul>
+<li>Bandwidth (<code>bwm-ng</code>, <code>ethstats</code>)</li>
+<li>Latency (use <code>ping</code>)</li>
+<li>Queues (use <code>tc</code> included in <code>monitor.py</code>)</li>
+<li>TCP <code>CWND</code> statistics (<code>tcp_probe</code>, maybe we should add it to <code>monitor.py</code>)</li>
+<li>CPU usage (global: <code>top</code>, or per-container <code>cpuacct</code>)</li>
+</ul>
+<h4 id="6-Mininet原理"><a href="#6-Mininet原理" class="headerlink" title="6. Mininet原理"></a>6. Mininet原理</h4><ul>
+<li><strong>组成部分</strong>：<ul>
+<li>Isolated Hosts</li>
+<li>Emulated Links</li>
+<li>Emulated Switches: default <strong>Linux bridge</strong> or <strong>Open vSwitch</strong> running in kernel model to switch packets across interfaces.</li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220419-ifconfig</title>
+    <url>/2022/04/19/20220419-ifconfig/</url>
+    <content><![CDATA[<h3 id="ifconfig解析"><a href="#ifconfig解析" class="headerlink" title="ifconfig解析"></a>ifconfig解析</h3><h4 id="0-具体示例说明"><a href="#0-具体示例说明" class="headerlink" title="0. 具体示例说明"></a>0. 具体示例说明</h4><ul>
+<li><p><code>ifconfig</code>用于显示网络设备信息；</p>
+<span id="more"></span>
+<p><strong>执行命令后显示：</strong></p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ifconfig</span>        </span><br><span class="line">eth0   Link encap:Ethernet HWaddr 00:50:56:0A:0B:0C </span><br><span class="line">     inet addr:192.168.0.3 Bcast:192.168.0.255 Mask:255.255.255.0</span><br><span class="line">     inet6 addr: fe80::250:56ff:fe0a:b0c/64 Scope:Link</span><br><span class="line">     UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1</span><br><span class="line">     RX packets:172220 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">     TX packets:132379 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">     collisions:0 txqueuelen:1000 </span><br><span class="line">     RX bytes:87101880 (83.0 MiB) TX bytes:41576123 (39.6 MiB)</span><br><span class="line">     Interrupt:185 Base address:0x2024 </span><br><span class="line"></span><br><span class="line">lo    Link encap:Local Loopback </span><br><span class="line">     inet addr:127.0.0.1 Mask:255.0.0.0</span><br><span class="line">     inet6 addr: ::1/128 Scope:Host</span><br><span class="line">     UP LOOPBACK RUNNING MTU:16436 Metric:1</span><br><span class="line">     RX packets:2022 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">     TX packets:2022 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">     collisions:0 txqueuelen:0 </span><br><span class="line">     RX bytes:2459063 (2.3 MiB) TX bytes:2459063 (2.3 MiB)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>分析说明：</strong></p>
+<blockquote>
+<ul>
+<li><code>eth0   Link encap:Ethernet HWaddr 00:50:56:0A:0B:0C</code><ul>
+<li><code>eth0</code>：网卡名称；</li>
+<li><code>Link encap:Ethernet</code>：连接类型，这里是以太网（Ethernet）；</li>
+<li><code>HWaddr 00:50:56:0A:0B:0C</code>：网卡物理地址（MAC地址）；</li>
+</ul>
+</li>
+<li><code>inet addr:192.168.0.3 Bcast:192.168.0.255 Mask:255.255.255.0</code>：<ul>
+<li><code>inet addr</code>：网卡的IPv4地址；</li>
+<li><code>Bcast</code>：广播地址；</li>
+<li><code>Mask</code>：子网掩码；</li>
+</ul>
+</li>
+<li><code>inet6 addr: fe80::250:56ff:fe0a:b0c/64 Scope:Link</code>：<ul>
+<li><code>inet6 addr</code>：网卡的IvP6地址；</li>
+</ul>
+</li>
+<li><code>UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1</code>：<ul>
+<li><code>UP</code>：表明接口已启用；</li>
+<li><code>BROADCAST</code>：表明主机支持广播；</li>
+<li><code>RUNNING</code>：表明接口在工作中；</li>
+<li><code>MULTICAST</code>：表明主机支持多播；</li>
+<li><code>MTU:1500</code>：最大传输单元为1500字节；</li>
+</ul>
+</li>
+<li><code>RX packets:172220 errors:0 dropped:0 overruns:0 frame:0</code>：<ul>
+<li><code>RX packets</code>：接收到的正确数据包数；</li>
+<li><code>RX errors</code>：接收到的产生错误的数据包数；</li>
+<li><code>RX dropped</code>：接收到的丢弃的数据包数；</li>
+<li><code>RX overruns</code>：接收到的由于速度过快而丢失的数据包数；</li>
+<li><code>RX frame</code>：接收到的发生<code>frame</code>错误而丢失的数据包数；</li>
+</ul>
+</li>
+<li><code>TX packets:132379 errors:0 dropped:0 overruns:0 carrier:0</code>：<ul>
+<li><code>TX packets</code>：发送时正确数据包数；</li>
+<li><code>TX errors</code>：发送时产生错误的数据包数；</li>
+<li><code>TX dropped</code>：发送时的丢弃的数据包数；</li>
+<li><code>TX overruns</code>：发送时由于速度过快而丢失的数据包数；</li>
+<li><code>TX carrier</code>：发送时发生<code>carrier</code>错误而丢失的数据包数；</li>
+</ul>
+</li>
+<li><code>collisions:0 txqueuelen:1000</code>：<ul>
+<li><code>collisions</code>：冲突信息包的数目；</li>
+<li><code>txqueuelen</code>：网卡设置的传送队列长度；</li>
+</ul>
+</li>
+<li><code>RX bytes:87101880 (83.0 MiB) TX bytes:41576123 (39.6 MiB)</code>：<ul>
+<li><code>RX bytes</code>：接收的数据量；</li>
+<li><code>TX bytes</code>：发送的数据量；</li>
+</ul>
+</li>
+<li><code>Interrupt:185 Base address:0x2024</code>：</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="1-命令实例"><a href="#1-命令实例" class="headerlink" title="1. 命令实例"></a>1. 命令实例</h4><ul>
+<li><p><code>ifconfig</code>：显示激活的网卡信息；</p>
+</li>
+<li><p><code>ifconfig -a</code>：显示所有的网卡信息；</p>
+</li>
+<li><p><code>ifconfig -s</code>：显示简要的网卡信息；</p>
+</li>
+<li><p><code>ifconfig eth0 down</code>或<code>ifdown eth0</code>：关闭网卡；</p>
+</li>
+<li><p><code>ifconfig eth0 up</code>或<code>ifup eth0</code>：启动网卡；</p>
+</li>
+<li><p>为网卡配置和删除IPv6地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig eth0 add 3ffe:3240:800:1005::2/64</span><br><span class="line">ifconfig eth0 del 3ffe:3240:800:1005::2/64</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>修改MAC地址：<code>ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE</code>；</p>
+</li>
+<li><p>配置IP地址：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置ip地址</span></span><br><span class="line">ifconfig eth0 <span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 配置ip地址和子网掩码</span></span><br><span class="line">ifconfig eth0 <span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span> netmask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 配置ip地址、子网掩码和广播地址</span></span><br><span class="line">ifconfig eth0 <span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span> netmask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span> broadcast <span class="number">192.168</span><span class="number">.1</span><span class="number">.255</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单网卡添加多个IP地址：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ifconfig eth0:0 192.168.1.100 netmask 255.255.255.0 up</span><br><span class="line">ifconfig eth0:1 192.168.2.100 netmask 255.255.255.0 up</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除IP地址：<code>ifconfig eth0 del 192.168.1.100</code>；</p>
+</li>
+<li><p>启动和关闭ARP协议：<code>ifconfig eth0 arp</code>和<code>ifconfig eth0 -arp</code>；</p>
+</li>
+<li><p>设置最大传输单元：<code>ifconfig eth0 mtu 1500</code>；</p>
+</li>
+<li><p>启用和关闭网卡的promiscuous模式：<code>ifconfig eth0 promisc</code>和<code>ifconfig eth0 -promisc</code>;</p>
+</li>
+<li><p>启用和关闭网卡的多播模式：<code>ifconfig eth0 allmulti</code>和<code>ifconfig eth0 -allmulti</code>;</p>
+</li>
+</ul>
+]]></content>
+  </entry>
 </search>
