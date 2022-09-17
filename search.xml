@@ -2876,4 +2876,136 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 </ul>
 ]]></content>
   </entry>
+  <entry>
+    <title>20220905-WebRTC</title>
+    <url>/2022/09/05/20220905-WebRTC/</url>
+    <content><![CDATA[<h3 id="WebRTC"><a href="#WebRTC" class="headerlink" title="WebRTC"></a>WebRTC</h3><blockquote>
+<p>WebRTC(Web Real-Time Communication)是一个可以用在视频聊天、音频聊天或P2P文件分享Web App中的API。</p>
+</blockquote>
+<p>WebRTC是一个可以在Web程序中实现音频，视频和数据的实时通信的开源项目。在实时通信中，音视频的采集和处理是一个很复杂的过程。比如音视频流的编解码、降噪和回声消除等，但是在WebRTC中，这一切都交由浏览器的底层封装来完成。我们可以直接拿到优化后的媒体流，然后在其输出到本地屏幕和扬声器，或者转发给其对等端。长话短说，就是一个<strong>支持网页浏览器进行实时语音对话、视频对话、数据传输的API</strong>。</p>
+<ol>
+<li>WebRTC已经实现了对于实时通信，免插件音视频数据传输的标准制定，需求是：<ul>
+<li>许多网络服务已经使用了RTC，但是需要下载，本地应用或者是插件；</li>
+<li>下载安装升级插件是复杂的，可能出错的；</li>
+<li>插件可能很难部署、调试、故障排除等；</li>
+<li>插件可能需要技术授权，复杂集成和昂贵的技术；</li>
+</ul>
+</li>
+<li>因此WebRTC项目的指导原则是：API应该是开源的，免费的，标准化的，浏览器内置的，比现有技术更高效的；</li>
+<li>WebRTC有3个模块：<ul>
+<li>Voice Engine(音频引擎)<ul>
+<li>voice engine包含iSAC/iLBC Codec（音频编解码器，前者是针对宽带和超宽带，后者是针对窄带）；</li>
+<li>netEQ for voice(处理网络抖动和语音包丢失)；</li>
+<li>Echo Canceler(回声消除器)/noise reduction(噪声抑制)；</li>
+</ul>
+</li>
+<li>NetEQ Engine(视频引擎)<ul>
+<li>VP8 Codec（视频图像编解码器）；</li>
+<li>Video jitter buffer（视频抖动缓冲器、处理视频抖动和视频信息包丢失）；</li>
+<li>Image enhancements（图像质量增强）；</li>
+</ul>
+</li>
+<li>Transport(数据传输)<ul>
+<li>SRTP（安全的实时传输协议，用以音视频流传输）；</li>
+<li>Multiplexing（多路复用）；</li>
+<li>P2P, STUN+TURN+ICE（用于NAT网络和防火墙穿越的）；</li>
+<li>除此之外，安全传输可能还会用到DTLS（数据报安全传输），用于加密传输和密钥协商；</li>
+<li>整个WebRTC通信是基于UDP的；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>核心组件<ul>
+<li>音视频引擎：OPUS、VP8/VP9、H264</li>
+<li>传输层协议：底层传输协议为UDP</li>
+<li>媒体协议：SRTP/SCTP</li>
+<li>数据协议：DTLS/SCTP</li>
+<li>P2P内网穿透：STUN/TURN/ICE/Trickle ICE;</li>
+<li>信令与SDP协商：HTTP/WebSocket/SIP/Offer Answer模型；</li>
+</ul>
+</li>
+<li>NAT和NAT穿透<ul>
+<li>NAT即网络地址转换，就是替换IP报文头部的地址信息。NAT通常部署在一个组织的网络出口位置，通过将内部网络IP转换为出口的IP地址提供公网可达以及和上层协议的连接能力；</li>
+<li>NAT的分类：<ul>
+<li>静态NAT：将单个私有IP地址与单个公共地址映射，即将私有IP地址转换为公共IP地址；</li>
+<li>动态NAT：多个专用IP地址映射到公用IP地址池。当我们知道固定用户想要在给定的时间点访问Internet的数量时，将使用它；</li>
+<li>PAT(NAT重载)：使用NAT重载可以将需要本地（专用）IP地址转换为单个公用IP地址。端口号用于区分流量，即哪个流量属于哪个IP地址。这是最常用的方法，因为它具有成本效益，因为仅使用一个真实的全局（公共）IP地址就可以将数千个用户连接到Internet.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>STUN协议（Simple traversal of UDP over NAT protocol）</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220917-协议基础概念</title>
+    <url>/2022/09/17/20220917-%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h3 id="协议基础概念"><a href="#协议基础概念" class="headerlink" title="协议基础概念"></a>协议基础概念</h3><ol>
+<li><p><strong>socket</strong>：</p>
+<ul>
+<li><strong>定义</strong>：网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket。通常也称作”套接字“，用于描述IP地址和端口，是一个通信链的句柄，可以用来实现不同虚拟机或不同计算机之间的通信。</li>
+<li><strong>本质</strong>：编程接口API，对TCP/IP的封装。提供可供程序员做网络开发所用的接口；</li>
+<li><strong>举例</strong>：socket像一个多孔插座。一台主机犹如布满各种插座的房间，每个插座有一个编号，有的插座提供220V交流电，有的提供110V交流电，有的则提供有线电视节目。客户软件将插头插到不同编号的插座，就可以得到不同的服务。</li>
+</ul>
+</li>
+<li><p><strong>TCP/IP和HTTP协议的关系</strong>：</p>
+<ul>
+<li><strong>TCP/IP协议</strong>：传输层协议，主要解决数据如何在网络中传输；</li>
+<li><strong>HTTP协议</strong>：应用层协议，主要解决如何包装数据；</li>
+<li><strong>举例1</strong>：我们在传输数据时，可以只使用传输层TCP/IP协议，但是那样的话，如果没有应用层，便无法识别数据内容。如果想要使传输的数据有意义，则必须使用到应用层协议。</li>
+<li><strong>举例2</strong>：WEB使用HTTP协议作应用层协议，以封装HTTP文本信息，然后使用TCP/IP做传输层协议将它发到网络上。</li>
+</ul>
+</li>
+<li><p><strong>hook</strong>：</p>
+<ul>
+<li><strong>定义</strong>：指程序A在程序B里埋入的一段代码。当程序B运行到某种特定状态，或者某个特定条件成立，就会调用A埋入的那段代码。</li>
+<li><strong>意义</strong>：一般来说程序B希望把一些定制能力开放给用户或者第三方的开发者。</li>
+<li><strong>举例</strong>：例如github上有很多git repo，每个repo都有很多人提交代码，而且很多时候这些人之间互相不认识。假如我希望我的某个repo，只要有人提交了代码就自动运行一个测试程序，然后把测试结果发给我，这件事github自己要做就很不现实，因为它不知道我想如何测试，也不知道我想根据测试结果做什么，这时候 GitHub 的解决方案就是设计一个 <em>hook API</em>，允许我写一个“钩子函数（<em>hook</em>）”，并在我的 repo 的 “收到新 commit” 这个 “事件（<em>event</em>）” 上 “注册（<em>register</em>）” 这个钩子函数，以后 GitHub 只要收到该 repo 的 commit 就会触发这个钩子函数，执行我写的代码，我想做什么就我自己控制了。GitHub 事实上确实有这个功能（实际上是 git 底层就支持的），提供了 commit 前后的钩子接口，commit 前的钩子里你甚至可以根据运行情况决定是不是直接拒绝这个 commit。还有一种情况，钩子的接口不是程序 B 自己提供的，而是操作系统提供的机制，甚至是黑客强行在程序 B 中注入的，这就涉及到一些特定技术了，在特定环境下也是能做到的。不过，好孩子不干这个 ^_^</li>
+</ul>
+</li>
+<li><p><strong>MPLS</strong>：</p>
+<ul>
+<li><strong>本质</strong>：一种隧道技术，在一定程度山更可以保证信息传输的安全性；</li>
+<li><strong>体系结构</strong>：<ul>
+<li>控制平面：无连接的，主要功能是负责标签的分配、LFIB的建立、LSP的建立、拆除等；</li>
+<li>转发/数据平面：面向连接的，对IP包进行标签的添加和删除，同时依据标签转发表对收到的分组进行转发；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>平滑重启（graceful restart）</strong>:（<a href="http://www.h3c.com/cn/d_200911/655332_97665_0.htm">参考</a>）</p>
+<ul>
+<li><p><strong>定义</strong>：在主备切换或协议重启时保证转发业务不中断的机制。</p>
+</li>
+<li><p><strong>高可靠性（HA, High Availability）技术</strong>：HA是一整套综合技术，主要包括冗余容错、链路保证、节点故障修复及流量工程。其中，GR是一种冗余容错技术，目前已经被广泛的使用在主备切换和系统升级方面，以保证关键业务的不间断转发。</p>
+</li>
+<li><p><strong>前提</strong>：</p>
+<ul>
+<li>仅适用于带双主控、线卡具有独立处理器的硬件平台；</li>
+<li>GR用于软件或硬件错误导致Active RP重起或Active RP失效；或者管理员的主备切换命令。</li>
+</ul>
+</li>
+<li><p><strong>传统技术和GR技术的比较</strong>：</p>
+<ul>
+<li><p><strong>传统主备切换时造成的网络问题</strong>：</p>
+<p><img src="https://res.h3c.com/cn/200911/18/20091118_878346_image001_655332_97665_0.png" alt="OSPF GR"></p>
+</li>
+<li><p><strong>采用GR技术解决了主备切换时造成的网络问题</strong>：</p>
+<p><img src="https://res.h3c.com/cn/200911/18/20091118_878347_image002_655332_97665_0.png" alt="OSPF GR2"></p>
+</li>
+<li><p><strong><font color='red'>注意</font></strong>：如果在R1在GR的过程中，网络拓扑发生了变化，那么可能导致短暂的路由环路或路由黑洞。对于这个问题的处理方法，目前不同厂商的实现略有不同。与业务中断的危害相比较，是否可以容忍可能出现的短暂的路由环路和路由黑洞，对这个问题的不同观点决定了在具体实现上的不同。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>网络流量工程</strong>：</p>
+<ul>
+<li><strong>定义</strong>：根据各种数据业务流量的特性选取传输路径的处理过程。用于平衡网络中不同交换机、路由器以及链路之间的负载；</li>
+</ul>
+</li>
+</ol>
+]]></content>
+  </entry>
 </search>
