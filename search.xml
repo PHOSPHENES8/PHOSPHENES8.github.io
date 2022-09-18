@@ -3008,4 +3008,59 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 </ol>
 ]]></content>
   </entry>
+  <entry>
+    <title>20220917-bird源码剖析（1）</title>
+    <url>/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="bird源码剖析（1）"><a href="#bird源码剖析（1）" class="headerlink" title="bird源码剖析（1）"></a>bird源码剖析（1）</h3><ol>
+<li>使用bird主要是通过读取bird.conf文件进行协议相关配置；</li>
+<li>通过<code>configure.ac</code>文件，设置<code>CONFIG_FILE</code>变量为配置文件；</li>
+<li><code>autoconf</code>将<code>configure.ac</code>中的宏展开，生成configure脚本；</li>
+<li>【中间过程】</li>
+<li>在<code>conf/conf.c</code>文件中通过<code>config_parse</code>函数进行语法解析；</li>
+<li><code>main.c</code>文件位置：<ul>
+<li><code>sysdep/unix/main.c</code>；</li>
+</ul>
+</li>
+<li><strong>核心文件夹</strong>：<ul>
+<li><code>filter</code>：过滤器相关；</li>
+<li><code>lib</code>：底层实现相关；<ul>
+<li><code>lib/birdlib.h</code>：包含编译bird-gdb.py；</li>
+<li></li>
+</ul>
+</li>
+<li><code>nest</code>：BIRD核心相关；</li>
+<li><code>proto</code>：协议相关；</li>
+<li><code>sysdep</code>：glibc系统相关；</li>
+<li><code>test</code>：暂未了解【猜测是用来debug的，里面包含了gdb等】；</li>
+</ul>
+</li>
+<li><strong>其他知识点</strong>：<ul>
+<li><code>.Y（Yet Another Compiler Compiler）</code>是Unix/Linux上一个用来生成编译器的编译器。yacc生成的编译器主要是用C语言写成的语法解析器（Parser），需要与词法解析器Lex一起使用，再把两部份产生出来的C程序一并编译。</li>
+<li><code>.m4</code>文件：M4实际上是一种编程语言，后缀是.m4,说明这个文件是使用.m4写的，说的专业一点，这实际上就是一个通用宏处理器。 它经常被用来生成Makefile的脚本语言来使用。</li>
+<li><code>toml</code>文件：配置文件，一种非常基础的文件格式。</li>
+<li><code>distribution</code>(often abbreviated as <code>distro</code>)；</li>
+<li><code>misc</code>文件夹：contains miscellaneous file types that do not fit within other categories.</li>
+<li><code>sysdep</code>文件夹：（在Linux源码中是<code>/arch</code>，在<code>glibc</code>中是<code>/sysdep</code>）</li>
+<li><code>glibc</code>是GNU发布的libc库，即c运行库。glibc是linux系统中最底层的api，几乎其它任何运行库都会依赖于glibc。glibc除了封装linux操作系统所提供的系统服务外，它本身也提供了许多其他一些必要功能服务的是心啊。<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/31496865">glibc源码分析（1）系统调用</a></li>
+</ul>
+</li>
+<li><code>stdarg.h</code>: a header in the C standard library of the C programming language that allows functions to accept an indefinite number of arguments.</li>
+<li><code>···</code>用法：可变参数函数是可以采用可变数量的参数并用省略号代替最后一个参数声明的函数。例如：<code>static void bt_log_overall_result(int result, const char *fmt, ...)</code>。<ul>
+<li><strong>意义</strong>：max函数之所以看起来简单是因为其可变参数表的长度是已知的（通过num参数传入），且可变参数表中参数的类型也是已知的（都为int型）。然而，printf函数则没有这么幸运。首先，printf函数可变参数的个数不能轻易的得到，而可变参数的类型也不是固定的，需由格式字符串进行识别（由%f、%d、%s等确定），因此则涉及到可变参数表的更复杂应用。</li>
+</ul>
+</li>
+<li><code>asciz</code>：编译相关；</li>
+<li><code>ISP</code>：互联网服务提供商，如电信、网通等；</li>
+<li><strong>Linux Kernel Netlink Route Syncer</strong>：<ul>
+<li>netlink套接字是用以实现用户进程与内核进程通信的一种特殊的进程间通信（IPC），也是网络应用程序与内核通信的最常用的接口；</li>
+<li>netlink是一种特殊的socket，它是Linux所特有的，类似于BSD中的AF_ROUTE，但远比其功能强大，目前在Linux内核中使用netlink进行应用与内核通信的应用很多；</li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+</ol>
+]]></content>
+  </entry>
 </search>

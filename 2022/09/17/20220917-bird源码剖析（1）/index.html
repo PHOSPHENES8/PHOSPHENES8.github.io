@@ -19,30 +19,27 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"phosphenes8.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="初识卫星 Elevation &amp; Inclination  链路：与卫星通信的路径（通常它也指通信本身）：  上行链路将地面信号上传给卫星。 下行链路将卫星的信号发回地面。">
+<meta name="description" content="bird源码剖析（1） 使用bird主要是通过读取bird.conf文件进行协议相关配置； 通过configure.ac文件，设置CONFIG_FILE变量为配置文件； autoconf将configure.ac中的宏展开，生成configure脚本； 【中间过程】 在conf&#x2F;conf.c文件中通过config_parse函数进行语法解析； main.c文件位置： sysdep&#x2F;unix&#x2F;mai">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Basic Concepts about Satellite">
-<meta property="og:url" content="https://phosphenes8.github.io/2021/10/15/20211015-Concepts-about-Satellite/index.html">
+<meta property="og:title" content="20220917-bird源码剖析（1）">
+<meta property="og:url" content="https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/index.html">
 <meta property="og:site_name" content="NUKIY BLOG">
-<meta property="og:description" content="初识卫星 Elevation &amp; Inclination  链路：与卫星通信的路径（通常它也指通信本身）：  上行链路将地面信号上传给卫星。 下行链路将卫星的信号发回地面。">
+<meta property="og:description" content="bird源码剖析（1） 使用bird主要是通过读取bird.conf文件进行协议相关配置； 通过configure.ac文件，设置CONFIG_FILE变量为配置文件； autoconf将configure.ac中的宏展开，生成configure脚本； 【中间过程】 在conf&#x2F;conf.c文件中通过config_parse函数进行语法解析； main.c文件位置： sysdep&#x2F;unix&#x2F;mai">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://phosphenes8.github.io/images/image-20211015231251782.png">
-<meta property="og:image" content="https://phosphenes8.github.io/images/image-20211015231309789.png">
-<meta property="article:published_time" content="2021-10-15T03:08:37.000Z">
-<meta property="article:modified_time" content="2022-01-01T14:35:16.597Z">
+<meta property="article:published_time" content="2022-09-17T04:07:27.000Z">
+<meta property="article:modified_time" content="2022-09-18T01:14:38.989Z">
 <meta property="article:author" content="PHOSPHENES">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://phosphenes8.github.io/images/image-20211015231251782.png">
 
 
-<link rel="canonical" href="https://phosphenes8.github.io/2021/10/15/20211015-Concepts-about-Satellite/">
+<link rel="canonical" href="https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://phosphenes8.github.io/2021/10/15/20211015-Concepts-about-Satellite/","path":"2021/10/15/20211015-Concepts-about-Satellite/","title":"Basic Concepts about Satellite"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/","path":"2022/09/17/20220917-bird源码剖析（1）/","title":"20220917-bird源码剖析（1）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Basic Concepts about Satellite | NUKIY BLOG</title>
+<title>20220917-bird源码剖析（1） | NUKIY BLOG</title>
   
 
 
@@ -152,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E8%AF%86%E5%8D%AB%E6%98%9F"><span class="nav-number">1.</span> <span class="nav-text">初识卫星</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">bird源码剖析（1）</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -219,7 +216,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://phosphenes8.github.io/2021/10/15/20211015-Concepts-about-Satellite/">
+    <link itemprop="mainEntityOfPage" href="https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/cat2.png">
@@ -232,7 +229,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Basic Concepts about Satellite
+          20220917-bird源码剖析（1）
         </h1>
 
         <div class="post-meta-container">
@@ -243,14 +240,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-10-15 11:08:37" itemprop="dateCreated datePublished" datetime="2021-10-15T11:08:37+08:00">2021-10-15</time>
+      <time title="创建时间：2022-09-17 12:07:27" itemprop="dateCreated datePublished" datetime="2022-09-17T12:07:27+08:00">2022-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-01 22:35:16" itemprop="dateModified" datetime="2022-01-01T22:35:16+08:00">2022-01-01</time>
+      <time title="修改时间：2022-09-18 09:14:38" itemprop="dateModified" datetime="2022-09-18T09:14:38+08:00">2022-09-18</time>
     </span>
 
   
@@ -267,7 +264,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>1.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -285,62 +282,56 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="初识卫星"><a href="#初识卫星" class="headerlink" title="初识卫星"></a>初识卫星</h1><ul>
-<li><p><strong>Elevation &amp; Inclination</strong></p>
-</li>
-<li><p><strong>链路：</strong>与卫星通信的路径（通常它也指通信本身）：</p>
-</li>
-<li>上行链路将地面信号上传给卫星。<ul>
-<li>下行链路将卫星的信号发回地面。</li>
+        <h3 id="bird源码剖析（1）"><a href="#bird源码剖析（1）" class="headerlink" title="bird源码剖析（1）"></a>bird源码剖析（1）</h3><ol>
+<li>使用bird主要是通过读取bird.conf文件进行协议相关配置；</li>
+<li>通过<code>configure.ac</code>文件，设置<code>CONFIG_FILE</code>变量为配置文件；</li>
+<li><code>autoconf</code>将<code>configure.ac</code>中的宏展开，生成configure脚本；</li>
+<li>【中间过程】</li>
+<li>在<code>conf/conf.c</code>文件中通过<code>config_parse</code>函数进行语法解析；</li>
+<li><code>main.c</code>文件位置：<ul>
+<li><code>sysdep/unix/main.c</code>；</li>
 </ul>
 </li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p>星间链路在卫星间传递信号。</p>
-</li>
-<li><p><strong>低地球轨道：</strong>在几百千米到 1,000 千米的轨道上。</p>
-<ul>
-<li><p>周期：大约 90 分钟。</p>
-</li>
-<li><p>能通过卫星间的转播信号来提供连续的世界范围内的覆盖。如果这个网络包括极地或接近极地的轨道，就能够提供极地和高纬度地区的覆盖，这是静止轨道卫星做不到的。因为卫星处于较低的轨道上，这些卫星的往返传输时间就相对很短(来去地面的时间为0.005秒)，消除了回声控制和其他特殊处理的需要。</p>
-</li>
-<li><p>将LEO轨道卫星用于这个目的的缺点就是这个网络需要很多颗卫星。任何观察者看到卫星经过头顶的时间只是大约90分钟轨道周期中的10分钟，所以要给沿着卫星星下点轨迹的单个地面覆盖带提供连续覆盖，就需要九颗卫星(对于高度是500千米的轨道，其覆盖带宽度大约是3,000千米。对于更广的覆盖区域，需要更加可观的卫星数量。例如，广泛用于军事和商业目的的Iridium星座，拥有66颗卫星，这些卫星分布在六条高度为780千米的不同轨道上。这六条轨道位于不同的轨道平面上，每个的轨道倾角为86.4°。</p>
-</li>
-<li><p>低地球轨道还被用于不需要实时通信的任务中。这样的任务只需要一颗或很少的卫星。例如，虽然数据不需要立即传给地面的使用者，但是可以储存并且在卫星经过地面站时再传送(这种安排称为“存储－加－传送”)。</p>
-</li>
-<li><p>对于不是时间紧迫的任务，LEO卫星相对于地球的运动意味着，极轨道上的单颗卫星能够覆</p>
-<p>盖全球。如果轨道周期恰当选择，那么连续轨道线上的地面覆盖面积就是彼此相连的，一颗极地轨道卫星就能在一天里看到地面上的任意点两次。</p>
-</li>
-<li><p>一些任务需要低轨道。地球观测和侦察卫星要拍摄高分辨率的地球照片，就必须靠近地球来得到这样的分辨率。例如，美国的Keyhole卫星被放置在远地点和近地点分别为1,000千米和300千米的椭圆轨道上，该卫星是为了获得用于情报目的的光学照片。这些都已经被相似轨道上的新一代的成像卫星所取代。由于这些卫星有相对于地球的运动，所以它们就不能提供对某一特定区域的连续覆盖。</p>
-</li>
+<li><strong>核心文件夹</strong>：<ul>
+<li><code>filter</code>：过滤器相关；</li>
+<li><code>lib</code>：底层实现相关；<ul>
+<li><code>lib/birdlib.h</code>：包含编译bird-gdb.py；</li>
+<li></li>
 </ul>
 </li>
-<li><p><strong>大气的影响：</strong>大气密度在空间和时间上的变化，所以就有了能够预测低轨道卫星未来某点精确度的固有限制。</p>
-</li>
-<li><p><strong>卫星相对地球表面的运动P35：</strong>考虑处于高度为几百千米轨道上卫星的情况。这样的卫星其轨道周期大约是90分钟。在这90分钟里，赤道上的地球表面会旋转约2,500千米。因此，过了一个周期之后，卫星所掠过的点位于赤道上距离本周期开始时轨道对应的地面点以西2,500千米处的地方。</p>
-<blockquote>
-<p><img src="/images/image-20211015231251782.png" alt="image-20211015231251782"></p>
-<p><img src="/images/image-20211015231309789.png" alt="image-20211015231309789"></p>
-</blockquote>
-</li>
-<li><p><strong>卫星的仰角：</strong>卫星的仰角是卫星与某一特定地面点连线和本地水平面之间的夹角。特别地，给定时间的仰角取决于描述卫星和地面观察者相对位置的几个参数。这些参数包括观察者的纬度和经度、卫星的高度、轨道倾角θ和卫星在轨道上的位置(卫星的纬度和经度)。</p>
-</li>
-<li><p><strong>覆盖区域：</strong>覆盖区域的外缘是圆形的，其半径仅仅取决于卫星的高度。然而，地面站一般只有在大于仰角的最小值时才能进行通信。</p>
-</li>
-<li><p><strong>上行链和下行链：</strong><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10236019">https://ithelp.ithome.com.tw/articles/10236019</a></p>
-</li>
-<li><p><strong>Co-located Antennas ：</strong><a target="_blank" rel="noopener" href="https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/">https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/</a></p>
-</li>
-<li><p><strong>Two Line Element set：</strong>TLE是一种包含卫星标识符和轨道参数的标准表示法。</p>
-</li>
-<li><p><strong>Bitmap：</strong>可以以非常高的空间利用率下保存大量的0-1状态。</p>
-</li>
+<li><code>nest</code>：BIRD核心相关；</li>
+<li><code>proto</code>：协议相关；</li>
+<li><code>sysdep</code>：glibc系统相关；</li>
+<li><code>test</code>：暂未了解【猜测是用来debug的，里面包含了gdb等】；</li>
 </ul>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dragonsuc/p/10993938.html">https://www.cnblogs.com/dragonsuc/p/10993938.html</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html">http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html</a>)</li>
+</li>
+<li><strong>其他知识点</strong>：<ul>
+<li><code>.Y（Yet Another Compiler Compiler）</code>是Unix/Linux上一个用来生成编译器的编译器。yacc生成的编译器主要是用C语言写成的语法解析器（Parser），需要与词法解析器Lex一起使用，再把两部份产生出来的C程序一并编译。</li>
+<li><code>.m4</code>文件：M4实际上是一种编程语言，后缀是.m4,说明这个文件是使用.m4写的，说的专业一点，这实际上就是一个通用宏处理器。 它经常被用来生成Makefile的脚本语言来使用。</li>
+<li><code>toml</code>文件：配置文件，一种非常基础的文件格式。</li>
+<li><code>distribution</code>(often abbreviated as <code>distro</code>)；</li>
+<li><code>misc</code>文件夹：contains miscellaneous file types that do not fit within other categories.</li>
+<li><code>sysdep</code>文件夹：（在Linux源码中是<code>/arch</code>，在<code>glibc</code>中是<code>/sysdep</code>）</li>
+<li><code>glibc</code>是GNU发布的libc库，即c运行库。glibc是linux系统中最底层的api，几乎其它任何运行库都会依赖于glibc。glibc除了封装linux操作系统所提供的系统服务外，它本身也提供了许多其他一些必要功能服务的是心啊。<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31496865">glibc源码分析（1）系统调用</a></li>
 </ul>
+</li>
+<li><code>stdarg.h</code>: a header in the C standard library of the C programming language that allows functions to accept an indefinite number of arguments.</li>
+<li><code>···</code>用法：可变参数函数是可以采用可变数量的参数并用省略号代替最后一个参数声明的函数。例如：<code>static void bt_log_overall_result(int result, const char *fmt, ...)</code>。<ul>
+<li><strong>意义</strong>：max函数之所以看起来简单是因为其可变参数表的长度是已知的（通过num参数传入），且可变参数表中参数的类型也是已知的（都为int型）。然而，printf函数则没有这么幸运。首先，printf函数可变参数的个数不能轻易的得到，而可变参数的类型也不是固定的，需由格式字符串进行识别（由%f、%d、%s等确定），因此则涉及到可变参数表的更复杂应用。</li>
+</ul>
+</li>
+<li><code>asciz</code>：编译相关；</li>
+<li><code>ISP</code>：互联网服务提供商，如电信、网通等；</li>
+<li><strong>Linux Kernel Netlink Route Syncer</strong>：<ul>
+<li>netlink套接字是用以实现用户进程与内核进程通信的一种特殊的进程间通信（IPC），也是网络应用程序与内核通信的最常用的接口；</li>
+<li>netlink是一种特殊的socket，它是Linux所特有的，类似于BSD中的AF_ROUTE，但远比其功能强大，目前在Linux内核中使用netlink进行应用与内核通信的应用很多；</li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+</ol>
 
     </div>
 
@@ -358,7 +349,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://phosphenes8.github.io/2021/10/15/20211015-Concepts-about-Satellite/" title="Basic Concepts about Satellite">https://phosphenes8.github.io/2021/10/15/20211015-Concepts-about-Satellite/</a>
+      <a href="https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/" title="20220917-bird源码剖析（1）">https://phosphenes8.github.io/2022/09/17/20220917-bird源码剖析（1）/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -371,14 +362,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/02/20210902-Intall%20Macintosh%20on%20My%20Windows/" rel="prev" title="Intall Macintosh on My Windows">
-                  <i class="fa fa-chevron-left"></i> Intall Macintosh on My Windows
+                <a href="/2022/09/17/20220917-%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="prev" title="20220917-协议基础概念">
+                  <i class="fa fa-chevron-left"></i> 20220917-协议基础概念
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/10/15/20211015-The-Pricinple-of-CDN/" rel="next" title="CDN的工作原理">
-                  CDN的工作原理 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
