@@ -3017,15 +3017,18 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 <li><code>autoconf</code>将<code>configure.ac</code>中的宏展开，生成configure脚本；</li>
 <li>【中间过程】</li>
 <li>在<code>conf/conf.c</code>文件中通过<code>config_parse</code>函数进行语法解析；</li>
-<li><code>main.c</code>文件位置：<ul>
-<li><code>sysdep/unix/main.c</code>；</li>
+<li><p><code>sysdep/unix/main.c</code>文件分析：</p>
+<ul>
+<li>首先调用<code>parse_args</code>函数对配置文件解析(解析指定路径，无指定则选择默认配置)；</li>
+<li>初始化操作，包括：<code>log_switch()</code>, <code>random_init()</code>,  <code>net_init()</code>, <code>resource_init()</code>, <code>timer_init()</code>, <code>olock_init()</code>, <code>io_init()</code>, <code>rt_init()</code>,<code>if_init()</code>；</li>
+<li>设置log文件、随机初始化、网络、资源（pool）、等相关初始化配置；</li>
 </ul>
 </li>
-<li><strong>核心文件夹</strong>：<ul>
+<li><p><strong>核心文件夹</strong>：</p>
+<ul>
 <li><code>filter</code>：过滤器相关；</li>
 <li><code>lib</code>：底层实现相关；<ul>
 <li><code>lib/birdlib.h</code>：包含编译bird-gdb.py；</li>
-<li></li>
 </ul>
 </li>
 <li><code>nest</code>：BIRD核心相关；</li>
@@ -3034,30 +3037,109 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 <li><code>test</code>：暂未了解【猜测是用来debug的，里面包含了gdb等】；</li>
 </ul>
 </li>
-<li><strong>其他知识点</strong>：<ul>
-<li><code>.Y（Yet Another Compiler Compiler）</code>是Unix/Linux上一个用来生成编译器的编译器。yacc生成的编译器主要是用C语言写成的语法解析器（Parser），需要与词法解析器Lex一起使用，再把两部份产生出来的C程序一并编译。</li>
-<li><code>.m4</code>文件：M4实际上是一种编程语言，后缀是.m4,说明这个文件是使用.m4写的，说的专业一点，这实际上就是一个通用宏处理器。 它经常被用来生成Makefile的脚本语言来使用。</li>
-<li><code>toml</code>文件：配置文件，一种非常基础的文件格式。</li>
-<li><code>distribution</code>(often abbreviated as <code>distro</code>)；</li>
-<li><code>misc</code>文件夹：contains miscellaneous file types that do not fit within other categories.</li>
-<li><code>sysdep</code>文件夹：（在Linux源码中是<code>/arch</code>，在<code>glibc</code>中是<code>/sysdep</code>）</li>
-<li><code>glibc</code>是GNU发布的libc库，即c运行库。glibc是linux系统中最底层的api，几乎其它任何运行库都会依赖于glibc。glibc除了封装linux操作系统所提供的系统服务外，它本身也提供了许多其他一些必要功能服务的是心啊。<ul>
+<li><p><strong>其他知识点</strong>：</p>
+<ul>
+<li><p><code>.Y（Yet Another Compiler Compiler）</code>是Unix/Linux上一个用来生成编译器的编译器。yacc生成的编译器主要是用C语言写成的语法解析器（Parser），需要与词法解析器Lex一起使用，再把两部份产生出来的C程序一并编译。</p>
+</li>
+<li><p><code>.m4</code>文件：M4实际上是一种编程语言，后缀是.m4,说明这个文件是使用.m4写的，说的专业一点，这实际上就是一个通用宏处理器。 它经常被用来生成Makefile的脚本语言来使用。</p>
+</li>
+<li><p><code>toml</code>文件：配置文件，一种非常基础的文件格式。</p>
+</li>
+<li><p><code>distribution</code>(often abbreviated as <code>distro</code>)；</p>
+</li>
+<li><p><code>misc</code>文件夹：contains miscellaneous file types that do not fit within other categories.</p>
+</li>
+<li><p><code>sysdep</code>文件夹：（在Linux源码中是<code>/arch</code>，在<code>glibc</code>中是<code>/sysdep</code>）</p>
+</li>
+<li><p><code>glibc</code>是GNU发布的libc库，即c运行库。glibc是linux系统中最底层的api，几乎其它任何运行库都会依赖于glibc。glibc除了封装linux操作系统所提供的系统服务外，它本身也提供了许多其他一些必要功能服务的是心啊。</p>
+<ul>
 <li><a href="https://zhuanlan.zhihu.com/p/31496865">glibc源码分析（1）系统调用</a></li>
 </ul>
 </li>
-<li><code>stdarg.h</code>: a header in the C standard library of the C programming language that allows functions to accept an indefinite number of arguments.</li>
-<li><code>···</code>用法：可变参数函数是可以采用可变数量的参数并用省略号代替最后一个参数声明的函数。例如：<code>static void bt_log_overall_result(int result, const char *fmt, ...)</code>。<ul>
+<li><p><code>stdarg.h</code>: a header in the C standard library of the C programming language that allows functions to accept an indefinite number of arguments.</p>
+</li>
+<li><p><code>···</code>用法：可变参数函数是可以采用可变数量的参数并用省略号代替最后一个参数声明的函数。例如：<code>static void bt_log_overall_result(int result, const char *fmt, ...)</code>。</p>
+<ul>
 <li><strong>意义</strong>：max函数之所以看起来简单是因为其可变参数表的长度是已知的（通过num参数传入），且可变参数表中参数的类型也是已知的（都为int型）。然而，printf函数则没有这么幸运。首先，printf函数可变参数的个数不能轻易的得到，而可变参数的类型也不是固定的，需由格式字符串进行识别（由%f、%d、%s等确定），因此则涉及到可变参数表的更复杂应用。</li>
 </ul>
 </li>
-<li><code>asciz</code>：编译相关；</li>
-<li><code>ISP</code>：互联网服务提供商，如电信、网通等；</li>
-<li><strong>Linux Kernel Netlink Route Syncer</strong>：<ul>
+<li><p><code>asciz</code>：编译相关；</p>
+</li>
+<li><p><code>ISP</code>：互联网服务提供商，如电信、网通等；</p>
+</li>
+<li><p><strong>Linux Kernel Netlink Route Syncer</strong>：</p>
+<ul>
 <li>netlink套接字是用以实现用户进程与内核进程通信的一种特殊的进程间通信（IPC），也是网络应用程序与内核通信的最常用的接口；</li>
 <li>netlink是一种特殊的socket，它是Linux所特有的，类似于BSD中的AF_ROUTE，但远比其功能强大，目前在Linux内核中使用netlink进行应用与内核通信的应用很多；</li>
 </ul>
 </li>
-<li></li>
+<li><p>GNU的autoconf可以用来生成makefile。一个GNU程序的编写，需要autoscan, aclocal, autoconf和automake这四个工具；</p>
+</li>
+<li><p>GNU软件安装的三部曲是：<code>./configure</code>, <code>make</code>, <code>make install</code>；</p>
+<ul>
+<li><code>./configure</code>根据autoconf， aclocal等工具生成一个makefile文件。检测你的安装平台的目标特征的。比如它会检测你是不是有CC或GCC，并不是需要CC或GCC，它是个shell脚本。</li>
+<li><code>make</code>从Makefile中读取指令，然后编译；</li>
+<li><code>make install</code>是用来安装的，它也从Makefile中读取指令，安装到指定的位置。</li>
+</ul>
+</li>
+<li><p>守护进程（Daemon）是运行在后台的一种特殊进程。它独立于控制终端并且周期性地执行某种函数或等待某些发生的事件。守护进程最重要的特性是后台运行。其次，守护进程必须与其运行前的环境隔离开来（这些环境包括未关闭的文件描述符、控制终端、会话和进程组、工作目录以及文件的创建掩模等）。这些环境通常是守护进程从执行它地方父进程中集成下来的。最后，守护进程的启动方式有其特殊之处。它可以在linux系统启动时从启动脚本<code>/etc/rc.d</code>中启动，可以由作业规划进程crond启动，还可以由用户终端执行。</p>
+</li>
+<li><p><strong><font color='cornflowerblue'>为避免挂起控制终端将Daemon放入后台执行，相应的解决方法是在进程中调用fork使父进程终止，让Daemon在子进程中后台执行。</font></strong></p>
+</li>
+<li><p><strong>C使用：</strong></p>
+<ul>
+<li><p><code>read()</code>用于读取打开文件的内容，返回实际读取的字节数；</p>
+</li>
+<li><p><code>getgrnam()</code>用于逐一搜索参数指定的组名称，找到时便将改组的数据以group结构返回；</p>
+</li>
+<li><p><code>getgrgid()</code>用于根据参数gid指定的组识别码逐一搜索组文件，找到时便将该组的数据以group结构返回；</p>
+</li>
+<li><p><code>getopt()</code>函数用于解析命令行选项，可用来捕获选项（如<code>-c</code>, <code>-v</code>等），在<code>sysdep/unix/main.c</code>中<code>optstring = bc:dD:ps:P:u:g:flRh</code>；</p>
+<blockquote>
+<p><code>a:b:cd::e</code>，这就是一个选项字符串。对应到命令行就是-a ,-b ,-c ,-d, -e 。冒号又是什么呢？ 冒号表示参数，一个冒号就表示这个选项后面必须带有参数（没有带参数会报错哦），但是这个参数可以和选项连在一起写，也可以用空格隔开，比如-a123 和-a  123（中间有空格） 都表示123是-a的参数；两个冒号的就表示这个选项的参数是可选的，即可以有参数，也可以没有参数，但要注意有参数时，参数与选项之间不能有空格（有空格会报错的哦），这一点和一个冒号时是有区别的。</p>
+</blockquote>
+</li>
+<li><p><code>setsid()</code>的作用：（1）新建一个对话；（2）新建进程组；</p>
+</li>
+<li><p><code>strrchr(str, c)</code>：查找str中最后一次出现字符的位置，并返回从字符串中的这个位置起，直到字符串结束的所有字符；</p>
+</li>
+<li><p><strong>每个打开的文件描述符（fd标志）在进程表中都有自己的文件表项。</strong><code>dup()</code>函数被调用时，内核在进程中创建一个新的文件描述符，此描述符是当前可用文件描述符的最小数值，这个文件描述符指向oldfd所拥有的文件表项。</p>
+</li>
+<li><p><code>pthread_self()</code>：获得自身线程标识。</p>
+</li>
+<li><p><code>pthread_create()</code>：创建线程调用。</p>
+</li>
+<li><p><code>va_start(va_list ap, last_arg)</code>：将初始化ap变量，与<code>va_arg</code>和<code>va_end</code>宏是一起使用的，<code>last_arg</code>是最后一个传递给函数的已知的固定参数，即省略号之前的参数。</p>
+</li>
+<li><p><code>ftrubcate(int fd, off_t length)</code>：改变文件大小，即会将参数fd指定的文件大小改为参数length指定的大小。</p>
+</li>
+<li><p>在头文件中使用<code>#ifdef</code>和<code>#ifndef</code>是非常重要的，可以防止双重定义的错误。具体而言，其作用是当满足某条件时对一组语句进行编译，而当条件不满足时则编译另一组语句。</p>
+</li>
+<li><p><code>isatty()</code>：检查给定的设备类型函数名；</p>
+</li>
+<li><p><code>socket(AF_UNIX, SOCK_STREAM, 0);</code>用于实现同一主机上的进程间通信；</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Makefile语法：</strong></p>
+<ul>
+<li><code>makefile</code>中<code>.PHONY</code>的作用是声明伪目标。声明为为目标后，在执行对应的命令时，make就不会去检查是或否存在对应的文件，而是每次都会运行标签对应的命令；</li>
+</ul>
+</li>
+<li><p><code>patsubst</code>函数用于将文件模式进行替换，其格式为<code>$(patsubst原模式，目标模式，文件列表)</code>；</p>
+<ul>
+<li>makefile中加入shell指令，以实现自动查找头文件及动态库路径。</li>
+</ul>
+</li>
+<li><p><strong>BIRD使用命令：</strong></p>
+<ul>
+<li>启动：<code>systemctl start bird</code></li>
+<li>停止：<code>systemctl stop bird</code></li>
+<li>重启：<code>systemctl restart bird</code></li>
+<li>打开/关闭开机自启动：<code>sudo systemctl enable/disable bird</code>；</li>
+<li>客户端程序birdc，它可以连接到BIRD服务并且控制它的行为。默认情况下birdc会连接系统服务的BIRD，如果启动BIRD时采用了-s参数，那么birdc也要指定同样的socket路径。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
