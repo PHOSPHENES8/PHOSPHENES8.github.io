@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon2.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1.ico">
+  <link rel="mask-icon" href="/images/fish-solid.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"phosphenes8.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="bird源码剖析（1） 使用bird主要是通过读取bird.conf文件进行协议相关配置； 通过configure.ac文件，设置CONFIG_FILE变量为配置文件； autoconf将configure.ac中的宏展开，生成configure脚本； 【中间过程】 在conf&#x2F;conf.c文件中通过config_parse函数进行语法解析； sysdep&#x2F;unix&#x2F;main.c文件分析：  首先">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20220917-bird源码剖析（1）">
+<meta property="og:url" content="https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/index.html">
+<meta property="og:site_name" content="NUKIY BLOG">
+<meta property="og:description" content="bird源码剖析（1） 使用bird主要是通过读取bird.conf文件进行协议相关配置； 通过configure.ac文件，设置CONFIG_FILE变量为配置文件； autoconf将configure.ac中的宏展开，生成configure脚本； 【中间过程】 在conf&#x2F;conf.c文件中通过config_parse函数进行语法解析； sysdep&#x2F;unix&#x2F;main.c文件分析：  首先">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-17T04:07:27.000Z">
+<meta property="article:modified_time" content="2022-09-24T13:55:46.350Z">
+<meta property="article:author" content="PHOSPHENES">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/","path":"2022/09/17/20220917-bird源码剖析（1）/","title":"20220917-bird源码剖析（1）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20220917-bird源码剖析（1） | NUKIY BLOG</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NUKIY BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">假如约瑟不曾逃往埃及</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">bird源码剖析（1）</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PHOSPHENES"
+      src="/images/cat2.png">
+  <p class="site-author-name" itemprop="name">PHOSPHENES</p>
+  <div class="site-description" itemprop="description">Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/2FcHxuUmzZSui7TLmpbNKe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat2.png">
+      <meta itemprop="name" content="PHOSPHENES">
+      <meta itemprop="description" content="Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NUKIY BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20220917-bird源码剖析（1）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-17 12:07:27" itemprop="dateCreated datePublished" datetime="2022-09-17T12:07:27+08:00">2022-09-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-24 21:55:46" itemprop="dateModified" datetime="2022-09-24T21:55:46+08:00">2022-09-24</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="bird源码剖析（1）"><a href="#bird源码剖析（1）" class="headerlink" title="bird源码剖析（1）"></a>bird源码剖析（1）</h3><ol>
+<li>使用bird主要是通过读取bird.conf文件进行协议相关配置；</li>
+<li>通过<code>configure.ac</code>文件，设置<code>CONFIG_FILE</code>变量为配置文件；</li>
+<li><code>autoconf</code>将<code>configure.ac</code>中的宏展开，生成configure脚本；</li>
+<li>【中间过程】</li>
+<li>在<code>conf/conf.c</code>文件中通过<code>config_parse</code>函数进行语法解析；</li>
+<li><p><code>sysdep/unix/main.c</code>文件分析：</p>
+<ul>
+<li>首先调用<code>parse_args</code>函数对配置文件解析(解析指定路径，无指定则选择默认配置)；</li>
+<li>初始化操作，包括：<code>log_switch()</code>, <code>random_init()</code>,  <code>net_init()</code>, <code>resource_init()</code>, <code>timer_init()</code>, <code>olock_init()</code>, <code>io_init()</code>, <code>rt_init()</code>,<code>if_init()</code>；</li>
+<li>设置log文件、随机初始化、网络、资源（pool）、等相关初始化配置；</li>
+</ul>
+</li>
+<li><p><strong>核心文件夹</strong>：</p>
+<ul>
+<li><code>filter</code>：过滤器相关；</li>
+<li><code>lib</code>：底层实现相关；<ul>
+<li><code>lib/birdlib.h</code>：包含编译bird-gdb.py；</li>
+</ul>
+</li>
+<li><code>nest</code>：BIRD核心相关；</li>
+<li><code>proto</code>：协议相关；</li>
+<li><code>sysdep</code>：glibc系统相关；</li>
+<li><code>test</code>：暂未了解【猜测是用来debug的，里面包含了gdb等】；</li>
+</ul>
+</li>
+<li><p><strong>其他知识点</strong>：</p>
+<ul>
+<li><p><code>.Y（Yet Another Compiler Compiler）</code>是Unix/Linux上一个用来生成编译器的编译器。yacc生成的编译器主要是用C语言写成的语法解析器（Parser），需要与词法解析器Lex一起使用，再把两部份产生出来的C程序一并编译。</p>
+</li>
+<li><p><code>.m4</code>文件：M4实际上是一种编程语言，后缀是.m4,说明这个文件是使用.m4写的，说的专业一点，这实际上就是一个通用宏处理器。 它经常被用来生成Makefile的脚本语言来使用。</p>
+</li>
+<li><p><code>toml</code>文件：配置文件，一种非常基础的文件格式。</p>
+</li>
+<li><p><code>distribution</code>(often abbreviated as <code>distro</code>)；</p>
+</li>
+<li><p><code>misc</code>文件夹：contains miscellaneous file types that do not fit within other categories.</p>
+</li>
+<li><p><code>sysdep</code>文件夹：（在Linux源码中是<code>/arch</code>，在<code>glibc</code>中是<code>/sysdep</code>）</p>
+</li>
+<li><p><code>glibc</code>是GNU发布的libc库，即c运行库。glibc是linux系统中最底层的api，几乎其它任何运行库都会依赖于glibc。glibc除了封装linux操作系统所提供的系统服务外，它本身也提供了许多其他一些必要功能服务的是心啊。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31496865">glibc源码分析（1）系统调用</a></li>
+</ul>
+</li>
+<li><p><code>stdarg.h</code>: a header in the C standard library of the C programming language that allows functions to accept an indefinite number of arguments.</p>
+</li>
+<li><p><code>···</code>用法：可变参数函数是可以采用可变数量的参数并用省略号代替最后一个参数声明的函数。例如：<code>static void bt_log_overall_result(int result, const char *fmt, ...)</code>。</p>
+<ul>
+<li><strong>意义</strong>：max函数之所以看起来简单是因为其可变参数表的长度是已知的（通过num参数传入），且可变参数表中参数的类型也是已知的（都为int型）。然而，printf函数则没有这么幸运。首先，printf函数可变参数的个数不能轻易的得到，而可变参数的类型也不是固定的，需由格式字符串进行识别（由%f、%d、%s等确定），因此则涉及到可变参数表的更复杂应用。</li>
+</ul>
+</li>
+<li><p><code>asciz</code>：编译相关；</p>
+</li>
+<li><p><code>ISP</code>：互联网服务提供商，如电信、网通等；</p>
+</li>
+<li><p><strong>Linux Kernel Netlink Route Syncer</strong>：</p>
+<ul>
+<li>netlink套接字是用以实现用户进程与内核进程通信的一种特殊的进程间通信（IPC），也是网络应用程序与内核通信的最常用的接口；</li>
+<li>netlink是一种特殊的socket，它是Linux所特有的，类似于BSD中的AF_ROUTE，但远比其功能强大，目前在Linux内核中使用netlink进行应用与内核通信的应用很多；</li>
+</ul>
+</li>
+<li><p>GNU的autoconf可以用来生成makefile。一个GNU程序的编写，需要autoscan, aclocal, autoconf和automake这四个工具；</p>
+</li>
+<li><p>GNU软件安装的三部曲是：<code>./configure</code>, <code>make</code>, <code>make install</code>；</p>
+<ul>
+<li><code>./configure</code>根据autoconf， aclocal等工具生成一个makefile文件。检测你的安装平台的目标特征的。比如它会检测你是不是有CC或GCC，并不是需要CC或GCC，它是个shell脚本。</li>
+<li><code>make</code>从Makefile中读取指令，然后编译；</li>
+<li><code>make install</code>是用来安装的，它也从Makefile中读取指令，安装到指定的位置。</li>
+</ul>
+</li>
+<li><p>守护进程（Daemon）是运行在后台的一种特殊进程。它独立于控制终端并且周期性地执行某种函数或等待某些发生的事件。守护进程最重要的特性是后台运行。其次，守护进程必须与其运行前的环境隔离开来（这些环境包括未关闭的文件描述符、控制终端、会话和进程组、工作目录以及文件的创建掩模等）。这些环境通常是守护进程从执行它地方父进程中集成下来的。最后，守护进程的启动方式有其特殊之处。它可以在linux系统启动时从启动脚本<code>/etc/rc.d</code>中启动，可以由作业规划进程crond启动，还可以由用户终端执行。</p>
+</li>
+<li><p><strong><font color='cornflowerblue'>为避免挂起控制终端将Daemon放入后台执行，相应的解决方法是在进程中调用fork使父进程终止，让Daemon在子进程中后台执行。</font></strong></p>
+</li>
+<li><p><strong>C使用：</strong></p>
+<ul>
+<li><p><code>read()</code>用于读取打开文件的内容，返回实际读取的字节数；</p>
+</li>
+<li><p><code>getgrnam()</code>用于逐一搜索参数指定的组名称，找到时便将改组的数据以group结构返回；</p>
+</li>
+<li><p><code>getgrgid()</code>用于根据参数gid指定的组识别码逐一搜索组文件，找到时便将该组的数据以group结构返回；</p>
+</li>
+<li><p><code>getopt()</code>函数用于解析命令行选项，可用来捕获选项（如<code>-c</code>, <code>-v</code>等），在<code>sysdep/unix/main.c</code>中<code>optstring = bc:dD:ps:P:u:g:flRh</code>；</p>
+<blockquote>
+<p><code>a:b:cd::e</code>，这就是一个选项字符串。对应到命令行就是-a ,-b ,-c ,-d, -e 。冒号又是什么呢？ 冒号表示参数，一个冒号就表示这个选项后面必须带有参数（没有带参数会报错哦），但是这个参数可以和选项连在一起写，也可以用空格隔开，比如-a123 和-a  123（中间有空格） 都表示123是-a的参数；两个冒号的就表示这个选项的参数是可选的，即可以有参数，也可以没有参数，但要注意有参数时，参数与选项之间不能有空格（有空格会报错的哦），这一点和一个冒号时是有区别的。</p>
+</blockquote>
+</li>
+<li><p><code>setsid()</code>的作用：（1）新建一个对话；（2）新建进程组；</p>
+</li>
+<li><p><code>strrchr(str, c)</code>：查找str中最后一次出现字符的位置，并返回从字符串中的这个位置起，直到字符串结束的所有字符；</p>
+</li>
+<li><p><strong>每个打开的文件描述符（fd标志）在进程表中都有自己的文件表项。</strong><code>dup()</code>函数被调用时，内核在进程中创建一个新的文件描述符，此描述符是当前可用文件描述符的最小数值，这个文件描述符指向oldfd所拥有的文件表项。</p>
+</li>
+<li><p><code>pthread_self()</code>：获得自身线程标识。</p>
+</li>
+<li><p><code>pthread_create()</code>：创建线程调用。</p>
+</li>
+<li><p><code>va_start(va_list ap, last_arg)</code>：将初始化ap变量，与<code>va_arg</code>和<code>va_end</code>宏是一起使用的，<code>last_arg</code>是最后一个传递给函数的已知的固定参数，即省略号之前的参数。</p>
+</li>
+<li><p><code>ftrubcate(int fd, off_t length)</code>：改变文件大小，即会将参数fd指定的文件大小改为参数length指定的大小。</p>
+</li>
+<li><p>在头文件中使用<code>#ifdef</code>和<code>#ifndef</code>是非常重要的，可以防止双重定义的错误。具体而言，其作用是当满足某条件时对一组语句进行编译，而当条件不满足时则编译另一组语句。</p>
+</li>
+<li><p><code>isatty()</code>：检查给定的设备类型函数名；</p>
+</li>
+<li><p><code>socket(AF_UNIX, SOCK_STREAM, 0);</code>用于实现同一主机上的进程间通信；</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Makefile语法：</strong></p>
+<ul>
+<li><code>makefile</code>中<code>.PHONY</code>的作用是声明伪目标。声明为为目标后，在执行对应的命令时，make就不会去检查是或否存在对应的文件，而是每次都会运行标签对应的命令；</li>
+</ul>
+</li>
+<li><p><code>patsubst</code>函数用于将文件模式进行替换，其格式为<code>$(patsubst原模式，目标模式，文件列表)</code>；</p>
+<ul>
+<li>makefile中加入shell指令，以实现自动查找头文件及动态库路径。</li>
+</ul>
+</li>
+<li><p><strong>BIRD使用命令：</strong></p>
+<ul>
+<li>启动：<code>systemctl start bird</code></li>
+<li>停止：<code>systemctl stop bird</code></li>
+<li>重启：<code>systemctl restart bird</code></li>
+<li>打开/关闭开机自启动：<code>sudo systemctl enable/disable bird</code>；</li>
+<li>客户端程序birdc，它可以连接到BIRD服务并且控制它的行为。默认情况下birdc会连接系统服务的BIRD，如果启动BIRD时采用了-s参数，那么birdc也要指定同样的socket路径。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>PHOSPHENES
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://phosphenes8.github.io/2022/09/17/20220917-bird%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%881%EF%BC%89/" title="20220917-bird源码剖析（1）">https://phosphenes8.github.io/2022/09/17/20220917-bird源码剖析（1）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/17/20220917-%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="prev" title="20220917-协议基础概念">
+                  <i class="fa fa-chevron-left"></i> 20220917-协议基础概念
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PHOSPHENES</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">73k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:06</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

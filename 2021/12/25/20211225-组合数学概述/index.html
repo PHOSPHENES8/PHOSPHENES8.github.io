@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon2.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1.ico">
+  <link rel="mask-icon" href="/images/fish-solid.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"phosphenes8.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="组合数学概述1. 概述 组合数学，也叫离散优化，是运筹优化的重要组成部分。 组合优化是要从呈组合数复杂度爆炸式增长的解空间中，寻找最优的解向量，即指定最优决策方案。 组合优化问题涉及了分配、调度、指挥、路由等众多类型的问题，并且她与统计学习存在密切关系。  统计学习更侧重于预测和单步决策，比如：  预测出了某件商品的销量，就可以知道需要进多少货； 预测出了某个区域的人流量，就可以知道需要分配多少保">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20211225-组合数学概述">
+<meta property="og:url" content="https://phosphenes8.github.io/2021/12/25/20211225-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:site_name" content="NUKIY BLOG">
+<meta property="og:description" content="组合数学概述1. 概述 组合数学，也叫离散优化，是运筹优化的重要组成部分。 组合优化是要从呈组合数复杂度爆炸式增长的解空间中，寻找最优的解向量，即指定最优决策方案。 组合优化问题涉及了分配、调度、指挥、路由等众多类型的问题，并且她与统计学习存在密切关系。  统计学习更侧重于预测和单步决策，比如：  预测出了某件商品的销量，就可以知道需要进多少货； 预测出了某个区域的人流量，就可以知道需要分配多少保">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-25T13:09:03.000Z">
+<meta property="article:modified_time" content="2021-12-25T15:43:26.724Z">
+<meta property="article:author" content="PHOSPHENES">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://phosphenes8.github.io/2021/12/25/20211225-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E6%A6%82%E8%BF%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://phosphenes8.github.io/2021/12/25/20211225-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E6%A6%82%E8%BF%B0/","path":"2021/12/25/20211225-组合数学概述/","title":"20211225-组合数学概述"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20211225-组合数学概述 | NUKIY BLOG</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NUKIY BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">假如约瑟不曾逃往埃及</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">组合数学概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">1. 概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E5%8C%85%E5%90%AB%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">2. 组合优化包含的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">3. 如何定义一个问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%9F%BA%E6%9C%AC%E6%B1%82%E8%A7%A3%E6%96%B9%E6%B3%95%E5%88%86%E7%B1%BB"><span class="nav-number">1.4.</span> <span class="nav-text">4. 基本求解方法分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E9%97%AE%E9%A2%98%E8%A7%84%E7%BA%A6%E4%B8%8E%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.5.</span> <span class="nav-text">5. 问题规约与转换</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PHOSPHENES"
+      src="/images/cat2.png">
+  <p class="site-author-name" itemprop="name">PHOSPHENES</p>
+  <div class="site-description" itemprop="description">Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/2FcHxuUmzZSui7TLmpbNKe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://phosphenes8.github.io/2021/12/25/20211225-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat2.png">
+      <meta itemprop="name" content="PHOSPHENES">
+      <meta itemprop="description" content="Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NUKIY BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20211225-组合数学概述
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-25 21:09:03 / 修改时间：23:43:26" itemprop="dateCreated datePublished" datetime="2021-12-25T21:09:03+08:00">2021-12-25</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="组合数学概述"><a href="#组合数学概述" class="headerlink" title="组合数学概述"></a>组合数学概述</h3><h4 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h4><blockquote>
+<p>组合数学，也叫离散优化，是运筹优化的重要组成部分。</p>
+<p>组合优化是要从呈组合数复杂度爆炸式增长的解空间中，寻找最优的解向量，即指定最优决策方案。</p>
+<p>组合优化问题涉及了分配、调度、指挥、路由等众多类型的问题，并且她与统计学习存在密切关系。</p>
+<ul>
+<li><p><strong>统计学习</strong>更侧重于预测和单步决策，比如：</p>
+<ul>
+<li>预测出了某件商品的销量，就可以知道需要进多少货；</li>
+<li>预测出了某个区域的人流量，就可以知道需要分配多少保安巡逻；</li>
+<li>检测出患者患有某种疾病，就可以知道开什么药。</li>
+</ul>
+</li>
+<li><p><strong>组合优化</strong>更侧重多方的、全局的、系统性的序列决策。同时，离散优化与连续优化在思想上有很多相通之处。</p>
+</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<h4 id="2-组合优化包含的问题"><a href="#2-组合优化包含的问题" class="headerlink" title="2. 组合优化包含的问题"></a>2. 组合优化包含的问题</h4><blockquote>
+<ul>
+<li><strong>路由问题</strong>：用开销最小的路径覆盖所有目的地。<ul>
+<li>车辆路由</li>
+<li>数据流量路由</li>
+</ul>
+</li>
+<li><strong>指派问题</strong>：在有限的时间和空间中合理使用软硬件资源创造更多的收益。<ul>
+<li>时间指派：<ul>
+<li>先后序调度：单机作业调度、车间流水线调度</li>
+<li>时间槽分配：航班与列车时刻表、人员排班表、选修课表</li>
+</ul>
+</li>
+<li>空间指派：<ul>
+<li>哪个背包装哪些物品：背包问题；</li>
+<li>哪个处理器处理作业：多级作业调度；</li>
+<li>哪个中心服务哪些客户：中心选址；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>NPC</strong>：可以在多项式时间内相互规约。</li>
+</ul>
+</blockquote>
+<h4 id="3-如何定义一个问题"><a href="#3-如何定义一个问题" class="headerlink" title="3. 如何定义一个问题"></a>3. 如何定义一个问题</h4><blockquote>
+<ul>
+<li>基本要素：<ul>
+<li>已知：输入数据；</li>
+<li>决策：输出结果；</li>
+<li>决策：输出结果可行还是不可行；</li>
+<li>目标：输出结果好还是坏；</li>
+</ul>
+</li>
+<li>观察问题的不同角度举例：<ul>
+<li>图着色问题<ul>
+<li>每个节点染什么颜色；</li>
+<li>每种颜色的节点集合包含了哪些节点。</li>
+</ul>
+</li>
+<li>布尔表达式可满足性问题<ul>
+<li>保证每个布尔变量在所有子句中取值一致，最大化为真的子句数量；</li>
+<li>保证每个子句为真，最大化布尔变量的一致性。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="4-基本求解方法分类"><a href="#4-基本求解方法分类" class="headerlink" title="4. 基本求解方法分类"></a>4. 基本求解方法分类</h4><blockquote>
+<ul>
+<li>贪心算法：在保证求解速度的前提下提升精度【部分可以保证最优性的贪心算法往往可以归类为DP（e.g. Dijkstra算法）】；</li>
+<li>近似算法：离最优解的差距有保障的贪心算法；</li>
+<li>精确算法：在确保最优性的前提下降低复杂度；<ul>
+<li>深度/广度/优先度优先树搜索</li>
+<li>动态规划</li>
+<li>混合整数规划的求解算法</li>
+</ul>
+</li>
+<li>启发式算法：在优度和复杂度之间寻找平衡点<ul>
+<li>基于<strong>邻域动作</strong>：元启发式算法<ul>
+<li>单个解：局部搜索；</li>
+<li>多个解：种群算法；</li>
+</ul>
+</li>
+<li>基于<strong>树搜索</strong>：<ul>
+<li>A*：启发函数可接受时为精确算法；</li>
+<li>向前看树搜索（Lookahead Tree Search）</li>
+<li>线搜索（Beam Search）</li>
+<li>蒙特卡洛树搜索（Monte-Carlo Tree Search）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="5-问题规约与转换"><a href="#5-问题规约与转换" class="headerlink" title="5. 问题规约与转换"></a>5. 问题规约与转换</h4><blockquote>
+<ul>
+<li><strong>经典问题到现实问题</strong>：<ul>
+<li>图着色<ul>
+<li>寄存器分配</li>
+<li>多业务波长分配</li>
+<li>停机位分配</li>
+<li>宿舍分配</li>
+</ul>
+</li>
+<li>旅行销售员<ul>
+<li>快递与外卖配送</li>
+<li>物资采购</li>
+<li>人类基因组计划</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>经典问题相互转换</strong>：<ul>
+<li>独立集 == 最大团 == 顶点覆盖 == 支配集 == 集合覆盖 == 中心选址</li>
+<li>非对称旅行商 == 对称旅行商</li>
+<li>必经点最短简单路 == 非对称旅行商 == 最短简单路 == 最长简单路</li>
+</ul>
+</li>
+<li><strong>经典问题分解</strong>：<code>图着色 = 集合覆盖 + 独立集</code></li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>PHOSPHENES
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://phosphenes8.github.io/2021/12/25/20211225-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E6%A6%82%E8%BF%B0/" title="20211225-组合数学概述">https://phosphenes8.github.io/2021/12/25/20211225-组合数学概述/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/25/20211225-%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A30-1%E8%83%8C%E5%8C%85%E6%98%AFNPC%E9%97%AE%E9%A2%98/" rel="prev" title="20211225-如何理解0-1背包是NPC问题">
+                  <i class="fa fa-chevron-left"></i> 20211225-如何理解0-1背包是NPC问题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/01/20220101-%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%E7%AC%AC25%E7%AB%A0-%E6%AF%8F%E5%AF%B9%E9%A1%B6%E7%82%B9%E9%97%B4%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB/" rel="next" title="20220101-《算法导论》第25章-每对顶点间的最短距离">
+                  20220101-《算法导论》第25章-每对顶点间的最短距离 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PHOSPHENES</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">73k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:06</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

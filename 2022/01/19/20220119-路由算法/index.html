@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon2.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1.ico">
+  <link rel="mask-icon" href="/images/fish-solid.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"phosphenes8.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="路由算法路由算法是路由协议必须高效地提供其功能，尽量减少软件和应用的开销。路由器使用路由算法来找到到达目的地的最佳路由。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20220119-路由算法">
+<meta property="og:url" content="https://phosphenes8.github.io/2022/01/19/20220119-%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="NUKIY BLOG">
+<meta property="og:description" content="路由算法路由算法是路由协议必须高效地提供其功能，尽量减少软件和应用的开销。路由器使用路由算法来找到到达目的地的最佳路由。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-19T11:25:37.000Z">
+<meta property="article:modified_time" content="2022-01-21T12:28:45.308Z">
+<meta property="article:author" content="PHOSPHENES">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://phosphenes8.github.io/2022/01/19/20220119-%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://phosphenes8.github.io/2022/01/19/20220119-%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/","path":"2022/01/19/20220119-路由算法/","title":"20220119-路由算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20220119-路由算法 | NUKIY BLOG</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NUKIY BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">假如约瑟不曾逃往埃及</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">路由算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BC%A0%E7%BB%9F%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">1. 传统路由算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%8D%AB%E6%98%9F%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1"><span class="nav-number">1.2.</span> <span class="nav-text">2. 卫星网络路由</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PHOSPHENES"
+      src="/images/cat2.png">
+  <p class="site-author-name" itemprop="name">PHOSPHENES</p>
+  <div class="site-description" itemprop="description">Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/2FcHxuUmzZSui7TLmpbNKe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://phosphenes8.github.io/2022/01/19/20220119-%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat2.png">
+      <meta itemprop="name" content="PHOSPHENES">
+      <meta itemprop="description" content="Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NUKIY BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20220119-路由算法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-19 19:25:37" itemprop="dateCreated datePublished" datetime="2022-01-19T19:25:37+08:00">2022-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-21 20:28:45" itemprop="dateModified" datetime="2022-01-21T20:28:45+08:00">2022-01-21</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h3><p>路由算法是路由协议必须高效地提供其功能，尽量减少软件和应用的开销。路由器使用路由算法来找到到达目的地的最佳路由。</p>
+<span id="more"></span>
+<h4 id="1-传统路由算法"><a href="#1-传统路由算法" class="headerlink" title="1. 传统路由算法"></a>1. 传统路由算法</h4><ul>
+<li><p><strong>分类：</strong>①总体式路由算法；②分散式路由算法；</p>
+<ul>
+<li><p>总体式（对应LS算法，链路状态）：每个路由器都拥有网络中所有其他路由器的全部信息以及网络的流量状态。</p>
+<blockquote>
+<p><strong>链路状态算法【短路径优先算法】：</strong>把路由信息散布到网络的每个节点，不过每个路由器只发送路由表中描述自己连接状态的部分；</p>
+<p><strong>适合情况：</strong>网络规模较大时，链路状态路由选择更可取些。另外，链路状态协议能够为安全起见把机密信息隔离在特殊区域，或避开网上正在进行计算机辅助计算、多媒体通讯等拥挤区域。并且路由选择信息表在必要时进行交换而不是规律性地交换，这样可以减少网络上的信息流量。链路状态路由选择比距离向量路由选择需要更强的处理能力，它可以对路由选择过程提供更多的控制和对变化相应更快。路由选择可以基于避开拥塞区、线路的速度、线路的费用或各种优先级别。Dijkstra算法用于计算路由，根据如下：</p>
+<ul>
+<li>分组到达目的站经过的路由器数量（路由中继Hop），并且hop跳数越少越好；</li>
+<li>局域网间传输线路的速度。有些路由使用低速异步链接，而另一些路由使用高速数字链路。</li>
+<li>信息拥塞将造成延迟。如果一台工作站传送一个大文件，路由器可以通过不同的路径发送分组以避免交通阻塞。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>分散式（对应DV算法，距离向量）：每个路由器只有与它直接相连的路由器的信息，没有网络中的每个路由器的信息。</p>
+<blockquote>
+<p><strong>距离向量算法【Bellman-Ford算法】：</strong>网络中每个路由器发送路由表的全部或部分，但只发给其邻居。距离向量路由选择协议的分组传送路由是根据到接收站的跳数或费用决定的，这些信息由各相邻的路由器提供。技术上通常都遵循Bellman-Ford算法。（一个路由器有几个端口，每个端口都有指定的价值，这些价值是由网络管理员设定的。用使用一条路线实际费用的多少，作为一种衡量手段表明一条路线比另一条好或坏。）通用距离向量路由选择协议由：RIP和IGRP。</p>
+<p><strong>不适合情况</strong>：不适合于有几百个路由器的大型网络或经常要更新的网络。在大型网络中，表的更新过程可能过长，以至于最远的路由器的选择表不大可能与其他表同步更新。它告诉在网络中每个节点的最远和最近距离。在距离表中的这个信息是根据临近节点信息的改变实时更新的。</p>
+</blockquote>
+</li>
+<li><p>链接状态算法到处发送较少的更新信息，距离向量算法只向相邻路由器发送较多的更新信息。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>收敛：</strong>在最佳路径的判断上所有路由器达到一致的过程。当某个网络事件引起路由可用或不可用时，路由器就发出更新信息。路由更新信息遍及整个网络，引发重新计算最佳路径，最终达到所有路由器一致公认的最佳路径。收敛慢的路由算法会造成路径循环或网络中断。</p>
+</li>
+<li><p><strong>核心：</strong>路由选择算法。设计路由算法时需要考虑的技术要素有：</p>
+<ul>
+<li>选择最短路由还是最佳路由；</li>
+<li>通信子网是采用虚电路操作方式还是采用数据报的操作方式；</li>
+<li>采用分布式路由算法还是采用集中式路由算法；</li>
+<li>考虑关于网络拓扑、流量和延迟等网络信息的来源；</li>
+<li>确定采用静态路由还是动态路由；</li>
+</ul>
+</li>
+<li><p><strong>各路由算法的区别点包括：</strong>静态与动态、单路径与多路径、平坦与分层、主机智能与路由器智能、域内与域间、链路状态与距离向量；</p>
+<ul>
+<li>静态路由选择：路由器可以依赖人工编程把选择的路径输进设备。</li>
+<li>动态路由选择：依靠路由器收集网络信息和建立自己的路由表。路由器相互交换路由表，并且归并这些路由信息建立更新的路由表。从其他路由器上获得的信息，提供到网络上目的站点的路由终极数或与路径相关的费用。同时每个路由选择设备上的路由表，应该包含大体上一致的路由选择信息。</li>
+<li></li>
+</ul>
+</li>
+<li><p>metric是路由算法用以确定到达目的地的最佳路径的计量标准，如路径长度；</p>
+</li>
+<li><p><strong>路由选择协议：</strong>当两台非直接连接的计算机需要经过几个网络通信时，通常就需要路由器，路由器提供一种方法来开辟通过一个网状联结的路径。路由选择协议的任务是：为路由器提供他们建立通过网状网络最佳路径所需要的相互共享的路由信息。当一个计算机发送一个分组时，在网络上网络协议栈的每一层都附加一些信息给它。在接收方的对等层协议可以读出这些信息。这些信息类似于通信会话的某些部分。网络层的协议附加路由选择信息，这可能是通过一个网络的完整路径或是一些指示分组应该采用哪条路径的优先值、发送方添加的网络层信息只能由路由器或接收方的网络层协议读取。中继器和桥接器不能识别网络层信息，只能传送和转发分组。</p>
+</li>
+<li><p><strong>路由选择算法：</strong>一个路由器设备可能有两个或多个可以发送数据分组的端口。它必须有一张转发表为每一个端口标明一个特定地址。早期路由器不和其他路由器交换网络上有关路由器的信息，因此一个路由器通常沿着每条路径发送数据分组，分组充满网络，并且发送的一些分组在网络上无休止地循环。</p>
+</li>
+<li><p><strong>路由的费用：</strong>通常是根据传输介质确定的。最便宜的路径可能不是最快的，但是对某些类型的传输却更为可取。最常用的链路状态路由选择协议是优先开放最短路径（OSPF），它和OSI的中间系统到中间系统是类似的。OSPF路由选择表仅当在需要时更新，而不是定时更换。这有效地较少了通信流量和节省了网络带宽。通过网络的路径由上述标准选定。一个网络管理员可以根据信息传送的类型编制通过网络的路径。例如，当路线有较高数据传输率时，即使通过网络的那条路径有较多的HOP数也是可取的；此外对于不重要的信息将安排在低速低值的线路上传送。</p>
+</li>
+<li><p><strong>自治环境：</strong>一个区域是一些使用相同路由选择协议的主机和路由器的集合，它们使用相同的路由选择协议和由单一机构管理。</p>
+</li>
+<li><p><strong>内部/域内协议</strong></p>
+</li>
+<li><p><strong>外部/域间协议</strong></p>
+</li>
+</ul>
+<h4 id="2-卫星网络路由"><a href="#2-卫星网络路由" class="headerlink" title="2. 卫星网络路由"></a>2. 卫星网络路由</h4><ul>
+<li><p><strong>早期</strong>：快照技术，基于虚拟拓扑的集中式路由机制；</p>
+</li>
+<li><p><strong>改进算法：</strong></p>
+<ul>
+<li><p>由于卫星网络内部的星间相对位置通常相对固定，一部分工作提出基于虚拟节点的分布式路由机制。基于已知的星间相对位置的信息，根据星上存储的预先计算生成的映射表选择转发接口，或者邻居之间交换位置信息和移动方向信息，比较邻居距目的地址绝对距离得到下一条路由。</p>
+<blockquote>
+<ul>
+<li>优点：避免了基于虚拟拓扑的集中式路由机制存在的路由表存储开销巨大的问题；</li>
+<li>弊端：由于卫星高速运动，卫星与用户之间切换频繁，获取落地卫星标识会产生大量的位置更新开销。此外由于卫星位置具有时变性，部分解决方案需要邻居间定期交换状态信息。随着卫星星座规模的增大，邻居间消息交换愈发频繁，导致卫星网络中带宽资源浪费严重。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>现有地面基于IP的分布式路由协议迁移应用能充分发挥地面互联网的优势，但是现有的分布式IP路由协议主要是针对地面互联网设计，其拓扑基本稳定，这导致协议对一体化网络链路连接关系高动态变化场景应对不足，路由频繁更新使协议可用性受到极大影响。相应的改进算法，尝试利用卫星周期运行规律，引入预测信息，优化一体化网络路由机制设计，如OSPF+、BGP+等。</p>
+<blockquote>
+<ul>
+<li>缺点：规模增大使得需要预测的指标增多，对卫星存储能力和计算能力提出了更高的要求，频繁的消息交换也给卫星能耗带来更大挑战。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>基于位置的天地一体化网络路由寻址机制：创新之处在于以下方面：</p>
+<blockquote>
+<ul>
+<li>不需要通过获取邻居信息计算下一跳，仅 需要从IP地址中获取目的地址的位置信息来计算方位，由选择算法计算得到的卫星自身最优的接口直接进行数据分组转发。同时算法结合传统路由表查找机制的优势，提出星上临时路由表的概念，将分布式计算结果存储到路由表中，当卫星与目的地址相对位置发生改变时，更新临时路由表。临时路由表使LA-ISTN对于连续数据传输支持度更高。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>路由机制：</strong></p>
+<ul>
+<li><p>LA-ISTN：</p>
+<blockquote>
+<ul>
+<li>算法1：首先查找临时路由表，若查找成功，将数据分组从路由表中记录的接口转发给目的用户；否则选择对应最小接接口方向角的转发接口，将数据分组从该接口转发给下一条邻居卫星节点。</li>
+<li>由于单颗卫星的计算能力不足，卫星接口方向角的获得和计算开销对此类卫星网络压力大，因此引申出算法2；</li>
+<li>算法2：利用星间邻居相对位置来选择转发接口——目的地址与卫星的相对方位根据目的IP地址中记录的位置信息计算得到。它将复杂的接口选择问题转化为选择轨内星间链路或轨间星间链路转发的问题。考虑不同维度轨间星间链路的长度有区别，在选择最优转发接口时：<ul>
+<li>若目的地址相对当前卫星处于较高纬度，优先轨内转发；</li>
+<li>若目的地址相对当前卫星处于较低纬度，优先轨间转发；</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>临时路由表：星上存储临时接入<strong>当前卫星的终端路由信息</strong>和<strong>LA-ISTN生成的路由表项</strong>。当卫星与目的地址的相对位置发生改变时，清除当前路由表项信息，以保证临时路由表中记录始终是有效的。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>机理分析：</strong></p>
+<ul>
+<li>最后一跳寻址可达性分析：分布式位置路由算法存在不可达问题在于路由的最后一条。卫星覆盖区域重叠导致用户节点位于当前卫星覆盖范围内但并未接入当前卫星的情况发生。在LA-ISTN中，寻址机制将继续选取靠近目的位置的接口方向进行转发。</li>
+<li>轨间链路断开及拼缝位置寻址可达性分析</li>
+<li>开销分析</li>
+<li>性能分析</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>《Loop-Free Hybrid Single-Path/Flooding Routing Algorithms with Guaranteed Delivery for Wireless Networks》</p>
+</li>
+<li><p><strong>想法</strong>：</p>
+<ul>
+<li>选择方向角最小的那个，但是不知道原因orz</li>
+<li>compass routing, 选择与当前节点的夹角和当前节点和目的节点夹角最小的节点；</li>
+<li>MFR (most forward within radius)</li>
+<li>distance, progress, and direction-based approaches</li>
+<li>蚁群算法：分布计算、信息正反馈、启发式搜索特征，本质是进化算法中的一种启发式全局优化算法。和传统的路由算法相较，该算法在网络路由中具有信息分布式性、动态性、随机性和异步性等特点，而这些特点正好能满足网络路由的需要。</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>PHOSPHENES
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://phosphenes8.github.io/2022/01/19/20220119-%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95/" title="20220119-路由算法">https://phosphenes8.github.io/2022/01/19/20220119-路由算法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/16/20220116-Steiner%E6%A0%91/" rel="prev" title="20220116-Steiner树">
+                  <i class="fa fa-chevron-left"></i> 20220116-Steiner树
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/20/20220120-%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95/" rel="next" title="20220120-蚁群算法">
+                  20220120-蚁群算法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PHOSPHENES</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">73k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:06</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

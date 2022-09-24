@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon2.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon1.ico">
+  <link rel="mask-icon" href="/images/fish-solid.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"phosphenes8.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="最近公共祖先1. 基本概念 定义：树上任意两点向根节点靠近的路上重合的深度最大的点；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20220108-最近公共祖先">
+<meta property="og:url" content="https://phosphenes8.github.io/2022/01/08/20220108-%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/index.html">
+<meta property="og:site_name" content="NUKIY BLOG">
+<meta property="og:description" content="最近公共祖先1. 基本概念 定义：树上任意两点向根节点靠近的路上重合的深度最大的点；">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/01/08/XPHlGNfWUedMEcQ.png">
+<meta property="og:image" content="https://cdn.acwing.com/media/article/image/2019/05/18/1973_f79af40479-20190518163041445.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/08/C4BN9hbyUmRlPce.png">
+<meta property="article:published_time" content="2022-01-08T05:52:48.000Z">
+<meta property="article:modified_time" content="2022-01-08T12:22:43.726Z">
+<meta property="article:author" content="PHOSPHENES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/01/08/XPHlGNfWUedMEcQ.png">
+
+
+<link rel="canonical" href="https://phosphenes8.github.io/2022/01/08/20220108-%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://phosphenes8.github.io/2022/01/08/20220108-%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/","path":"2022/01/08/20220108-最近公共祖先/","title":"20220108-最近公共祖先"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20220108-最近公共祖先 | NUKIY BLOG</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NUKIY BLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">假如约瑟不曾逃往埃及</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88"><span class="nav-number">1.</span> <span class="nav-text">最近公共祖先</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">1. 基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%B1%82%E8%A7%A3LCA%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">2. 求解LCA方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">3. 经典例题</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PHOSPHENES"
+      src="/images/cat2.png">
+  <p class="site-author-name" itemprop="name">PHOSPHENES</p>
+  <div class="site-description" itemprop="description">Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+        <iframe src="https://open.spotify.com/embed/track/2FcHxuUmzZSui7TLmpbNKe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://phosphenes8.github.io/2022/01/08/20220108-%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat2.png">
+      <meta itemprop="name" content="PHOSPHENES">
+      <meta itemprop="description" content="Whatever you vividly imagine, ardently desire, sincerely believe, and enthusiastically act upon, must inevitably come to pass.    --Paul J. Meyer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NUKIY BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20220108-最近公共祖先
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-01-08 13:52:48 / 修改时间：20:22:43" itemprop="dateCreated datePublished" datetime="2022-01-08T13:52:48+08:00">2022-01-08</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="最近公共祖先"><a href="#最近公共祖先" class="headerlink" title="最近公共祖先"></a>最近公共祖先</h3><h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><ul>
+<li><strong>定义</strong>：树上任意两点向根节点靠近的路上重合的深度最大的点；</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><p><strong>图示定义 </strong>：<strong><font color='cornflowerblue'>蓝色节点</font></strong>和<strong><font color='pink'>粉色节点</font></strong>的最近公共祖先是<strong><font color='green'>绿色点</font></strong>；</p>
+<p><img src="https://s2.loli.net/2022/01/08/XPHlGNfWUedMEcQ.png" alt="image-20220108140328746.png"></p>
+</li>
+</ul>
+<h4 id="2-求解LCA方法"><a href="#2-求解LCA方法" class="headerlink" title="2. 求解LCA方法"></a>2. 求解LCA方法</h4><ul>
+<li><p><strong>向上标记法：</strong>暴力。两个节点平层同时向上跳，直到相遇，相遇的点即为LCA。如果有m次查询，那么时间复杂度为<code>O(mn)</code>。</p>
+</li>
+<li><p><strong>倍增法：</strong>如果使用暴力算法求解，对于深度较大的树需要很久的时间，考虑采用倍增的方式来优化，具体而言：</p>
+<blockquote>
+<ul>
+<li><strong>符号表示</strong>：<ul>
+<li><code>fa[i, j]</code>：表示从<code>i</code>开始，向上走$2^j$步，即表示节点<code>i</code>的第<code>j+1</code>位祖先。其中$0\le j\le \log n$；</li>
+<li><code>depth[i]</code>：表示深度；</li>
+<li><strong>哨兵</strong>：从<code>i</code>开始，向上走$2^j$步，如果跳过根节点，则<code>fa[i, j] = 0</code>,<code>depth[0] = 0</code>（表示节点0是第0层）。</li>
+</ul>
+</li>
+<li><strong>步骤</strong>：<ul>
+<li>先将两个点跳到同一层；</li>
+<li>让两个点同时往上跳，一直跳到它们的最近公共祖先的下一层；</li>
+</ul>
+</li>
+<li><strong>时间复杂度</strong>：预处理<font color='red'>$O(n\log n)$</font>、查询<font color='red'>$O(\log n)$</font>。</li>
+<li>注：这里倍增的思想一部分来自<strong>整数拼凑（11 = 8 + 2 + 1 = 1011）</strong>。我们知道如果<code>fa[i,k]==fa[j,k]</code>，则说明在跳了$2^k$步之后找到了公共祖先，但是该节点不一定是最近的；但反之，如果<code>fa[i,k]!=fa[j,k]</code>，则说明节点<code>i</code>和节点<code>j</code>还没有找到公共祖先。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>Tarjan：</strong>优雅的<strong><font color='cornflowerblue'>离线求LCA</font></strong>做法，时间复杂度为<code>O(m + n)</code>。</p>
+<blockquote>
+<ul>
+<li><p><strong>在线算法</strong>：读入一个输入，得到一个输出；</p>
+</li>
+<li><p><strong>离线算法</strong>：将输入全部读入，之后才处理输出；</p>
+</li>
+<li><p><strong>本质</strong>：对向上标记算法的优化。</p>
+</li>
+<li><p><strong>思想</strong>：首先深度优先遍历：</p>
+<ul>
+<li><p>如果当前节点涉及到某一个询问，且询问的另一个点已经访问过，则可以得出答案；</p>
+</li>
+<li><p>反之，标记节点<code>x</code>已访问过，直到访问到另一个节点。</p>
+</li>
+<li><p><strong>举例</strong>：假设询问为节点4和节点9，从根节点出发，访问到x并标记已访问；发现节点9并没有被访问，所以不管，继续走；回溯，遍历，当遇到9的时候，发现另一个点4已经访问过了，所以此时两个点的LCA就是更新到了的4的祖先，节点1。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2019/05/18/1973_f79af40479-20190518163041445.png" alt="20190518163041445.png" style="zoom:50%;" /></p>
+<p>如果在回溯的时候更新祖先节点，假设fa[x]为点x的祖先节点，从节点1→节点2→节点4→节点7，到达叶子节点之后回溯，标记<code>fa[7] = 4</code>；再遍历到节点8回溯，标记<code>fa[8] = 4</code>；继续回溯，标记<code>fa[4] = 2</code>；再遍历到节点5回溯，标记<code>fa[5] = 2</code>……随着回溯的当前层数越浅，各个节点最终指向的祖先也越来越高，所以如果另一个节点已经标记，说明那个点的祖先就一定时两个点的LCA。同时，在访问到一个点时，可以一并解决所有与这个点有关的询问，所以可以使用<strong>邻接表或向量</strong>来进行存储。</p>
+</li>
+<li><p>该思路基于深度优先遍历，可以将所有的点分为3类 ：</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/01/08/C4BN9hbyUmRlPce.png" alt="image-20220108174027363.png"></p>
+<ul>
+<li><strong><font color='cornflowerblue'>第1类</font></strong>：未被搜索过的点；</li>
+<li><strong><font color='red'>第2类</font></strong>：正在搜索的分支；</li>
+<li><strong><font color='green'>第3类</font></strong>：已经遍历过，且回溯过的点；</li>
+</ul>
+<p>其中第2类和第3类节点已经通过并查集合并成一个集合，因此具体步骤如下：</p>
+<ul>
+<li>在进入递归层时，将点标记为<code>1</code>；</li>
+<li>搜索所有没有遍历过的边且与该点连接的点，搜索回溯后，完成集合合并；</li>
+<li>将所有与该层点有关系的询问，全部遍历，当另一个点已经被标记为2，则找到了最近公共祖先，就是另一个点的并查集标记节点；</li>
+<li>最后回溯时，将该节点标记为2；</li>
+<li><p>注意：<font color='red'>先将要拓展的节点展开，回溯时再进行集合合并</font>。</p>
+</li>
+<li><p>首先求出所有点到根节点的距离<code>depth[]</code>，设节点<code>x</code>和节点<code>y</code>的最近公共祖先是<code>p</code>， 则节点<code>x</code>和节点<code>y</code>的最近距离为<code>depth[x] + depth[y] - 2* depth[p]</code>；</p>
+</li>
+<li>在深度优先遍历<code>1</code>号节点中的节点<code>u</code>时，需要把节点<code>u</code>的查询的另外一个点的最短距离进行计算并存储，最后把节点<code>u</code>合并到上一节点的集合。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>树剖：</strong>把一棵树按子树大小分为链。【<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43326267/article/details/89791152">参考</a>】</p>
+<blockquote>
+<ul>
+<li><p><strong>基本操作：</strong>求x到y的路径边权和（或对所有边权进行修改）；</p>
+</li>
+<li><p><strong>启发：</strong>可以使用树剖思路解决LCA。具体而言，直接判断节点x和节点y是否在同一条链上：</p>
+<ul>
+<li>若不在同一条链上，则深度较大的节点跳转到链头的父节点，即跳出这条链；</li>
+<li>若在同一条链上，则深度较浅的节点即为LCA。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong><font color='orange'>定理：对于一张无向图，如果存在最小生成树和（严格）次小生成树，那么对于任何一颗最小生成树，都存在一棵（严格）次小生成树，使得这两棵树只有一条边不同。</font></strong></p>
+</li>
+</ul>
+<h4 id="3-经典例题"><a href="#3-经典例题" class="headerlink" title="3. 经典例题"></a>3. 经典例题</h4><ul>
+<li><p><strong>祖孙询问（倍增法）</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">40010</span>, M = <span class="number">2</span> * N;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], ne[M], idx;</span><br><span class="line"><span class="keyword">int</span> depth[N], fa[N][<span class="number">26</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> root)</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(depth, <span class="number">0x3f</span>, <span class="keyword">sizeof</span> depth);</span><br><span class="line">    depth[<span class="number">0</span>] = <span class="number">0</span>, depth[root] = <span class="number">1</span>;</span><br><span class="line">    queue&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(root);</span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">        <span class="keyword">int</span> t = q.<span class="built_in">front</span>();  q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = h[t]; i != <span class="number">-1</span>; i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> j = e[i];</span><br><span class="line">            <span class="keyword">if</span>(depth[j] &gt; depth[t] + <span class="number">1</span>)&#123;    <span class="comment">// 说明j还没有被搜索过</span></span><br><span class="line">                depth[j] = depth[t] + <span class="number">1</span>;</span><br><span class="line">                q.<span class="built_in">push</span>(j);</span><br><span class="line">                fa[j][<span class="number">0</span>] = t;   <span class="comment">// 节点j的父节点为t</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= <span class="number">15</span>; k++)&#123;</span><br><span class="line">                    <span class="comment">//从j跳2^k步长的距离，相当于从j连续跳两个2^(k-1)步长的距离</span></span><br><span class="line">                    fa[j][k] = fa[fa[j][k - <span class="number">1</span>]][k - <span class="number">1</span>];  </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 保证a在b的下面</span></span><br><span class="line">    <span class="keyword">if</span>(depth[a] &lt; depth[b]) <span class="built_in">swap</span>(a, b);</span><br><span class="line">    <span class="comment">// 移动a，使得a和b平层</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">15</span>; k &gt;= <span class="number">0</span>; k--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(depth[fa[a][k]] &gt;= depth[b])&#123;</span><br><span class="line">            a = fa[a][k];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(a == b)  <span class="keyword">return</span> a;</span><br><span class="line">    <span class="comment">// 利用整数拼凑的思想，节点a和节点b同时上移直到找到公共节点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">15</span>; k &gt;= <span class="number">0</span>; k--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(fa[a][k] != fa[b][k])&#123;</span><br><span class="line">            a = fa[a][k];</span><br><span class="line">            b = fa[b][k];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 循环结束，到达LCA下一层</span></span><br><span class="line">    <span class="keyword">return</span> fa[a][<span class="number">0</span>];    <span class="comment">// 返回节点a的父节点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">int</span> root = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;   cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        <span class="keyword">if</span>(b == <span class="number">-1</span>) root = a;</span><br><span class="line">        <span class="keyword">else</span>    <span class="built_in">add</span>(a, b), <span class="built_in">add</span>(b, a);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">bfs</span>(root);  <span class="comment">// 建树</span></span><br><span class="line">    </span><br><span class="line">    cin&gt;&gt;m;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;   cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="built_in">lca</span>(a, b);</span><br><span class="line">        <span class="keyword">if</span>(p == a)  <span class="built_in">puts</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(p == b) <span class="built_in">puts</span>(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span>    <span class="built_in">puts</span>(<span class="string">&quot;0&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>距离（Tarjan算法）</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; PII;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10010</span>, M = N * <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], ne[M], w[M], idx;</span><br><span class="line"><span class="keyword">int</span> dist[N], p[N], res[M], st[N];</span><br><span class="line">vector&lt;PII&gt; query[N];   <span class="comment">// [查询另一个点, 查询序号]</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> fa)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i])&#123;</span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span>(j == fa) <span class="keyword">continue</span>;</span><br><span class="line">        dist[j] = dist[u] + w[i];</span><br><span class="line">        <span class="built_in">dfs</span>(j, u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p[x] != x)   p[x] = <span class="built_in">find</span>(p[x]);</span><br><span class="line">    <span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    st[u] = <span class="number">1</span>;  <span class="comment">// 标记当前正在搜索的点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i])&#123;  <span class="comment">// 遍历所有邻点</span></span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span>(!st[j])&#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(j);</span><br><span class="line">            p[j] = u; <span class="comment">// 将节点j合并到父节点u中</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> item: query[u])&#123;</span><br><span class="line">        <span class="keyword">int</span> y = item.first, id = item.second;</span><br><span class="line">        <span class="keyword">if</span>(st[y] == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> anc = <span class="built_in">find</span>(y);</span><br><span class="line">            res[id] = dist[u] + dist[y] - dist[anc] * <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    st[u] = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, c;    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="built_in">add</span>(a, b, c), <span class="built_in">add</span>(b, a, c);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;   cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        <span class="keyword">if</span>(a != b)&#123; <span class="comment">// 二者不相等的时候才需要记录查询</span></span><br><span class="line">            query[a].<span class="built_in">push_back</span>(&#123;b, i&#125;);</span><br><span class="line">            query[b].<span class="built_in">push_back</span>(&#123;a, i&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) p[i] = i;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">-1</span>); <span class="comment">// 初始化dist数据，处理每个点和1号节点的距离</span></span><br><span class="line">    <span class="built_in">tarjan</span>(<span class="number">1</span>);  <span class="comment">// 随便拿一个点当作根节点</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)  cout&lt;&lt;res[i]&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>PHOSPHENES
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://phosphenes8.github.io/2022/01/08/20220108-%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" title="20220108-最近公共祖先">https://phosphenes8.github.io/2022/01/08/20220108-最近公共祖先/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/08/20220108-%E8%B7%AF%E5%BE%84%E9%87%8D%E5%BB%BA/" rel="prev" title="20220108-路径重建">
+                  <i class="fa fa-chevron-left"></i> 20220108-路径重建
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/08/20220108-%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" rel="next" title="20220108-树链剖分">
+                  20220108-树链剖分 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PHOSPHENES</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">73k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:06</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
