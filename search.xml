@@ -1,282 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Intall Macintosh on My Windows</title>
-    <url>/2021/09/02/20210902-Intall%20Macintosh%20on%20My%20Windows/</url>
-    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>由于Windows和Linux无法愉快地观看.u3m8，于是乎不得不使用IOS系统。</p>
-<h3 id="装机过程"><a href="#装机过程" class="headerlink" title="装机过程"></a>装机过程</h3><p><a href="https://www.cnblogs.com/bad5/p/13251570.html">https://www.cnblogs.com/bad5/p/13251570.html</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>CDN的工作原理</title>
-    <url>/2021/10/15/20211015-The-Pricinple-of-CDN/</url>
-    <content><![CDATA[<h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p><strong>1. 上线一个网站都需要哪几个步骤呢？</strong></p>
-<span id="more"></span>
-<blockquote>
-<ul>
-<li><p>首先需要拥有一台服务器，存储所需要用的文件；</p>
-<p> <img src="/images/image-20211015132105384.png" alt="image-20211015132105384" style="zoom:80%;" /></p>
-</li>
-<li><p>之后用过DNS域名解析设置，把这个域名指向这个服务器的IP地址</p>
-<p> <img src="/images/image-20211015132200256.png" alt="image-20211015132200256" style="zoom:67%;" /></p>
-</li>
-<li><p>接着部署好网站服务器，就可以使用了</p>
-</li>
-<li><p>总体步骤：</p>
-<p> <img src="/images/image-20211015132332067.png" alt="image-20211015132332067" style="zoom: 20%;" /></p>
-<p> <img src="/images/image-20211015132407120.png" alt="image-20211015132407120" style="zoom:20%;" /></p>
-</li>
-</ul>
-</blockquote>
-<p> <strong>2. 通过使用这种方式来上线网站，有什么弊端？</strong></p>
-<blockquote>
-<ul>
-<li>不管是哪种服务器（包括云服务器）都有地理位置且带宽小，所以距离不同，速度不同；</li>
-<li>稳定性（宕机情况），很多中小型服务器没有专门的运维人员。</li>
-</ul>
-</blockquote>
-<p>由此，就催生出来了大名鼎鼎的CDN，让你轻轻松松get服务器自由。</p>
-<h1 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h1><p><strong>1. CDN是什么呢？它的基本机制呢？</strong></p>
-<blockquote>
-<p>内容分发网络（Content Delivery Netowrk），听起来很高大上，其实和东哥的物流配送模式非常相似。没错，说的就是 <strong>京东自营: )</strong> 。先把合作商家的货放到每个仓库中，每次客户下单，就让距离最近的仓库发货。最近又新上线了前置仓（直接把仓库开到你家门口）。</p>
-<p>言归正传，CDN实际上也是采用这种方式——让距你最近的服务器给你发送数据。哪具体是如何操作的呢？首先让我们回顾一下我们<strong>DNS的工作原理</strong>。</p>
-<blockquote>
-<p>浏览器发送网址到相应的DNS服务器解析，再将解析出的IP地址返回给浏览器，让浏览器到这个IP地址的服务器上获取相应的网站文件。<a href="https://www.bilibili.com/video/BV12T4y1P7Fh?from=search&amp;seid=10182518659740263174&amp;spm_id_from=333.337.0.0">demo: 03’20</a></p>
-</blockquote>
-<p>实际上CDN也就是在DNS解析的过程中产生作用的。具体而言，当给一个域名开通CDN：</p>
-<ul>
-<li>首先，给域名的DNS解析设置的后台添加一条CDN专用解析记录，从而可以让域名被解析之后指向一个专用的<strong>处理DNS请求</strong>的服务器；</li>
-<li>它（专用的<strong>处理DNS请求</strong>的服务器）会给你的浏览器返回一台专门用来给<strong>各个请求设备分配合适的CDN服务器</strong>的专用服务器【负载均衡服务器】的IP地址；</li>
-<li>之后浏览器会访问这台<strong>负载均衡服务器</strong>，它则会根据浏览器的网络地址，在CDN网络中找到一台在各种条件下都比较适合的设备（可能是离你最近或者资源分配富余的服务器），并将这台CDN服务器的IP地址返回给浏览器；</li>
-<li>浏览器到指定CDN服务器进行访问。</li>
-<li>当这台CDN服务器收到浏览器的获取请求后，如果发现自己这里并没有相关（没有缓存）的网站文件，就会到CDN网络中的<strong>上层缓存服务器</strong>中拉取，若还没有，继续向上走；</li>
-<li>如果一直向上走都找不到，就回到网络源站来拉取。拉取之后会在刚才查找而不得的CDN服务器上都做缓存，最后还是从指定的CDN服务器上发送网站文件给浏览器；</li>
-</ul>
-</blockquote>
-<p><strong>2. 网站文件不都是放在自己的网页服务器上嘛，并没有放在CDN服务器上啊？</strong></p>
-<blockquote>
-<p>在为某个网址开通CDN的时候，一开始会通过CDN后台进行设置，你需要告诉你的CDN网络<strong>源站（该域名的原始服务器，网页文件放置于其上）的IP地址</strong>。</p>
-</blockquote>
-<p><strong>3. CDN优势</strong></p>
-<blockquote>
-<ul>
-<li>用户不论在哪里都能快速打开网站；</li>
-<li>可以避免原始服务器宕机导致的网络瘫痪（CDN的缓存机制）；</li>
-</ul>
-</blockquote>
-<p>目前，国内外快速部署网站上线的网站都会为你快速开通CDN服务（国外网站不要钱/doggie）。</p>
-<blockquote>
-<p>P.S. 如果你要写博客的话最好不要买.xyz，不然你就会像我一样买了个寂寞（Github不支持绑.xyz域名orz）。</p>
-</blockquote>
-<p> <img src="/images/image-20211015135701362.png" alt="image-20211015135701362" style="zoom:50%;" /></p>
-<p>总而言之，言而总之，就是如果你开通的CDN服务，那么不管源站是不是非常便宜、小带宽的，都能让你的网站打开速度起飞。CDN你值得拥有~</p>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p>[1] <a href="https://www.bilibili.com/video/BV12T4y1P7Fh?from=search&amp;seid=10182518659740263174&amp;spm_id_from=333.337.0.0">https://www.bilibili.com/video/BV12T4y1P7Fh?from=search&amp;seid=10182518659740263174&amp;spm_id_from=333.337.0.0</a></p>
-<p>[2] <a href="https://www.bilibili.com/video/BV18a4y1Y7e9">全套系列</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Basic Concepts about Satellite</title>
-    <url>/2021/10/15/20211015-Concepts-about-Satellite/</url>
-    <content><![CDATA[<h1 id="初识卫星"><a href="#初识卫星" class="headerlink" title="初识卫星"></a>初识卫星</h1><ul>
-<li><p><strong>Elevation &amp; Inclination</strong></p>
-</li>
-<li><p><strong>链路：</strong>与卫星通信的路径（通常它也指通信本身）：</p>
-</li>
-<li>上行链路将地面信号上传给卫星。<ul>
-<li>下行链路将卫星的信号发回地面。</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p>星间链路在卫星间传递信号。</p>
-</li>
-<li><p><strong>低地球轨道：</strong>在几百千米到 1,000 千米的轨道上。</p>
-<ul>
-<li><p>周期：大约 90 分钟。</p>
-</li>
-<li><p>能通过卫星间的转播信号来提供连续的世界范围内的覆盖。如果这个网络包括极地或接近极地的轨道，就能够提供极地和高纬度地区的覆盖，这是静止轨道卫星做不到的。因为卫星处于较低的轨道上，这些卫星的往返传输时间就相对很短(来去地面的时间为0.005秒)，消除了回声控制和其他特殊处理的需要。</p>
-</li>
-<li><p>将LEO轨道卫星用于这个目的的缺点就是这个网络需要很多颗卫星。任何观察者看到卫星经过头顶的时间只是大约90分钟轨道周期中的10分钟，所以要给沿着卫星星下点轨迹的单个地面覆盖带提供连续覆盖，就需要九颗卫星(对于高度是500千米的轨道，其覆盖带宽度大约是3,000千米。对于更广的覆盖区域，需要更加可观的卫星数量。例如，广泛用于军事和商业目的的Iridium星座，拥有66颗卫星，这些卫星分布在六条高度为780千米的不同轨道上。这六条轨道位于不同的轨道平面上，每个的轨道倾角为86.4°。</p>
-</li>
-<li><p>低地球轨道还被用于不需要实时通信的任务中。这样的任务只需要一颗或很少的卫星。例如，虽然数据不需要立即传给地面的使用者，但是可以储存并且在卫星经过地面站时再传送(这种安排称为“存储－加－传送”)。</p>
-</li>
-<li><p>对于不是时间紧迫的任务，LEO卫星相对于地球的运动意味着，极轨道上的单颗卫星能够覆</p>
-<p>盖全球。如果轨道周期恰当选择，那么连续轨道线上的地面覆盖面积就是彼此相连的，一颗极地轨道卫星就能在一天里看到地面上的任意点两次。</p>
-</li>
-<li><p>一些任务需要低轨道。地球观测和侦察卫星要拍摄高分辨率的地球照片，就必须靠近地球来得到这样的分辨率。例如，美国的Keyhole卫星被放置在远地点和近地点分别为1,000千米和300千米的椭圆轨道上，该卫星是为了获得用于情报目的的光学照片。这些都已经被相似轨道上的新一代的成像卫星所取代。由于这些卫星有相对于地球的运动，所以它们就不能提供对某一特定区域的连续覆盖。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>大气的影响：</strong>大气密度在空间和时间上的变化，所以就有了能够预测低轨道卫星未来某点精确度的固有限制。</p>
-</li>
-<li><p><strong>卫星相对地球表面的运动P35：</strong>考虑处于高度为几百千米轨道上卫星的情况。这样的卫星其轨道周期大约是90分钟。在这90分钟里，赤道上的地球表面会旋转约2,500千米。因此，过了一个周期之后，卫星所掠过的点位于赤道上距离本周期开始时轨道对应的地面点以西2,500千米处的地方。</p>
-<blockquote>
-<p><img src="/images/image-20211015231251782.png" alt="image-20211015231251782"></p>
-<p><img src="/images/image-20211015231309789.png" alt="image-20211015231309789"></p>
-</blockquote>
-</li>
-<li><p><strong>卫星的仰角：</strong>卫星的仰角是卫星与某一特定地面点连线和本地水平面之间的夹角。特别地，给定时间的仰角取决于描述卫星和地面观察者相对位置的几个参数。这些参数包括观察者的纬度和经度、卫星的高度、轨道倾角θ和卫星在轨道上的位置(卫星的纬度和经度)。</p>
-</li>
-<li><p><strong>覆盖区域：</strong>覆盖区域的外缘是圆形的，其半径仅仅取决于卫星的高度。然而，地面站一般只有在大于仰角的最小值时才能进行通信。</p>
-</li>
-<li><p><strong>上行链和下行链：</strong><a href="https://ithelp.ithome.com.tw/articles/10236019">https://ithelp.ithome.com.tw/articles/10236019</a></p>
-</li>
-<li><p><strong>Co-located Antennas ：</strong><a href="https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/">https://www.netcominc.com/co-location-interference-mitigation-otherwise-known-as-cosite-mitigation/</a></p>
-</li>
-<li><p><strong>Two Line Element set：</strong>TLE是一种包含卫星标识符和轨道参数的标准表示法。</p>
-</li>
-<li><p><strong>Bitmap：</strong>可以以非常高的空间利用率下保存大量的0-1状态。</p>
-</li>
-</ul>
-<ul>
-<li><a href="https://www.cnblogs.com/dragonsuc/p/10993938.html">https://www.cnblogs.com/dragonsuc/p/10993938.html</a></li>
-<li><a href="http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html">http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4669.html</a>)</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>DNS的工作原理</title>
-    <url>/2021/10/18/20211018-DNS%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h1 id="DNS域名系统"><a href="#DNS域名系统" class="headerlink" title="DNS域名系统"></a>DNS域名系统</h1><h3 id="0-引入"><a href="#0-引入" class="headerlink" title="0. 引入"></a>0. 引入</h3><ul>
-<li><p>所有的域名（网址）本质是：它背后服务器的IP地址；</p>
-</li>
-<li><p>浏览器能够知道每一个域名对应的网站服务器的IP地址，靠的就是DNS（Domain Name System）;</p>
-</li>
-<li><p>DNS：管理和查询域名对应的IP地址；而实现这个机制，主要靠的就是专门的<strong>DNS服务器们</strong>；</p>
-</li>
-</ul>
-<span id="more"></span>
-<h3 id="1-DNS的基本工作原理"><a href="#1-DNS的基本工作原理" class="headerlink" title="1. DNS的基本工作原理"></a>1. DNS的基本工作原理</h3><ul>
-<li><p>DNS服务器背后有一个<strong>分层协作</strong>的机制；</p>
-</li>
-<li><p>分层机制和域名层级的关系：</p>
-<ul>
-<li><p><img src="/images/image-20211018204045489.png" alt="image-20211018204045489" style="zoom: 25%;" /></p>
-</li>
-<li><p>二级域名 . 一级域名 . 顶级域名 . 根域名（因为root只有一个，写了和没写没差，所以省略）；</p>
-</li>
-<li><p>每一层服务器只负责记录下一层DNS服务器的信息；</p>
-<p> <img src="/images/image-20211018205339692.png" alt="image-20211018205339692" style="zoom:50%;" /></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>DNS原理实例1：打开B站</strong></p>
-<p> <img src="/images/image-20211018204520612.png" alt="image-20211018204520612" style="zoom:50%;" /></p>
-<ul>
-<li><p>首先浏览器将网址送入到<strong>负责查询的服务器</strong>进行操作；</p>
-</li>
-<li><p>之后，先将网址送到根服务器中，查询，发现“原来是com域名”</p>
-<blockquote>
-<p>【回复：好的。这里是负责管理顶级域名的DNS服务器的网址，你去这些服务器那里问问看吧~】</p>
-</blockquote>
-</li>
-<li><p><strong>负责查询的服务器</strong>收到回复后，就马不停蹄地去了<strong>负责控制顶级域名的DNS服务器</strong></p>
-<blockquote>
-<p>进行查找bilibili.com域名的信息，然后发现专门负责bilibili.com域名的DNS的服务器的网络地址(这种服务器被叫做Name server)</p>
-</blockquote>
-</li>
-<li><p><strong>负责查询的服务器</strong>收到回复后，去到name server，从而找到了www.bilibili.com这个域名对应的IP地址，并将该信息传回给浏览器；</p>
-</li>
-<li><p>浏览器访问查询到的IP地址对应的服务器，即可打开；</p>
-</li>
-</ul>
-<hr>
-</li>
-</ul>
-<ul>
-<li><p><strong>DNS原理实例2：人生第一次打开B站</strong></p>
-<ul>
-<li><p>小心翼翼输入www.bilibili.com，敲下回车；</p>
-</li>
-<li><p>浏览器查找DNS缓存</p>
-<blockquote>
-<p>【若之前访问过，那里面有可能有这个域名的记录，就有相应的网址的IP地址的信息】</p>
-</blockquote>
-</li>
-<li><p>若在缓存中未找到，接着浏览器会先在本地电脑上的<strong>host文件</strong>中查找相应的域名和IP的对应记录；若没有，则会将查询请求发送到电脑网络设置中设置好的DNS服务器上；</p>
-</li>
-<li><p>通过路由器，将请求转发到光猫（宽带盒子）上面设置好的相应的宽带服务商提供的DNS服务器上；</p>
-<p><img src="/images/image-20211018210129670.png" alt="image-20211018210129670" style="zoom:50%;" /></p>
-</li>
-<li><p>Local DNS Server(自动分配的都是运营商提供的)</p>
-<p> <img src="/images/image-20211018210412642.png" alt="image-20211018210412642" style="zoom:50%;" /></p>
-</li>
-<li><p>每次查询到的都不止一台服务器（比看谁快）</p>
-<p> <img src="/images/image-20211018210502550.png" alt="image-20211018210502550" style="zoom:50%;" /></p>
-</li>
-</ul>
-</li>
-<li><p><a href="https://www.bilibili.com/video/BV1Gh411y7LS?spm_id_from=333.999.0.0">Demo</a>【4’50】</p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>DNS、MAC和IP</title>
-    <url>/2021/10/18/20211018-DNS%E3%80%81MAC%E5%92%8CIP/</url>
-    <content><![CDATA[<h3 id="1-IP-amp-DNS"><a href="#1-IP-amp-DNS" class="headerlink" title="1. IP &amp; DNS"></a>1. IP &amp; DNS</h3><ul>
-<li>网址名称（便于记忆）：www.qq.com</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p>真正地址：139.180.132.25</p>
-<blockquote>
-<p>这个中间的<strong>“查号台”</strong>，实际上就是DNS服务器。</p>
-<p>我们的电脑会自动获取<strong>宽带运营商DNS服务器</strong>的IP地址，或者是去<strong>自己指定的公共DNS服务器</strong>查询；</p>
-<p><a href="https://www.bilibili.com/video/BV1VE41187N7/?spm_id_from=autoNext">Demo</a>:【2’20】</p>
-</blockquote>
-</li>
-<li><p>DNS分级查询</p>
-<p> <img src="\images\doc\19.png" alt="image-20211018211949683" style="zoom:50%;" /></p>
-</li>
-</ul>
-<blockquote>
-<p>备注：根服务器全球只有13台，但是为了缓解压力，也会镜像出很多根（域名）服务器；</p>
-<p>所以加上镜像出来的根服务器，全球大概一千多台。</p>
-</blockquote>
-<h3 id="2-MAC"><a href="#2-MAC" class="headerlink" title="2. MAC"></a>2. MAC</h3><p>IP地址实际上相当于生活中的通信地址，例如：广东省广州市珠海区新港西路135号（这个地址可以帮助快递员确定收货人的范围）。</p>
-<p>但是快递员怎么走（从成都先到重庆or陕西？）就要依靠MAC地址【身份证号/手机号】；</p>
-<p>数据包在成都路由器时，路由器会根据数据包的IP地址来选择一条最优线路，告诉快递员，下一站发往这个MAC地址。以此类推… …直到数据包被转发到网站服务器的网卡上。之后网卡依靠端口（不同的程序有不同的端口）发送；</p>
-<h3 id="3-CDN"><a href="#3-CDN" class="headerlink" title="3. CDN"></a>3. CDN</h3><blockquote>
-<p>略，京东自营… …</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>TCP&amp;UDP、三次握手&amp;四次挥手</title>
-    <url>/2021/10/19/20211019-TCP-UDP%E3%80%81%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</url>
-    <content><![CDATA[<p><strong>TCP和UDP的区别：</strong>TCP和UDP都工作在传输层，目标都是在程序之间传输数据；</p>
-<span id="more"></span>
-<blockquote>
-<p>一个基于连接、一个基于非连接；</p>
-<ul>
-<li>写信（对方是否收到、内容是否完整、顺序是否正确<strong>都不能够确定</strong>）</li>
-<li><p>打电话（电话接通、相互通话、结束挂断）</p>
-<p><img src="\images\doc\12.png" alt="image-20211019095441176" style="zoom:50%;" /></p>
-</li>
-</ul>
-<p><strong>隧道网络：【UDP的典型应用】</strong>VPN、VXLAN</p>
-</blockquote>
-<p><strong>TCP是如何保证以上性质的呢？</strong></p>
-<blockquote>
-<p><strong>三次握手：</strong>建立连接；【解决网络信道不可靠的问题】</p>
-<p> <img src="\images\doc\13.png" alt="image-20211019094935330" style="zoom:50%;" /></p>
-<p><strong>传输确认；</strong></p>
-<p><strong>四次挥手；</strong></p>
-<p> <img src="\images\doc\14.png" alt="image-20211019095316453" style="zoom:50%;" /></p>
-</blockquote>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><p><a href="https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0">https://www.bilibili.com/video/BV1kV411j7hA/?spm_id_from=333.788.recommend_more_video.0</a></p>
-</li>
-<li><p><a href="https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1">https://www.bilibili.com/video/BV1jQ4y1o7bF/?spm_id_from=333.788.recommend_more_video.-1</a></p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Two-Line Element(TLE) Model</title>
     <url>/2021/10/19/20211019-Two-Line-Element-TLE-Model/</url>
     <content><![CDATA[<h3 id="TLE"><a href="#TLE" class="headerlink" title="TLE"></a>TLE</h3><ul>
@@ -309,68 +33,6 @@ STARLINK-1008
 <li><a href="https://www.youtube.com/watch?v=NQTtFrhSNDk">https://www.youtube.com/watch?v=NQTtFrhSNDk</a></li>
 <li><a href="https://www.youtube.com/watch?v=u4rYYbBdr28">https://www.youtube.com/watch?v=u4rYYbBdr28</a></li>
 <li><a href="https://zh.wikipedia.org/wiki/%E4%B8%A4%E8%A1%8C%E8%BD%A8%E9%81%93%E8%A6%81%E7%B4%A0%E5%BD%A2%E5%BC%8F">https://zh.wikipedia.org/wiki/%E4%B8%A4%E8%A1%8C%E8%BD%A8%E9%81%93%E8%A6%81%E7%B4%A0%E5%BD%A2%E5%BC%8F</a></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>交换机&amp;路由器、网关&amp;路由</title>
-    <url>/2021/10/19/20211019-%E4%BA%A4%E6%8D%A2%E6%9C%BA-%E8%B7%AF%E7%94%B1%E5%99%A8%E3%80%81%E7%BD%91%E5%85%B3-%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<h3 id="交换机和路由器"><a href="#交换机和路由器" class="headerlink" title="交换机和路由器"></a>交换机和路由器</h3><ul>
-<li><p><strong>交换机【二层设备】</strong>：把数据包发送到正确的位置；</p>
-<blockquote>
-<p>交换机相当于邮递员，根据数据包中的目标mac地址，找到对应的物理端口。</p>
-<p>一台交换机有很多个端口，都有自己的编号。这个端口就是一个确定的物理位置</p>
-<p>计算机的网卡通过网线连接到交换机的网口上。</p>
-<p>我们只要知道某个网卡的mac地址在哪个端口上，我们就能正确地把数据包发送给他。</p>
-<p>因此在交换机中，有一张端口和mac地址的映射关系表<strong>【MAC地址表】</strong>；</p>
-<p>将要和某个mac地址通信的时候，只要查询一下这个mac地址在哪个端口上，然后从对应的端口上发送出去就可以了；</p>
-<p>每一个数据包都会有两个mac地址：</p>
-<ul>
-<li>源mac：发送方的mac地址；</li>
-<li>目标mac：接收方的mac地址；</li>
-</ul>
-<p>交换机收到数据包后，首先要将数据包的源mac与接收端口绑定；然后交换机要根据目标mac决定从哪个端口把数据包发送出去</p>
-<p><img src="\images\doc\15.png" alt="image-20211019093349527" style="zoom:50%;" /></p>
-</blockquote>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><p><strong>路由器</strong>：</p>
-<ul>
-<li><p>两种端口</p>
-<ul>
-<li>LAN口：可以有多个，用来接家庭网络设备</li>
-<li><p>WAN口：只有一个，用来连接运营商网络</p>
-<p><img src="\images\doc\16.png" alt="image-20211019093547048" style="zoom:50%;" /></p>
-</li>
-</ul>
-</li>
-<li><p>如果把路由器的WAN口忽略，只用LAN口，实际上路由器就相当于交换机；</p>
-</li>
-<li><p>考虑到WAN口，需要引入<strong>网关</strong>的概念；</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="网关和路由"><a href="#网关和路由" class="headerlink" title="网关和路由"></a>网关和路由</h3><ul>
-<li><p>子网划分：IP地址、子网掩码按位相与【若相与的结果相同，则可认为是在同一个子网中】</p>
-</li>
-<li><p>TCP/IP规定：不同子网之间是不能直接通讯的，如果要通信则需要通过<strong>网关</strong>来进行转发；</p>
-<p> <img src="\images\doc\17.png" alt="image-20211019094140592" style="zoom:50%;" /></p>
-</li>
-<li><p>网关</p>
-</li>
-<li><p>路由：根据目标IP判断如何发送</p>
-<ul>
-<li>两个端口：<ul>
-<li>WAN口：只有一个，用来接入互联网；</li>
-<li>LAN口：有多个，用来接入本地网络；</li>
-</ul>
-</li>
-<li><img src="\images\doc\18.png" alt="image-20211019094328263" style="zoom:50%;" /></li>
-</ul>
-</li>
 </ul>
 ]]></content>
   </entry>
@@ -661,28 +323,6 @@ STARLINK-1008
 </li>
 </ul>
 <p><a href="https://blog.csdn.net/farmer_/article/details/103369245?spm=1001.2101.3001.6650.18&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.no_search_link">转载</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>边缘计算</title>
-    <url>/2021/10/20/20211020-%E8%BE%B9%E7%BC%98%E8%AE%A1%E7%AE%97/</url>
-    <content><![CDATA[<h3 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h3><blockquote>
-<p>云计算是一种利用互联网实现随时随地、按需便捷地使用共享计算设施。</p>
-<p>目前的物联网模式，云计算平台，面临海量设备信息接入，功耗过高，带宽不够等难度，很难实时返回数据。</p>
-<p>【优点】资源共享、数据集中处理，可以节约资源</p>
-<p>【缺点】完全依赖云计算的计算机系统，就好比所有的事情都要请示司令部的军队，在需要大量和外界互动时，会显得僵化、反应迟缓；而且如果网络存在问题，就彻底凉凉。</p>
-</blockquote>
-<span id="more"></span>
-<h3 id="边缘计算【数据近端处理】"><a href="#边缘计算【数据近端处理】" class="headerlink" title="边缘计算【数据近端处理】"></a>边缘计算【数据近端处理】</h3><blockquote>
-<p>【定义】在物或者数据源头的一侧采用网络、存储、计算、应用核心能力于一体的开放平台就近提供最近端服务。</p>
-<p>好比让中间的各级军官也开始发挥主观能动性，因此能在一定程度上做出智能判断和行动决策，同时只需要将一部分筛选的信息上传到司令部，大大缓解了网络通讯的压力。即使在和司令部失去联系的情况下，也能做出一部分的决策。</p>
-<p>【优点】边缘计算不仅能缓解网络宽带和数据中心的压力，而且还能提升服务相应能力，保护隐私数据，做到速度、安全、可拓展性、功能性、可靠性合为一体。<strong>适用于计算量极大的情况。</strong></p>
-<p>【关键】边缘计算的关键是边缘设备——“终端”。终端的开发需要使用高云算力的处理芯片来支持（AI领域逐渐衍生出嵌入式神经网络处理器NPU）</p>
-</blockquote>
-<h3 id="雾计算"><a href="#雾计算" class="headerlink" title="雾计算"></a>雾计算</h3><blockquote>
-<p>介于云计算和边缘计算两者之间。</p>
-<p>雾计算是比云计算更靠近地面的云，可以把一些云不需要的数据直接在这一层进行存储和处理，可以减少云的压力，进而提高传输速度，降低时延。</p>
-</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -3143,6 +2783,56 @@ f_{p}(u, v)= \begin{cases}c_{f}(p) & \text { 如果 }(u, v) \text { 在 } p \tex
 </ul>
 </li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>20220925-监听网络环境变化</title>
+    <url>/2022/09/25/20220925-%E7%9B%91%E5%90%AC%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E5%8F%98%E5%8C%96/</url>
+    <content><![CDATA[<h3 id="监听网络环境变化"><a href="#监听网络环境变化" class="headerlink" title="监听网络环境变化"></a>监听网络环境变化</h3><h4 id="0-概述"><a href="#0-概述" class="headerlink" title="0. 概述"></a>0. 概述</h4><p>监听网络环境变化情况一般来说可以通过以下方式进行：</p>
+<ul>
+<li><p><strong>方式1：<font color='cornflowerblue'>BIRD协议</font>（BFD机制：状态更新间隔调整 + 状态机转换（tla+））</strong></p>
+</li>
+<li><p><strong>方式2：<font color='cornflowerblue'>libnl</font></strong></p>
+</li>
+<li><p><strong>方式3：<font color='cornflowerblue'>netlink</font>（<a href="https://blog.csdn.net/hansel/article/details/38088645">参考链接</a>）</strong></p>
+</li>
+</ul>
+<span id="more"></span>
+<h4 id="1-libnl概念"><a href="#1-libnl概念" class="headerlink" title="1. libnl概念"></a>1. libnl概念</h4><ul>
+<li><p>核心库（core library）提供了使用netlink套接字进行通信的基础功能。它处理套接字的连接建立和断开、发送和接收数据、构造和解析消息、提供可配置的接收状态机。除此之外它还提供了一套抽象数据类型的框架，这套框架使得基于对象的netlink协议实现起来更加简单。在这种协议中，对象可以通过基于netlink的协议来添加、删除或者修改。</p>
+<p><img src="http://www.infradead.org/~tgr/libnl/doc/images/library_overview.png" alt="结构层次图"></p>
+<ul>
+<li>netlink libray：套接字的处理、发送和接收数据、消息的构造和解析；</li>
+<li>routing family library：地址、链路、邻居节点、路由、流量控制、邻居节点表；</li>
+<li>netfilter library：连接追踪、记录日志、排队；</li>
+<li>generice netlink library：控制器的API、协议簇和命令的注册；</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-netlink概念"><a href="#2-netlink概念" class="headerlink" title="2. netlink概念"></a>2. netlink概念</h4><ul>
+<li>概念：用以实现<strong>用户进程</strong>与<strong>内核进程</strong>通信的一种特殊的进程间通信（IPC），也是网络应用程序与内核通信的最常用的接口；</li>
+<li>在linux内核中，使用netlink进行应用与内核通信的应用有很多：<ul>
+<li>路由daemon：NETLINK_ROUTE</li>
+<li>用户态socket协议：NETLINK_USERSOCK</li>
+<li>防火墙：NETLINK_FIREWALL</li>
+<li>netfilter子系统：NETLINK_NETFILTER</li>
+<li>内核事件向用户态通知：NETLINK_KOBJECT_UEVENT</li>
+<li>通用netlink：NETLINK_GENERIC</li>
+</ul>
+</li>
+<li>netlink是一种在内核与用户应用间进行双向数据传输的非常好的方式，用户态应用使用标准的socket API就可以使用gnetlink提供的强大功能，内核态需要使用专门的API来使用netlink；</li>
+<li>一般来说，用户空间和内核空间的通信方式有3种：<code>/proc</code>、<code>ioctl</code>、<code>netlink</code>。前两种都是单向的，而netlink可以实现双工通信；</li>
+<li>netlink相对于系统调用，ioctl以及<code>/proc</code>文件系统而言，具体有以下优点：<ul>
+<li>netlink使用简单，只需要在<code>include/linux/netlink.h</code>中增加一个新类型的netlink协议定义即可（<code>#define NETLINK_TEST 20</code>）。然后，内核和用户态应用就可以立即通过socket API使用该netlink协议类型进行数据交换；</li>
+<li>netlink是一种异步通信机制，在内核与用户态应用之间传递的消息保存在socket缓存队列中发送消息只是把消息保存在接收者的socket的接收队列，而不需要等待接收者收到消息；</li>
+<li>使用netlink的内核部分可以采用模块的方式实现，使用netlink的应用部分和内核部分没有编译时依赖；</li>
+<li>netlink支持多播，内核模块或应用可以把消息多播给一个netlink组，属于该netlink组的任何内核模块或应用都能接收到该消息，内核事件向用户态的通知机制就使用了这一特性；</li>
+<li>内核可以使用netlink首先发起会话；</li>
+<li>netlink协议基于BSD socket和AF_NETLINK地址簇，使用32位的端口号寻址，每个netlink协议通常与一个或一组内核服务/组件相关联，如NETLINK_ROUTE用于获取和设置路由与链路信息、NETLINK_KOBJECT_UEVENT用于内核向用户空间的udev进程发送通知等；</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-ioctl"><a href="#3-ioctl" class="headerlink" title="3. ioctl()"></a>3. ioctl()</h4><p>【未完待续】</p>
 ]]></content>
   </entry>
 </search>
